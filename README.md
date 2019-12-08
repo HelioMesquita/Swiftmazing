@@ -1,2 +1,2 @@
-# swiftmazing
+# Swiftmazing
 The best Swift repositories 
