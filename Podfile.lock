@@ -10,23 +10,37 @@ PODS:
   - PromiseKit/UIKit (6.10.0):
     - PromiseKit/CorePromise
   - Quick (2.2.0)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - SDWebImage (5.4.0):
+    - SDWebImage/Core (= 5.4.0)
+  - SDWebImage/Core (5.4.0)
 
 DEPENDENCIES:
   - Nimble (= 8.0.4)
   - PromiseKit (= 6.10.0)
   - Quick (= 2.2.0)
+  - R.swift (= 5.1.0)
+  - SDWebImage (= 5.4.0)
 
 SPEC REPOS:
   trunk:
     - Nimble
     - PromiseKit
     - Quick
+    - R.swift
+    - R.swift.Library
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: 99e686364551895c4fa6961e57cf63aa8ad57757
+PODFILE CHECKSUM: 74901b5c4a9464d600379fda650dce998d62f227
 
 COCOAPODS: 1.8.4

@@ -10,9 +10,16 @@ def testingPods
     pod 'Nimble', '8.0.4'
 end
 
+def promiseKit
+    pod 'PromiseKit', '6.10.0'
+end
+
 ##Swiftmazing
 target 'Swiftmazing' do
     project 'Swiftmazing/Swiftmazing.xcodeproj'
+    promiseKit
+    pod 'R.swift', '5.1.0'
+    pod 'SDWebImage', '5.4.0'
 end
 
 target 'SwiftmazingTests' do
@@ -23,7 +30,7 @@ end
 ##Infrastructure
 target 'Infrastructure' do
     project 'Infrastructure/Infrastructure.xcodeproj'
-    pod 'PromiseKit', '6.10.0'
+    promiseKit
 end
 
 target 'InfrastructureTests' do
