@@ -5,18 +5,34 @@ project 'Infrastructure/Infrastructure.xcodeproj'
 project 'Visual/Visual.xcodeproj'
 project 'Swiftmazing/Swiftmazing.xcodeproj'
 
-target 'Swiftmazing' do
-    project 'Swiftmazing/Swiftmazing.xcodeproj'
-   #Pods for Project2
+def testingPods
+    pod 'Quick', '2.2.0'
+    pod 'Nimble', '8.0.4'
 end
 
+##Swiftmazing
+target 'Swiftmazing' do
+    project 'Swiftmazing/Swiftmazing.xcodeproj'
+end
+
+target 'SwiftmazingTests' do
+    project 'Swiftmazing/Swiftmazing.xcodeproj'
+    testingPods
+end
+
+##Infrastructure
 target 'Infrastructure' do
     project 'Infrastructure/Infrastructure.xcodeproj'
-   #Pods for Project1
     pod 'PromiseKit', '6.10.0'
 end
 
+target 'InfrastructureTests' do
+    project 'Infrastructure/Infrastructure.xcodeproj'
+    testingPods
+end
+
+##Visual
 target 'Visual' do
     project 'Visual/Visual.xcodeproj'
-   #Pods for Project2
 end
+
