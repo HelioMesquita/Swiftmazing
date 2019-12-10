@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		319B295EBADDB80B0198C73A /* libPods-Visual.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1447B1C3635F744F26366F4C /* libPods-Visual.a */; };
+		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
 		FDEEDF25239DD22300C64A0B /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF1B239DD22300C64A0B /* Visual.framework */; };
 		FDEEDF2A239DD22300C64A0B /* VisualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF29239DD22300C64A0B /* VisualTests.swift */; };
 		FDEEDF2C239DD22300C64A0B /* Visual.h in Headers */ = {isa = PBXBuildFile; fileRef = FDEEDF1E239DD22300C64A0B /* Visual.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,8 +25,8 @@
 
 /* Begin PBXFileReference section */
 		0A6B90D96A2C74400DAB75C8 /* Pods-Visual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.release.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.release.xcconfig"; sourceTree = "<group>"; };
-		1447B1C3635F744F26366F4C /* libPods-Visual.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Visual.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.debug.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.debug.xcconfig"; sourceTree = "<group>"; };
+		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1B239DD22300C64A0B /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1E239DD22300C64A0B /* Visual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visual.h; sourceTree = "<group>"; };
 		FDEEDF1F239DD22300C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				319B295EBADDB80B0198C73A /* libPods-Visual.a in Frameworks */,
+				1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +68,7 @@
 		D9B99D8442ED233E42D0DBC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1447B1C3635F744F26366F4C /* libPods-Visual.a */,
+				6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

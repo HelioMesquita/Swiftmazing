@@ -1,5 +1,8 @@
 platform :ios, '9.0'
 
+use_frameworks!
+
+
 workspace 'Swiftmazing'
 project 'Infrastructure/Infrastructure.xcodeproj'
 project 'Visual/Visual.xcodeproj'

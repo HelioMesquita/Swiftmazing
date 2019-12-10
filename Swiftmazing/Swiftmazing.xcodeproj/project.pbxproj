@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AE829748C4886661362B8AC /* libPods-SwiftmazingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F918C6C41F8FD5EDAA5AB3 /* libPods-SwiftmazingTests.a */; };
-		A756D736467C5AB74D5A6A88 /* libPods-Swiftmazing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 292D78EC94F9C98EC0E99FD9 /* libPods-Swiftmazing.a */; };
+		054D4EC703BB0739CF69776A /* Pods_SwiftmazingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D146FD359B868B8CAED11A8 /* Pods_SwiftmazingTests.framework */; };
+		77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
+		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
+		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD69D90D239F203F003D0070 /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; };
+		FD69D90E239F203F003D0070 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC2239DD1B500C64A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEC1239DD1B500C64A0B /* ViewController.swift */; };
@@ -36,13 +40,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FD69D90F239F203F003D0070 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FD69D90E239F203F003D0070 /* Visual.framework in Embed Frameworks */,
+				FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		292D78EC94F9C98EC0E99FD9 /* libPods-Swiftmazing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Swiftmazing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.release.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.release.xcconfig"; sourceTree = "<group>"; };
+		4D146FD359B868B8CAED11A8 /* Pods_SwiftmazingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F8BF0811BF078A04980B8 /* Pods-SwiftmazingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
-		A8F918C6C41F8FD5EDAA5AB3 /* libPods-SwiftmazingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftmazingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftmazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D6B161F83B671E89D85F7A /* Pods-SwiftmazingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftmazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A756D736467C5AB74D5A6A88 /* libPods-Swiftmazing.a in Frameworks */,
+				77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */,
+				FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */,
+				FD69D90D239F203F003D0070 /* Visual.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AE829748C4886661362B8AC /* libPods-SwiftmazingTests.a in Frameworks */,
+				054D4EC703BB0739CF69776A /* Pods_SwiftmazingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,8 +112,10 @@
 		B626B8124CE1E8F2390226E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				292D78EC94F9C98EC0E99FD9 /* libPods-Swiftmazing.a */,
-				A8F918C6C41F8FD5EDAA5AB3 /* libPods-SwiftmazingTests.a */,
+				FD69D909239F203F003D0070 /* Infrastructure.framework */,
+				FD69D90A239F203F003D0070 /* Visual.framework */,
+				9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */,
+				4D146FD359B868B8CAED11A8 /* Pods_SwiftmazingTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,6 +197,8 @@
 				FDEEDEB6239DD1B500C64A0B /* Sources */,
 				FDEEDEB7239DD1B500C64A0B /* Frameworks */,
 				FDEEDEB8239DD1B500C64A0B /* Resources */,
+				409C5478027701972C195231 /* [CP] Embed Pods Frameworks */,
+				FD69D90F239F203F003D0070 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +217,7 @@
 				FDEEDECC239DD1B500C64A0B /* Sources */,
 				FDEEDECD239DD1B500C64A0B /* Frameworks */,
 				FDEEDECE239DD1B500C64A0B /* Resources */,
+				693113B9E690EC1A0BD28BEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +338,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		409C5478027701972C195231 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		693113B9E690EC1A0BD28BEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F2E0B7340EB61BBCFC79C715 /* [CP] Check Pods Manifest.lock */ = {
