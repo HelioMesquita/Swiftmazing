@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  Swiftmazing
+//
+//  Created by Hélio Mesquita on 14/12/19.
+//  Copyright © 2019 Hélio Mesquita. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+HOST = https
+SCHEME = api.github.com

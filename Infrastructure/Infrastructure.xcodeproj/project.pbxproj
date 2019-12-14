@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		169312FA60EA211A51AD68AB /* Pods_InfrastructureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A81FA7743041426B36AC566 /* Pods_InfrastructureTests.framework */; };
 		6BBE8A4C4057CE62FA411197 /* Pods_Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7193CC1042E6DFB04CB65E /* Pods_Infrastructure.framework */; };
-		FD69D908239F1FFB003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D907239F1FFB003D0070 /* ServiceProvider.swift */; };
+		FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91323A54FFE003D0070 /* RequestError.swift */; };
+		FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */; };
+		FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91623A54FFE003D0070 /* HttpVerb.swift */; };
+		FD69D91A23A54FFE003D0070 /* ServiceProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */; };
+		FDB5718823A563F800BAD13C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB5718A23A563F800BAD13C /* Localizable.strings */; };
 		FDEEDF49239DD25500C64A0B /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF3F239DD25400C64A0B /* Infrastructure.framework */; };
 		FDEEDF4E239DD25500C64A0B /* InfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF4D239DD25500C64A0B /* InfrastructureTests.swift */; };
 		FDEEDF50239DD25500C64A0B /* Infrastructure.h in Headers */ = {isa = PBXBuildFile; fileRef = FDEEDF42239DD25400C64A0B /* Infrastructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,7 +36,12 @@
 		630CA61C3CFF5D2E2A068A06 /* Pods-Infrastructure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.debug.xcconfig"; path = "Target Support Files/Pods-Infrastructure/Pods-Infrastructure.debug.xcconfig"; sourceTree = "<group>"; };
 		6C7193CC1042E6DFB04CB65E /* Pods_Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A81FA7743041426B36AC566 /* Pods_InfrastructureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfrastructureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD69D907239F1FFB003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		FD69D91323A54FFE003D0070 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProviderProtocol.swift; path = "../../../Swift Projects/dogwall/doglist/doglist/Networking/ServiceProviderProtocol.swift"; sourceTree = "<group>"; };
+		FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviderProtocol.swift; sourceTree = "<group>"; };
+		FD69D91623A54FFE003D0070 /* HttpVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpVerb.swift; sourceTree = "<group>"; };
+		FDB5718923A563F800BAD13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FDB5718B23A5640300BAD13C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FDEEDF3F239DD25400C64A0B /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF42239DD25400C64A0B /* Infrastructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Infrastructure.h; sourceTree = "<group>"; };
 		FDEEDF43239DD25400C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,9 +115,13 @@
 		FDEEDF41239DD25400C64A0B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FD69D91323A54FFE003D0070 /* RequestError.swift */,
+				FD69D91623A54FFE003D0070 /* HttpVerb.swift */,
+				FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */,
+				FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */,
 				FDEEDF42239DD25400C64A0B /* Infrastructure.h */,
 				FDEEDF43239DD25400C64A0B /* Info.plist */,
-				FD69D907239F1FFB003D0070 /* ServiceProvider.swift */,
+				FDB5718A23A563F800BAD13C /* Localizable.strings */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -201,6 +214,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = FDEEDF35239DD25400C64A0B;
 			productRefGroup = FDEEDF40239DD25400C64A0B /* Products */;
@@ -218,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB5718823A563F800BAD13C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD69D908239F1FFB003D0070 /* ServiceProvider.swift in Sources */,
+				FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */,
+				FD69D91A23A54FFE003D0070 /* ServiceProviderProtocol.swift in Sources */,
+				FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */,
+				FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,11 +339,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		FDB5718A23A563F800BAD13C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDB5718923A563F800BAD13C /* en */,
+				FDB5718B23A5640300BAD13C /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		FDEEDF51239DD25500C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -389,6 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -446,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 630CA61C3CFF5D2E2A068A06 /* Pods-Infrastructure.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -472,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C5958577B25511F0771B61C /* Pods-Infrastructure.release.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

@@ -1,0 +1,13 @@
+/* 
+  Errors.strings
+  Infrastructure
+
+  Created by Hélio Mesquita on 14/12/19.
+  Copyright © 2019 Hélio Mesquita. All rights reserved.
+*/
+
+
+"badRequest" = "There was an error loading your data.";
+"unauthorized" = "You do not have access to this type of information.";
+"notFound" = "Could not find what you requested, please try again";
+"unknownError" = "An error has occurred, please try again";

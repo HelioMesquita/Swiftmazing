@@ -13,6 +13,9 @@
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D90D239F203F003D0070 /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; };
 		FD69D90E239F203F003D0070 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
+		FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92223A557E5003D0070 /* RequestProvider.swift */; };
+		FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */; };
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC2239DD1B500C64A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEC1239DD1B500C64A0B /* ViewController.swift */; };
@@ -64,6 +67,10 @@
 		A9D6B161F83B671E89D85F7A /* Pods-SwiftmazingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD69D92023A557AE003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		FD69D92223A557E5003D0070 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
+		FD69D92423A558DB003D0070 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftmazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 				FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */,
 				FDEEDEC8239DD1B500C64A0B /* LaunchScreen.storyboard */,
 				FDEEDECB239DD1B500C64A0B /* Info.plist */,
+				FD69D92423A558DB003D0070 /* Config.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,6 +166,23 @@
 				FDEEDEC1239DD1B500C64A0B /* ViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FD69D91F23A55798003D0070 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				FD69D92023A557AE003D0070 /* ServiceProvider.swift */,
+				FD69D92223A557E5003D0070 /* RequestProvider.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		FD69D92523A55A2B003D0070 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FDEEDEB1239DD1B500C64A0B = {
@@ -185,9 +210,11 @@
 		FDEEDEBC239DD1B500C64A0B /* Swiftmazing */ = {
 			isa = PBXGroup;
 			children = (
+				FD69D91F23A55798003D0070 /* Infrastructure */,
 				FD69D910239F22D6003D0070 /* Application */,
 				FD69D912239F2305003D0070 /* Scenes */,
 				FD69D911239F22E2003D0070 /* Resources */,
+				FD69D92523A55A2B003D0070 /* Extensions */,
 			);
 			path = Swiftmazing;
 			sourceTree = "<group>";
@@ -427,7 +454,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
+				FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */,
 				FDEEDEC2239DD1B500C64A0B /* ViewController.swift in Sources */,
+				FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */,
 				FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */,
 				FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */,
 			);
@@ -486,6 +516,7 @@
 /* Begin XCBuildConfiguration section */
 		FDEEDEE2239DD1B600C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD69D92423A558DB003D0070 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -618,7 +649,7 @@
 		};
 		FDEEDEE6239DD1B600C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */;
+			baseConfigurationReference = FD69D92423A558DB003D0070 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

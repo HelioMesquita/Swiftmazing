@@ -14,10 +14,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ServiceProvider().printador()
+        print(RequestError.notFound.localizedDescription)
+
+        
+
+
+
+        
         // Do any additional setup after loading the view.
     }
 
 
 }
 
+class SwiftRepositoriesProvider: RequestProviderProtocol {
+    var path: String = "/search/repositories"
+
+    var httpVerb: HttpVerbs = .GET
+
+
+}
