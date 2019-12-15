@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		169312FA60EA211A51AD68AB /* Pods_InfrastructureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A81FA7743041426B36AC566 /* Pods_InfrastructureTests.framework */; };
 		6BBE8A4C4057CE62FA411197 /* Pods_Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7193CC1042E6DFB04CB65E /* Pods_Infrastructure.framework */; };
+		FD40A25023A5B56F004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */; };
+		FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25323A5B597004855B2 /* String+Utils.swift */; };
 		FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91323A54FFE003D0070 /* RequestError.swift */; };
 		FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */; };
 		FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91623A54FFE003D0070 /* HttpVerb.swift */; };
@@ -36,6 +38,8 @@
 		630CA61C3CFF5D2E2A068A06 /* Pods-Infrastructure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.debug.xcconfig"; path = "Target Support Files/Pods-Infrastructure/Pods-Infrastructure.debug.xcconfig"; sourceTree = "<group>"; };
 		6C7193CC1042E6DFB04CB65E /* Pods_Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A81FA7743041426B36AC566 /* Pods_InfrastructureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfrastructureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
+		FD40A25323A5B597004855B2 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FD69D91323A54FFE003D0070 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProviderProtocol.swift; path = "../../../Swift Projects/dogwall/doglist/doglist/Networking/ServiceProviderProtocol.swift"; sourceTree = "<group>"; };
 		FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviderProtocol.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				FDEEDF42239DD25400C64A0B /* Infrastructure.h */,
 				FDEEDF43239DD25400C64A0B /* Info.plist */,
 				FDB5718A23A563F800BAD13C /* Localizable.strings */,
+				FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */,
+				FD40A25323A5B597004855B2 /* String+Utils.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -314,7 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD40A25023A5B56F004855B2 /* Bundle+Utils.swift in Sources */,
 				FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */,
+				FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */,
 				FD69D91A23A54FFE003D0070 /* ServiceProviderProtocol.swift in Sources */,
 				FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */,
 				FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */,

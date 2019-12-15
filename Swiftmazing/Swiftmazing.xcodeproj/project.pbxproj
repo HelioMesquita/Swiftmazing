@@ -16,6 +16,18 @@
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
 		FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92223A557E5003D0070 /* RequestProvider.swift */; };
 		FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */; };
+		FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718D23A5815D00BAD13C /* ListPresenter.swift */; };
+		FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718E23A5815D00BAD13C /* ListWorker.swift */; };
+		FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718F23A5815D00BAD13C /* ListRouter.swift */; };
+		FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719023A5815D00BAD13C /* ListModels.swift */; };
+		FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719123A5815D00BAD13C /* ListViewController.swift */; };
+		FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719223A5815D00BAD13C /* ListInteractor.swift */; };
+		FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719C23A5889800BAD13C /* MainPresenter.swift */; };
+		FDB571A423A5889800BAD13C /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719D23A5889800BAD13C /* MainWorker.swift */; };
+		FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719E23A5889800BAD13C /* MainRouter.swift */; };
+		FDB571A623A5889800BAD13C /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* MainModels.swift */; };
+		FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* MainViewController.swift */; };
+		FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A123A5889800BAD13C /* MainInteractor.swift */; };
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC2239DD1B500C64A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEC1239DD1B500C64A0B /* ViewController.swift */; };
@@ -71,6 +83,18 @@
 		FD69D92223A557E5003D0070 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
 		FD69D92423A558DB003D0070 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
+		FDB5718D23A5815D00BAD13C /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		FDB5718E23A5815D00BAD13C /* ListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorker.swift; sourceTree = "<group>"; };
+		FDB5718F23A5815D00BAD13C /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
+		FDB5719023A5815D00BAD13C /* ListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModels.swift; sourceTree = "<group>"; };
+		FDB5719123A5815D00BAD13C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		FDB5719223A5815D00BAD13C /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		FDB5719C23A5889800BAD13C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		FDB5719D23A5889800BAD13C /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
+		FDB5719E23A5889800BAD13C /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		FDB5719F23A5889800BAD13C /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		FDB571A023A5889800BAD13C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FDB571A123A5889800BAD13C /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftmazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +187,8 @@
 		FD69D912239F2305003D0070 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FDB5719B23A5888A00BAD13C /* Main */,
+				FDB5718C23A580A300BAD13C /* List */,
 				FDEEDEC1239DD1B500C64A0B /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -183,6 +209,32 @@
 				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDB5718C23A580A300BAD13C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FDB5718D23A5815D00BAD13C /* ListPresenter.swift */,
+				FDB5718E23A5815D00BAD13C /* ListWorker.swift */,
+				FDB5718F23A5815D00BAD13C /* ListRouter.swift */,
+				FDB5719023A5815D00BAD13C /* ListModels.swift */,
+				FDB5719123A5815D00BAD13C /* ListViewController.swift */,
+				FDB5719223A5815D00BAD13C /* ListInteractor.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		FDB5719B23A5888A00BAD13C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FDB5719C23A5889800BAD13C /* MainPresenter.swift */,
+				FDB5719D23A5889800BAD13C /* MainWorker.swift */,
+				FDB5719E23A5889800BAD13C /* MainRouter.swift */,
+				FDB5719F23A5889800BAD13C /* MainModels.swift */,
+				FDB571A123A5889800BAD13C /* MainInteractor.swift */,
+				FDB571A023A5889800BAD13C /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		FDEEDEB1239DD1B500C64A0B = {
@@ -454,11 +506,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */,
+				FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */,
+				FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
+				FDB571A623A5889800BAD13C /* MainModels.swift in Sources */,
+				FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */,
 				FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */,
+				FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */,
+				FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */,
+				FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */,
+				FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */,
+				FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */,
+				FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */,
 				FDEEDEC2239DD1B500C64A0B /* ViewController.swift in Sources */,
 				FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */,
 				FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */,
+				FDB571A423A5889800BAD13C /* MainWorker.swift in Sources */,
 				FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
+		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
+		FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */; };
+		FDB571AB23A5898E00BAD13C /* RepositoryMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */; };
+		FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB571AC23A589C800BAD13C /* Colors.xcassets */; };
+		FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AE23A5971D00BAD13C /* BaseViewController.swift */; };
+		FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B023A59AB700BAD13C /* CustomView.swift */; };
+		FDB571B323A5A57F00BAD13C /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */; };
+		FDB571B523A5A5B100BAD13C /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */; };
+		FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */; };
 		FDEEDF25239DD22300C64A0B /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF1B239DD22300C64A0B /* Visual.framework */; };
 		FDEEDF2A239DD22300C64A0B /* VisualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF29239DD22300C64A0B /* VisualTests.swift */; };
 		FDEEDF2C239DD22300C64A0B /* Visual.h in Headers */ = {isa = PBXBuildFile; fileRef = FDEEDF1E239DD22300C64A0B /* Visual.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +36,15 @@
 		0A6B90D96A2C74400DAB75C8 /* Pods-Visual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.release.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.release.xcconfig"; sourceTree = "<group>"; };
 		2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.debug.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
+		FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMainCell.swift; sourceTree = "<group>"; };
+		FDB571AC23A589C800BAD13C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FDB571AE23A5971D00BAD13C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FDB571B023A59AB700BAD13C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
+		FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Utils.swift"; sourceTree = "<group>"; };
 		FDEEDF1B239DD22300C64A0B /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1E239DD22300C64A0B /* Visual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visual.h; sourceTree = "<group>"; };
 		FDEEDF1F239DD22300C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +91,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FD40A25523A5B88C004855B2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */,
+				FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */,
+				FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */,
+				FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FDEEDF11239DD22300C64A0B = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +125,14 @@
 		FDEEDF1D239DD22300C64A0B /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				FD40A25523A5B88C004855B2 /* Utils */,
 				FDEEDF1E239DD22300C64A0B /* Visual.h */,
 				FDEEDF1F239DD22300C64A0B /* Info.plist */,
+				FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */,
+				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
+				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
+				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
+				FDB571B023A59AB700BAD13C /* CustomView.swift */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -174,6 +209,7 @@
 				TargetAttributes = {
 					FDEEDF1A239DD22300C64A0B = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					FDEEDF23239DD22300C64A0B = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -204,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */,
+				FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */,
+				FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */,
+				FDB571AB23A5898E00BAD13C /* RepositoryMainCell.swift in Sources */,
+				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
+				FDB571B323A5A57F00BAD13C /* UITableView+Utils.swift in Sources */,
+				FDB571B523A5A5B100BAD13C /* UITableViewCell+Utils.swift in Sources */,
+				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -407,6 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Visual;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -416,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A6B90D96A2C74400DAB75C8 /* Pods-Visual.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -439,6 +487,7 @@
 		FDEEDF33239DD22300C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VisualTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,6 +505,7 @@
 		FDEEDF34239DD22300C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VisualTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
