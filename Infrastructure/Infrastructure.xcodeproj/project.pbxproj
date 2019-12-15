@@ -96,6 +96,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FD40A25823A5BB21004855B2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */,
+				FD40A25323A5B597004855B2 /* String+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FD40A25923A5BB2B004855B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDEEDF42239DD25400C64A0B /* Infrastructure.h */,
+				FDEEDF43239DD25400C64A0B /* Info.plist */,
+				FDB5718A23A563F800BAD13C /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FDEEDF35239DD25400C64A0B = {
 			isa = PBXGroup;
 			children = (
@@ -119,15 +138,12 @@
 		FDEEDF41239DD25400C64A0B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FD40A25923A5BB2B004855B2 /* Resources */,
+				FD40A25823A5BB21004855B2 /* Utils */,
 				FD69D91323A54FFE003D0070 /* RequestError.swift */,
 				FD69D91623A54FFE003D0070 /* HttpVerb.swift */,
 				FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */,
 				FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */,
-				FDEEDF42239DD25400C64A0B /* Infrastructure.h */,
-				FDEEDF43239DD25400C64A0B /* Info.plist */,
-				FDB5718A23A563F800BAD13C /* Localizable.strings */,
-				FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */,
-				FD40A25323A5B597004855B2 /* String+Utils.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -493,7 +509,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Infrastructure/Info.plist;
+				INFOPLIST_FILE = Infrastructure/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +536,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Infrastructure/Info.plist;
+				INFOPLIST_FILE = Infrastructure/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

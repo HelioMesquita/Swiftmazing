@@ -102,6 +102,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FD40A25A23A5BB4D004855B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDEEDF1E239DD22300C64A0B /* Visual.h */,
+				FDEEDF1F239DD22300C64A0B /* Info.plist */,
+				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FDEEDF11239DD22300C64A0B = {
 			isa = PBXGroup;
 			children = (
@@ -125,11 +135,9 @@
 		FDEEDF1D239DD22300C64A0B /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				FD40A25A23A5BB4D004855B2 /* Resources */,
 				FD40A25523A5B88C004855B2 /* Utils */,
-				FDEEDF1E239DD22300C64A0B /* Visual.h */,
-				FDEEDF1F239DD22300C64A0B /* Info.plist */,
 				FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */,
-				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
 				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
 				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
 				FDB571B023A59AB700BAD13C /* CustomView.swift */,
@@ -443,7 +451,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Visual/Info.plist;
+				INFOPLIST_FILE = Visual/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,7 +477,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Visual/Info.plist;
+				INFOPLIST_FILE = Visual/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
