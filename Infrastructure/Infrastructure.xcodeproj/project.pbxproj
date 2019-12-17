@@ -11,10 +11,10 @@
 		6BBE8A4C4057CE62FA411197 /* Pods_Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7193CC1042E6DFB04CB65E /* Pods_Infrastructure.framework */; };
 		FD40A25023A5B56F004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */; };
 		FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25323A5B597004855B2 /* String+Utils.swift */; };
+		FD40A25C23A87F25004855B2 /* ServiceProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25B23A87F25004855B2 /* ServiceProviderProtocol.swift */; };
 		FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91323A54FFE003D0070 /* RequestError.swift */; };
 		FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */; };
 		FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91623A54FFE003D0070 /* HttpVerb.swift */; };
-		FD69D91A23A54FFE003D0070 /* ServiceProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */; };
 		FDB5718823A563F800BAD13C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB5718A23A563F800BAD13C /* Localizable.strings */; };
 		FDEEDF49239DD25500C64A0B /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF3F239DD25400C64A0B /* Infrastructure.framework */; };
 		FDEEDF4E239DD25500C64A0B /* InfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF4D239DD25500C64A0B /* InfrastructureTests.swift */; };
@@ -40,8 +40,8 @@
 		9A81FA7743041426B36AC566 /* Pods_InfrastructureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfrastructureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD40A24F23A5B56F004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A25323A5B597004855B2 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		FD40A25B23A87F25004855B2 /* ServiceProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProviderProtocol.swift; sourceTree = "<group>"; };
 		FD69D91323A54FFE003D0070 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProviderProtocol.swift; path = "../../../Swift Projects/dogwall/doglist/doglist/Networking/ServiceProviderProtocol.swift"; sourceTree = "<group>"; };
 		FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviderProtocol.swift; sourceTree = "<group>"; };
 		FD69D91623A54FFE003D0070 /* HttpVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpVerb.swift; sourceTree = "<group>"; };
 		FDB5718923A563F800BAD13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				FD69D91323A54FFE003D0070 /* RequestError.swift */,
 				FD69D91623A54FFE003D0070 /* HttpVerb.swift */,
 				FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */,
-				FD69D91423A54FFE003D0070 /* ServiceProviderProtocol.swift */,
+				FD40A25B23A87F25004855B2 /* ServiceProviderProtocol.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -339,8 +339,8 @@
 				FD40A25023A5B56F004855B2 /* Bundle+Utils.swift in Sources */,
 				FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */,
 				FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */,
-				FD69D91A23A54FFE003D0070 /* ServiceProviderProtocol.swift in Sources */,
 				FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */,
+				FD40A25C23A87F25004855B2 /* ServiceProviderProtocol.swift in Sources */,
 				FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

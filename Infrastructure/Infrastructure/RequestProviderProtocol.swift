@@ -1,8 +1,8 @@
 //
-//  RequestProvider.swift
-//  doglist
+//  RequestProviderProtocol.swift
+//  Infrastructure
 //
-//  Created by Hélio Mesquita on 24/05/19.
+//  Created by Hélio Mesquita on 14/12/19.
 //  Copyright © 2019 Hélio Mesquita. All rights reserved.
 //
 
