@@ -16,27 +16,12 @@ import Visual
 protocol MainDisplayLogic: class {
 }
 
-class MainViewController: BaseTaleViewController {
+class MainViewController: MainCollectionView {
 
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
 
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        setup()
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-
-    private func setup() {
+    override func setup() {
         let viewController = self
         let interactor = MainInteractor()
         let presenter = MainPresenter()
@@ -48,23 +33,25 @@ class MainViewController: BaseTaleViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(cellType: RepositoryMainCell.self)
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: RepositoryMainCell = tableView.dequeueReusableCell(for: indexPath)
-        return cell
-    }
-
+  
 }
 
 extension MainViewController: MainDisplayLogic {
 
+}
+
+extension MainViewController {
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: RepositoryMainCell = collectionView.dequeueReusableCell(for: indexPath)
+        return cell
+    }
 }

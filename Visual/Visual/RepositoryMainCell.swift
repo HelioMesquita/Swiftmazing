@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class RepositoryMainCell: UITableViewCell {
+public class RepositoryMainCell: UICollectionViewCell {
 
     private var titleColor = UIColor.Design.title
     private var subtitleColor = UIColor.Design.subtitle
@@ -38,8 +38,8 @@ public class RepositoryMainCell: UITableViewCell {
         return label
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         configureViews()
     }
 
@@ -53,7 +53,6 @@ public class RepositoryMainCell: UITableViewCell {
         addRepositoryImageView()
         addTitleLabel()
         addSubtitleLabel()
-        separatorInset = UIEdgeInsets(top: 0, left: 96, bottom: 0, right: 16)
     }
 
     func addRepositoryImageView() {

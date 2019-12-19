@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  BaseTableViewController.swift
 //  Visual
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController {
+open class BaseCollectionViewController: UICollectionViewController {
 
     override open func viewDidLoad() {
         super.viewDidLoad()

@@ -10,12 +10,15 @@
 		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
 		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
 		FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */; };
+		FD40A25E23ABB7F0004855B2 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25D23ABB7F0004855B2 /* BaseCollectionViewController.swift */; };
+		FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */; };
+		FD40A26223ABBDD1004855B2 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */; };
 		FDB571AB23A5898E00BAD13C /* RepositoryMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */; };
 		FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB571AC23A589C800BAD13C /* Colors.xcassets */; };
 		FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AE23A5971D00BAD13C /* BaseViewController.swift */; };
 		FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B023A59AB700BAD13C /* CustomView.swift */; };
-		FDB571B323A5A57F00BAD13C /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */; };
-		FDB571B523A5A5B100BAD13C /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */; };
+		FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */; };
+		FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */; };
 		FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */; };
 		FDEEDF25239DD22300C64A0B /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF1B239DD22300C64A0B /* Visual.framework */; };
 		FDEEDF2A239DD22300C64A0B /* VisualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF29239DD22300C64A0B /* VisualTests.swift */; };
@@ -38,12 +41,15 @@
 		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		FD40A25D23ABB7F0004855B2 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
+		FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMainCell.swift; sourceTree = "<group>"; };
 		FDB571AC23A589C800BAD13C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FDB571AE23A5971D00BAD13C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FDB571B023A59AB700BAD13C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
-		FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
+		FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
+		FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionViewCell+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Utils.swift"; sourceTree = "<group>"; };
 		FDEEDF1B239DD22300C64A0B /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1E239DD22300C64A0B /* Visual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visual.h; sourceTree = "<group>"; };
@@ -95,8 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */,
-				FDB571B223A5A57F00BAD13C /* UITableView+Utils.swift */,
-				FDB571B423A5A5B100BAD13C /* UITableViewCell+Utils.swift */,
+				FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */,
+				FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */,
+				FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */,
 				FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */,
 			);
 			path = Utils;
@@ -137,10 +144,12 @@
 			children = (
 				FD40A25A23A5BB4D004855B2 /* Resources */,
 				FD40A25523A5B88C004855B2 /* Utils */,
-				FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */,
-				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
 				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
+				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
+				FD40A25D23ABB7F0004855B2 /* BaseCollectionViewController.swift */,
+				FDB571AA23A5898E00BAD13C /* RepositoryMainCell.swift */,
 				FDB571B023A59AB700BAD13C /* CustomView.swift */,
+				FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -294,11 +303,14 @@
 				FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */,
 				FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */,
 				FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */,
+				FD40A26223ABBDD1004855B2 /* MainCollectionViewController.swift in Sources */,
 				FDB571AB23A5898E00BAD13C /* RepositoryMainCell.swift in Sources */,
 				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
-				FDB571B323A5A57F00BAD13C /* UITableView+Utils.swift in Sources */,
-				FDB571B523A5A5B100BAD13C /* UITableViewCell+Utils.swift in Sources */,
+				FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */,
+				FD40A25E23ABB7F0004855B2 /* BaseCollectionViewController.swift in Sources */,
+				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */,
 				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
+				FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
