@@ -10,9 +10,23 @@ import UIKit
 
 open class BaseViewController: UIViewController {
 
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+        setup()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Design.background
+    }
+
+    open func setup() {
+        fatalError("setup has not been implemented")
     }
 
 }

@@ -16,7 +16,7 @@ import Visual
 protocol MainDisplayLogic: class {
 }
 
-class MainViewController: MainCollectionView {
+class MainViewController: MainCollectionViewController {
 
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
@@ -33,25 +33,20 @@ class MainViewController: MainCollectionView {
         router.viewController = viewController
         router.dataStore = interactor
     }
-  
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // initial data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        snapshot.appendSections([.news])
+        snapshot.appendItems(Array(1..<6))
+        snapshot.appendSections([.repositories])
+        snapshot.appendItems(Array(6..<37))
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+
 }
 
 extension MainViewController: MainDisplayLogic {
 
-}
-
-extension MainViewController {
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: RepositoryMainCell = collectionView.dequeueReusableCell(for: indexPath)
-        return cell
-    }
 }

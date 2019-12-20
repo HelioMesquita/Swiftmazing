@@ -8,37 +8,81 @@
 
 import UIKit
 
-open class MainCollectionView: BaseCollectionViewController {
+open class MainCollectionViewController: BaseViewController {
 
-    public init() {
-        super.init(collectionViewLayout: MainCollectionView.configureLayout())
-        setup()
+    public enum Section: Int {
+        case news
+        case repositories
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
+    lazy public var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.register(cellType: RepositoryCell.self)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
 
-    open func setup() {
-        fatalError("setup has not been implemented")
+    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, Int> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        print(identifier)
+
+        let cell: RepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.titleLabel.text = "\(indexPath.row)"
+
+        return cell
     }
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(cellType: RepositoryMainCell.self)
-        collectionView.collectionViewLayout = MainCollectionView.configureLayout()
+        addCollectionView()
     }
 
-    static func configureLayout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.33))
+    private func addCollectionView() {
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        ])
+    }
+
+    private func createLayout() -> UICollectionViewLayout {
+        return UICollectionViewCompositionalLayout { (numberOfSection, _) -> NSCollectionLayoutSection? in
+            guard let section = Section(rawValue: numberOfSection) else { return nil }
+            switch section {
+            case .news:
+                return self.newsSection()
+            case .repositories:
+                return self.repositoriesSection()
+            }
+        }
+    }
+
+    private func newsSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .absolute(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitems: [item])
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item, item, item])
+        return NSCollectionLayoutSection(group: group)
+    }
 
+    private func repositoriesSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(0.3))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitem: item, count: 3)
         let section = NSCollectionLayoutSection(group: group)
-        return UICollectionViewCompositionalLayout(section: section)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
     }
 
 }

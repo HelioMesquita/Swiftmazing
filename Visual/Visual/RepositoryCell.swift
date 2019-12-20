@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class RepositoryMainCell: UICollectionViewCell {
+public class RepositoryCell: UICollectionViewCell {
 
     private var titleColor = UIColor.Design.title
     private var subtitleColor = UIColor.Design.subtitle
@@ -22,7 +22,7 @@ public class RepositoryMainCell: UICollectionViewCell {
         return imageView
     }()
 
-    private lazy var titleLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = titleColor
         label.text = "testing"
