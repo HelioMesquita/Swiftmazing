@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class MainCollectionViewController: BaseViewController {
+open class MainCollectionViewController<T: Hashable>: BaseViewController {
 
     public enum Section: Int {
         case news
@@ -22,7 +22,7 @@ open class MainCollectionViewController: BaseViewController {
         return collectionView
     }()
 
-    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, Int> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, T> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
         print(identifier)
 
         let cell: RepositoryCell = collectionView.dequeueReusableCell(for: indexPath)

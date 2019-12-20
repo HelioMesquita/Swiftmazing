@@ -16,7 +16,7 @@ import Visual
 protocol MainDisplayLogic: class {
 }
 
-class MainViewController: MainCollectionViewController {
+class MainViewController: MainCollectionViewController<Int> {
 
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
