@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import SDWebImage
 
-public class RepositoryCell: UICollectionViewCell {
+public protocol MainCollectionViewCellProtocol: UICollectionViewCell {
+    func configure<T: MainCollectionViewModelProtocol>(_ element: T)
+}
+
+public class RepositoryCell: UICollectionViewCell, MainCollectionViewCellProtocol {
 
     private var titleColor = UIColor.Design.title
     private var subtitleColor = UIColor.Design.subtitle
 
-    private lazy var repositoryImageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = 8
@@ -30,7 +35,7 @@ public class RepositoryCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var subtitleLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "testing"
         label.textColor = subtitleColor
@@ -47,7 +52,7 @@ public class RepositoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configureViews() {
+    private func configureViews() {
         backgroundColor = UIColor.Design.background
         contentView.backgroundColor = UIColor.Design.background
         addRepositoryImageView()
@@ -55,31 +60,37 @@ public class RepositoryCell: UICollectionViewCell {
         addSubtitleLabel()
     }
 
-    func addRepositoryImageView() {
-        contentView.addSubview(repositoryImageView)
+    private func addRepositoryImageView() {
+        contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
-            repositoryImageView.heightAnchor.constraint(equalToConstant: 80),
-            repositoryImageView.widthAnchor.constraint(equalToConstant: 80),
-            repositoryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            repositoryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            repositoryImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
+            imageView.heightAnchor.constraint(equalToConstant: 80),
+            imageView.widthAnchor.constraint(equalToConstant: 80),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
         ])
     }
 
-    func addTitleLabel() {
+    private func addTitleLabel() {
         contentView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: repositoryImageView.trailingAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
         ])
     }
 
-    func addSubtitleLabel() {
-        contentView.addSubview(subtitleLabel)
+    private func addSubtitleLabel() {
+        contentView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            subtitleLabel.leadingAnchor.constraint(equalTo: repositoryImageView.trailingAnchor, constant: 8),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
         ])
+    }
+
+    public func configure<T: MainCollectionViewModelProtocol>(_ element: T) {
+        titleLabel.text = element.title
+        descriptionLabel.text = element.description
+        imageView.sd_setImage(with: element.image)
     }
 
 }

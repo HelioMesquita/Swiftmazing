@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '13.0'
 
 use_frameworks!
 
@@ -21,8 +21,6 @@ end
 target 'Swiftmazing' do
     project 'Swiftmazing/Swiftmazing.xcodeproj'
     promiseKit
-    pod 'R.swift', '5.1.0'
-    pod 'SDWebImage', '5.4.0'
 end
 
 target 'SwiftmazingTests' do
@@ -44,5 +42,6 @@ end
 ##Visual
 target 'Visual' do
     project 'Visual/Visual.xcodeproj'
+    pod 'SDWebImage', '5.4.0'
 end
 

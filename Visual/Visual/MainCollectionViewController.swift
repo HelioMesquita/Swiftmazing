@@ -8,26 +8,62 @@
 
 import UIKit
 
-open class MainCollectionViewController<T: Hashable>: BaseViewController {
+public protocol MainCollectionViewModelProtocol: Hashable {
+    var id: String { get }
+    var cellType: MainCollectionViewCellProtocol.Type { get set }
+    var title: String { get }
+    var description: String { get }
+    var image: URL? { get }
+
+    func hash(into hasher: inout Hasher)
+}
+
+public extension MainCollectionViewModelProtocol {
+
+    var id: String {
+        return UUID().uuidString
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.title == rhs.title
+    }
+
+}
+
+open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: BaseViewController {
 
     public enum Section: Int {
         case news
         case repositories
     }
 
+    private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+
     lazy public var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.register(cellType: RepositoryCell.self)
+//        collectionView.backgroundColor = UIColor.Design.background
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
 
-    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, T> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-        print(identifier)
+    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, T> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, element) -> UICollectionViewCell? in
 
+        let tipoDaCelula = element.cellType
+
+//        let cell = createCell<element.cellType.self>(collectionView: collectionView, indexPath: indexPath)
         let cell: RepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.titleLabel.text = "\(indexPath.row)"
+        cell.configure(element)
 
+        return cell
+    }
+
+    func createCell<A: MainCollectionViewCellProtocol> (collectionView: UICollectionView, indexPath: IndexPath) -> A {
+        let cell: A = collectionView.dequeueReusableCell(for: indexPath)
         return cell
     }
 
@@ -38,11 +74,12 @@ open class MainCollectionViewController<T: Hashable>: BaseViewController {
 
     private func addCollectionView() {
         view.addSubview(collectionView)
+        let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: guide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
         ])
     }
 
@@ -58,30 +95,29 @@ open class MainCollectionViewController<T: Hashable>: BaseViewController {
         }
     }
 
-    private func newsSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                             heightDimension: .fractionalHeight(1.0))
+    private func repositoriesSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .absolute(50))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                         subitems: [item])
+        item.contentInsets = contentInsets
 
-        return NSCollectionLayoutSection(group: group)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.3))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 3)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        return section
     }
 
-    private func repositoriesSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
-                                             heightDimension: .fractionalHeight(1.0))
+    private func newsSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.3))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                         subitem: item, count: 3)
+        item.contentInsets = contentInsets
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.35))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
+        section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
     }
 
