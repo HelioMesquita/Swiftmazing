@@ -503,7 +503,6 @@
 		FDEEDF33239DD22300C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VisualTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,7 +520,6 @@
 		FDEEDF34239DD22300C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VisualTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

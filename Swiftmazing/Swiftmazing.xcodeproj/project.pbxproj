@@ -733,7 +733,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A9F8BF0811BF078A04980B8 /* Pods-SwiftmazingTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftmazingTests/Info.plist;
@@ -755,7 +754,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9D6B161F83B671E89D85F7A /* Pods-SwiftmazingTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftmazingTests/Info.plist;
@@ -776,7 +774,6 @@
 		FDEEDEEB239DD1B600C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftmazingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,7 +792,6 @@
 		FDEEDEEC239DD1B600C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftmazingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
