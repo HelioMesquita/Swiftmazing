@@ -11,14 +11,55 @@
 //
 
 import UIKit
+import Visual
 
 enum Main {
 
-    struct Request {
+    struct Response: Decodable {
+
+        let repositories: [RepositoryDomain]
+
+        enum CodingKeys: String, CodingKey {
+            case repositories = "items"
+        }
+
     }
-    struct Response {
+
+    struct Mapper {
+
+//        static func newsCellViewModel(repositories: [RepositoryDomain]) -> [RepositoryCellViewModel] {
+//
+//        }
+
     }
     struct ViewModel {
+        var news: [RepositoryCellViewModel] = []
+        var repositories: [RepositoryCellViewModel] = []
+    }
+
+    struct RepositoryCellViewModel: MainCollectionViewModelProtocol {
+
+        var cellType: MainCollectionViewCell
+        var title: String?
+        var name: String
+        var description: String
+        var image: URL?
+
+        init(cellType: MainCollectionViewCell, title: String?, name: String, description: String, image: URL?) {
+            self.cellType = cellType
+            self.title = title
+            self.name = name
+            self.description = description
+            self.image = image
+        }
+
+        init(repository: RepositoryDomain, cellType: MainCollectionViewCell, title: String? = nil) {
+            self.cellType = cellType
+            self.name = repository.owner.name
+            self.description = repository.description
+            self.image = repository.owner.avatar
+            self.title = title
+        }
     }
 
 }

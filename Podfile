@@ -42,6 +42,6 @@ end
 ##Visual
 target 'Visual' do
     project 'Visual/Visual.xcodeproj'
-    pod 'SDWebImage', '5.4.0'
+#    pod 'SDWebImage', '5.4.0'
 end
 

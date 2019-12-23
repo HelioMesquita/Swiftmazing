@@ -15,10 +15,15 @@
 import UIKit
 
 protocol MainPresentationLogic {
+    func mapResponse(_ topRepoResponse: Main.Response,_ mostRecentResponse: Main.Response)
 }
 
 class MainPresenter: MainPresentationLogic {
     
     weak var viewController: MainDisplayLogic?
+
+    func mapResponse(_ topRepoResponse: Main.Response,_ mostRecentResponse: Main.Response) {
+        
+    }
 
 }

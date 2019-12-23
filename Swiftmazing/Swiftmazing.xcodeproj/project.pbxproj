@@ -16,6 +16,10 @@
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
 		FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92223A557E5003D0070 /* RequestProvider.swift */; };
 		FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */; };
+		FD9DFB2B23B03CAC00F8B3AC /* TopRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB2A23B03CAC00F8B3AC /* TopRepositoriesProvider.swift */; };
+		FD9DFB2D23B03CB900F8B3AC /* MostRecentRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB2C23B03CB900F8B3AC /* MostRecentRepositoriesProvider.swift */; };
+		FD9DFB3223B03E6500F8B3AC /* RepositoryDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3123B03E6500F8B3AC /* RepositoryDomain.swift */; };
+		FD9DFB3423B03E8E00F8B3AC /* OwnerDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3323B03E8E00F8B3AC /* OwnerDomain.swift */; };
 		FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718D23A5815D00BAD13C /* ListPresenter.swift */; };
 		FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718E23A5815D00BAD13C /* ListWorker.swift */; };
 		FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718F23A5815D00BAD13C /* ListRouter.swift */; };
@@ -83,6 +87,10 @@
 		FD69D92223A557E5003D0070 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
 		FD69D92423A558DB003D0070 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
+		FD9DFB2A23B03CAC00F8B3AC /* TopRepositoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRepositoriesProvider.swift; sourceTree = "<group>"; };
+		FD9DFB2C23B03CB900F8B3AC /* MostRecentRepositoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentRepositoriesProvider.swift; sourceTree = "<group>"; };
+		FD9DFB3123B03E6500F8B3AC /* RepositoryDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDomain.swift; sourceTree = "<group>"; };
+		FD9DFB3323B03E8E00F8B3AC /* OwnerDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDomain.swift; sourceTree = "<group>"; };
 		FDB5718D23A5815D00BAD13C /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		FDB5718E23A5815D00BAD13C /* ListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorker.swift; sourceTree = "<group>"; };
 		FDB5718F23A5815D00BAD13C /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
@@ -187,6 +195,8 @@
 		FD69D912239F2305003D0070 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FD9DFB2F23B03E3400F8B3AC /* Providers */,
+				FD9DFB2E23B03E2E00F8B3AC /* Models */,
 				FDB5719B23A5888A00BAD13C /* Main */,
 				FDB5718C23A580A300BAD13C /* List */,
 				FDEEDEC1239DD1B500C64A0B /* ViewController.swift */,
@@ -209,6 +219,24 @@
 				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FD9DFB2E23B03E2E00F8B3AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD9DFB3123B03E6500F8B3AC /* RepositoryDomain.swift */,
+				FD9DFB3323B03E8E00F8B3AC /* OwnerDomain.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD9DFB2F23B03E3400F8B3AC /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				FD9DFB2A23B03CAC00F8B3AC /* TopRepositoriesProvider.swift */,
+				FD9DFB2C23B03CB900F8B3AC /* MostRecentRepositoriesProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		FDB5718C23A580A300BAD13C /* List */ = {
@@ -508,10 +536,14 @@
 			files = (
 				FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */,
 				FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */,
+				FD9DFB3223B03E6500F8B3AC /* RepositoryDomain.swift in Sources */,
+				FD9DFB2D23B03CB900F8B3AC /* MostRecentRepositoriesProvider.swift in Sources */,
 				FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */,
+				FD9DFB3423B03E8E00F8B3AC /* OwnerDomain.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
 				FDB571A623A5889800BAD13C /* MainModels.swift in Sources */,
 				FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */,
+				FD9DFB2B23B03CAC00F8B3AC /* TopRepositoriesProvider.swift in Sources */,
 				FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */,
 				FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */,
 				FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */,

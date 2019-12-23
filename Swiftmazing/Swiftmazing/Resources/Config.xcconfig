@@ -9,5 +9,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.release.xcconfig"
+
 HOST = https
 SCHEME = api.github.com

@@ -13,8 +13,10 @@
 // CUCKOO_TESTABLE
 
 import UIKit
+import PromiseKit
 
 protocol MainBusinessLogic {
+    func loadScreen()
 }
 
 protocol MainDataStore {
@@ -27,6 +29,17 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
 
     init(worker: MainWorker = MainWorker()) {
         self.worker = worker
+    }
+
+    func loadScreen() {
+        let topRepo = worker.getTopRepositories
+        let mostRecent = worker.getMostRecentepositories
+
+        when(fulfilled: topRepo, mostRecent).done(handleSuccess).cauterize()
+    }
+
+    func handleSuccess(_ topRepoResponse: Main.Response,_ mostRecentResponse: Main.Response) {
+        presenter?.mapResponse(topRepoResponse, mostRecentResponse)
     }
 
 }

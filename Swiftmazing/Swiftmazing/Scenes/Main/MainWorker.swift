@@ -14,7 +14,24 @@
 
 import Foundation
 import PromiseKit
+import Infrastructure
 
 class MainWorker {
-  
+
+    let serviceProvider: ServiceProviderProtocol
+
+    init(serviceProvider: ServiceProviderProtocol = ServiceProvider()) {
+        self.serviceProvider = serviceProvider
+    }
+
+    var getTopRepositories: Promise<Main.Response> {
+        let provider = PreviewTopRepositoriesProvider()
+        return serviceProvider.execute(request: provider, parser: Main.Response.self)
+    }
+
+    var getMostRecentepositories: Promise<Main.Response> {
+        let provider = PreviewMostRecentRepositoriesProvider()
+        return serviceProvider.execute(request: provider, parser: Main.Response.self)
+    }
+
 }

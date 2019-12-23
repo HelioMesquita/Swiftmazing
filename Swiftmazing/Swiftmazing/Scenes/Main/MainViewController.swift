@@ -16,10 +16,16 @@ import Visual
 protocol MainDisplayLogic: class {
 }
 
-class MainViewController: MainCollectionViewController<Int> {
+class MainViewController: MainCollectionViewController<Main.RepositoryCellViewModel> {
 
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
+
+    var viewModel: Main.ViewModel = Main.ViewModel() {
+        didSet {
+            loadTable()
+        }
+    }
 
     override func setup() {
         let viewController = self
@@ -36,12 +42,15 @@ class MainViewController: MainCollectionViewController<Int> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // initial data
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        interactor?.loadScreen()
+    }
+
+    func loadTable() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Main.RepositoryCellViewModel>()
         snapshot.appendSections([.news])
-        snapshot.appendItems(Array(1..<6))
+        snapshot.appendItems(viewModel.news)
         snapshot.appendSections([.repositories])
-        snapshot.appendItems(Array(6..<37))
+        snapshot.appendItems(viewModel.repositories)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 

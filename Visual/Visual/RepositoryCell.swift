@@ -7,13 +7,9 @@
 //
 
 import UIKit
-import SDWebImage
+//import SDWebImage
 
-public protocol MainCollectionViewCellProtocol: UICollectionViewCell {
-    func configure<T: MainCollectionViewModelProtocol>(_ element: T)
-}
-
-public class RepositoryCell: UICollectionViewCell, MainCollectionViewCellProtocol {
+public class RepositoryCell: UICollectionViewCell {
 
     private var titleColor = UIColor.Design.title
     private var subtitleColor = UIColor.Design.subtitle
@@ -27,7 +23,7 @@ public class RepositoryCell: UICollectionViewCell, MainCollectionViewCellProtoco
         return imageView
     }()
 
-    public lazy var titleLabel: UILabel = {
+    public lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = titleColor
         label.text = "testing"
@@ -56,7 +52,7 @@ public class RepositoryCell: UICollectionViewCell, MainCollectionViewCellProtoco
         backgroundColor = UIColor.Design.background
         contentView.backgroundColor = UIColor.Design.background
         addRepositoryImageView()
-        addTitleLabel()
+        addNameLabel()
         addSubtitleLabel()
     }
 
@@ -71,26 +67,26 @@ public class RepositoryCell: UICollectionViewCell, MainCollectionViewCellProtoco
         ])
     }
 
-    private func addTitleLabel() {
-        contentView.addSubview(titleLabel)
+    private func addNameLabel() {
+        contentView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
         ])
     }
 
     private func addSubtitleLabel() {
         contentView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
         ])
     }
 
     public func configure<T: MainCollectionViewModelProtocol>(_ element: T) {
-        titleLabel.text = element.title
+        nameLabel.text = element.name
         descriptionLabel.text = element.description
-        imageView.sd_setImage(with: element.image)
+//        imageView.sd_setImage(with: element.image)
     }
 
 }

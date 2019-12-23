@@ -8,10 +8,16 @@
 
 import UIKit
 
+public enum MainCollectionViewCell {
+    case news
+    case repositories
+}
+
 public protocol MainCollectionViewModelProtocol: Hashable {
     var id: String { get }
-    var cellType: MainCollectionViewCellProtocol.Type { get set }
-    var title: String { get }
+    var cellType: MainCollectionViewCell { get set }
+    var title: String? { get }
+    var name: String { get }
     var description: String { get }
     var image: URL? { get }
 
@@ -29,7 +35,7 @@ public extension MainCollectionViewModelProtocol {
     }
 
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.title == rhs.title
+        return lhs.name == rhs.name
     }
 
 }
@@ -52,18 +58,10 @@ open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: Bas
     }()
 
     lazy public var dataSource: UICollectionViewDiffableDataSource<Section, T> = UICollectionViewDiffableDataSource(collectionView: self.collectionView) { (collectionView, indexPath, element) -> UICollectionViewCell? in
-
-        let tipoDaCelula = element.cellType
-
-//        let cell = createCell<element.cellType.self>(collectionView: collectionView, indexPath: indexPath)
+        
         let cell: RepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.configure(element)
 
-        return cell
-    }
-
-    func createCell<A: MainCollectionViewCellProtocol> (collectionView: UICollectionView, indexPath: IndexPath) -> A {
-        let cell: A = collectionView.dequeueReusableCell(for: indexPath)
         return cell
     }
 
