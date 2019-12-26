@@ -14,6 +14,7 @@ import UIKit
 import Visual
 
 protocol MainDisplayLogic: class {
+    func show(_ viewModel: Main.ViewModel)
 }
 
 class MainViewController: MainCollectionViewController<Main.RepositoryCellViewModel> {
@@ -47,15 +48,19 @@ class MainViewController: MainCollectionViewController<Main.RepositoryCellViewMo
 
     func loadTable() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Main.RepositoryCellViewModel>()
-        snapshot.appendSections([.news])
-        snapshot.appendItems(viewModel.news)
-        snapshot.appendSections([.repositories])
-        snapshot.appendItems(viewModel.repositories)
+        snapshot.appendSections([.news, .topRepos, .mostRecent])
+        snapshot.appendItems(viewModel.news, toSection: .news)
+        snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
+        snapshot.appendItems(viewModel.mostRecent, toSection: .mostRecent)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 
 }
 
 extension MainViewController: MainDisplayLogic {
+
+    func show(_ viewModel: Main.ViewModel) {
+        self.viewModel = viewModel
+    }
 
 }

@@ -13,7 +13,7 @@ struct RepositoryDomain: Decodable {
     let name: String
     let stars: Int
     let owner: OwnerDomain
-    let description: String
+    let description: String?
 
     enum CodingKeys: String, CodingKey {
         case name

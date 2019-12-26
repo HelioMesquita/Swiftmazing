@@ -33,13 +33,13 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
 
     func loadScreen() {
         let topRepo = worker.getTopRepositories
-        let mostRecent = worker.getMostRecentepositories
+        let lastUpdated = worker.getLastUpdatedRpositories
 
-        when(fulfilled: topRepo, mostRecent).done(handleSuccess).cauterize()
+        when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
     }
 
-    func handleSuccess(_ topRepoResponse: Main.Response,_ mostRecentResponse: Main.Response) {
-        presenter?.mapResponse(topRepoResponse, mostRecentResponse)
+    func handleSuccess(_ topRepoResponse: Main.Response,_ lastUpdatedResponse: Main.Response) {
+        presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
     }
 
 }

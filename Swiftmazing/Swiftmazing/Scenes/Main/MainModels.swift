@@ -16,25 +16,34 @@ import Visual
 enum Main {
 
     struct Response: Decodable {
-
-        let repositories: [RepositoryDomain]
-
-        enum CodingKeys: String, CodingKey {
-            case repositories = "items"
-        }
-
+        let items: [RepositoryDomain]
     }
 
     struct Mapper {
+        static func repoCellViewModel(repositories: [RepositoryDomain]) -> [RepositoryCellViewModel] {
+            return repositories.compactMap { RepositoryCellViewModel(repository: $0, cellType: .repositories) }
+        }
 
-//        static func newsCellViewModel(repositories: [RepositoryDomain]) -> [RepositoryCellViewModel] {
-//
-//        }
-
+        static func newsCellViewModel(topRepos: [RepositoryDomain], mostRecent: [RepositoryDomain]) -> [RepositoryCellViewModel] {
+            let topReposImages = topRepos.compactMap { $0.owner.avatar }
+            let lastUpdatedImages = mostRecent.compactMap { $0.owner.avatar }
+            return [
+                RepositoryCellViewModel(cellType: .news, title: "MELHORES REPOSITORIOS", name: "Os repositorios renomados", description: "As melhores ferramentas", images: topReposImages),
+                RepositoryCellViewModel(cellType: .news, title: "REPOSITORIOS ATUALIZADOS", name: "As ultimas atualizacoes", description: "Repositorios mais atualizados", images: lastUpdatedImages)
+            ]
+        }
     }
+
     struct ViewModel {
-        var news: [RepositoryCellViewModel] = []
-        var repositories: [RepositoryCellViewModel] = []
+        let news: [RepositoryCellViewModel]
+        let topRepos: [RepositoryCellViewModel]
+        let mostRecent: [RepositoryCellViewModel]
+
+        init(news: [RepositoryCellViewModel] = [], topRepos: [RepositoryCellViewModel] = [], mostRecent: [RepositoryCellViewModel] = []) {
+            self.news = news
+            self.topRepos = topRepos
+            self.mostRecent = mostRecent
+        }
     }
 
     struct RepositoryCellViewModel: MainCollectionViewModelProtocol {
@@ -43,21 +52,21 @@ enum Main {
         var title: String?
         var name: String
         var description: String
-        var image: URL?
+        var images: [URL]
 
-        init(cellType: MainCollectionViewCell, title: String?, name: String, description: String, image: URL?) {
+        init(cellType: MainCollectionViewCell, title: String?, name: String, description: String, images: [URL]) {
             self.cellType = cellType
             self.title = title
             self.name = name
             self.description = description
-            self.image = image
+            self.images = images
         }
 
         init(repository: RepositoryDomain, cellType: MainCollectionViewCell, title: String? = nil) {
             self.cellType = cellType
             self.name = repository.owner.name
-            self.description = repository.description
-            self.image = repository.owner.avatar
+            self.description = repository.description ?? ""
+            self.images = [repository.owner.avatar]
             self.title = title
         }
     }

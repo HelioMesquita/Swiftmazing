@@ -15,6 +15,7 @@ extension UIColor {
         static let title = UIColor(named: "title", in: Bundle.module, compatibleWith: nil)
         static let subtitle = UIColor(named: "subtitle", in: Bundle.module, compatibleWith: nil)
         static let link = UIColor(named: "link", in: Bundle.module, compatibleWith: nil)
+        static let line = UIColor(named: "line", in: Bundle.module, compatibleWith: nil)
     }
 
 }

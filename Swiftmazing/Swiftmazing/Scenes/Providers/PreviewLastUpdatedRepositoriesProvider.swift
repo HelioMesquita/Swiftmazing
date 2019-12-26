@@ -9,7 +9,7 @@
 import Foundation
 import Infrastructure
 
-class PreviewMostRecentRepositoriesProvider: RequestProviderProtocol {
+class PreviewLastUpdatedRepositoriesProvider: RequestProviderProtocol {
 
     var httpVerb: HttpVerbs = .GET
     var path: String = "/search/repositories"
@@ -17,7 +17,7 @@ class PreviewMostRecentRepositoriesProvider: RequestProviderProtocol {
     var queryParameters: [URLQueryItem]? {
         return [
             URLQueryItem(name: "q", value: "language:swift"),
-            URLQueryItem(name: "sort", value: "recent"),
+            URLQueryItem(name: "sort", value: "updated"),
             URLQueryItem(name: "per_page", value: "10"),
         ]
     }

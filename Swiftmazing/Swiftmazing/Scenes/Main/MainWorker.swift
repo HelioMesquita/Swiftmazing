@@ -29,8 +29,8 @@ class MainWorker {
         return serviceProvider.execute(request: provider, parser: Main.Response.self)
     }
 
-    var getMostRecentepositories: Promise<Main.Response> {
-        let provider = PreviewMostRecentRepositoriesProvider()
+    var getLastUpdatedRpositories: Promise<Main.Response> {
+        let provider = PreviewLastUpdatedRepositoriesProvider()
         return serviceProvider.execute(request: provider, parser: Main.Response.self)
     }
 

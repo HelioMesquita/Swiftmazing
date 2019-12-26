@@ -22,8 +22,12 @@ class MainPresenter: MainPresentationLogic {
     
     weak var viewController: MainDisplayLogic?
 
-    func mapResponse(_ topRepoResponse: Main.Response,_ mostRecentResponse: Main.Response) {
-        
+    func mapResponse(_ topRepoResponse: Main.Response,_ lastUpdatedtResponse: Main.Response) {
+        let topRepoViewModel = Main.Mapper.repoCellViewModel(repositories: topRepoResponse.items)
+        let lastUpdatedViewModel = Main.Mapper.repoCellViewModel(repositories: lastUpdatedtResponse.items)
+        let newsViewModel = Main.Mapper.newsCellViewModel(topRepos: topRepoResponse.items, mostRecent: lastUpdatedtResponse.items)
+        let viewModel = Main.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, mostRecent: lastUpdatedViewModel)
+        viewController?.show(viewModel)
     }
 
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
+		E910BAF023B157E9007C3BC3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910BAEF23B157E9007C3BC3 /* NewsCell.swift */; };
+		E9DC1F2823B13DF5004F14FF /* MainSupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */; };
+		E9FF691523B2320B0004E610 /* MainSupplementaryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */; };
 		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
 		FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */; };
 		FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */; };
@@ -15,7 +18,6 @@
 		FDB571AB23A5898E00BAD13C /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */; };
 		FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB571AC23A589C800BAD13C /* Colors.xcassets */; };
 		FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AE23A5971D00BAD13C /* BaseViewController.swift */; };
-		FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B023A59AB700BAD13C /* CustomView.swift */; };
 		FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */; };
 		FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */; };
 		FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */; };
@@ -38,6 +40,10 @@
 		0A6B90D96A2C74400DAB75C8 /* Pods-Visual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.release.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.release.xcconfig"; sourceTree = "<group>"; };
 		2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.debug.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E910BAEF23B157E9007C3BC3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		E95670D923B0E796007611F8 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSupplementaryHeaderView.swift; sourceTree = "<group>"; };
+		E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSupplementaryFooterView.swift; sourceTree = "<group>"; };
 		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
@@ -45,7 +51,6 @@
 		FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		FDB571AC23A589C800BAD13C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FDB571AE23A5971D00BAD13C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FDB571B023A59AB700BAD13C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionViewCell+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Utils.swift"; sourceTree = "<group>"; };
@@ -90,9 +95,31 @@
 		D9B99D8442ED233E42D0DBC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E95670D923B0E796007611F8 /* SDWebImage.framework */,
 				6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E910BAED23B157C2007C3BC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */,
+				E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */,
+				E910BAEF23B157E9007C3BC3 /* NewsCell.swift */,
+				FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E910BAEE23B157C6007C3BC3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
+				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
+				FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		FD40A25523A5B88C004855B2 /* Utils */ = {
@@ -140,13 +167,10 @@
 		FDEEDF1D239DD22300C64A0B /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				E910BAEE23B157C6007C3BC3 /* ViewControllers */,
+				E910BAED23B157C2007C3BC3 /* Views */,
 				FD40A25A23A5BB4D004855B2 /* Resources */,
 				FD40A25523A5B88C004855B2 /* Utils */,
-				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
-				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
-				FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */,
-				FDB571B023A59AB700BAD13C /* CustomView.swift */,
-				FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -297,14 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB571B123A59AB700BAD13C /* CustomView.swift in Sources */,
 				FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */,
 				FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */,
 				FD40A26223ABBDD1004855B2 /* MainCollectionViewController.swift in Sources */,
 				FDB571AB23A5898E00BAD13C /* RepositoryCell.swift in Sources */,
+				E9DC1F2823B13DF5004F14FF /* MainSupplementaryHeaderView.swift in Sources */,
 				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
+				E9FF691523B2320B0004E610 /* MainSupplementaryFooterView.swift in Sources */,
 				FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */,
 				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */,
+				E910BAF023B157E9007C3BC3 /* NewsCell.swift in Sources */,
 				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
 				FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */,
 			);
@@ -466,6 +492,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Visual;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -492,6 +519,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Visual;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
