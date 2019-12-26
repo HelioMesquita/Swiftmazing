@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
-		E910BAF023B157E9007C3BC3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910BAEF23B157E9007C3BC3 /* NewsCell.swift */; };
-		E9DC1F2823B13DF5004F14FF /* MainSupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */; };
-		E9FF691523B2320B0004E610 /* MainSupplementaryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */; };
+		E910BAF023B157E9007C3BC3 /* FeedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */; };
+		E9DC1F2823B13DF5004F14FF /* FeedSupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */; };
+		E9FF691523B2320B0004E610 /* FeedSupplementaryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */; };
+		FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD96A23B51E2C00D92429 /* String+Utils.swift */; };
+		FD1DD96C23B51E6600D92429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD96E23B51E6600D92429 /* Localizable.strings */; };
 		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
 		FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */; };
 		FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */; };
-		FD40A26223ABBDD1004855B2 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */; };
-		FDB571AB23A5898E00BAD13C /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */; };
+		FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */; };
+		FDB571AB23A5898E00BAD13C /* FeedRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* FeedRepositoryCell.swift */; };
 		FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB571AC23A589C800BAD13C /* Colors.xcassets */; };
 		FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AE23A5971D00BAD13C /* BaseViewController.swift */; };
 		FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */; };
@@ -40,15 +42,18 @@
 		0A6B90D96A2C74400DAB75C8 /* Pods-Visual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.release.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.release.xcconfig"; sourceTree = "<group>"; };
 		2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.debug.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E910BAEF23B157E9007C3BC3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewsCell.swift; sourceTree = "<group>"; };
 		E95670D923B0E796007611F8 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSupplementaryHeaderView.swift; sourceTree = "<group>"; };
-		E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSupplementaryFooterView.swift; sourceTree = "<group>"; };
+		E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSupplementaryHeaderView.swift; sourceTree = "<group>"; };
+		E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSupplementaryFooterView.swift; sourceTree = "<group>"; };
+		FD1DD96A23B51E2C00D92429 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		FD1DD96D23B51E6600D92429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD1DD96F23B51EE400D92429 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
-		FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
-		FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		FDB571AA23A5898E00BAD13C /* FeedRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRepositoryCell.swift; sourceTree = "<group>"; };
 		FDB571AC23A589C800BAD13C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FDB571AE23A5971D00BAD13C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
@@ -104,10 +109,10 @@
 		E910BAED23B157C2007C3BC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9DC1F2723B13DF5004F14FF /* MainSupplementaryHeaderView.swift */,
-				E9FF691423B2320B0004E610 /* MainSupplementaryFooterView.swift */,
-				E910BAEF23B157E9007C3BC3 /* NewsCell.swift */,
-				FDB571AA23A5898E00BAD13C /* RepositoryCell.swift */,
+				E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */,
+				E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */,
+				E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */,
+				FDB571AA23A5898E00BAD13C /* FeedRepositoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,7 +122,7 @@
 			children = (
 				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
 				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
-				FD40A26123ABBDD1004855B2 /* MainCollectionViewController.swift */,
+				FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 		FD40A25523A5B88C004855B2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FD1DD96A23B51E2C00D92429 /* String+Utils.swift */,
 				FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */,
 				FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */,
 				FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */,
@@ -140,6 +146,7 @@
 				FDEEDF1E239DD22300C64A0B /* Visual.h */,
 				FDEEDF1F239DD22300C64A0B /* Info.plist */,
 				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
+				FD1DD96E23B51E6600D92429 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = FDEEDF11239DD22300C64A0B;
 			productRefGroup = FDEEDF1C239DD22300C64A0B /* Products */;
@@ -279,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */,
+				FD1DD96C23B51E6600D92429 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,14 +332,15 @@
 			files = (
 				FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */,
 				FD40A25723A5B8A7004855B2 /* BaseTableViewController.swift in Sources */,
-				FD40A26223ABBDD1004855B2 /* MainCollectionViewController.swift in Sources */,
-				FDB571AB23A5898E00BAD13C /* RepositoryCell.swift in Sources */,
-				E9DC1F2823B13DF5004F14FF /* MainSupplementaryHeaderView.swift in Sources */,
+				FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */,
+				FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */,
+				FDB571AB23A5898E00BAD13C /* FeedRepositoryCell.swift in Sources */,
+				E9DC1F2823B13DF5004F14FF /* FeedSupplementaryHeaderView.swift in Sources */,
 				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
-				E9FF691523B2320B0004E610 /* MainSupplementaryFooterView.swift in Sources */,
+				E9FF691523B2320B0004E610 /* FeedSupplementaryFooterView.swift in Sources */,
 				FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */,
 				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */,
-				E910BAF023B157E9007C3BC3 /* NewsCell.swift in Sources */,
+				E910BAF023B157E9007C3BC3 /* FeedNewsCell.swift in Sources */,
 				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
 				FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */,
 			);
@@ -354,11 +364,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		FD1DD96E23B51E6600D92429 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD1DD96D23B51E6600D92429 /* en */,
+				FD1DD96F23B51EE400D92429 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		FDEEDF2D239DD22300C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -422,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

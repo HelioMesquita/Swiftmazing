@@ -17,7 +17,7 @@ protocol MainDisplayLogic: class {
     func show(_ viewModel: Main.ViewModel)
 }
 
-class MainViewController: MainCollectionViewController<Main.RepositoryCellViewModel> {
+class MainViewController: FeedCollectionViewController<Main.RepositoryCellViewModel> {
 
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
@@ -47,11 +47,11 @@ class MainViewController: MainCollectionViewController<Main.RepositoryCellViewMo
     }
 
     func loadTable() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Main.RepositoryCellViewModel>()
-        snapshot.appendSections([.news, .topRepos, .mostRecent])
+        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Main.RepositoryCellViewModel>()
+        snapshot.appendSections([.news, .topRepos, .lastUpdated])
         snapshot.appendItems(viewModel.news, toSection: .news)
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
-        snapshot.appendItems(viewModel.mostRecent, toSection: .mostRecent)
+        snapshot.appendItems(viewModel.mostRecent, toSection: .lastUpdated)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 

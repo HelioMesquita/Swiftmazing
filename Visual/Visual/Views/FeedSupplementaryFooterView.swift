@@ -1,5 +1,5 @@
 //
-//  MainSupplementaryHeaderView.swift
+//  FeedSupplementaryHeaderView.swift
 //  Visual
 //
 //  Created by Helio Loredo Mesquita on 23/12/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class MainSupplementaryFooterView: UICollectionReusableView {
+public class FeedSupplementaryFooterView: UICollectionReusableView {
 
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background

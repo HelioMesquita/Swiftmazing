@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-public class RepositoryCell: UICollectionViewCell {
+public class FeedRepositoryCell: UICollectionViewCell {
 
     private var designTitleColor = UIColor.Design.title
     private var designSubtitleColor = UIColor.Design.subtitle
@@ -101,7 +101,7 @@ public class RepositoryCell: UICollectionViewCell {
         imageView.layer.borderColor = designLineColor?.cgColor
     }
 
-    public func configure<T: MainCollectionViewModelProtocol>(_ element: T) {
+    public func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
         nameLabel.text = element.name
         descriptionLabel.text = element.description
         imageView.sd_setImage(with: element.images.first)

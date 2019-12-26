@@ -17,7 +17,8 @@ extension ServiceProviderProtocol {
 
     public func execute<T: Decodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
         return Promise<T> { seal in
-            URLSession.shared.dataTask(with: request.asURLRequest) { (data, response, _) in
+            URLSession.shared.dataTask(with: request.asURLRequest) { (data, response, error) in
+                Logger.show(request: request.asURLRequest, response, data, error)
 
                 let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
                 if 200...299 ~= statusCode {

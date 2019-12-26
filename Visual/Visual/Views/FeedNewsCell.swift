@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-public class NewsCell: UICollectionViewCell {
+public class FeedNewsCell: UICollectionViewCell {
 
     private var designLinkColor = UIColor.Design.link
     private var designTitleColor = UIColor.Design.title
@@ -99,7 +99,6 @@ public class NewsCell: UICollectionViewCell {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 13),
         ])
     }
 
@@ -109,7 +108,6 @@ public class NewsCell: UICollectionViewCell {
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            nameLabel.heightAnchor.constraint(equalToConstant: 23),
         ])
     }
 
@@ -119,7 +117,6 @@ public class NewsCell: UICollectionViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            descriptionLabel.heightAnchor.constraint(equalToConstant: 23),
         ])
     }
 
@@ -146,7 +143,7 @@ public class NewsCell: UICollectionViewCell {
         imagesStackView.addArrangedSubview(evenImagesStackView)
     }
 
-    public func configure<T: MainCollectionViewModelProtocol>(_ element: T) {
+    public func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
         nameLabel.text = element.name
         titleLabel.text = element.title
         descriptionLabel.text = element.description

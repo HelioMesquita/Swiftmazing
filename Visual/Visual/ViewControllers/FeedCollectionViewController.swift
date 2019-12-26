@@ -8,14 +8,14 @@
 
 import UIKit
 
-public enum MainCollectionViewCell {
+public enum FeedCollectionViewCell {
     case news
     case repositories
 }
 
-public protocol MainCollectionViewModelProtocol: Hashable {
+public protocol FeedCollectionViewModelProtocol: Hashable {
     var id: String { get }
-    var cellType: MainCollectionViewCell { get set }
+    var cellType: FeedCollectionViewCell { get set }
     var title: String? { get }
     var name: String { get }
     var description: String { get }
@@ -24,7 +24,7 @@ public protocol MainCollectionViewModelProtocol: Hashable {
     func hash(into hasher: inout Hasher)
 }
 
-public extension MainCollectionViewModelProtocol {
+public extension FeedCollectionViewModelProtocol {
 
     var id: String {
         return UUID().uuidString
@@ -40,40 +40,40 @@ public extension MainCollectionViewModelProtocol {
 
 }
 
-open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: BaseViewController {
+open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
 
-    public enum Section: String, CaseIterable {
-        case news = ""
-        case topRepos = "Mais populares"
-        case mostRecent = "Ultimas atualizacoes"
+    public enum FeedSection: String, CaseIterable {
+        case news
+        case topRepos
+        case lastUpdated
     }
 
-    private let header = MainSupplementaryHeaderView.reuseIdentifier
-    private let footer = MainSupplementaryFooterView.reuseIdentifier
+    private let header = FeedSupplementaryHeaderView.reuseIdentifier
+    private let footer = FeedSupplementaryFooterView.reuseIdentifier
     private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
 
     lazy public var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.register(cellType: NewsCell.self)
-        collectionView.register(cellType: RepositoryCell.self)
-        collectionView.register(cellType: MainSupplementaryHeaderView.self)
-        collectionView.register(cellType: MainSupplementaryFooterView.self)
+        collectionView.register(cellType: FeedNewsCell.self)
+        collectionView.register(cellType: FeedRepositoryCell.self)
+        collectionView.register(cellType: FeedSupplementaryHeaderView.self)
+        collectionView.register(cellType: FeedSupplementaryFooterView.self)
         collectionView.backgroundColor = UIColor.Design.background
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
 
-    lazy public var dataSource: UICollectionViewDiffableDataSource<Section, T> = {
+    lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
 
-        var dataSource = UICollectionViewDiffableDataSource<Section, T>(collectionView: self.collectionView) { [weak self]  (collectionView, indexPath, element) -> UICollectionViewCell? in
-            let sectionType = Section.allCases[indexPath.section]
+        var dataSource = UICollectionViewDiffableDataSource<FeedSection, T>(collectionView: self.collectionView) { [weak self]  (collectionView, indexPath, element) -> UICollectionViewCell? in
+            let sectionType = FeedSection.allCases[indexPath.section]
             switch sectionType {
             case .news:
-                let cell: NewsCell = collectionView.dequeueReusableCell(for: indexPath)
+                let cell: FeedNewsCell = collectionView.dequeueReusableCell(for: indexPath)
                 cell.configure(element)
                 return cell
-            case .topRepos, .mostRecent:
-                let cell: RepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
+            case .topRepos, .lastUpdated:
+                let cell: FeedRepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
                 cell.configure(element)
                 return cell
             }
@@ -84,11 +84,11 @@ open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: Bas
 
             switch kind {
             case self.header:
-                let headerView: MainSupplementaryHeaderView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
-                headerView.label.text = Section.allCases[indexPath.section].rawValue
+                let headerView: FeedSupplementaryHeaderView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
+                headerView.label.text = FeedSection.allCases[indexPath.section].rawValue
                 return headerView
             case self.footer:
-                let footerView: MainSupplementaryFooterView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
+                let footerView: FeedSupplementaryFooterView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
                 return footerView
             default:
                 return nil
@@ -117,11 +117,11 @@ open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: Bas
 
     private func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
-            let section = Section.allCases[sectionIndex]
+            let section = FeedSection.allCases[sectionIndex]
             switch section {
             case .news:
                 return self.newsSection()
-            case .topRepos, .mostRecent:
+            case .topRepos, .lastUpdated:
                 return self.repositoriesSection()
             }
         }
@@ -140,7 +140,7 @@ open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: Bas
         group.supplementaryItems = [itemSupplementary]
 
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: MainSupplementaryHeaderView.reuseIdentifier, alignment: .top)
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: FeedSupplementaryHeaderView.reuseIdentifier, alignment: .top)
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
@@ -157,7 +157,7 @@ open class MainCollectionViewController<T: MainCollectionViewModelProtocol>: Bas
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
         let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(33))
-        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: MainSupplementaryFooterView.reuseIdentifier, alignment: .bottom)
+        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: FeedSupplementaryFooterView.reuseIdentifier, alignment: .bottom)
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered

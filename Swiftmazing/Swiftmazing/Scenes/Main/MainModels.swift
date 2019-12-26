@@ -46,15 +46,15 @@ enum Main {
         }
     }
 
-    struct RepositoryCellViewModel: MainCollectionViewModelProtocol {
+    struct RepositoryCellViewModel: FeedCollectionViewModelProtocol {
 
-        var cellType: MainCollectionViewCell
+        var cellType: FeedCollectionViewCell
         var title: String?
         var name: String
         var description: String
         var images: [URL]
 
-        init(cellType: MainCollectionViewCell, title: String?, name: String, description: String, images: [URL]) {
+        init(cellType: FeedCollectionViewCell, title: String?, name: String, description: String, images: [URL]) {
             self.cellType = cellType
             self.title = title
             self.name = name
@@ -62,7 +62,7 @@ enum Main {
             self.images = images
         }
 
-        init(repository: RepositoryDomain, cellType: MainCollectionViewCell, title: String? = nil) {
+        init(repository: RepositoryDomain, cellType: FeedCollectionViewCell, title: String? = nil) {
             self.cellType = cellType
             self.name = repository.owner.name
             self.description = repository.description ?? ""

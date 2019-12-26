@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class MainSupplementaryHeaderView: UICollectionReusableView {
+public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
     private var designTitleColor = UIColor.Design.title
     private var designBackgroundColor = UIColor.Design.background
