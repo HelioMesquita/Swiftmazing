@@ -24,14 +24,14 @@ class MainWorker {
         self.serviceProvider = serviceProvider
     }
 
-    var getTopRepositories: Promise<Main.Response> {
+    var getTopRepositories: Promise<RepositoriesDomain> {
         let provider = PreviewTopRepositoriesProvider()
-        return serviceProvider.execute(request: provider, parser: Main.Response.self)
+        return serviceProvider.execute(request: provider, parser: RepositoriesDomain.self)
     }
 
-    var getLastUpdatedRpositories: Promise<Main.Response> {
+    var getLastUpdatedRpositories: Promise<RepositoriesDomain> {
         let provider = PreviewLastUpdatedRepositoriesProvider()
-        return serviceProvider.execute(request: provider, parser: Main.Response.self)
+        return serviceProvider.execute(request: provider, parser: RepositoriesDomain.self)
     }
 
 }

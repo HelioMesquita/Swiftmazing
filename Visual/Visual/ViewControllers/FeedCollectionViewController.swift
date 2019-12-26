@@ -85,7 +85,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
             switch kind {
             case self.header:
                 let headerView: FeedSupplementaryHeaderView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
-                headerView.label.text = FeedSection.allCases[indexPath.section].rawValue
+                headerView.label.text = FeedSection.allCases[indexPath.section].rawValue.localized()
                 return headerView
             case self.footer:
                 let footerView: FeedSupplementaryFooterView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
@@ -96,7 +96,6 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         }
 
         return dataSource
-
     }()
 
     override open func viewDidLoad() {

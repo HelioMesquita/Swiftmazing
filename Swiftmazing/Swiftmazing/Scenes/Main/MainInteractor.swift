@@ -38,7 +38,7 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
         when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
     }
 
-    func handleSuccess(_ topRepoResponse: Main.Response,_ lastUpdatedResponse: Main.Response) {
+    func handleSuccess(_ topRepoResponse: RepositoriesDomain,_ lastUpdatedResponse: RepositoriesDomain) {
         presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
     }
 

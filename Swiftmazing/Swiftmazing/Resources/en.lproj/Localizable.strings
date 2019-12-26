@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Swiftmazing
+
+  Created by Hélio Mesquita on 26/12/19.
+  Copyright © 2019 Hélio Mesquita. All rights reserved.
+*/
+
+"bestRepositories" = "BEST REPOSITORIES ";
+"renownedRepositories" = "Renowned repositories ";
+"bestTools" = "The best tools ";
+"updatedRepositories" = "UPDATED REPOSITORIES ";
+"latestUpdates" = "The latest updates ";
+"mostUpdatedRepositories" = "Most updated repositories ";

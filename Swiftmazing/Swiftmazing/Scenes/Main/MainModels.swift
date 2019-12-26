@@ -15,39 +15,34 @@ import Visual
 
 enum Main {
 
-    struct Response: Decodable {
-        let items: [RepositoryDomain]
-    }
-
     struct Mapper {
-        static func repoCellViewModel(repositories: [RepositoryDomain]) -> [RepositoryCellViewModel] {
-            return repositories.compactMap { RepositoryCellViewModel(repository: $0, cellType: .repositories) }
+        static func repoCellViewModel(repositories: [RepositoryDomain]) -> [FeedCellViewModel] {
+            return repositories.compactMap { FeedCellViewModel(repository: $0, cellType: .repositories) }
         }
 
-        static func newsCellViewModel(topRepos: [RepositoryDomain], mostRecent: [RepositoryDomain]) -> [RepositoryCellViewModel] {
+        static func newsCellViewModel(topRepos: [RepositoryDomain], mostRecent: [RepositoryDomain]) -> [FeedCellViewModel] {
             let topReposImages = topRepos.compactMap { $0.owner.avatar }
             let lastUpdatedImages = mostRecent.compactMap { $0.owner.avatar }
             return [
-                RepositoryCellViewModel(cellType: .news, title: "MELHORES REPOSITORIOS", name: "Os repositorios renomados", description: "As melhores ferramentas", images: topReposImages),
-                RepositoryCellViewModel(cellType: .news, title: "REPOSITORIOS ATUALIZADOS", name: "As ultimas atualizacoes", description: "Repositorios mais atualizados", images: lastUpdatedImages)
+                FeedCellViewModel(cellType: .news, title: .bestRepositories, name: .renownedRepositories, description: .bestTools, images: topReposImages),
+                FeedCellViewModel(cellType: .news, title: .updatedRepositories, name: .latestUpdates, description: .mostUpdatedRepositories, images: lastUpdatedImages)
             ]
         }
     }
 
     struct ViewModel {
-        let news: [RepositoryCellViewModel]
-        let topRepos: [RepositoryCellViewModel]
-        let mostRecent: [RepositoryCellViewModel]
+        let news: [FeedCellViewModel]
+        let topRepos: [FeedCellViewModel]
+        let mostRecent: [FeedCellViewModel]
 
-        init(news: [RepositoryCellViewModel] = [], topRepos: [RepositoryCellViewModel] = [], mostRecent: [RepositoryCellViewModel] = []) {
+        init(news: [FeedCellViewModel] = [], topRepos: [FeedCellViewModel] = [], mostRecent: [FeedCellViewModel] = []) {
             self.news = news
             self.topRepos = topRepos
             self.mostRecent = mostRecent
         }
     }
 
-    struct RepositoryCellViewModel: FeedCollectionViewModelProtocol {
-
+    struct FeedCellViewModel: FeedCollectionViewModelProtocol {
         var cellType: FeedCollectionViewCell
         var title: String?
         var name: String
@@ -70,5 +65,16 @@ enum Main {
             self.title = title
         }
     }
+
+}
+
+fileprivate extension String {
+
+    static let bestRepositories = NSLocalizedString("bestRepositories", comment: "")
+    static let renownedRepositories = NSLocalizedString("renownedRepositories", comment: "")
+    static let bestTools = NSLocalizedString("bestTools", comment: "")
+    static let updatedRepositories = NSLocalizedString("updatedRepositories", comment: "")
+    static let latestUpdates = NSLocalizedString("latestUpdates", comment: "")
+    static let mostUpdatedRepositories = NSLocalizedString("mostUpdatedRepositories", comment: "")
 
 }
