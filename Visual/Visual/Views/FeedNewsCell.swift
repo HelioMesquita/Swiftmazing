@@ -28,7 +28,7 @@ public class FeedNewsCell: UICollectionViewCell {
     public lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.font = .systemFont(ofSize: 22, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +36,7 @@ public class FeedNewsCell: UICollectionViewCell {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = designSubtitleColor
-        label.font = .systemFont(ofSize: 21, weight: .regular)
+        label.font = .systemFont(ofSize: 22, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -96,7 +96,7 @@ public class FeedNewsCell: UICollectionViewCell {
     func addTitleLabel() {
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
