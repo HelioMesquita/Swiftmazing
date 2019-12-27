@@ -9,3 +9,4 @@ https://stackoverflow.com/questions/35927109/can-i-use-cocoapods-when-creating-a
 https://medium.com/captain-ios-experts/develop-a-swift-framework-1c7fdda27bf1
 https://medium.com/freelancer-engineering/modular-architecture-on-ios-and-how-i-decreased-build-time-by-50-23c7666c6d2f
 https://github.com/CocoaPods/CocoaPods/issues/9275
+https://nshipster.com/swiftui-previews/

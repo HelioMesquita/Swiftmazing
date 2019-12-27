@@ -129,6 +129,8 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
         uiView.nameLabel.text = nameLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.imageView.image = avatar
+        uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        uiView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 
 }
@@ -137,10 +139,15 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
 struct FeedRepositoryCell_Preview: PreviewProvider {
 
     static var previews: some View {
-        FeedRepositoryCellRepresentable(nameLabel: .constant("Name label"),
-                                        descriptionLabel: .constant("Description Label"),
-                                        avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
-            .padding(.horizontal, 8.0)
+        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+            FeedRepositoryCellRepresentable(nameLabel: .constant("Name label"),
+                                            descriptionLabel: .constant("Description Label"),
+                                            avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
+            .environment(\.colorScheme, colorScheme)
+            .previewDisplayName("\(colorScheme)")
+        }
+        .previewLayout(.fixed(width: 300, height: 80))
+        .padding(.horizontal, 8.0)
     }
 }
 
