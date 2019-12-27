@@ -35,7 +35,7 @@ public extension FeedCollectionViewModelProtocol {
     }
 
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.id == rhs.id
     }
 
 }
@@ -85,7 +85,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
             switch kind {
             case self.header:
                 let headerView: FeedSupplementaryHeaderView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
-                headerView.label.text = FeedSection.allCases[indexPath.section].rawValue.localized()
+                headerView.configure(FeedSection.allCases[indexPath.section].rawValue.localized(), .seeMore)
                 return headerView
             case self.footer:
                 let footerView: FeedSupplementaryFooterView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
@@ -115,7 +115,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func createLayout() -> UICollectionViewLayout {
-        return UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
+        return UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
             let section = FeedSection.allCases[sectionIndex]
             switch section {
             case .news:
@@ -164,5 +164,11 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
         return section
     }
+
+}
+
+fileprivate extension String {
+
+    static let seeMore = "seeMore".localized()
 
 }
