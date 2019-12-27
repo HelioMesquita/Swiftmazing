@@ -110,7 +110,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
 }
 
 
-#if DEBUG && canImport(SwiftUI)
+#if DEBUG
 import SwiftUI
 
 struct FeedRepositoryCellRepresentable: UIViewRepresentable {
@@ -135,7 +135,6 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
 
 }
 
-@available(iOS 13.0, *)
 struct FeedRepositoryCell_Preview: PreviewProvider {
 
     static var previews: some View {
