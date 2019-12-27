@@ -4,6 +4,24 @@ use_frameworks!
 
 workspace 'Swiftmazing'
 
+#workaround cocoapods issue #9275
+class Pod::Target::BuildSettings::AggregateTargetSettings
+    BUILT_PRODUCTS_DIR_VARIABLE = "${BUILT_PRODUCTS_DIR}"
+
+    alias_method :ld_runpath_search_paths_original, :ld_runpath_search_paths
+
+    def ld_runpath_search_paths
+        ld_runpath_search_paths_original + custom_ld_paths + [BUILT_PRODUCTS_DIR_VARIABLE]
+    end
+
+    def custom_ld_paths
+        return [] unless configuration_name == "Debug"
+        target.pod_targets.map do |pod|
+            BUILT_PRODUCTS_DIR_VARIABLE + "/" + pod.product_basename
+        end
+    end
+end
+
 
 def testingPods
     pod 'Quick', '2.2.0'
