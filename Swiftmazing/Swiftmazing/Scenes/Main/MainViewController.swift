@@ -44,6 +44,8 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor?.loadScreen()
+        title = Bundle.main.displayName
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     func loadTable() {
@@ -52,7 +54,8 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         snapshot.appendItems(viewModel.news, toSection: .news)
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
         snapshot.appendItems(viewModel.mostRecent, toSection: .lastUpdated)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
 }

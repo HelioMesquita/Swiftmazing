@@ -678,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DISPLAYNAME = "$(DISPLAYNAME)";
 				HOST = "$(HOST)";
 				INFOPLIST_FILE = Swiftmazing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,7 +686,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Swiftmazing;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(DISPLAYNAME)";
 				SCHEME = "$(SCHEME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,6 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DISPLAYNAME = "$(DISPLAYNAME)";
 				HOST = "$(HOST)";
 				INFOPLIST_FILE = Swiftmazing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -705,7 +707,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Swiftmazing;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(DISPLAYNAME)";
 				SCHEME = "$(SCHEME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
