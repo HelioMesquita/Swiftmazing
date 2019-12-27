@@ -17,7 +17,7 @@ public class FeedNewsCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
-    public lazy var titleLabel: UILabel = {
+    internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designLinkColor
         label.font = .systemFont(ofSize: 11, weight: .semibold)
@@ -25,7 +25,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return label
     }()
 
-    public lazy var nameLabel: UILabel = {
+    internal lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
         label.font = .systemFont(ofSize: 22, weight: .regular)
@@ -33,7 +33,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var descriptionLabel: UILabel = {
+    internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = designSubtitleColor
         label.font = .systemFont(ofSize: 22, weight: .regular)
@@ -41,7 +41,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var imagesContainerView: UIView = {
+    internal lazy var imagesContainerView: UIView = {
         let view  = UIView()
         view.layer.cornerRadius = 6
         view.clipsToBounds = true
@@ -49,7 +49,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var imagesStackView: UIStackView = {
+    internal lazy var imagesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 0
@@ -59,7 +59,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return stackView
     }()
 
-    private lazy var evenImagesStackView: UIStackView = {
+    internal lazy var evenImagesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -67,7 +67,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return stackView
     }()
 
-    private lazy var oddImagesStackView: UIStackView = {
+    internal lazy var oddImagesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -156,7 +156,7 @@ public class FeedNewsCell: UICollectionViewCell {
         }
     }
 
-    private func createImage(image: URL) -> UIImageView {
+    internal func createImage(image: URL) -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -171,3 +171,59 @@ public class FeedNewsCell: UICollectionViewCell {
     }
 
 }
+
+
+#if DEBUG
+import SwiftUI
+
+struct FeedNewsCellRepresentable: UIViewRepresentable {
+
+    @Binding var titleLabel: String
+    @Binding var nameLabel: String
+    @Binding var descriptionLabel: String
+    @Binding var avatar: UIImage?
+
+    public typealias UIViewType = FeedNewsCell
+
+    func makeUIView(context: UIViewRepresentableContext<FeedNewsCellRepresentable>) -> FeedNewsCell {
+        return FeedNewsCell(frame: .zero)
+    }
+
+    func updateUIView(_ uiView: FeedNewsCell, context: UIViewRepresentableContext<FeedNewsCellRepresentable>) {
+        uiView.titleLabel.text = titleLabel
+        uiView.nameLabel.text = nameLabel
+        uiView.descriptionLabel.text = descriptionLabel
+        uiView.oddImagesStackView.addArrangedSubview(createImage())
+        uiView.oddImagesStackView.addArrangedSubview(createImage())
+        uiView.oddImagesStackView.addArrangedSubview(createImage())
+        uiView.evenImagesStackView.addArrangedSubview(createImage())
+        uiView.evenImagesStackView.addArrangedSubview(createImage())
+        uiView.evenImagesStackView.addArrangedSubview(createImage())
+    }
+
+    func createImage() -> UIImageView {
+        let imageView = UIImageView(image: avatar)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }
+
+}
+
+struct FeedNewsCell_Preview: PreviewProvider {
+
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+            FeedNewsCellRepresentable(titleLabel: .constant("Title Label"),
+                                      nameLabel: .constant("Name label"),
+                                      descriptionLabel: .constant("Description Label"),
+                                      avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
+            .environment(\.colorScheme, colorScheme)
+            .previewDisplayName("\(colorScheme)")
+        }
+        .previewLayout(.fixed(width: 365, height: 320))
+        .padding(.horizontal, 8.0)
+    }
+}
+
+#endif

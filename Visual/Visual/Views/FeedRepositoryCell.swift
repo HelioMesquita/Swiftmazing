@@ -73,8 +73,8 @@ public class FeedRepositoryCell: UICollectionViewCell {
         addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 63),
-            imageView.widthAnchor.constraint(equalToConstant: 63),
+            imageView.heightAnchor.constraint(equalToConstant: 64),
+            imageView.widthAnchor.constraint(equalToConstant: 64),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
@@ -109,7 +109,6 @@ public class FeedRepositoryCell: UICollectionViewCell {
 
 }
 
-
 #if DEBUG
 import SwiftUI
 
@@ -129,8 +128,6 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
         uiView.nameLabel.text = nameLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.imageView.image = avatar
-        uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        uiView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 
 }
@@ -141,11 +138,11 @@ struct FeedRepositoryCell_Preview: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
             FeedRepositoryCellRepresentable(nameLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
-                                            avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
+                                            avatar: .constant(UIImage.Design.swift))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
         }
-        .previewLayout(.fixed(width: 300, height: 80))
+        .previewLayout(.fixed(width: 365, height: 80))
         .padding(.horizontal, 8.0)
     }
 }

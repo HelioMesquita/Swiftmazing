@@ -37,3 +37,37 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     }
 
 }
+
+#if DEBUG
+import SwiftUI
+
+struct FeedSupplementaryHeaderViewRepresentable: UIViewRepresentable {
+
+    @Binding var titleLabel: String
+
+    public typealias UIViewType = FeedSupplementaryHeaderView
+
+    func makeUIView(context: UIViewRepresentableContext<FeedSupplementaryHeaderViewRepresentable>) -> FeedSupplementaryHeaderView {
+        return FeedSupplementaryHeaderView(frame: .zero)
+    }
+
+    func updateUIView(_ uiView: FeedSupplementaryHeaderView, context: UIViewRepresentableContext<FeedSupplementaryHeaderViewRepresentable>) {
+        uiView.label.text = titleLabel
+    }
+
+}
+
+struct FeedSupplementaryHeaderView_Preview: PreviewProvider {
+
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+            FeedSupplementaryHeaderViewRepresentable(titleLabel: .constant("Name label"))
+            .environment(\.colorScheme, colorScheme)
+            .previewDisplayName("\(colorScheme)")
+        }
+        .previewLayout(.fixed(width: 365, height: 80))
+        .padding(.horizontal, 8.0)
+    }
+}
+
+#endif
