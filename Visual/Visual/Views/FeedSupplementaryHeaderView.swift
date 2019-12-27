@@ -47,7 +47,8 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         button.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            button.centerYAnchor.constraint(equalTo: centerYAnchor),
+            button.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor),
+//            button.centerYAnchor.constraint(equalTo: centerYAnchor),
             button.leadingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor, constant: 12),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
         ])

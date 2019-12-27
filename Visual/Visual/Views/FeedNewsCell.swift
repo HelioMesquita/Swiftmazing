@@ -148,7 +148,7 @@ public class FeedNewsCell: UICollectionViewCell {
         titleLabel.text = element.title
         descriptionLabel.text = element.description
         element.images.enumerated().forEach { (index, element) in
-            if index % 2 == 0 {
+            if index.isMultiple(of: 2) {
                 oddImagesStackView.addArrangedSubview(createImage(image: element))
             } else {
                 evenImagesStackView.addArrangedSubview(createImage(image: element))

@@ -51,6 +51,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     private let header = FeedSupplementaryHeaderView.reuseIdentifier
     private let footer = FeedSupplementaryFooterView.reuseIdentifier
     private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+    private let numberOfElementsInReceiptGroup = 3
 
     lazy public var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -66,6 +67,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
 
         var dataSource = UICollectionViewDiffableDataSource<FeedSection, T>(collectionView: self.collectionView) { [weak self]  (collectionView, indexPath, element) -> UICollectionViewCell? in
+            guard let `self` = self else { return nil }
             let sectionType = FeedSection.allCases[indexPath.section]
             switch sectionType {
             case .news:
@@ -74,7 +76,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
                 return cell
             case .topRepos, .lastUpdated:
                 let cell: FeedRepositoryCell = collectionView.dequeueReusableCell(for: indexPath)
-                cell.configure(element)
+                cell.configure(element, index: indexPath.row, numberOfElements: self.numberOfElementsInReceiptGroup)
                 return cell
             }
         }
@@ -127,16 +129,12 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func repositoriesSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(72))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = contentInsets
+        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.3))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 3)
-
-        let itemSupplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(10))
-        let itemSupplementary = NSCollectionLayoutSupplementaryItem(layoutSize: itemSupplementarySize, elementKind: footer, containerAnchor: NSCollectionLayoutAnchor(edges: .top), itemAnchor: NSCollectionLayoutAnchor(edges: .bottom))
-        group.supplementaryItems = [itemSupplementary]
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(232))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: numberOfElementsInReceiptGroup)
 
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: FeedSupplementaryHeaderView.reuseIdentifier, alignment: .top)

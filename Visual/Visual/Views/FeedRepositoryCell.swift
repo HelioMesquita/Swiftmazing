@@ -20,7 +20,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = false
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = 14
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.borderWidth = 1
@@ -31,25 +31,33 @@ public class FeedRepositoryCell: UICollectionViewCell {
     internal lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         return label
     }()
 
     internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.font = .systemFont(ofSize: 14 , weight: .regular)
         label.textColor = designSubtitleColor
         return label
     }()
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 8
+        stackView.spacing = 4
         stackView.alignment = .leading
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }()
+
+    private lazy var lineView: UIView = {
+        let line = UIView()
+        line.isHidden = true
+        line.backgroundColor = designLineColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
     }()
 
     public override init(frame: CGRect) {
@@ -67,6 +75,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
         addStackView()
         addNameLabel()
         addSubtitleLabel()
+        addLine()
     }
 
     private func addRepositoryImageView() {
@@ -88,6 +97,16 @@ public class FeedRepositoryCell: UICollectionViewCell {
         ])
     }
 
+    private func addLine() {
+        addSubview(lineView)
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: 1),
+        ])
+    }
+
     private func addNameLabel() {
         stackView.addArrangedSubview(nameLabel)
     }
@@ -101,10 +120,16 @@ public class FeedRepositoryCell: UICollectionViewCell {
         imageView.layer.borderColor = designLineColor?.cgColor
     }
 
-    public func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
+    public func configure<T: FeedCollectionViewModelProtocol>(_ element: T, index: Int, numberOfElements: Int) {
         nameLabel.text = element.name
         descriptionLabel.text = element.description
         imageView.sd_setImage(with: element.images.first)
+        lineView.isHidden = (index + 1).isMultiple(of: numberOfElements)
+    }
+
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        lineView.isHidden = false
     }
 
 }
