@@ -16,7 +16,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
-    private lazy var imageView: UIImageView = {
+    internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = false
@@ -28,14 +28,14 @@ public class FeedRepositoryCell: UICollectionViewCell {
         return imageView
     }()
 
-    public lazy var nameLabel: UILabel = {
+    internal lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
 
-    private lazy var descriptionLabel: UILabel = {
+    internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 13, weight: .regular)
@@ -108,3 +108,40 @@ public class FeedRepositoryCell: UICollectionViewCell {
     }
 
 }
+
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+struct FeedRepositoryCellRepresentable: UIViewRepresentable {
+
+    @Binding var nameLabel: String
+    @Binding var descriptionLabel: String
+    @Binding var avatar: UIImage?
+
+    public typealias UIViewType = FeedRepositoryCell
+
+    func makeUIView(context: UIViewRepresentableContext<FeedRepositoryCellRepresentable>) -> FeedRepositoryCell {
+        return FeedRepositoryCell(frame: .zero)
+    }
+
+    func updateUIView(_ uiView: FeedRepositoryCell, context: UIViewRepresentableContext<FeedRepositoryCellRepresentable>) {
+        uiView.nameLabel.text = nameLabel
+        uiView.descriptionLabel.text = descriptionLabel
+        uiView.imageView.image = avatar
+    }
+
+}
+
+@available(iOS 13.0, *)
+struct FeedRepositoryCell_Preview: PreviewProvider {
+
+    static var previews: some View {
+        FeedRepositoryCellRepresentable(nameLabel: .constant("Name label"),
+                                        descriptionLabel: .constant("Description Label"),
+                                        avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
+            .padding(.horizontal, 8.0)
+    }
+}
+
+#endif

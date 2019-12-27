@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+internal extension UIColor {
 
     struct Design {
         static let background = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)

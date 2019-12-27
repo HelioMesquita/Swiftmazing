@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+Utils.swift
+//  UITableViewCell+UICollectionReusableView+Utils.swift
 //  Visual
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ReusableView {
+internal  protocol ReusableView {
     static var reuseIdentifier: String { get }
 }
 

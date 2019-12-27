@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D011CEC5A18ACE80B60225C /* Pods_Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */; };
 		E910BAF023B157E9007C3BC3 /* FeedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */; };
+		E93E33E523B6258900D39189 /* Develop.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93E33E423B6258900D39189 /* Develop.xcassets */; };
+		E93E33E723B62E0900D39189 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E33E623B62E0900D39189 /* UIImage+Utils.swift */; };
 		E9DC1F2823B13DF5004F14FF /* FeedSupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */; };
 		E9FF691523B2320B0004E610 /* FeedSupplementaryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */; };
 		FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD96A23B51E2C00D92429 /* String+Utils.swift */; };
@@ -21,7 +23,7 @@
 		FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB571AC23A589C800BAD13C /* Colors.xcassets */; };
 		FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AE23A5971D00BAD13C /* BaseViewController.swift */; };
 		FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */; };
-		FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */; };
+		FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift */; };
 		FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */; };
 		FDEEDF25239DD22300C64A0B /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF1B239DD22300C64A0B /* Visual.framework */; };
 		FDEEDF2A239DD22300C64A0B /* VisualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF29239DD22300C64A0B /* VisualTests.swift */; };
@@ -43,6 +45,8 @@
 		2EF2791A18AF45E98BE82521 /* Pods-Visual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visual.debug.xcconfig"; path = "Target Support Files/Pods-Visual/Pods-Visual.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4E212EBDAB9B1A2C41D77C /* Pods_Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewsCell.swift; sourceTree = "<group>"; };
+		E93E33E423B6258900D39189 /* Develop.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Develop.xcassets; sourceTree = "<group>"; };
+		E93E33E623B62E0900D39189 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		E95670D923B0E796007611F8 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSupplementaryHeaderView.swift; sourceTree = "<group>"; };
 		E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSupplementaryFooterView.swift; sourceTree = "<group>"; };
@@ -57,7 +61,7 @@
 		FDB571AC23A589C800BAD13C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FDB571AE23A5971D00BAD13C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
-		FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionViewCell+Utils.swift"; sourceTree = "<group>"; };
+		FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionReusableView+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Utils.swift"; sourceTree = "<group>"; };
 		FDEEDF1B239DD22300C64A0B /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1E239DD22300C64A0B /* Visual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visual.h; sourceTree = "<group>"; };
@@ -134,7 +138,8 @@
 				FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */,
 				FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */,
 				FD40A25F23ABB8BD004855B2 /* UITableView+Utils.swift */,
-				FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift */,
+				FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift */,
+				E93E33E623B62E0900D39189 /* UIImage+Utils.swift */,
 				FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */,
 			);
 			path = Utils;
@@ -145,8 +150,9 @@
 			children = (
 				FDEEDF1E239DD22300C64A0B /* Visual.h */,
 				FDEEDF1F239DD22300C64A0B /* Info.plist */,
-				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
 				FD1DD96E23B51E6600D92429 /* Localizable.strings */,
+				FDB571AC23A589C800BAD13C /* Colors.xcassets */,
+				E93E33E423B6258900D39189 /* Develop.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			files = (
 				FDB571AD23A589C800BAD13C /* Colors.xcassets in Resources */,
 				FD1DD96C23B51E6600D92429 /* Localizable.strings in Resources */,
+				E93E33E523B6258900D39189 /* Develop.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +346,9 @@
 				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
 				E9FF691523B2320B0004E610 /* FeedSupplementaryFooterView.swift in Sources */,
 				FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */,
-				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionViewCell+Utils.swift in Sources */,
+				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift in Sources */,
 				E910BAF023B157E9007C3BC3 /* FeedNewsCell.swift in Sources */,
+				E93E33E723B62E0900D39189 /* UIImage+Utils.swift in Sources */,
 				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
 				FD40A26023ABB8BD004855B2 /* UITableView+Utils.swift in Sources */,
 			);
@@ -506,6 +514,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = Visual/Resources/Develop.xcassets;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -533,6 +542,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = Visual/Resources/Develop.xcassets;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
