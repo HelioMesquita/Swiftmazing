@@ -15,6 +15,8 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     private var designLinkColor = UIColor.Design.link
     private let padding: CGFloat = 30.0
 
+    internal lazy var callBack: (FeedSection) -> Void = { sender in }
+    internal var section: FeedSection?
     internal let label: UILabel = UILabel()
     internal var button: UIButton?
 
@@ -48,19 +50,21 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
         NSLayoutConstraint.activate([
             button.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor),
-//            button.centerYAnchor.constraint(equalTo: centerYAnchor),
             button.leadingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor, constant: 12),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
         ])
     }
 
     @objc func buttonclicked() {
-        print("funcionando")
+        guard let section = section else { return }
+        callBack(section)
     }
 
-    func configure(_ text: String,_ buttonTitle: String) {
-        label.text = text
-        self.button?.setTitle(buttonTitle, for: .normal)
+    func configure(_ section: FeedSection, callBack: @escaping (FeedSection) -> Void, buttonTitle: String = .seeMore) {
+        self.section = section
+        self.callBack = callBack
+        label.text = section.rawValue.localized()
+        button?.setTitle(buttonTitle, for: .normal)
     }
 
     required init?(coder: NSCoder) {

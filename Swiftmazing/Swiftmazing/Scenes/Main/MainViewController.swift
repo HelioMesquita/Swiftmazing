@@ -58,6 +58,17 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
+    override func didSelectSupplementaryHeaderView(_ section: FeedSection) {
+        switch section {
+        case .topRepos:
+            print("top")
+        case .lastUpdated:
+            print("last")
+        default:
+            return
+        }
+    }
+
 }
 
 extension MainViewController: MainDisplayLogic {

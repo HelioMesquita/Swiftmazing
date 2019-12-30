@@ -40,13 +40,13 @@ public extension FeedCollectionViewModelProtocol {
 
 }
 
-open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
+public enum FeedSection: String, CaseIterable {
+    case news
+    case topRepos
+    case lastUpdated
+}
 
-    public enum FeedSection: String, CaseIterable {
-        case news
-        case topRepos
-        case lastUpdated
-    }
+open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
 
     private let header = FeedSupplementaryHeaderView.reuseIdentifier
     private let footer = FeedSupplementaryFooterView.reuseIdentifier
@@ -88,7 +88,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
             switch kind {
             case self.header:
                 let headerView: FeedSupplementaryHeaderView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
-                headerView.configure(FeedSection.allCases[indexPath.section].rawValue.localized(), .seeMore)
+                headerView.configure(FeedSection.allCases[indexPath.section], callBack: self.didSelectSupplementaryHeaderView)
                 return headerView
             case self.footer:
                 let footerView: FeedSupplementaryFooterView = collectionView.dequeueReusableSupplementaryView(for: indexPath)
@@ -104,6 +104,10 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     override open func viewDidLoad() {
         super.viewDidLoad()
         addCollectionView()
+    }
+
+    open func didSelectSupplementaryHeaderView(_ section: FeedSection) {
+       //override this method to get button action
     }
 
     private func addCollectionView() {
@@ -160,18 +164,18 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func sectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(36))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(40))
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: header, alignment: .top)
     }
 
     private func sectionFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(32))
+        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(24))
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: footer, alignment: .bottom)
     }
 
 }
 
-fileprivate extension String {
+internal extension String {
 
     static let seeMore = "seeMore".localized()
 
