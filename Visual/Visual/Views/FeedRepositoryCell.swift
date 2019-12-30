@@ -81,7 +81,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
     private func addRepositoryImageView() {
         addSubview(imageView)
         NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 64),
             imageView.widthAnchor.constraint(equalToConstant: 64),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -91,7 +91,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
     private func addStackView() {
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
             stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
         ])
@@ -102,7 +102,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             lineView.heightAnchor.constraint(equalToConstant: 1),
         ])
     }

@@ -25,7 +25,7 @@ public class FeedSupplementaryFooterView: UICollectionReusableView {
         NSLayoutConstraint.activate([
             line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            line.bottomAnchor.constraint(equalTo: bottomAnchor),
+            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
             line.heightAnchor.constraint(equalToConstant: 1),
         ])
     }
