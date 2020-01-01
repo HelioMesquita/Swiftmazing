@@ -12,7 +12,7 @@ public class FeedSupplementaryFooterView: UICollectionReusableView {
 
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
-    private let padding: CGFloat = 30.0
+    private let padding: CGFloat = 20.0
     private let line: UIView = UIView()
 
     override init(frame: CGRect) {
@@ -25,7 +25,7 @@ public class FeedSupplementaryFooterView: UICollectionReusableView {
         NSLayoutConstraint.activate([
             line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            line.bottomAnchor.constraint(equalTo: bottomAnchor),
             line.heightAnchor.constraint(equalToConstant: 1),
         ])
     }

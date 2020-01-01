@@ -50,7 +50,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
     private let header = FeedSupplementaryHeaderView.reuseIdentifier
     private let footer = FeedSupplementaryFooterView.reuseIdentifier
-    private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+    private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
     private let numberOfElementsInReceiptGroup = 3
 
     lazy public var collectionView: UICollectionView = {
@@ -138,7 +138,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = contentInsets
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(240))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(240))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: numberOfElementsInReceiptGroup)
 
         let section = NSCollectionLayoutSection(group: group)
@@ -151,10 +151,10 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     private func newsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = contentInsets
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(320))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(328))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        group.contentInsets = contentInsets
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
@@ -169,7 +169,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func sectionFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(24))
+        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(32))
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: footer, alignment: .bottom)
     }
 

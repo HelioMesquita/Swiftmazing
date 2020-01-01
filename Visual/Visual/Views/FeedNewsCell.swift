@@ -20,7 +20,7 @@ public class FeedNewsCell: UICollectionViewCell {
     internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designLinkColor
-        label.font = .systemFont(ofSize: 11, weight: .semibold)
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -28,7 +28,7 @@ public class FeedNewsCell: UICollectionViewCell {
     internal lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 22, weight: .regular)
+        label.font = .systemFont(ofSize: 24, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,14 +36,14 @@ public class FeedNewsCell: UICollectionViewCell {
     internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = designSubtitleColor
-        label.font = .systemFont(ofSize: 22, weight: .regular)
+        label.font = .systemFont(ofSize: 24, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     internal lazy var imagesContainerView: UIView = {
         let view  = UIView()
-        view.layer.cornerRadius = 6
+        view.layer.cornerRadius = 5
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -96,7 +96,7 @@ public class FeedNewsCell: UICollectionViewCell {
     func addTitleLabel() {
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -105,7 +105,7 @@ public class FeedNewsCell: UICollectionViewCell {
     func addNameLabel() {
         addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -114,7 +114,7 @@ public class FeedNewsCell: UICollectionViewCell {
     func addDescriptionLabel() {
         addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -123,10 +123,10 @@ public class FeedNewsCell: UICollectionViewCell {
     private func addImageContainerView() {
         addSubview(imagesContainerView)
         NSLayoutConstraint.activate([
-            imagesContainerView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+            imagesContainerView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 12),
             imagesContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imagesContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imagesContainerView.heightAnchor.constraint(equalToConstant: 224),
+            imagesContainerView.heightAnchor.constraint(equalToConstant: 240),
         ])
     }
 
