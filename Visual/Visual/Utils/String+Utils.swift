@@ -14,4 +14,6 @@ internal extension String {
         return NSLocalizedString(self, bundle: Bundle.module, comment: comment)
     }
 
+    static let seeMore = "seeMore".localized()
+
 }

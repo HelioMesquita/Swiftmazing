@@ -17,6 +17,9 @@ public class FeedNewsCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
+    private var imageContainerHeight: CGFloat = 240
+    private var imageContainerTopSpacing: CGFloat = 12
+
     internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designLinkColor
@@ -123,10 +126,10 @@ public class FeedNewsCell: UICollectionViewCell {
     private func addImageContainerView() {
         addSubview(imagesContainerView)
         NSLayoutConstraint.activate([
-            imagesContainerView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 12),
+            imagesContainerView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: imageContainerTopSpacing),
             imagesContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imagesContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imagesContainerView.heightAnchor.constraint(equalToConstant: 240),
+            imagesContainerView.heightAnchor.constraint(equalToConstant: imageContainerHeight),
         ])
     }
 

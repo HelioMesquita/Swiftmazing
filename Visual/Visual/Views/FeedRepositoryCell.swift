@@ -16,6 +16,11 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
+    private var imageHeight: CGFloat = 68
+    private var lineHeight: CGFloat = 1
+    private var linePadding: CGFloat = -8
+    private var stackViewPadding: CGFloat = 12
+
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -82,8 +87,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 68),
-            imageView.widthAnchor.constraint(equalToConstant: 68),
+            imageView.heightAnchor.constraint(equalToConstant: imageHeight),
+            imageView.widthAnchor.constraint(equalToConstant: imageHeight),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
@@ -91,7 +96,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private func addStackView() {
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12),
+            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
             stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -102,8 +107,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            lineView.heightAnchor.constraint(equalToConstant: 1),
+            lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: linePadding),
+            lineView.heightAnchor.constraint(equalToConstant: lineHeight),
         ])
     }
 

@@ -48,9 +48,17 @@ public enum FeedSection: String, CaseIterable {
 
 open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
 
+    private var headerHeight: NSCollectionLayoutDimension = .absolute(54)
+    private var footerHeight: NSCollectionLayoutDimension = .absolute(32)
+    private var groupWidth: NSCollectionLayoutDimension = .fractionalWidth(0.92)
+    private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(88)
+    private var repositoriesGroupHeight: NSCollectionLayoutDimension = .absolute(256)
+    private var newsGroupHeight: NSCollectionLayoutDimension = .estimated(328)
+    private var padding: CGFloat = 5
+    private lazy var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: padding, bottom: 0, trailing: padding)
+
     private let header = FeedSupplementaryHeaderView.reuseIdentifier
     private let footer = FeedSupplementaryFooterView.reuseIdentifier
-    private var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
     private let numberOfElementsInReceiptGroup = 3
 
     lazy public var collectionView: UICollectionView = {
@@ -134,11 +142,11 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func repositoriesSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(88))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .completedWidth, heightDimension: repositoriesItemHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = contentInsets
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(256))
+        let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: repositoriesGroupHeight)
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: numberOfElementsInReceiptGroup)
 
         let section = NSCollectionLayoutSection(group: group)
@@ -149,10 +157,10 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func newsSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .completedWidth, heightDimension: .completedHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(328))
+        let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: newsGroupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         group.contentInsets = contentInsets
 
@@ -164,19 +172,13 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func sectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(54))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .completedWidth, heightDimension: headerHeight)
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: header, alignment: .top)
     }
 
     private func sectionFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(32))
+        let footerSize = NSCollectionLayoutSize(widthDimension: .completedWidth, heightDimension: footerHeight)
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: footer, alignment: .bottom)
     }
-
-}
-
-internal extension String {
-
-    static let seeMore = "seeMore".localized()
 
 }
