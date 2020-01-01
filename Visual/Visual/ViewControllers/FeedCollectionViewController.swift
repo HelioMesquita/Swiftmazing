@@ -134,11 +134,11 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func repositoriesSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(80))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(88))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = contentInsets
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(240))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(256))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: numberOfElementsInReceiptGroup)
 
         let section = NSCollectionLayoutSection(group: group)
@@ -164,7 +164,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     }
 
     private func sectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(40))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(54))
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: header, alignment: .top)
     }
 

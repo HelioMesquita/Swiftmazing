@@ -93,7 +93,7 @@ public class FeedNewsCell: UICollectionViewCell {
         addImageStackView()
     }
 
-    func addTitleLabel() {
+    private func addTitleLabel() {
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -102,7 +102,7 @@ public class FeedNewsCell: UICollectionViewCell {
         ])
     }
 
-    func addNameLabel() {
+    private func addNameLabel() {
         addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
@@ -111,7 +111,7 @@ public class FeedNewsCell: UICollectionViewCell {
         ])
     }
 
-    func addDescriptionLabel() {
+    private func addDescriptionLabel() {
         addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
@@ -142,7 +142,7 @@ public class FeedNewsCell: UICollectionViewCell {
         imagesStackView.addArrangedSubview(evenImagesStackView)
     }
 
-    public func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
+    internal func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
         nameLabel.text = element.name
         titleLabel.text = element.title
         descriptionLabel.text = element.description
@@ -155,7 +155,7 @@ public class FeedNewsCell: UICollectionViewCell {
         }
     }
 
-    internal func createImage(image: URL) -> UIImageView {
+    private func createImage(image: URL) -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true

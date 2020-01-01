@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-public class FeedRepositoryCell: UICollectionViewCell {
+internal class FeedRepositoryCell: UICollectionViewCell {
 
     private var designTitleColor = UIColor.Design.title
     private var designSubtitleColor = UIColor.Design.subtitle
@@ -31,7 +31,7 @@ public class FeedRepositoryCell: UICollectionViewCell {
     internal lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
 
@@ -82,8 +82,8 @@ public class FeedRepositoryCell: UICollectionViewCell {
         addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 64),
-            imageView.widthAnchor.constraint(equalToConstant: 64),
+            imageView.heightAnchor.constraint(equalToConstant: 68),
+            imageView.widthAnchor.constraint(equalToConstant: 68),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
@@ -91,9 +91,9 @@ public class FeedRepositoryCell: UICollectionViewCell {
     private func addStackView() {
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12),
             stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 

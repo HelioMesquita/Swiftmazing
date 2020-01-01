@@ -13,7 +13,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     private var designTitleColor = UIColor.Design.title
     private var designBackgroundColor = UIColor.Design.background
     private var designLinkColor = UIColor.Design.link
-    private let padding: CGFloat = 30.0
+    private let padding: CGFloat = 20.0
 
     internal lazy var callBack: (FeedSection) -> Void = { sender in }
     internal var section: FeedSection?
@@ -27,7 +27,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         backgroundColor = designBackgroundColor
     }
 
-    func addLabel() {
+    private func addLabel() {
         label.textColor = designTitleColor
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.numberOfLines = 1
@@ -40,10 +40,10 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         ])
     }
 
-    func addButton() {
+    private func addButton() {
         let button = UIButton(type: .system)
         self.button = button
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
         button.addTarget(self, action: #selector(buttonclicked), for: .touchUpInside)
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,12 +55,12 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         ])
     }
 
-    @objc func buttonclicked() {
+    @objc private func buttonclicked() {
         guard let section = section else { return }
         callBack(section)
     }
 
-    func configure(_ section: FeedSection, callBack: @escaping (FeedSection) -> Void, buttonTitle: String = .seeMore) {
+    internal func configure(_ section: FeedSection, callBack: @escaping (FeedSection) -> Void, buttonTitle: String = .seeMore) {
         self.section = section
         self.callBack = callBack
         label.text = section.rawValue.localized()
@@ -76,7 +76,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
 #if DEBUG
 import SwiftUI
 
-struct FeedSupplementaryHeaderViewRepresentable: UIViewRepresentable {
+internal struct FeedSupplementaryHeaderViewRepresentable: UIViewRepresentable {
 
     @Binding var titleLabel: String
     @Binding var button: String
@@ -94,7 +94,7 @@ struct FeedSupplementaryHeaderViewRepresentable: UIViewRepresentable {
 
 }
 
-struct FeedSupplementaryHeaderView_Preview: PreviewProvider {
+internal struct FeedSupplementaryHeaderView_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
