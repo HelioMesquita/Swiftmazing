@@ -33,7 +33,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         return imageView
     }()
 
-    internal lazy var nameLabel: UILabel = {
+    internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
         label.font = .systemFont(ofSize: 18, weight: .regular)
@@ -113,7 +113,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     }
 
     private func addNameLabel() {
-        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(titleLabel)
     }
 
     private func addSubtitleLabel() {
@@ -126,7 +126,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     }
 
     public func configure<T: FeedCollectionViewModelProtocol>(_ element: T, index: Int, numberOfElements: Int) {
-        nameLabel.text = element.name
+        titleLabel.text = element.title
         descriptionLabel.text = element.description
         imageView.sd_setImage(with: element.images.first)
         lineView.isHidden = (index + 1).isMultiple(of: numberOfElements)
@@ -144,7 +144,7 @@ import SwiftUI
 
 struct FeedRepositoryCellRepresentable: UIViewRepresentable {
 
-    @Binding var nameLabel: String
+    @Binding var titleLabel: String
     @Binding var descriptionLabel: String
     @Binding var avatar: UIImage?
 
@@ -155,7 +155,7 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: FeedRepositoryCell, context: UIViewRepresentableContext<FeedRepositoryCellRepresentable>) {
-        uiView.nameLabel.text = nameLabel
+        uiView.titleLabel.text = titleLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.imageView.image = avatar
     }
@@ -166,7 +166,7 @@ struct FeedRepositoryCell_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
-            FeedRepositoryCellRepresentable(nameLabel: .constant("Name label"),
+            FeedRepositoryCellRepresentable(titleLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
                                             avatar: .constant(UIImage.Design.swift))
             .environment(\.colorScheme, colorScheme)

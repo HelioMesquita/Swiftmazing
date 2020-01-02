@@ -1,5 +1,5 @@
 //
-//  RepositoryDomain.swift
+//  Repository.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 22/12/19.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct RepositoryDomain: Decodable {
+struct Repository: Decodable {
 
     let name: String
     let stars: Int
-    let owner: OwnerDomain
+    let owner: RepositoryOwner
     let description: String?
 
     enum CodingKeys: String, CodingKey {

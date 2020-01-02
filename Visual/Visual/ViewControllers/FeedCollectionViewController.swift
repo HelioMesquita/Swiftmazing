@@ -8,16 +8,11 @@
 
 import UIKit
 
-public enum FeedCollectionViewCell {
-    case news
-    case repositories
-}
 
 public protocol FeedCollectionViewModelProtocol: Hashable {
     var id: String { get }
-    var cellType: FeedCollectionViewCell { get set }
-    var title: String? { get }
-    var name: String { get }
+    var title: String { get }
+    var subtitle: String? { get }
     var description: String { get }
     var images: [URL] { get }
 

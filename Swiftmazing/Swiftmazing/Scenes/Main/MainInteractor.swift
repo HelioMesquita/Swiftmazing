@@ -17,29 +17,54 @@ import PromiseKit
 
 protocol MainBusinessLogic {
     func loadScreen()
+    func repositorySelected(_ repository: Repository?)
+    func topRepoListSelected(_ repositories: [Repository])
+    func lastUpdatedListSelected(_ repositories: [Repository])
 }
 
 protocol MainDataStore {
+    var selectedRepository: Repository? { get set }
+    var listProvider: BaseRepositoriesProvider? { get set }
+    var listRepositories: [Repository] { get set }
 }
 
 class MainInteractor: MainBusinessLogic, MainDataStore {
 
     var presenter: MainPresentationLogic?
     let worker: MainWorker
+    let topRepositoriesProvider = TopRepositoriesProvider()
+    let lastUpdatedRepositoriesProvider = LastUpdatedRepositoriesProvider()
+
+    // MARK: DATASTORE
+    var listProvider: BaseRepositoriesProvider?
+    var listRepositories: [Repository] = []
+    var selectedRepository: Repository?
 
     init(worker: MainWorker = MainWorker()) {
         self.worker = worker
     }
 
     func loadScreen() {
-        let topRepo = worker.getTopRepositories
-        let lastUpdated = worker.getLastUpdatedRpositories
+        let topRepo = worker.getRepositories(from: topRepositoriesProvider)
+        let lastUpdated = worker.getRepositories(from: lastUpdatedRepositoriesProvider)
 
         when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
     }
 
-    func handleSuccess(_ topRepoResponse: RepositoriesDomain,_ lastUpdatedResponse: RepositoriesDomain) {
+    func handleSuccess(_ topRepoResponse: Repositories,_ lastUpdatedResponse: Repositories) {
         presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
+    }
+
+    func repositorySelected(_ repository: Repository?) {
+    
+    }
+
+    func topRepoListSelected(_ repositories: [Repository]) {
+
+    }
+
+    func lastUpdatedListSelected(_ repositories: [Repository]) {
+
     }
 
 }

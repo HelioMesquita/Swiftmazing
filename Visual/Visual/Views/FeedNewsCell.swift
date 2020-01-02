@@ -28,7 +28,7 @@ public class FeedNewsCell: UICollectionViewCell {
         return label
     }()
 
-    internal lazy var nameLabel: UILabel = {
+    internal lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
         label.font = .systemFont(ofSize: 24, weight: .regular)
@@ -106,18 +106,18 @@ public class FeedNewsCell: UICollectionViewCell {
     }
 
     private func addNameLabel() {
-        addSubview(nameLabel)
+        addSubview(subtitleLabel)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 
     private func addDescriptionLabel() {
         addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -146,8 +146,8 @@ public class FeedNewsCell: UICollectionViewCell {
     }
 
     internal func configure<T: FeedCollectionViewModelProtocol>(_ element: T) {
-        nameLabel.text = element.name
         titleLabel.text = element.title
+        subtitleLabel.text = element.subtitle
         descriptionLabel.text = element.description
         element.images.enumerated().forEach { (index, element) in
             if index.isMultiple(of: 2) {
@@ -181,7 +181,7 @@ import SwiftUI
 struct FeedNewsCellRepresentable: UIViewRepresentable {
 
     @Binding var titleLabel: String
-    @Binding var nameLabel: String
+    @Binding var subtitleLabel: String
     @Binding var descriptionLabel: String
     @Binding var avatar: UIImage?
 
@@ -193,7 +193,7 @@ struct FeedNewsCellRepresentable: UIViewRepresentable {
 
     func updateUIView(_ uiView: FeedNewsCell, context: UIViewRepresentableContext<FeedNewsCellRepresentable>) {
         uiView.titleLabel.text = titleLabel
-        uiView.nameLabel.text = nameLabel
+        uiView.subtitleLabel.text = subtitleLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.oddImagesStackView.addArrangedSubview(createImage())
         uiView.oddImagesStackView.addArrangedSubview(createImage())
@@ -217,7 +217,7 @@ struct FeedNewsCell_Preview: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
             FeedNewsCellRepresentable(titleLabel: .constant("Title Label"),
-                                      nameLabel: .constant("Name label"),
+                                      subtitleLabel: .constant("Name label"),
                                       descriptionLabel: .constant("Description Label"),
                                       avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
             .environment(\.colorScheme, colorScheme)

@@ -15,54 +15,76 @@ import Visual
 
 enum Main {
 
-    struct Mapper {
-        static func repoCellViewModel(repositories: [RepositoryDomain]) -> [FeedCellViewModel] {
-            return repositories.compactMap { FeedCellViewModel(repository: $0, cellType: .repositories) }
-        }
-
-        static func newsCellViewModel(topRepos: [RepositoryDomain], mostRecent: [RepositoryDomain]) -> [FeedCellViewModel] {
-            let topReposImages = topRepos.compactMap { $0.owner.avatar }
-            let lastUpdatedImages = mostRecent.compactMap { $0.owner.avatar }
-            return [
-                FeedCellViewModel(cellType: .news, title: .bestRepositories, name: .renownedRepositories, description: .bestTools, images: topReposImages),
-                FeedCellViewModel(cellType: .news, title: .updatedRepositories, name: .latestUpdates, description: .mostUpdatedRepositories, images: lastUpdatedImages)
-            ]
-        }
-    }
-
     struct ViewModel {
         let news: [FeedCellViewModel]
         let topRepos: [FeedCellViewModel]
-        let mostRecent: [FeedCellViewModel]
+        let lastUpdated: [FeedCellViewModel]
 
-        init(news: [FeedCellViewModel] = [], topRepos: [FeedCellViewModel] = [], mostRecent: [FeedCellViewModel] = []) {
+        init(news: [FeedCellViewModel] = [], topRepos: [FeedCellViewModel] = [], lastUpdated: [FeedCellViewModel] = []) {
             self.news = news
             self.topRepos = topRepos
-            self.mostRecent = mostRecent
+            self.lastUpdated = lastUpdated
+        }
+
+        init(news: MapNewsViewModel, topRepos: MapRepoViewModel, lastUpdated: MapRepoViewModel) {
+            self.news = news.items
+            self.topRepos = topRepos.items
+            self.lastUpdated = lastUpdated.items
         }
     }
 
     struct FeedCellViewModel: FeedCollectionViewModelProtocol {
-        var cellType: FeedCollectionViewCell
-        var title: String?
-        var name: String
+        var title: String
+        var subtitle: String?
         var description: String
         var images: [URL]
 
-        init(cellType: FeedCollectionViewCell, title: String?, name: String, description: String, images: [URL]) {
-            self.cellType = cellType
+        var section: FeedSection
+        var repository: Repository?
+
+        init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL]) {
             self.title = title
-            self.name = name
+            self.subtitle = subtitle
             self.description = description
             self.images = images
+            self.section = section
         }
 
-        init(repository: RepositoryDomain, cellType: FeedCollectionViewCell, title: String? = nil) {
-            self.cellType = cellType
-            self.name = repository.owner.name
+        init(repository: Repository, section: FeedSection) {
+            self.title = repository.owner.name
             self.description = repository.description ?? ""
             self.images = [repository.owner.avatar]
-            self.title = title
+            self.section = section
+            self.repository = repository
+        }
+    }
+
+    struct MapRepoViewModel {
+        var items: [FeedCellViewModel]
+
+        init(repositories: [Repository], section: FeedSection) {
+            items = repositories.compactMap { FeedCellViewModel(repository: $0, section: section) }
+        }
+    }
+
+    struct MapNewsViewModel {
+        var items: [FeedCellViewModel]
+
+        init(topRepos: [Repository], lastUpdated: [Repository]) {
+            let topAvatars = topRepos.compactMap { $0.owner.avatar }
+            let lastAvatars = lastUpdated.compactMap { $0.owner.avatar }
+            items = [
+                FeedCellViewModel(title: .bestRepositories,
+                                  subtitle: .renownedRepositories,
+                                  description: .bestTools,
+                                  section: .topRepos,
+                                  images: topAvatars),
+                FeedCellViewModel(title: .updatedRepositories,
+                                  subtitle: .latestUpdates,
+                                  description: .mostUpdatedRepositories,
+                                  section: .lastUpdated,
+                                  images: lastAvatars)
+            ]
         }
     }
 

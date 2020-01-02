@@ -1,5 +1,5 @@
 //
-//  RepositoriesDomain.swift
+//  Repositories.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 26/12/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct RepositoriesDomain: Decodable {
+struct Repositories: Decodable {
 
-    let items: [RepositoryDomain]
+    let items: [Repository]
 
 }

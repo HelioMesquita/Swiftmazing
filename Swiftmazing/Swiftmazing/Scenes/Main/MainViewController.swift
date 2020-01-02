@@ -46,6 +46,7 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         interactor?.loadScreen()
         title = Bundle.main.displayName
         navigationController?.navigationBar.prefersLargeTitles = true
+        collectionView.delegate = self
     }
 
     func loadTable() {
@@ -53,12 +54,17 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         snapshot.appendSections([.news, .topRepos, .lastUpdated])
         snapshot.appendItems(viewModel.news, toSection: .news)
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
-        snapshot.appendItems(viewModel.mostRecent, toSection: .lastUpdated)
+        snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
         dataSource.apply(snapshot, animatingDifferences: true)
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
     override func didSelectSupplementaryHeaderView(_ section: FeedSection) {
+        didSelectSection(section)
+    }
+
+    func didSelectSection(_ section: FeedSection) {
+        let cellViewModels = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
         switch section {
         case .topRepos:
             print("top")
@@ -66,6 +72,23 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
             print("last")
         default:
             return
+        }
+    }
+
+    func didSelectRepository(_ repository: Repository?) {
+
+    }
+
+}
+
+extension MainViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let element = dataSource.itemIdentifier(for: indexPath) else { return }
+        if FeedSection.allCases[indexPath.section] == .news {
+            didSelectSection(element.section)
+        } else {
+            didSelectRepository(element.repository)
         }
     }
 

@@ -1,5 +1,5 @@
 //
-//  OwnerDomain.swift
+//  RepositoryOwner.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 22/12/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OwnerDomain: Decodable {
+struct RepositoryOwner: Decodable {
 
     let name: String
     let avatar: URL
