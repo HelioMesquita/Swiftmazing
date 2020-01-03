@@ -16,28 +16,55 @@ import UIKit
 
 protocol ListBusinessLogic {
     func loadScreen()
+    func resetProvider()
+    func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
     var listProvider: BaseRepositoriesProvider? { get set }
     var listRepositories: [Repository] { get set }
+    var listTitle: String { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
 
-    let worker: ListWorker
+    let worker: RepositoriesWorker
     var presenter: ListPresentationLogic?
 
     // MARK: DATASTORE
+    var listTitle: String = ""
     var listProvider: BaseRepositoriesProvider?
     var listRepositories: [Repository] = []
 
-    init(worker: ListWorker = ListWorker()) {
+    init(worker: RepositoriesWorker = RepositoriesWorker()) {
         self.worker = worker
     }
 
     func loadScreen() {
-        self.presenter?.mapResponse(listRepositories)
+        presenter?.map(listRepositories)
+        presenter?.presentTitle(listTitle)
+    }
+
+    func prefetchNextPage(index: Int) {
+        let indexAdjusted = index + 1
+        let totalItems = (listProvider?.currentPage ?? 0) * (listProvider?.itemsPerPage ?? 1)
+        if indexAdjusted == totalItems {
+            loadNextPage()
+        }
+    }
+
+    private func loadNextPage() {
+        guard let provider = listProvider else { return }
+        provider.currentPage += 1
+        worker.getRepositories(from: provider).done(handleSuccess).cauterize()
+    }
+
+    private func handleSuccess(_ repositories: Repositories) {
+        presenter?.map(repositories.items)
+    }
+
+    func resetProvider() {
+        listProvider?.currentPage = 1
     }
 
 }

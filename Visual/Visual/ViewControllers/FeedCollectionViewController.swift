@@ -19,6 +19,10 @@ public enum FeedSection: String, CaseIterable {
     case news
     case topRepos
     case lastUpdated
+
+    public var value: String {
+        return String(describing: self).localized()
+    }
 }
 
 open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {

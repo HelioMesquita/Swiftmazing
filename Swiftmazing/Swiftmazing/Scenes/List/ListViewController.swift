@@ -14,19 +14,14 @@ import UIKit
 import Visual
 
 protocol ListDisplayLogic: class {
-    func show(_ viewModel: List.ViewModel)
+    func show(_ viewModels: [List.ListCellViewModel])
+    func showTitle(_ title: String)
 }
 
 class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
 
     var interactor: ListBusinessLogic?
     var router: (ListRoutingLogic & ListDataPassing)?
-
-    var viewModel: List.ViewModel = List.ViewModel() {
-        didSet {
-            reloadTable()
-        }
-    }
 
     override func setup() {
         let viewController = self
@@ -44,23 +39,38 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor?.loadScreen()
-        title = "TELA DE LISTA"
+        collectionView.prefetchDataSource = self
     }
 
-    func reloadTable() {
-        var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
-        snapshot.appendSections([.repo])
-        snapshot.appendItems(viewModel.items, toSection: .repo)
-        dataSource.apply(snapshot, animatingDifferences: true)
-        collectionView.collectionViewLayout.invalidateLayout()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.resetProvider()
+    }
+
+}
+
+extension ListViewController: UICollectionViewDataSourcePrefetching {
+
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            interactor?.prefetchNextPage(index: indexPath.row)
+        }
     }
 
 }
 
 extension ListViewController: ListDisplayLogic {
 
-    func show(_ viewModel: List.ViewModel) {
-        self.viewModel = viewModel
+    func showTitle(_ title: String) {
+        self.title = title
+    }
+
+    func show(_ viewModels: [List.ListCellViewModel]) {
+        let items = dataSource.snapshot().itemIdentifiers + viewModels
+        var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
+        snapshot.appendSections([.repo])
+        snapshot.appendItems(items, toSection: .repo)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 
 }

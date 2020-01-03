@@ -23,12 +23,6 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
     var interactor: MainBusinessLogic?
     var router: (MainRoutingLogic & MainDataPassing)?
 
-    var viewModel: Main.ViewModel = Main.ViewModel() {
-        didSet {
-            reloadTable()
-        }
-    }
-
     override func setup() {
         let viewController = self
         let interactor = MainInteractor()
@@ -59,17 +53,6 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         interactor?.loadScreen()
     }
 
-    func reloadTable() {
-        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Main.FeedCellViewModel>()
-        snapshot.appendSections([.news, .topRepos, .lastUpdated])
-        snapshot.appendItems(viewModel.news, toSection: .news)
-        snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
-        snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
-        dataSource.apply(snapshot, animatingDifferences: true)
-        collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.refreshControl?.endRefreshing()
-    }
-
     override func didSelectSupplementaryHeaderView(_ section: FeedSection) {
         didSelectSection(section)
     }
@@ -78,9 +61,9 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         let repositories = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
         switch section {
         case .topRepos:
-            interactor?.topRepoListSelected(repositories)
+            interactor?.topRepoListSelected(repositories, title: section.value)
         case .lastUpdated:
-            interactor?.lastUpdatedListSelected(repositories)
+            interactor?.lastUpdatedListSelected(repositories, title: section.value)
         default:
             return
         }
@@ -108,7 +91,14 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: MainDisplayLogic {
 
     func show(_ viewModel: Main.ViewModel) {
-        self.viewModel = viewModel
+        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Main.FeedCellViewModel>()
+        snapshot.appendSections([.news, .topRepos, .lastUpdated])
+        snapshot.appendItems(viewModel.news, toSection: .news)
+        snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
+        snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
+        dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.refreshControl?.endRefreshing()
     }
 
     func showList() {

@@ -18,12 +18,13 @@ import PromiseKit
 protocol MainBusinessLogic {
     func loadScreen()
     func repositorySelected(_ repository: Repository?)
-    func topRepoListSelected(_ repositories: [Repository])
-    func lastUpdatedListSelected(_ repositories: [Repository])
+    func topRepoListSelected(_ repositories: [Repository], title: String)
+    func lastUpdatedListSelected(_ repositories: [Repository], title: String)
 }
 
 protocol MainDataStore {
     var selectedRepository: Repository? { get set }
+    var listTitle: String { get set }
     var listProvider: BaseRepositoriesProvider? { get set }
     var listRepositories: [Repository] { get set }
 }
@@ -31,16 +32,17 @@ protocol MainDataStore {
 class MainInteractor: MainBusinessLogic, MainDataStore {
 
     var presenter: MainPresentationLogic?
-    let worker: MainWorker
+    let worker: RepositoriesWorker
     let topRepositoriesProvider = TopRepositoriesProvider()
     let lastUpdatedRepositoriesProvider = LastUpdatedRepositoriesProvider()
 
     // MARK: DATASTORE
+    var listTitle: String = ""
     var listProvider: BaseRepositoriesProvider?
     var listRepositories: [Repository] = []
     var selectedRepository: Repository?
 
-    init(worker: MainWorker = MainWorker()) {
+    init(worker: RepositoriesWorker = RepositoriesWorker()) {
         self.worker = worker
     }
 
@@ -59,15 +61,17 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
 
     }
 
-    func topRepoListSelected(_ repositories: [Repository]) {
+    func topRepoListSelected(_ repositories: [Repository], title: String) {
         listRepositories = repositories
         listProvider = topRepositoriesProvider
+        listTitle = title
         presenter?.presentList()
     }
 
-    func lastUpdatedListSelected(_ repositories: [Repository]) {
+    func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
         listRepositories = repositories
         listProvider = lastUpdatedRepositoriesProvider
+        listTitle = title
         presenter?.presentList()
     }
 

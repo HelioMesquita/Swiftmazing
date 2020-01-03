@@ -35,6 +35,7 @@ class MainRouter: MainRoutingLogic, MainDataPassing {
     func passDataToList(source: MainDataStore?, destination: inout ListDataStore?) {
         destination?.listProvider = source?.listProvider
         destination?.listRepositories = source?.listRepositories ?? []
+        destination?.listTitle = source?.listTitle ?? ""
     }
 
 }

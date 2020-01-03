@@ -18,13 +18,14 @@ class BaseRepositoriesProvider: RequestProviderProtocol {
     var httpVerb: HttpVerbs = .GET
     var path: String = "/search/repositories"
     var currentPage: Int = 1
-    var filter: Filter
+    let itemsPerPage: Int = 10
+    let filter: Filter
 
     var queryParameters: [URLQueryItem]? {
         return [
             URLQueryItem(name: "q", value: "language:swift"),
             URLQueryItem(name: "sort", value: filter.rawValue),
-            URLQueryItem(name: "per_page", value: "10"),
+            URLQueryItem(name: "per_page", value: "\(itemsPerPage)"),
             URLQueryItem(name: "page", value: "\(currentPage)")
         ]
     }

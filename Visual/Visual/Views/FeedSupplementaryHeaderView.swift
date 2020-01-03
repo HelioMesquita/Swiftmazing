@@ -60,10 +60,10 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         callBack(section)
     }
 
-    internal func configure(_ section: FeedSection, callBack: @escaping (FeedSection) -> Void, buttonTitle: String = .seeMore) {
+    internal func configure(_ section: FeedSection, callBack: @escaping (FeedSection) -> Void, buttonTitle: String = Text.seeMore.value) {
         self.section = section
         self.callBack = callBack
-        label.text = section.rawValue.localized()
+        label.text = section.value
         button?.setTitle(buttonTitle, for: .normal)
     }
 

@@ -20,12 +20,6 @@ enum Main {
         let topRepos: [FeedCellViewModel]
         let lastUpdated: [FeedCellViewModel]
 
-        init(news: [FeedCellViewModel] = [], topRepos: [FeedCellViewModel] = [], lastUpdated: [FeedCellViewModel] = []) {
-            self.news = news
-            self.topRepos = topRepos
-            self.lastUpdated = lastUpdated
-        }
-
         init(news: MapNewsViewModel, topRepos: MapRepoViewModel, lastUpdated: MapRepoViewModel) {
             self.news = news.items
             self.topRepos = topRepos.items
@@ -74,29 +68,18 @@ enum Main {
             let topAvatars = topRepos.compactMap { $0.owner.avatar }
             let lastAvatars = lastUpdated.compactMap { $0.owner.avatar }
             items = [
-                FeedCellViewModel(title: .bestRepositories,
-                                  subtitle: .renownedRepositories,
-                                  description: .bestTools,
+                FeedCellViewModel(title: Text.bestRepositories.value,
+                                  subtitle: Text.renownedRepositories.value,
+                                  description: Text.bestTools.value,
                                   section: .topRepos,
                                   images: topAvatars),
-                FeedCellViewModel(title: .updatedRepositories,
-                                  subtitle: .latestUpdates,
-                                  description: .mostUpdatedRepositories,
+                FeedCellViewModel(title: Text.updatedRepositories.value,
+                                  subtitle: Text.latestUpdates.value,
+                                  description: Text.mostUpdatedRepositories.value,
                                   section: .lastUpdated,
                                   images: lastAvatars)
             ]
         }
     }
-
-}
-
-fileprivate extension String {
-
-    static let bestRepositories = NSLocalizedString("bestRepositories", comment: "")
-    static let renownedRepositories = NSLocalizedString("renownedRepositories", comment: "")
-    static let bestTools = NSLocalizedString("bestTools", comment: "")
-    static let updatedRepositories = NSLocalizedString("updatedRepositories", comment: "")
-    static let latestUpdates = NSLocalizedString("latestUpdates", comment: "")
-    static let mostUpdatedRepositories = NSLocalizedString("mostUpdatedRepositories", comment: "")
 
 }

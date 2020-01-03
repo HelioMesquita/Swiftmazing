@@ -8,10 +8,10 @@
 
 import Foundation
 
-internal extension String {
+extension String {
 
     func localized(withComment comment: String = "") -> String {
-        return NSLocalizedString(self, bundle: Bundle.module, comment: comment)
+        return NSLocalizedString(self, comment: comment)
     }
 
 }

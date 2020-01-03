@@ -38,14 +38,4 @@ enum List {
         }
     }
 
-    struct Request {
-    }
-    struct Response {
-    }
-    struct Mapper {
-    }
-    struct ViewModel {
-        var items: [ListCellViewModel] = []
-    }
-
 }

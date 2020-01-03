@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
 		E95670E223B1192E007611F8 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */; };
+		FD0A28D323BFD85200B9B985 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D223BFD85200B9B985 /* Text.swift */; };
+		FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */; };
 		FD1DD97123B5297500D92429 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD97023B5297500D92429 /* Repositories.swift */; };
 		FD1DD97423B52BA300D92429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD97623B52BA300D92429 /* Localizable.strings */; };
 		FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */; };
@@ -22,13 +25,11 @@
 		FD9DFB3223B03E6500F8B3AC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3123B03E6500F8B3AC /* Repository.swift */; };
 		FD9DFB3423B03E8E00F8B3AC /* RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3323B03E8E00F8B3AC /* RepositoryOwner.swift */; };
 		FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718D23A5815D00BAD13C /* ListPresenter.swift */; };
-		FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718E23A5815D00BAD13C /* ListWorker.swift */; };
 		FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718F23A5815D00BAD13C /* ListRouter.swift */; };
 		FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719023A5815D00BAD13C /* ListModels.swift */; };
 		FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719123A5815D00BAD13C /* ListViewController.swift */; };
 		FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719223A5815D00BAD13C /* ListInteractor.swift */; };
 		FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719C23A5889800BAD13C /* MainPresenter.swift */; };
-		FDB571A423A5889800BAD13C /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719D23A5889800BAD13C /* MainWorker.swift */; };
 		FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719E23A5889800BAD13C /* MainRouter.swift */; };
 		FDB571A623A5889800BAD13C /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* MainModels.swift */; };
 		FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* MainViewController.swift */; };
@@ -77,6 +78,9 @@
 		8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
 		9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftmazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95670D823B0CF70007611F8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		FD0A28D223BFD85200B9B985 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesWorker.swift; sourceTree = "<group>"; };
 		FD1DD97023B5297500D92429 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		FD1DD97523B52BA300D92429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD1DD97723B52BAF00D92429 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -91,13 +95,11 @@
 		FD9DFB3123B03E6500F8B3AC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FD9DFB3323B03E8E00F8B3AC /* RepositoryOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOwner.swift; sourceTree = "<group>"; };
 		FDB5718D23A5815D00BAD13C /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
-		FDB5718E23A5815D00BAD13C /* ListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorker.swift; sourceTree = "<group>"; };
 		FDB5718F23A5815D00BAD13C /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		FDB5719023A5815D00BAD13C /* ListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModels.swift; sourceTree = "<group>"; };
 		FDB5719123A5815D00BAD13C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FDB5719223A5815D00BAD13C /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		FDB5719C23A5889800BAD13C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		FDB5719D23A5889800BAD13C /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		FDB5719E23A5889800BAD13C /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		FDB5719F23A5889800BAD13C /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		FDB571A023A5889800BAD13C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		FD0A28D623BFE20E00B9B985 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		FD69D910239F22D6003D0070 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 				FDEEDECB239DD1B500C64A0B /* Info.plist */,
 				E95670D823B0CF70007611F8 /* Config.xcconfig */,
 				FD1DD97623B52BA300D92429 /* Localizable.strings */,
+				FD0A28D223BFD85200B9B985 /* Text.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 		FD69D912239F2305003D0070 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FD0A28D623BFE20E00B9B985 /* Worker */,
 				FD9DFB2F23B03E3400F8B3AC /* Providers */,
 				FD9DFB2E23B03E2E00F8B3AC /* Models */,
 				FDB5719B23A5888A00BAD13C /* Main */,
@@ -205,6 +217,7 @@
 		FD69D92523A55A2B003D0070 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */,
 				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
 			);
 			path = Utils;
@@ -234,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				FDB5718D23A5815D00BAD13C /* ListPresenter.swift */,
-				FDB5718E23A5815D00BAD13C /* ListWorker.swift */,
 				FDB5718F23A5815D00BAD13C /* ListRouter.swift */,
 				FDB5719023A5815D00BAD13C /* ListModels.swift */,
 				FDB5719223A5815D00BAD13C /* ListInteractor.swift */,
@@ -247,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				FDB5719C23A5889800BAD13C /* MainPresenter.swift */,
-				FDB5719D23A5889800BAD13C /* MainWorker.swift */,
 				FDB5719E23A5889800BAD13C /* MainRouter.swift */,
 				FDB5719F23A5889800BAD13C /* MainModels.swift */,
 				FDB571A123A5889800BAD13C /* MainInteractor.swift */,
@@ -489,9 +500,10 @@
 				FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */,
 				FD9DFB3223B03E6500F8B3AC /* Repository.swift in Sources */,
 				FD9DFB2D23B03CB900F8B3AC /* LastUpdatedRepositoriesProvider.swift in Sources */,
-				FDB5719523A5815D00BAD13C /* ListWorker.swift in Sources */,
+				FD0A28D323BFD85200B9B985 /* Text.swift in Sources */,
 				FD9DFB3423B03E8E00F8B3AC /* RepositoryOwner.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
+				FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */,
 				FDB571A623A5889800BAD13C /* MainModels.swift in Sources */,
 				FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */,
 				FD9DFB2B23B03CAC00F8B3AC /* TopRepositoriesProvider.swift in Sources */,
@@ -501,11 +513,11 @@
 				FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */,
 				FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */,
 				FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */,
+				FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */,
 				FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */,
 				FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */,
 				FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */,
 				FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */,
-				FDB571A423A5889800BAD13C /* MainWorker.swift in Sources */,
 				FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

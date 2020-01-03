@@ -15,17 +15,21 @@
 import UIKit
 
 protocol ListPresentationLogic {
-    func mapResponse(_ repositories: [Repository])
+    func map(_ repositories: [Repository])
+    func presentTitle(_ title: String)
 }
 
 class ListPresenter: ListPresentationLogic {
 
     weak var viewController: ListDisplayLogic?
 
-    func mapResponse(_ repositories: [Repository]) {
-        let repositoriesViewModel = List.MapRepoViewModel(repositories: repositories)
-        let viewModel = List.ViewModel(items: repositoriesViewModel.items)
-        viewController?.show(viewModel)
+    func map(_ repositories: [Repository]) {
+        let repositoriesViewModel = List.MapRepoViewModel(repositories: repositories).items
+        viewController?.show(repositoriesViewModel)
+    }
+
+    func presentTitle(_ title: String) {
+        viewController?.showTitle(title)
     }
 
 }

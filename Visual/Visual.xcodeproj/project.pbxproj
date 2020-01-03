@@ -17,6 +17,7 @@
 		FD0A28CA23BECAA900B9B985 /* ListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28C923BECAA900B9B985 /* ListCollectionViewController.swift */; };
 		FD0A28CD23BECC7200B9B985 /* BaseHashbleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28CC23BECC7200B9B985 /* BaseHashbleProtocol.swift */; };
 		FD0A28CF23BECEE100B9B985 /* FeedRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28CE23BECEE100B9B985 /* FeedRepositoryCell.swift */; };
+		FD0A28D523BFD8F500B9B985 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D423BFD8F500B9B985 /* Text.swift */; };
 		FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD96A23B51E2C00D92429 /* String+Utils.swift */; };
 		FD1DD96C23B51E6600D92429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD96E23B51E6600D92429 /* Localizable.strings */; };
 		FD24977E23BD400900442956 /* NSCollectionLayoutDimension+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977D23BD400900442956 /* NSCollectionLayoutDimension+Utils.swift */; };
@@ -59,6 +60,7 @@
 		FD0A28C923BECAA900B9B985 /* ListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewController.swift; sourceTree = "<group>"; };
 		FD0A28CC23BECC7200B9B985 /* BaseHashbleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHashbleProtocol.swift; sourceTree = "<group>"; };
 		FD0A28CE23BECEE100B9B985 /* FeedRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRepositoryCell.swift; sourceTree = "<group>"; };
+		FD0A28D423BFD8F500B9B985 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		FD1DD96A23B51E2C00D92429 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FD1DD96D23B51E6600D92429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD1DD96F23B51EE400D92429 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		FD40A25A23A5BB4D004855B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD0A28D423BFD8F500B9B985 /* Text.swift */,
 				FDEEDF1E239DD22300C64A0B /* Visual.h */,
 				FDEEDF1F239DD22300C64A0B /* Info.plist */,
 				FD1DD96E23B51E6600D92429 /* Localizable.strings */,
@@ -366,6 +369,7 @@
 				FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */,
 				FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */,
 				FD0A28CA23BECAA900B9B985 /* ListCollectionViewController.swift in Sources */,
+				FD0A28D523BFD8F500B9B985 /* Text.swift in Sources */,
 				FDB571AB23A5898E00BAD13C /* ListRepositoryCell.swift in Sources */,
 				E9DC1F2823B13DF5004F14FF /* FeedSupplementaryHeaderView.swift in Sources */,
 				FDB571AF23A5971D00BAD13C /* BaseViewController.swift in Sources */,
