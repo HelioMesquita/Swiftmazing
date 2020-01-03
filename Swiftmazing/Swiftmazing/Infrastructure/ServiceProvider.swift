@@ -11,4 +11,10 @@ import Infrastructure
 
 class ServiceProvider: ServiceProviderProtocol {
 
+    var jsonDecoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }
+
 }

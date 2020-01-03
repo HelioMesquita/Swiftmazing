@@ -10,10 +10,15 @@ import Foundation
 import PromiseKit
 
 public protocol ServiceProviderProtocol {
+    var jsonDecoder: JSONDecoder { get }
     func execute<T: Decodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
 }
 
 extension ServiceProviderProtocol {
+
+    public var jsonDecoder: JSONDecoder {
+        return JSONDecoder()
+    }
 
     public func execute<T: Decodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
         return Promise<T> { seal in
@@ -25,7 +30,7 @@ extension ServiceProviderProtocol {
                     let data = data ?? Data()
 
                     do {
-                        let model = try JSONDecoder().decode(T.self, from: data)
+                        let model = try self.jsonDecoder.decode(T.self, from: data)
                         seal.fulfill(model)
                     } catch {
                         seal.reject(error)
