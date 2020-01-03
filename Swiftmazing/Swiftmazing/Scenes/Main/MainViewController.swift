@@ -75,19 +75,19 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
     }
 
     func didSelectSection(_ section: FeedSection) {
-        let cellViewModels = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
+        let repositories = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
         switch section {
         case .topRepos:
-            print("top")
+            interactor?.topRepoListSelected(repositories)
         case .lastUpdated:
-            print("last")
+            interactor?.lastUpdatedListSelected(repositories)
         default:
             return
         }
     }
 
     func didSelectRepository(_ repository: Repository?) {
-
+        interactor?.repositorySelected(repository)
     }
 
 }
