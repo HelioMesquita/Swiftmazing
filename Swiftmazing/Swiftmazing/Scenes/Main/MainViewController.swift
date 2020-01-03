@@ -24,7 +24,7 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
 
     var viewModel: Main.ViewModel = Main.ViewModel() {
         didSet {
-            loadTable()
+            reloadTable()
         }
     }
 
@@ -43,13 +43,23 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.loadScreen()
+        configure()
+        load()
+    }
+
+    private func configure() {
         title = Bundle.main.displayName
         navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.delegate = self
+        collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
     }
 
-    func loadTable() {
+    @objc func load() {
+        collectionView.refreshControl?.beginRefreshing()
+        interactor?.loadScreen()
+    }
+
+    func reloadTable() {
         var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Main.FeedCellViewModel>()
         snapshot.appendSections([.news, .topRepos, .lastUpdated])
         snapshot.appendItems(viewModel.news, toSection: .news)
@@ -57,6 +67,7 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
         snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
         dataSource.apply(snapshot, animatingDifferences: true)
         collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.refreshControl?.endRefreshing()
     }
 
     override func didSelectSupplementaryHeaderView(_ section: FeedSection) {

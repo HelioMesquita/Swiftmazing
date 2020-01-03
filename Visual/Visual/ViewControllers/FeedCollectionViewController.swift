@@ -64,6 +64,9 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         collectionView.register(cellType: FeedSupplementaryFooterView.self)
         collectionView.backgroundColor = UIColor.Design.background
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.refreshControl = UIRefreshControl()
         return collectionView
     }()
 
@@ -117,7 +120,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         view.addSubview(collectionView)
         let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: guide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),

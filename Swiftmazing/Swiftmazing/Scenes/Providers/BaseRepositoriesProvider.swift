@@ -34,4 +34,3 @@ class BaseRepositoriesProvider: RequestProviderProtocol {
     }
 
 }
-

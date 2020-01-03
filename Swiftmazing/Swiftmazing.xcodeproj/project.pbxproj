@@ -223,9 +223,9 @@
 		FD9DFB2F23B03E3400F8B3AC /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */,
 				FD9DFB2A23B03CAC00F8B3AC /* TopRepositoriesProvider.swift */,
 				FD9DFB2C23B03CB900F8B3AC /* LastUpdatedRepositoriesProvider.swift */,
-				FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -682,6 +682,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMS2232J28;
 				DISPLAYNAME = "$(DISPLAYNAME)";
 				HOST = "$(HOST)";
 				INFOPLIST_FILE = Swiftmazing/Resources/Info.plist;
@@ -703,6 +704,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMS2232J28;
 				DISPLAYNAME = "$(DISPLAYNAME)";
 				HOST = "$(HOST)";
 				INFOPLIST_FILE = Swiftmazing/Resources/Info.plist;

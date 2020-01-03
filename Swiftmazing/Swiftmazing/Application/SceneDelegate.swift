@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Visual
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = MainViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = BaseNavigationController(rootViewController: viewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
