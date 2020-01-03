@@ -28,7 +28,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     private var groupWidth: NSCollectionLayoutDimension = .fractionalWidth(0.92)
     private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(88)
     private var repositoriesGroupHeight: NSCollectionLayoutDimension = .absolute(256)
-    private var newsGroupHeight: NSCollectionLayoutDimension = .estimated(328)
+    private var newsGroupHeight: NSCollectionLayoutDimension = .estimated(312)
     private var padding: CGFloat = 5
     private lazy var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: padding, bottom: 0, trailing: padding)
 

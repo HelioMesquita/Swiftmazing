@@ -43,7 +43,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     private func addButton() {
         let button = UIButton(type: .system)
         self.button = button
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
         button.addTarget(self, action: #selector(buttonclicked), for: .touchUpInside)
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false

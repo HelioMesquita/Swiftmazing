@@ -16,8 +16,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
-    private var imageHeight: CGFloat = 68
-    private var lineHeight: CGFloat = 1
+    private var imageHeight: CGFloat = 60
+    private var lineHeight: CGFloat = 0.5
     private var linePadding: CGFloat = -8
     private var stackViewPadding: CGFloat = 12
 

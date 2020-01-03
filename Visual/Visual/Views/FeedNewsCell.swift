@@ -17,8 +17,17 @@ public class FeedNewsCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
-    private var imageContainerHeight: CGFloat = 240
+    private var imageContainerHeight: CGFloat = 216
     private var imageContainerTopSpacing: CGFloat = 12
+    private var lineHeight: CGFloat = 0.5
+    private var titlePadding: CGFloat = 10
+
+    internal lazy var lineView: UIView = {
+        let line = UIView()
+        line.backgroundColor = designLineColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
 
     internal lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -89,6 +98,7 @@ public class FeedNewsCell: UICollectionViewCell {
 
     private func configureViews() {
         backgroundColor = designBackgroundColor
+        addLineView()
         addTitleLabel()
         addNameLabel()
         addDescriptionLabel()
@@ -96,10 +106,20 @@ public class FeedNewsCell: UICollectionViewCell {
         addImageStackView()
     }
 
+    private func addLineView() {
+        addSubview(lineView)
+        NSLayoutConstraint.activate([
+            lineView.topAnchor.constraint(equalTo: topAnchor),
+            lineView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: lineHeight)
+        ])
+    }
+
     private func addTitleLabel() {
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: titlePadding),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
