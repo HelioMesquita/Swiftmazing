@@ -38,8 +38,18 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.loadScreen()
+        configure()
+        load()
+    }
+
+    func configure() {
         collectionView.prefetchDataSource = self
+        collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+    }
+
+    @objc func load() {
+        collectionView.refreshControl?.beginRefreshing()
+        interactor?.loadScreen()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +81,7 @@ extension ListViewController: ListDisplayLogic {
         snapshot.appendSections([.repo])
         snapshot.appendItems(items, toSection: .repo)
         dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.refreshControl?.endRefreshing()
     }
 
 }

@@ -33,9 +33,9 @@ class FeedRouter: FeedRoutingLogic, FeedDataPassing {
     }
 
     func passDataToList(source: FeedDataStore?, destination: inout ListDataStore?) {
-        destination?.listProvider = source?.listProvider
-        destination?.listRepositories = source?.listRepositories ?? []
-        destination?.listTitle = source?.listTitle ?? ""
+        guard let source = source, var destination = destination else { return }
+        destination.listProvider = source.listProvider
+        destination.listTitle = source.listTitle
     }
 
 }

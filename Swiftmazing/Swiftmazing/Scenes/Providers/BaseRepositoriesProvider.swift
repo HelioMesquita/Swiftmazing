@@ -10,7 +10,9 @@ import Foundation
 import Infrastructure
 
 enum Filter: String {
-    case stars, updated
+    case stars
+    case updated
+    case none = ""
 }
 
 class BaseRepositoriesProvider: RequestProviderProtocol {

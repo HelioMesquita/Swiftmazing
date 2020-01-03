@@ -31,6 +31,7 @@ open class ListCollectionViewController<T: ListCollectionViewModelProtocol>: Bas
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.refreshControl = UIRefreshControl()
         return collectionView
     }()
 

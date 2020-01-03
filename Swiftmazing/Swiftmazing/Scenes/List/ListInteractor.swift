@@ -21,8 +21,7 @@ protocol ListBusinessLogic {
 }
 
 protocol ListDataStore {
-    var listProvider: BaseRepositoriesProvider? { get set }
-    var listRepositories: [Repository] { get set }
+    var listProvider: BaseRepositoriesProvider { get set }
     var listTitle: String { get set }
 }
 
@@ -33,38 +32,40 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     // MARK: DATASTORE
     var listTitle: String = ""
-    var listProvider: BaseRepositoriesProvider?
-    var listRepositories: [Repository] = []
+    var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
 
     init(worker: RepositoriesWorker = RepositoriesWorker()) {
         self.worker = worker
     }
 
     func loadScreen() {
-        presenter?.map(listRepositories)
         presenter?.presentTitle(listTitle)
+        loadRepositories()
     }
 
-    func prefetchNextPage(index: Int) {
-        let indexAdjusted = index + 1
-        let totalItems = (listProvider?.currentPage ?? 0) * (listProvider?.itemsPerPage ?? 1)
-        if indexAdjusted == totalItems {
-            loadNextPage()
-        }
-    }
-
-    private func loadNextPage() {
-        guard let provider = listProvider else { return }
-        provider.currentPage += 1
-        worker.getRepositories(from: provider).done(handleSuccess).cauterize()
+    private func loadRepositories() {
+        worker.getRepositories(from: listProvider).done(handleSuccess).cauterize()
     }
 
     private func handleSuccess(_ repositories: Repositories) {
         presenter?.map(repositories.items)
     }
 
+    func prefetchNextPage(index: Int) {
+        let indexAdjusted = index + 1
+        let totalItems = listProvider.currentPage * listProvider.itemsPerPage
+        if indexAdjusted == totalItems {
+            loadNextPage()
+        }
+    }
+
+    private func loadNextPage() {
+        listProvider.currentPage += 1
+        loadRepositories()
+    }
+
     func resetProvider() {
-        listProvider?.currentPage = 1
+        listProvider.currentPage = 1
     }
 
 }
