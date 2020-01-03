@@ -23,7 +23,7 @@ public enum FeedSection: String, CaseIterable {
 
 open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
 
-    private var headerHeight: NSCollectionLayoutDimension = .estimated(31)
+    private var headerHeight: NSCollectionLayoutDimension = .absolute(38)
     private var footerHeight: NSCollectionLayoutDimension = .absolute(32)
     private var groupWidth: NSCollectionLayoutDimension = .fractionalWidth(0.92)
     private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(76)
