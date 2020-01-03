@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  FeedViewController.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -13,21 +13,21 @@
 import UIKit
 import Visual
 
-protocol MainDisplayLogic: class {
-    func show(_ viewModel: Main.ViewModel)
+protocol FeedDisplayLogic: class {
+    func show(_ viewModel: Feed.ViewModel)
     func showList()
 }
 
-class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
+class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
 
-    var interactor: MainBusinessLogic?
-    var router: (MainRoutingLogic & MainDataPassing)?
+    var interactor: FeedBusinessLogic?
+    var router: (FeedRoutingLogic & FeedDataPassing)?
 
     override func setup() {
         let viewController = self
-        let interactor = MainInteractor()
-        let presenter = MainPresenter()
-        let router = MainRouter()
+        let interactor = FeedInteractor()
+        let presenter = FeedPresenter()
+        let router = FeedRouter()
         viewController.interactor = interactor
         viewController.router = router
         presenter.viewController = viewController
@@ -75,7 +75,7 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
 
 }
 
-extension MainViewController: UICollectionViewDelegate {
+extension FeedViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let element = dataSource.itemIdentifier(for: indexPath) else { return }
@@ -88,10 +88,10 @@ extension MainViewController: UICollectionViewDelegate {
 
 }
 
-extension MainViewController: MainDisplayLogic {
+extension FeedViewController: FeedDisplayLogic {
 
-    func show(_ viewModel: Main.ViewModel) {
-        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Main.FeedCellViewModel>()
+    func show(_ viewModel: Feed.ViewModel) {
+        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Feed.FeedCellViewModel>()
         snapshot.appendSections([.news, .topRepos, .lastUpdated])
         snapshot.appendItems(viewModel.news, toSection: .news)
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)

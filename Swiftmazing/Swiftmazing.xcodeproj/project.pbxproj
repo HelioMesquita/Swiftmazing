@@ -29,11 +29,11 @@
 		FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719023A5815D00BAD13C /* ListModels.swift */; };
 		FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719123A5815D00BAD13C /* ListViewController.swift */; };
 		FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719223A5815D00BAD13C /* ListInteractor.swift */; };
-		FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719C23A5889800BAD13C /* MainPresenter.swift */; };
-		FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719E23A5889800BAD13C /* MainRouter.swift */; };
-		FDB571A623A5889800BAD13C /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* MainModels.swift */; };
-		FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* MainViewController.swift */; };
-		FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A123A5889800BAD13C /* MainInteractor.swift */; };
+		FDB571A323A5889800BAD13C /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719C23A5889800BAD13C /* FeedPresenter.swift */; };
+		FDB571A523A5889800BAD13C /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719E23A5889800BAD13C /* FeedRouter.swift */; };
+		FDB571A623A5889800BAD13C /* FeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* FeedModels.swift */; };
+		FDB571A723A5889800BAD13C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* FeedViewController.swift */; };
+		FDB571A823A5889800BAD13C /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A123A5889800BAD13C /* FeedInteractor.swift */; };
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC7239DD1B500C64A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
@@ -99,11 +99,11 @@
 		FDB5719023A5815D00BAD13C /* ListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModels.swift; sourceTree = "<group>"; };
 		FDB5719123A5815D00BAD13C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FDB5719223A5815D00BAD13C /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
-		FDB5719C23A5889800BAD13C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		FDB5719E23A5889800BAD13C /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
-		FDB5719F23A5889800BAD13C /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
-		FDB571A023A5889800BAD13C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		FDB571A123A5889800BAD13C /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		FDB5719C23A5889800BAD13C /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
+		FDB5719E23A5889800BAD13C /* FeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
+		FDB5719F23A5889800BAD13C /* FeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModels.swift; sourceTree = "<group>"; };
+		FDB571A023A5889800BAD13C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		FDB571A123A5889800BAD13C /* FeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
 		FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftmazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 				FD0A28D623BFE20E00B9B985 /* Worker */,
 				FD9DFB2F23B03E3400F8B3AC /* Providers */,
 				FD9DFB2E23B03E2E00F8B3AC /* Models */,
-				FDB5719B23A5888A00BAD13C /* Main */,
+				FDB5719B23A5888A00BAD13C /* Feed */,
 				FDB5718C23A580A300BAD13C /* List */,
 			);
 			path = Scenes;
@@ -255,16 +255,16 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		FDB5719B23A5888A00BAD13C /* Main */ = {
+		FDB5719B23A5888A00BAD13C /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				FDB5719C23A5889800BAD13C /* MainPresenter.swift */,
-				FDB5719E23A5889800BAD13C /* MainRouter.swift */,
-				FDB5719F23A5889800BAD13C /* MainModels.swift */,
-				FDB571A123A5889800BAD13C /* MainInteractor.swift */,
-				FDB571A023A5889800BAD13C /* MainViewController.swift */,
+				FDB5719C23A5889800BAD13C /* FeedPresenter.swift */,
+				FDB5719E23A5889800BAD13C /* FeedRouter.swift */,
+				FDB5719F23A5889800BAD13C /* FeedModels.swift */,
+				FDB571A123A5889800BAD13C /* FeedInteractor.swift */,
+				FDB571A023A5889800BAD13C /* FeedViewController.swift */,
 			);
-			path = Main;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		FDEEDEB1239DD1B500C64A0B = {
@@ -504,14 +504,14 @@
 				FD9DFB3423B03E8E00F8B3AC /* RepositoryOwner.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
 				FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */,
-				FDB571A623A5889800BAD13C /* MainModels.swift in Sources */,
-				FDB571A823A5889800BAD13C /* MainInteractor.swift in Sources */,
+				FDB571A623A5889800BAD13C /* FeedModels.swift in Sources */,
+				FDB571A823A5889800BAD13C /* FeedInteractor.swift in Sources */,
 				FD9DFB2B23B03CAC00F8B3AC /* TopRepositoriesProvider.swift in Sources */,
 				FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */,
-				FDB571A523A5889800BAD13C /* MainRouter.swift in Sources */,
-				FDB571A723A5889800BAD13C /* MainViewController.swift in Sources */,
+				FDB571A523A5889800BAD13C /* FeedRouter.swift in Sources */,
+				FDB571A723A5889800BAD13C /* FeedViewController.swift in Sources */,
 				FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */,
-				FDB571A323A5889800BAD13C /* MainPresenter.swift in Sources */,
+				FDB571A323A5889800BAD13C /* FeedPresenter.swift in Sources */,
 				FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */,
 				FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */,
 				FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */,

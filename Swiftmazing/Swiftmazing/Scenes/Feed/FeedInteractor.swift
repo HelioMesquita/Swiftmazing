@@ -1,5 +1,5 @@
 //
-//  MainInteractor.swift
+//  FeedInteractor.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -15,23 +15,23 @@
 import UIKit
 import PromiseKit
 
-protocol MainBusinessLogic {
+protocol FeedBusinessLogic {
     func loadScreen()
     func repositorySelected(_ repository: Repository?)
     func topRepoListSelected(_ repositories: [Repository], title: String)
     func lastUpdatedListSelected(_ repositories: [Repository], title: String)
 }
 
-protocol MainDataStore {
+protocol FeedDataStore {
     var selectedRepository: Repository? { get set }
     var listTitle: String { get set }
     var listProvider: BaseRepositoriesProvider? { get set }
     var listRepositories: [Repository] { get set }
 }
 
-class MainInteractor: MainBusinessLogic, MainDataStore {
+class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
-    var presenter: MainPresentationLogic?
+    var presenter: FeedPresentationLogic?
     let worker: RepositoriesWorker
     let topRepositoriesProvider = TopRepositoriesProvider()
     let lastUpdatedRepositoriesProvider = LastUpdatedRepositoriesProvider()

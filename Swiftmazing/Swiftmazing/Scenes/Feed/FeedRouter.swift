@@ -1,5 +1,5 @@
 //
-//  MainRouter.swift
+//  FeedRouter.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -12,18 +12,18 @@
 
 import UIKit
 
-@objc protocol MainRoutingLogic {
+@objc protocol FeedRoutingLogic {
     func routeToList()
 }
 
-protocol MainDataPassing {
-    var dataStore: MainDataStore? { get }
+protocol FeedDataPassing {
+    var dataStore: FeedDataStore? { get }
 }
 
-class MainRouter: MainRoutingLogic, MainDataPassing {
+class FeedRouter: FeedRoutingLogic, FeedDataPassing {
 
-    weak var viewController: MainViewController?
-    var dataStore: MainDataStore?
+    weak var viewController: FeedViewController?
+    var dataStore: FeedDataStore?
 
     func routeToList() {
         let destinationViewController = ListViewController()
@@ -32,7 +32,7 @@ class MainRouter: MainRoutingLogic, MainDataPassing {
         viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 
-    func passDataToList(source: MainDataStore?, destination: inout ListDataStore?) {
+    func passDataToList(source: FeedDataStore?, destination: inout ListDataStore?) {
         destination?.listProvider = source?.listProvider
         destination?.listRepositories = source?.listRepositories ?? []
         destination?.listTitle = source?.listTitle ?? ""

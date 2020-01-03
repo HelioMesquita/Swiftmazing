@@ -1,5 +1,5 @@
 //
-//  MainPresenter.swift
+//  FeedPresenter.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -14,21 +14,21 @@
 
 import UIKit
 
-protocol MainPresentationLogic {
+protocol FeedPresentationLogic {
     func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
     func presentList()
 }
 
-class MainPresenter: MainPresentationLogic {
+class FeedPresenter: FeedPresentationLogic {
 
-    weak var viewController: MainDisplayLogic?
+    weak var viewController: FeedDisplayLogic?
 
     func mapResponse(_ topRepoResponse: Repositories, _ lastUpdatedtResponse: Repositories) {
-        let topRepoViewModel = Main.MapRepoViewModel(repositories: topRepoResponse.items, section: .topRepos)
-        let lastUpdatedViewModel = Main.MapRepoViewModel(repositories: lastUpdatedtResponse.items, section: .lastUpdated)
-        let newsViewModel = Main.MapNewsViewModel(topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)
+        let topRepoViewModel = Feed.MapRepoViewModel(repositories: topRepoResponse.items, section: .topRepos)
+        let lastUpdatedViewModel = Feed.MapRepoViewModel(repositories: lastUpdatedtResponse.items, section: .lastUpdated)
+        let newsViewModel = Feed.MapNewsViewModel(topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)
 
-        let viewModel = Main.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
+        let viewModel = Feed.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
         viewController?.show(viewModel)
     }
 

@@ -125,11 +125,8 @@
 		E910BAED23B157C2007C3BC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */,
-				E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */,
-				E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */,
-				FD0A28CE23BECEE100B9B985 /* FeedRepositoryCell.swift */,
-				FDB571AA23A5898E00BAD13C /* ListRepositoryCell.swift */,
+				FD0A28D923BFE4F800B9B985 /* Feed */,
+				FD0A28DD23BFE51A00B9B985 /* List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,11 +134,9 @@
 		E910BAEE23B157C6007C3BC3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
-				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
-				FD0A28C723BEC3A100B9B985 /* BaseNavigationController.swift */,
-				FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */,
-				FD0A28C923BECAA900B9B985 /* ListCollectionViewController.swift */,
+				FD0A28DA23BFE50000B9B985 /* Base */,
+				FD0A28DB23BFE50400B9B985 /* Feed */,
+				FD0A28DC23BFE50800B9B985 /* List */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,6 +147,51 @@
 				FD0A28CC23BECC7200B9B985 /* BaseHashbleProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FD0A28D923BFE4F800B9B985 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC1F2723B13DF5004F14FF /* FeedSupplementaryHeaderView.swift */,
+				E9FF691423B2320B0004E610 /* FeedSupplementaryFooterView.swift */,
+				E910BAEF23B157E9007C3BC3 /* FeedNewsCell.swift */,
+				FD0A28CE23BECEE100B9B985 /* FeedRepositoryCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FD0A28DA23BFE50000B9B985 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FDB571AE23A5971D00BAD13C /* BaseViewController.swift */,
+				FD40A25623A5B8A7004855B2 /* BaseTableViewController.swift */,
+				FD0A28C723BEC3A100B9B985 /* BaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FD0A28DB23BFE50400B9B985 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FD0A28DC23BFE50800B9B985 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FD0A28C923BECAA900B9B985 /* ListCollectionViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		FD0A28DD23BFE51A00B9B985 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FDB571AA23A5898E00BAD13C /* ListRepositoryCell.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		FD40A25523A5B88C004855B2 /* Utils */ = {

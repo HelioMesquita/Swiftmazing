@@ -13,7 +13,7 @@
 import UIKit
 import Visual
 
-enum Main {
+enum Feed {
 
     struct ViewModel {
         let news: [FeedCellViewModel]
