@@ -28,9 +28,4 @@ public class BaseNavigationController: UINavigationController {
         navigationItem.largeTitleDisplayMode = .automatic
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-    }
-
 }

@@ -89,8 +89,8 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         addCollectionView()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     open override func viewWillAppear(_ animated: Bool) {
