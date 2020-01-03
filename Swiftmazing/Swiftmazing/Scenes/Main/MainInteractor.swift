@@ -60,11 +60,15 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
     }
 
     func topRepoListSelected(_ repositories: [Repository]) {
-
+        listRepositories = repositories
+        listProvider = topRepositoriesProvider
+        presenter?.presentList()
     }
 
     func lastUpdatedListSelected(_ repositories: [Repository]) {
-
+        listRepositories = repositories
+        listProvider = lastUpdatedRepositoriesProvider
+        presenter?.presentList()
     }
 
 }

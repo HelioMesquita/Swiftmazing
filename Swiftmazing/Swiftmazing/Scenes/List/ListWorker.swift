@@ -14,7 +14,18 @@
 
 import Foundation
 import PromiseKit
+import Infrastructure
 
 class ListWorker {
+
+    let serviceProvider: ServiceProviderProtocol
+
+    init(serviceProvider: ServiceProviderProtocol = ServiceProvider()) {
+        self.serviceProvider = serviceProvider
+    }
+
+    func getRepositories(from provider: BaseRepositoriesProvider) -> Promise<Repositories> {
+        return serviceProvider.execute(request: provider, parser: Repositories.self)
+    }
 
 }

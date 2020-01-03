@@ -15,18 +15,29 @@
 import UIKit
 
 protocol ListBusinessLogic {
+    func loadScreen()
 }
 
 protocol ListDataStore {
+    var listProvider: BaseRepositoriesProvider? { get set }
+    var listRepositories: [Repository] { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
 
-    var presenter: ListPresentationLogic?
     let worker: ListWorker
+    var presenter: ListPresentationLogic?
+
+    // MARK: DATASTORE
+    var listProvider: BaseRepositoriesProvider?
+    var listRepositories: [Repository] = []
 
     init(worker: ListWorker = ListWorker()) {
         self.worker = worker
+    }
+
+    func loadScreen() {
+        self.presenter?.mapResponse(listRepositories)
     }
 
 }

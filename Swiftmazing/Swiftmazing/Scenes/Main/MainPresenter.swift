@@ -16,6 +16,7 @@ import UIKit
 
 protocol MainPresentationLogic {
     func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
+    func presentList()
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -29,6 +30,10 @@ class MainPresenter: MainPresentationLogic {
 
         let viewModel = Main.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
         viewController?.show(viewModel)
+    }
+
+    func presentList() {
+        viewController?.showList()
     }
 
 }

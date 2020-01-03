@@ -13,6 +13,7 @@
 import UIKit
 
 @objc protocol MainRoutingLogic {
+    func routeToList()
 }
 
 protocol MainDataPassing {
@@ -24,30 +25,16 @@ class MainRouter: MainRoutingLogic, MainDataPassing {
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
 
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //      let destinationVC = segue.destination as! SomewhereViewController
-    //      var destinationDS = destinationVC.router!.dataStore!
-    //      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //      let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //      var destinationDS = destinationVC.router!.dataStore!
-    //      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //      navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToList() {
+        let destinationViewController = ListViewController()
+        var destinationDataStore = destinationViewController.router?.dataStore
+        passDataToList(source: dataStore, destination: &destinationDataStore)
+        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
 
-    // MARK: Navigation
-
-    //func navigateToSomewhere(source: MainViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
-
-    // MARK: Passing data
-
-    //func passDataToSomewhere(source: MainDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToList(source: MainDataStore?, destination: inout ListDataStore?) {
+        destination?.listProvider = source?.listProvider
+        destination?.listRepositories = source?.listRepositories ?? []
+    }
 
 }

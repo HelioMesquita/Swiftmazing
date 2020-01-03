@@ -11,8 +11,32 @@
 //
 
 import UIKit
+import Visual
 
 enum List {
+
+    struct MapRepoViewModel {
+        var items: [ListCellViewModel]
+
+        init(repositories: [Repository]) {
+            items = repositories.compactMap { ListCellViewModel(repository: $0) }
+        }
+    }
+
+    struct ListCellViewModel: ListCollectionViewModelProtocol {
+        var title: String
+        var description: String
+        var image: URL
+
+        var repository: Repository?
+
+        init(repository: Repository) {
+            self.title = repository.owner.name
+            self.description = repository.description ?? ""
+            self.image = repository.owner.avatar
+            self.repository = repository
+        }
+    }
 
     struct Request {
     }
@@ -21,6 +45,7 @@ enum List {
     struct Mapper {
     }
     struct ViewModel {
+        var items: [ListCellViewModel] = []
     }
 
 }

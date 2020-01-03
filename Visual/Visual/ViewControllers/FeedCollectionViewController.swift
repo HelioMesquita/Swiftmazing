@@ -8,30 +8,11 @@
 
 import UIKit
 
-public protocol FeedCollectionViewModelProtocol: Hashable {
-    var id: String { get }
+public protocol FeedCollectionViewModelProtocol: BaseHashbleProtocol {
     var title: String { get }
     var subtitle: String? { get }
     var description: String { get }
     var images: [URL] { get }
-
-    func hash(into hasher: inout Hasher)
-}
-
-public extension FeedCollectionViewModelProtocol {
-
-    var id: String {
-        return UUID().uuidString
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
-    }
-
 }
 
 public enum FeedSection: String, CaseIterable {
@@ -108,7 +89,12 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
     override open func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         addCollectionView()
+    }
+
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     open func didSelectSupplementaryHeaderView(_ section: FeedSection) {
@@ -117,12 +103,11 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
     private func addCollectionView() {
         view.addSubview(collectionView)
-        let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 

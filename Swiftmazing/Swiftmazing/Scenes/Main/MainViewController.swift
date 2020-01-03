@@ -15,6 +15,7 @@ import Visual
 
 protocol MainDisplayLogic: class {
     func show(_ viewModel: Main.ViewModel)
+    func showList()
 }
 
 class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
@@ -49,7 +50,6 @@ class MainViewController: FeedCollectionViewController<Main.FeedCellViewModel> {
 
     private func configure() {
         title = Bundle.main.displayName
-        navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.delegate = self
         collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
     }
@@ -109,6 +109,10 @@ extension MainViewController: MainDisplayLogic {
 
     func show(_ viewModel: Main.ViewModel) {
         self.viewModel = viewModel
+    }
+
+    func showList() {
+        router?.routeToList()
     }
 
 }

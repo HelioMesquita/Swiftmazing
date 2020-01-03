@@ -11,31 +11,24 @@
 //
 
 import UIKit
+import Visual
 
 protocol ListDisplayLogic: class {
+    func show(_ viewModel: List.ViewModel)
 }
 
-class ListViewController: UIViewController {
+class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
 
     var interactor: ListBusinessLogic?
     var router: (ListRoutingLogic & ListDataPassing)?
 
-    init() {
-        super.init(nibName: "ListViewController", bundle: Bundle(for: ListViewController.self))
-        setup()
+    var viewModel: List.ViewModel = List.ViewModel() {
+        didSet {
+            reloadTable()
+        }
     }
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-
-    private func setup() {
+    override func setup() {
         let viewController = self
         let interactor = ListInteractor()
         let presenter = ListPresenter()
@@ -43,13 +36,31 @@ class ListViewController: UIViewController {
         viewController.interactor = interactor
         viewController.router = router
         presenter.viewController = viewController
-        interactor.presenter = presenter
         router.viewController = viewController
         router.dataStore = interactor
+        interactor.presenter = presenter
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        interactor?.loadScreen()
+        title = "TELA DE LISTA"
+    }
+
+    func reloadTable() {
+        var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
+        snapshot.appendSections([.repo])
+        snapshot.appendItems(viewModel.items, toSection: .repo)
+        dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
 }
 
 extension ListViewController: ListDisplayLogic {
+
+    func show(_ viewModel: List.ViewModel) {
+        self.viewModel = viewModel
+    }
 
 }

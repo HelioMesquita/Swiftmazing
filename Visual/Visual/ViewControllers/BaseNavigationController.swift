@@ -20,7 +20,17 @@ public class BaseNavigationController: UINavigationController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        let navigationBarAppearence = UINavigationBarAppearance()
+        navigationBarAppearence.shadowColor = .clear
+        navigationBarAppearence.backgroundColor = UIColor.Design.background
+        navigationBar.scrollEdgeAppearance = navigationBarAppearence
         navigationBar.isTranslucent = true
+        navigationItem.largeTitleDisplayMode = .automatic
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
 
 }

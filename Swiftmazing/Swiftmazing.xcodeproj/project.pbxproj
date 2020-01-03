@@ -237,8 +237,8 @@
 				FDB5718E23A5815D00BAD13C /* ListWorker.swift */,
 				FDB5718F23A5815D00BAD13C /* ListRouter.swift */,
 				FDB5719023A5815D00BAD13C /* ListModels.swift */,
-				FDB5719123A5815D00BAD13C /* ListViewController.swift */,
 				FDB5719223A5815D00BAD13C /* ListInteractor.swift */,
+				FDB5719123A5815D00BAD13C /* ListViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
