@@ -101,7 +101,7 @@ public class FeedNewsCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
@@ -110,7 +110,7 @@ public class FeedNewsCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
@@ -119,7 +119,7 @@ public class FeedNewsCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
@@ -129,7 +129,7 @@ public class FeedNewsCell: UICollectionViewCell {
             imagesContainerView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: imageContainerTopSpacing),
             imagesContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imagesContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imagesContainerView.heightAnchor.constraint(equalToConstant: imageContainerHeight),
+            imagesContainerView.heightAnchor.constraint(equalToConstant: imageContainerHeight)
         ])
     }
 
@@ -139,7 +139,7 @@ public class FeedNewsCell: UICollectionViewCell {
             imagesStackView.topAnchor.constraint(equalTo: imagesContainerView.topAnchor),
             imagesStackView.leadingAnchor.constraint(equalTo: imagesContainerView.leadingAnchor),
             imagesStackView.trailingAnchor.constraint(equalTo: imagesContainerView.trailingAnchor),
-            imagesStackView.bottomAnchor.constraint(equalTo: imagesContainerView.bottomAnchor),
+            imagesStackView.bottomAnchor.constraint(equalTo: imagesContainerView.bottomAnchor)
         ])
         imagesStackView.addArrangedSubview(oddImagesStackView)
         imagesStackView.addArrangedSubview(evenImagesStackView)
@@ -173,7 +173,6 @@ public class FeedNewsCell: UICollectionViewCell {
     }
 
 }
-
 
 #if DEBUG
 import SwiftUI

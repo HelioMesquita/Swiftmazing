@@ -36,7 +36,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding)
         ])
     }
 
@@ -51,7 +51,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         NSLayoutConstraint.activate([
             button.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor),
             button.leadingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor, constant: 12),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
         ])
     }
 

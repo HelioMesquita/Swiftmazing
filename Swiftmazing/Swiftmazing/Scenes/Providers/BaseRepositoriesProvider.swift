@@ -25,7 +25,7 @@ class BaseRepositoriesProvider: RequestProviderProtocol {
             URLQueryItem(name: "q", value: "language:swift"),
             URLQueryItem(name: "sort", value: filter.rawValue),
             URLQueryItem(name: "per_page", value: "10"),
-            URLQueryItem(name: "page", value: "\(currentPage)"),
+            URLQueryItem(name: "page", value: "\(currentPage)")
         ]
     }
 

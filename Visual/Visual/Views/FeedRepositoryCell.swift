@@ -43,7 +43,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 14 , weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = designSubtitleColor
         return label
     }()
@@ -89,7 +89,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.heightAnchor.constraint(equalToConstant: imageHeight),
             imageView.widthAnchor.constraint(equalToConstant: imageHeight),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
     }
 
@@ -98,7 +98,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
             stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
@@ -108,7 +108,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
             lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
             lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: linePadding),
-            lineView.heightAnchor.constraint(equalToConstant: lineHeight),
+            lineView.heightAnchor.constraint(equalToConstant: lineHeight)
         ])
     }
 

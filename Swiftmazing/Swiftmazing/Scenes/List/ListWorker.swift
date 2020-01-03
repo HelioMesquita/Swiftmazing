@@ -16,5 +16,5 @@ import Foundation
 import PromiseKit
 
 class ListWorker {
-  
+
 }

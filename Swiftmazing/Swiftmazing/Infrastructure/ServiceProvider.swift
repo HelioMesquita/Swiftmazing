@@ -10,5 +10,5 @@ import Foundation
 import Infrastructure
 
 class ServiceProvider: ServiceProviderProtocol {
-    
+
 }

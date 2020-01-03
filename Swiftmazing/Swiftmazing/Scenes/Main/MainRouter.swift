@@ -20,7 +20,7 @@ protocol MainDataPassing {
 }
 
 class MainRouter: MainRoutingLogic, MainDataPassing {
-    
+
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
 

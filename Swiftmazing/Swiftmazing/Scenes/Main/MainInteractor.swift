@@ -51,12 +51,12 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
         when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
     }
 
-    func handleSuccess(_ topRepoResponse: Repositories,_ lastUpdatedResponse: Repositories) {
+    func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
         presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
     }
 
     func repositorySelected(_ repository: Repository?) {
-    
+
     }
 
     func topRepoListSelected(_ repositories: [Repository]) {

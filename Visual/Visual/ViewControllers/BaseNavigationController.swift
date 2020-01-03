@@ -22,5 +22,5 @@ public class BaseNavigationController: UINavigationController {
         super.viewDidLoad()
         navigationBar.isTranslucent = true
     }
-    
+
 }

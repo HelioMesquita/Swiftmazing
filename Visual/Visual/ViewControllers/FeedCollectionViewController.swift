@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public protocol FeedCollectionViewModelProtocol: Hashable {
     var id: String { get }
     var title: String { get }
@@ -123,7 +122,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
         ])
     }
 

@@ -8,7 +8,7 @@
 
 internal class Logger {
 
-    static func show(request: URLRequest, _ response: URLResponse?,_ data: Data?,_ error: Error?) {
+    static func show(request: URLRequest, _ response: URLResponse?, _ data: Data?, _ error: Error?) {
         #if DEBUG
         var requestLog = "REQUEST=================================================\n"
         requestLog += "🎯🎯🎯 URL: \(request.url?.absoluteString ?? "")\n"

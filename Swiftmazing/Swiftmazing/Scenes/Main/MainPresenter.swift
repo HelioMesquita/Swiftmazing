@@ -15,14 +15,14 @@
 import UIKit
 
 protocol MainPresentationLogic {
-    func mapResponse(_ topRepoResponse: Repositories,_ mostRecentResponse: Repositories)
+    func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
 }
 
 class MainPresenter: MainPresentationLogic {
-    
+
     weak var viewController: MainDisplayLogic?
 
-    func mapResponse(_ topRepoResponse: Repositories,_ lastUpdatedtResponse: Repositories) {
+    func mapResponse(_ topRepoResponse: Repositories, _ lastUpdatedtResponse: Repositories) {
         let topRepoViewModel = Main.MapRepoViewModel(repositories: topRepoResponse.items, section: .topRepos)
         let lastUpdatedViewModel = Main.MapRepoViewModel(repositories: lastUpdatedtResponse.items, section: .lastUpdated)
         let newsViewModel = Main.MapNewsViewModel(topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)

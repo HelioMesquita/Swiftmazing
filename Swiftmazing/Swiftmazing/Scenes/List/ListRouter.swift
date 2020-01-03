@@ -20,7 +20,7 @@ protocol ListDataPassing {
 }
 
 class ListRouter: ListRoutingLogic, ListDataPassing {
-    
+
     weak var viewController: ListViewController?
     var dataStore: ListDataStore?
 
