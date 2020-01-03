@@ -23,14 +23,16 @@ public enum FeedSection: String, CaseIterable {
 
 open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
 
-    private var headerHeight: NSCollectionLayoutDimension = .absolute(44)
+    private var headerHeight: NSCollectionLayoutDimension = .estimated(31)
     private var footerHeight: NSCollectionLayoutDimension = .absolute(32)
     private var groupWidth: NSCollectionLayoutDimension = .fractionalWidth(0.92)
-    private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(80)
-    private var repositoriesGroupHeight: NSCollectionLayoutDimension = .estimated(256)
+    private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(76)
+    private var repositoriesGroupHeight: NSCollectionLayoutDimension = .estimated(260)
     private var newsGroupHeight: NSCollectionLayoutDimension = .estimated(312)
-    private var padding: CGFloat = 5
-    private lazy var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: padding, bottom: 0, trailing: padding)
+    private var lateralPadding: CGFloat = 5
+    private var repoItemPadding: CGFloat = 8
+    private lazy var groupContentInsets = NSDirectionalEdgeInsets(top: 0, leading: lateralPadding, bottom: 0, trailing: lateralPadding)
+    private lazy var repoContentInsets = NSDirectionalEdgeInsets(top: repoItemPadding, leading: 0, bottom: 0, trailing: 0)
 
     private let header = FeedSupplementaryHeaderView.reuseIdentifier
     private let footer = FeedSupplementaryFooterView.reuseIdentifier
@@ -93,10 +95,6 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     open func didSelectSupplementaryHeaderView(_ section: FeedSection) {
        //override this method to get button action
     }
@@ -126,10 +124,11 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     private func repositoriesSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .completedWidth, heightDimension: repositoriesItemHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = contentInsets
+        item.contentInsets = repoContentInsets
 
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: repositoriesGroupHeight)
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: numberOfElementsInReceiptGroup)
+        group.contentInsets = groupContentInsets
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
@@ -144,7 +143,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
 
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: newsGroupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-        group.contentInsets = contentInsets
+        group.contentInsets = groupContentInsets
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered

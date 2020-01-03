@@ -20,9 +20,9 @@ public enum ListSection: String, CaseIterable {
 
 open class ListCollectionViewController<T: ListCollectionViewModelProtocol>: BaseViewController {
 
-    private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(88)
-    private var padding: CGFloat = 5
-    private lazy var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: padding, bottom: 0, trailing: padding)
+    private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(118)
+    private var padding: CGFloat = 20
+    private lazy var contentInsets = NSDirectionalEdgeInsets(top: 0, leading: padding, bottom: 10, trailing: padding)
 
     lazy public var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())

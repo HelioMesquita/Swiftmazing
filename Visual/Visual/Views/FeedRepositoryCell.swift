@@ -16,9 +16,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
 
-    private var imageHeight: CGFloat = 60
+    private var imageHeight: CGFloat = 62
     private var lineHeight: CGFloat = 0.5
-    private var linePadding: CGFloat = -12
     private var stackViewPadding: CGFloat = 12
 
     internal lazy var imageView: UIImageView = {
@@ -86,7 +85,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private func addRepositoryImageView() {
         addSubview(imageView)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.heightAnchor.constraint(equalToConstant: imageHeight),
             imageView.widthAnchor.constraint(equalToConstant: imageHeight),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
@@ -107,7 +106,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: linePadding),
+            lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
             lineView.heightAnchor.constraint(equalToConstant: lineHeight)
         ])
     }
