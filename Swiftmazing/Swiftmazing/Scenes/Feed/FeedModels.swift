@@ -32,6 +32,8 @@ enum Feed {
         var subtitle: String?
         var description: String
         var images: [URL]
+        var additionalInfo: String?
+        var supplementaryInfo: String?
 
         var section: FeedSection
         var repository: Repository?
@@ -47,6 +49,8 @@ enum Feed {
         init(repository: Repository, section: FeedSection) {
             self.title = repository.name
             self.description = repository.owner.name
+            self.additionalInfo = String(describing: repository.stars)
+            self.supplementaryInfo = "stars"
             self.images = [repository.owner.avatar]
             self.section = section
             self.repository = repository

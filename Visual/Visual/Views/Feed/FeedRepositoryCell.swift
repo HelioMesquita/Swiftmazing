@@ -181,8 +181,11 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     public func configure<T: FeedCollectionViewModelProtocol>(_ element: T, index: Int, numberOfElements: Int) {
         titleLabel.text = element.title
         descriptionLabel.text = element.description
+        aditionalInfoLabel.text = element.additionalInfo
+        supplementaryInfoLabel.text = element.supplementaryInfo
         imageView.sd_setImage(with: element.images.first)
-        lineView.isHidden = (index + 1).isMultiple(of: numberOfElements)
+        let indexAdjusted = index + 1
+        lineView.isHidden = indexAdjusted.isMultiple(of: numberOfElements)
     }
 
     public override func prepareForReuse() {

@@ -10,8 +10,10 @@ import UIKit
 
 public protocol FeedCollectionViewModelProtocol: BaseHashbleProtocol {
     var title: String { get }
-    var subtitle: String? { get }
     var description: String { get }
+    var subtitle: String? { get }
+    var additionalInfo: String? { get }
+    var supplementaryInfo: String? { get }
     var images: [URL] { get }
 }
 
