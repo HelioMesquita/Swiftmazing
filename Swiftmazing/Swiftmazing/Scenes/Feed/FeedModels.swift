@@ -46,11 +46,11 @@ enum Feed {
             self.section = section
         }
 
-        init(repository: Repository, section: FeedSection) {
+        init(repository: Repository, section: FeedSection, supplementaryInfo: String = Text.stars.value) {
             self.title = repository.name
             self.description = repository.owner.name
-            self.additionalInfo = String(describing: repository.stars)
-            self.supplementaryInfo = "stars"
+            self.additionalInfo = repository.stars.kiloFormat
+            self.supplementaryInfo = supplementaryInfo
             self.images = [repository.owner.avatar]
             self.section = section
             self.repository = repository

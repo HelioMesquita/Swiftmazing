@@ -14,6 +14,7 @@
 		FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */; };
 		FD1DD97123B5297500D92429 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD97023B5297500D92429 /* Repositories.swift */; };
 		FD1DD97423B52BA300D92429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD97623B52BA300D92429 /* Localizable.strings */; };
+		FD20D61D23C054F8003CB202 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD20D61C23C054F8003CB202 /* Int+Utils.swift */; };
 		FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,6 +85,7 @@
 		FD1DD97023B5297500D92429 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		FD1DD97523B52BA300D92429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD1DD97723B52BAF00D92429 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FD20D61C23C054F8003CB202 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoriesProvider.swift; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 			children = (
 				FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */,
 				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
+				FD20D61C23C054F8003CB202 /* Int+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				FD9DFB2D23B03CB900F8B3AC /* LastUpdatedRepositoriesProvider.swift in Sources */,
 				FD0A28D323BFD85200B9B985 /* Text.swift in Sources */,
 				FD9DFB3423B03E8E00F8B3AC /* RepositoryOwner.swift in Sources */,
+				FD20D61D23C054F8003CB202 /* Int+Utils.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
 				FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */,
 				FDB571A623A5889800BAD13C /* FeedModels.swift in Sources */,

@@ -20,6 +20,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private var imageHeight: CGFloat = 62
     private var lineHeight: CGFloat = 0.5
     private var stackViewPadding: CGFloat = 12
+    private var additionalInfoWidth: CGFloat = 56
+    private var additionalInfoHeight: CGFloat = 28
 
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -146,8 +148,8 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private func addAditionalInfoLabel() {
         aditionalStackView.addArrangedSubview(aditionalInfoLabel)
         NSLayoutConstraint.activate([
-            aditionalInfoLabel.widthAnchor.constraint(equalToConstant: 43),
-            aditionalInfoLabel.heightAnchor.constraint(equalToConstant: 28),
+            aditionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
+            aditionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
         ])
     }
 
@@ -229,7 +231,7 @@ struct FeedRepositoryCell_Preview: PreviewProvider {
             FeedRepositoryCellRepresentable(titleLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
                                             avatar: .constant(UIImage.Design.swift),
-                                            aditionalInfo: .constant("27k"),
+                                            aditionalInfo: .constant("27.1k"),
                                             supplementaryInfo: .constant("stars"))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
