@@ -59,7 +59,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         return stackView
     }()
 
-    private lazy var aditionalStackView: UIStackView = {
+    private lazy var additionalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = 2
         stackView.alignment = .center
@@ -76,7 +76,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         return line
     }()
 
-    internal lazy var aditionalInfoLabel: UILabel = {
+    internal lazy var additionalInfoLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = designLineColor
         label.layer.cornerRadius = 14
@@ -109,11 +109,11 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private func configureViews() {
         backgroundColor = designBackgroundColor
         addRepositoryImageView()
-        addAditionalStackView()
+        addAdditionalStackView()
         addMainStackView()
         addNameLabel()
         addSubtitleLabel()
-        addAditionalInfoLabel()
+        addAdditionalInfoLabel()
         addSupplementaryInfoLabel()
         addLine()
     }
@@ -133,28 +133,28 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             mainStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
             mainStackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: aditionalStackView.leadingAnchor, constant: -stackViewPadding)
+            mainStackView.trailingAnchor.constraint(equalTo: additionalStackView.leadingAnchor, constant: -stackViewPadding)
         ])
     }
 
-    private func addAditionalStackView() {
-        addSubview(aditionalStackView)
+    private func addAdditionalStackView() {
+        addSubview(additionalStackView)
         NSLayoutConstraint.activate([
-            aditionalStackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            aditionalStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            additionalStackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            additionalStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
-    private func addAditionalInfoLabel() {
-        aditionalStackView.addArrangedSubview(aditionalInfoLabel)
+    private func addAdditionalInfoLabel() {
+        additionalStackView.addArrangedSubview(additionalInfoLabel)
         NSLayoutConstraint.activate([
-            aditionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
-            aditionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
+            additionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
+            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
         ])
     }
 
     private func addSupplementaryInfoLabel() {
-        aditionalStackView.addArrangedSubview(supplementaryInfoLabel)
+        additionalStackView.addArrangedSubview(supplementaryInfoLabel)
     }
 
     private func addLine() {
@@ -183,7 +183,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     public func configure<T: FeedCollectionViewModelProtocol>(_ element: T, index: Int, numberOfElements: Int) {
         titleLabel.text = element.title
         descriptionLabel.text = element.description
-        aditionalInfoLabel.text = element.additionalInfo
+        additionalInfoLabel.text = element.additionalInfo
         supplementaryInfoLabel.text = element.supplementaryInfo
         imageView.sd_setImage(with: element.images.first)
         let indexAdjusted = index + 1
@@ -205,7 +205,7 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
     @Binding var titleLabel: String
     @Binding var descriptionLabel: String
     @Binding var avatar: UIImage?
-    @Binding var aditionalInfo: String
+    @Binding var additionalInfo: String
     @Binding var supplementaryInfo: String
 
     public typealias UIViewType = FeedRepositoryCell
@@ -218,7 +218,7 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
         uiView.titleLabel.text = titleLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.imageView.image = avatar
-        uiView.aditionalInfoLabel.text = aditionalInfo
+        uiView.additionalInfoLabel.text = additionalInfo
         uiView.supplementaryInfoLabel.text = supplementaryInfo
     }
 
@@ -231,7 +231,7 @@ struct FeedRepositoryCell_Preview: PreviewProvider {
             FeedRepositoryCellRepresentable(titleLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
                                             avatar: .constant(UIImage.Design.swift),
-                                            aditionalInfo: .constant("27.1k"),
+                                            additionalInfo: .constant("27.1k"),
                                             supplementaryInfo: .constant("stars"))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")

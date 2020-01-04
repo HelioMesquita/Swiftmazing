@@ -25,16 +25,22 @@ enum List {
 
     struct ListCellViewModel: ListCollectionViewModelProtocol {
         var title: String
+        var subtitle: String
         var description: String
+        var additionalInfo: String
+        var supplementaryInfo: String
         var image: URL
 
         var repository: Repository?
 
-        init(repository: Repository) {
-            self.title = repository.owner.name
+        init(repository: Repository, supplementaryInfo: String = Text.stars.value) {
+            self.title = repository.name
+            self.subtitle = repository.owner.name
             self.description = repository.description ?? ""
             self.image = repository.owner.avatar
             self.repository = repository
+            self.additionalInfo = repository.stars.kiloFormat
+            self.supplementaryInfo =  supplementaryInfo
         }
     }
 

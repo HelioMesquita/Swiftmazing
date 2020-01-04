@@ -11,6 +11,8 @@ import UIKit
 public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol {
     var title: String { get }
     var description: String { get }
+    var additionalInfo: String { get }
+    var supplementaryInfo: String { get }
     var image: URL { get }
 }
 

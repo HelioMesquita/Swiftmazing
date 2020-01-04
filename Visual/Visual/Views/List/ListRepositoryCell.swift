@@ -15,10 +15,14 @@ internal class ListRepositoryCell: UICollectionViewCell {
     private var designSubtitleColor = UIColor.Design.subtitle
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
+    private var designLinkColor = UIColor.Design.link
 
     private var imageHeight: CGFloat = 90
     private var lineHeight: CGFloat = 1
     private var stackViewPadding: CGFloat = 12
+    private var additionalInfoWidth: CGFloat = 56
+    private var additionalInfoHeight: CGFloat = 28
+    private var additionalInfoPadding: CGFloat = 4
 
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -35,7 +39,7 @@ internal class ListRepositoryCell: UICollectionViewCell {
     internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 
@@ -49,11 +53,34 @@ internal class ListRepositoryCell: UICollectionViewCell {
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 4
         stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }()
+
+    internal lazy var additionalInfoLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = designLineColor
+        label.layer.cornerRadius = 14
+        label.clipsToBounds = true
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.textColor = designLinkColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    internal lazy var supplementaryInfoLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = designSubtitleColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     private lazy var lineView: UIView = {
@@ -76,8 +103,10 @@ internal class ListRepositoryCell: UICollectionViewCell {
         backgroundColor = designBackgroundColor
         addRepositoryImageView()
         addStackView()
-        addNameLabel()
-        addSubtitleLabel()
+        addTitleLabel()
+        addDescriptionLabel()
+        addAdditionalInfoLabel()
+        addSupplementaryInfoLabel()
         addLine()
     }
 
@@ -110,12 +139,30 @@ internal class ListRepositoryCell: UICollectionViewCell {
         ])
     }
 
-    private func addNameLabel() {
+    private func addTitleLabel() {
         stackView.addArrangedSubview(titleLabel)
     }
 
-    private func addSubtitleLabel() {
+    private func addDescriptionLabel() {
         stackView.addArrangedSubview(descriptionLabel)
+    }
+
+    private func addAdditionalInfoLabel() {
+        addSubview(additionalInfoLabel)
+        NSLayoutConstraint.activate([
+            additionalInfoLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            additionalInfoLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
+            additionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
+            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
+        ])
+    }
+
+    private func addSupplementaryInfoLabel() {
+        addSubview(supplementaryInfoLabel)
+        NSLayoutConstraint.activate([
+            supplementaryInfoLabel.centerYAnchor.constraint(equalTo: additionalInfoLabel.centerYAnchor),
+            supplementaryInfoLabel.leadingAnchor.constraint(equalTo: additionalInfoLabel.trailingAnchor, constant: additionalInfoPadding),
+        ])
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -126,6 +173,8 @@ internal class ListRepositoryCell: UICollectionViewCell {
     public func configure<T: ListCollectionViewModelProtocol>(_ element: T) {
         titleLabel.text = element.title
         descriptionLabel.text = element.description
+        additionalInfoLabel.text = element.additionalInfo
+        supplementaryInfoLabel.text = element.supplementaryInfo
         imageView.sd_setImage(with: element.image)
     }
 
