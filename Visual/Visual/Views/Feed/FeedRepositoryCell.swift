@@ -15,6 +15,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private var designSubtitleColor = UIColor.Design.subtitle
     private var designLineColor = UIColor.Design.line
     private var designBackgroundColor = UIColor.Design.background
+    private var designLinkColor = UIColor.Design.link
 
     private var imageHeight: CGFloat = 62
     private var lineHeight: CGFloat = 0.5
@@ -47,10 +48,19 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var stackView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = 4
         stackView.alignment = .leading
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
+    private lazy var aditionalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 2
+        stackView.alignment = .center
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -62,6 +72,27 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         line.backgroundColor = designLineColor
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
+    }()
+
+    internal lazy var aditionalInfoLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = designLineColor
+        label.layer.cornerRadius = 14
+        label.clipsToBounds = true
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.textColor = designLinkColor
+        return label
+    }()
+
+    internal lazy var supplementaryInfoLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 11, weight: .regular)
+        label.textColor = designSubtitleColor
+        return label
     }()
 
     public override init(frame: CGRect) {
@@ -76,9 +107,12 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     private func configureViews() {
         backgroundColor = designBackgroundColor
         addRepositoryImageView()
-        addStackView()
+        addAditionalStackView()
+        addMainStackView()
         addNameLabel()
         addSubtitleLabel()
+        addAditionalInfoLabel()
+        addSupplementaryInfoLabel()
         addLine()
     }
 
@@ -92,19 +126,39 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         ])
     }
 
-    private func addStackView() {
-        addSubview(stackView)
+    private func addMainStackView() {
+        addSubview(mainStackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
-            stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            mainStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
+            mainStackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: aditionalStackView.leadingAnchor, constant: -stackViewPadding)
         ])
+    }
+
+    private func addAditionalStackView() {
+        addSubview(aditionalStackView)
+        NSLayoutConstraint.activate([
+            aditionalStackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            aditionalStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+
+    private func addAditionalInfoLabel() {
+        aditionalStackView.addArrangedSubview(aditionalInfoLabel)
+        NSLayoutConstraint.activate([
+            aditionalInfoLabel.widthAnchor.constraint(equalToConstant: 43),
+            aditionalInfoLabel.heightAnchor.constraint(equalToConstant: 28),
+        ])
+    }
+
+    private func addSupplementaryInfoLabel() {
+        aditionalStackView.addArrangedSubview(supplementaryInfoLabel)
     }
 
     private func addLine() {
         addSubview(lineView)
         NSLayoutConstraint.activate([
-            lineView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            lineView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
             lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
             lineView.heightAnchor.constraint(equalToConstant: lineHeight)
@@ -112,11 +166,11 @@ internal class FeedRepositoryCell: UICollectionViewCell {
     }
 
     private func addNameLabel() {
-        stackView.addArrangedSubview(titleLabel)
+        mainStackView.addArrangedSubview(titleLabel)
     }
 
     private func addSubtitleLabel() {
-        stackView.addArrangedSubview(descriptionLabel)
+        mainStackView.addArrangedSubview(descriptionLabel)
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -146,6 +200,8 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
     @Binding var titleLabel: String
     @Binding var descriptionLabel: String
     @Binding var avatar: UIImage?
+    @Binding var aditionalInfo: String
+    @Binding var supplementaryInfo: String
 
     public typealias UIViewType = FeedRepositoryCell
 
@@ -157,6 +213,8 @@ struct FeedRepositoryCellRepresentable: UIViewRepresentable {
         uiView.titleLabel.text = titleLabel
         uiView.descriptionLabel.text = descriptionLabel
         uiView.imageView.image = avatar
+        uiView.aditionalInfoLabel.text = aditionalInfo
+        uiView.supplementaryInfoLabel.text = supplementaryInfo
     }
 
 }
@@ -167,7 +225,9 @@ struct FeedRepositoryCell_Preview: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
             FeedRepositoryCellRepresentable(titleLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
-                                            avatar: .constant(UIImage.Design.swift))
+                                            avatar: .constant(UIImage.Design.swift),
+                                            aditionalInfo: .constant("27k"),
+                                            supplementaryInfo: .constant("stars"))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
         }

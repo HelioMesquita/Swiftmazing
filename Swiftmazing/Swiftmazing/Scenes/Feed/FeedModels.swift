@@ -45,8 +45,8 @@ enum Feed {
         }
 
         init(repository: Repository, section: FeedSection) {
-            self.title = repository.owner.name
-            self.description = repository.description ?? ""
+            self.title = repository.name
+            self.description = repository.owner.name
             self.images = [repository.owner.avatar]
             self.section = section
             self.repository = repository
