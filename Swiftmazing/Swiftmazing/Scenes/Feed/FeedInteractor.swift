@@ -18,14 +18,15 @@ import PromiseKit
 protocol FeedBusinessLogic {
     func loadScreen()
     func repositorySelected(_ repository: Repository?)
-    func topRepoListSelected(title: String)
-    func lastUpdatedListSelected(title: String)
+    func topRepoListSelected(_ repositories: [Repository], title: String)
+    func lastUpdatedListSelected(_ repositories: [Repository], title: String)
 }
 
 protocol FeedDataStore {
     var selectedRepository: Repository? { get set }
     var listTitle: String { get set }
     var listProvider: BaseRepositoriesProvider { get set }
+    var listRepositories: [Repository] { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
@@ -38,6 +39,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     // MARK: DATASTORE
     var listTitle: String = ""
     var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
+    var listRepositories: [Repository] = []
     var selectedRepository: Repository?
 
     init(worker: RepositoriesWorker = RepositoriesWorker()) {
@@ -59,13 +61,15 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
     }
 
-    func topRepoListSelected(title: String) {
+    func topRepoListSelected(_ repositories: [Repository], title: String) {
+        listRepositories = repositories
         listProvider = topRepositoriesProvider
         listTitle = title
         presenter?.presentList()
     }
 
-    func lastUpdatedListSelected(title: String) {
+    func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
+        listRepositories = repositories
         listProvider = lastUpdatedRepositoriesProvider
         listTitle = title
         presenter?.presentList()

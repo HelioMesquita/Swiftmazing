@@ -39,10 +39,6 @@ class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         load()
     }
 
@@ -62,11 +58,12 @@ class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
     }
 
     func didSelectSection(_ section: FeedSection) {
+        let repositories = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
         switch section {
         case .topRepos:
-            interactor?.topRepoListSelected(title: section.value)
+            interactor?.topRepoListSelected(repositories, title: section.value)
         case .lastUpdated:
-            interactor?.lastUpdatedListSelected(title: section.value)
+            interactor?.lastUpdatedListSelected(repositories, title: section.value)
         default:
             return
         }
@@ -99,7 +96,7 @@ extension FeedViewController: FeedDisplayLogic {
         snapshot.appendItems(viewModel.news, toSection: .news)
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
         snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: false)
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.refreshControl?.endRefreshing()
     }

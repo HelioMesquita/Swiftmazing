@@ -14,8 +14,9 @@ import UIKit
 import Visual
 
 protocol ListDisplayLogic: class {
-    func show(_ viewModels: [List.ListCellViewModel])
     func showTitle(_ title: String)
+    func showReload(with viewModels: [List.ListCellViewModel])
+    func showNextPage(with viewModels: [List.ListCellViewModel])
 }
 
 class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
@@ -38,18 +39,22 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.loadScreen()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configure()
-        load()
     }
 
     func configure() {
         collectionView.prefetchDataSource = self
-        collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        collectionView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
     }
 
-    @objc func load() {
+    @objc func reload() {
         collectionView.refreshControl?.beginRefreshing()
-        interactor?.loadScreen()
+        interactor?.reloadRepositories()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,12 +80,20 @@ extension ListViewController: ListDisplayLogic {
         self.title = title
     }
 
-    func show(_ viewModels: [List.ListCellViewModel]) {
+    func showReload(with viewModels: [List.ListCellViewModel]) {
+        loadList(viewModels)
+    }
+
+    func showNextPage(with viewModels: [List.ListCellViewModel]) {
         let items = dataSource.snapshot().itemIdentifiers + viewModels
+        loadList(items)
+    }
+
+    private func loadList(_ items: [List.ListCellViewModel]) {
         var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
         snapshot.appendSections([.repo])
         snapshot.appendItems(items, toSection: .repo)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: false)
         collectionView.refreshControl?.endRefreshing()
     }
 

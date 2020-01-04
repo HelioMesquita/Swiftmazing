@@ -16,6 +16,7 @@ import UIKit
 
 protocol ListBusinessLogic {
     func loadScreen()
+    func reloadRepositories()
     func resetProvider()
     func prefetchNextPage(index: Int)
 }
@@ -23,6 +24,7 @@ protocol ListBusinessLogic {
 protocol ListDataStore {
     var listProvider: BaseRepositoriesProvider { get set }
     var listTitle: String { get set }
+    var listRepositories: [Repository] { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
@@ -33,6 +35,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     // MARK: DATASTORE
     var listTitle: String = ""
     var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
+    var listRepositories: [Repository] = []
 
     init(worker: RepositoriesWorker = RepositoriesWorker()) {
         self.worker = worker
@@ -40,15 +43,16 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     func loadScreen() {
         presenter?.presentTitle(listTitle)
-        loadRepositories()
+        presenter?.reloadMap(listRepositories)
     }
 
-    private func loadRepositories() {
-        worker.getRepositories(from: listProvider).done(handleSuccess).cauterize()
+    func reloadRepositories() {
+        resetProvider()
+        worker.getRepositories(from: listProvider).done(handleReloadSuccess).cauterize()
     }
 
-    private func handleSuccess(_ repositories: Repositories) {
-        presenter?.map(repositories.items)
+    private func handleReloadSuccess(_ repositories: Repositories) {
+        presenter?.reloadMap(repositories.items)
     }
 
     func prefetchNextPage(index: Int) {
@@ -61,7 +65,11 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     private func loadNextPage() {
         listProvider.currentPage += 1
-        loadRepositories()
+        worker.getRepositories(from: listProvider).done(handleNextSuccess).cauterize()
+    }
+
+    private func handleNextSuccess(_ repositories: Repositories) {
+        presenter?.nextPageMap(repositories.items)
     }
 
     func resetProvider() {
