@@ -16,11 +16,11 @@ public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol {
     var image: URL { get }
 }
 
-public enum ListSection: String, CaseIterable {
-    case repo
-}
-
 open class ListCollectionViewController<T: ListCollectionViewModelProtocol>: BaseViewController {
+
+    public enum ListSection: String, CaseIterable {
+        case repo
+    }
 
     private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(118)
     private var padding: CGFloat = 20

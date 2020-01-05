@@ -153,7 +153,7 @@ internal class ListRepositoryCell: UICollectionViewCell {
             additionalInfoLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
             additionalInfoLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: stackViewPadding),
             additionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
-            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
+            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight)
         ])
     }
 
@@ -161,7 +161,7 @@ internal class ListRepositoryCell: UICollectionViewCell {
         addSubview(supplementaryInfoLabel)
         NSLayoutConstraint.activate([
             supplementaryInfoLabel.centerYAnchor.constraint(equalTo: additionalInfoLabel.centerYAnchor),
-            supplementaryInfoLabel.leadingAnchor.constraint(equalTo: additionalInfoLabel.trailingAnchor, constant: additionalInfoPadding),
+            supplementaryInfoLabel.leadingAnchor.constraint(equalTo: additionalInfoLabel.trailingAnchor, constant: additionalInfoPadding)
         ])
     }
 

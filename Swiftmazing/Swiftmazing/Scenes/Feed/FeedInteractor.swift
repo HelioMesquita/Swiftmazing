@@ -58,7 +58,8 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     }
 
     func repositorySelected(_ repository: Repository?) {
-
+        selectedRepository = repository
+        presenter?.presentDetail()
     }
 
     func topRepoListSelected(_ repositories: [Repository], title: String) {

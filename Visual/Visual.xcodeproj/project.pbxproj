@@ -31,6 +31,7 @@
 		FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */; };
 		FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift */; };
 		FDB571B723A5A60A00BAD13C /* Colors+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */; };
+		FDE9BBE223C2788100E80CDD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBE123C2788100E80CDD /* DetailViewController.swift */; };
 		FDEEDF25239DD22300C64A0B /* Visual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEDF1B239DD22300C64A0B /* Visual.framework */; };
 		FDEEDF2A239DD22300C64A0B /* VisualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDF29239DD22300C64A0B /* VisualTests.swift */; };
 		FDEEDF2C239DD22300C64A0B /* Visual.h in Headers */ = {isa = PBXBuildFile; fileRef = FDEEDF1E239DD22300C64A0B /* Visual.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +76,7 @@
 		FDB571B223A5A57F00BAD13C /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B423A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionReusableView+Utils.swift"; sourceTree = "<group>"; };
 		FDB571B623A5A60A00BAD13C /* Colors+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Utils.swift"; sourceTree = "<group>"; };
+		FDE9BBE123C2788100E80CDD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FDEEDF1B239DD22300C64A0B /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDF1E239DD22300C64A0B /* Visual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visual.h; sourceTree = "<group>"; };
 		FDEEDF1F239DD22300C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				FD0A28DA23BFE50000B9B985 /* Base */,
 				FD0A28DB23BFE50400B9B985 /* Feed */,
 				FD0A28DC23BFE50800B9B985 /* List */,
+				FDE9BBE023C2778500E80CDD /* Detail */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -220,6 +223,14 @@
 				E93E33E423B6258900D39189 /* Develop.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FDE9BBE023C2778500E80CDD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9BBE123C2788100E80CDD /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		FDEEDF11239DD22300C64A0B = {
@@ -409,6 +420,7 @@
 				FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */,
 				FD1DD96B23B51E2C00D92429 /* String+Utils.swift in Sources */,
 				FD0A28CA23BECAA900B9B985 /* ListCollectionViewController.swift in Sources */,
+				FDE9BBE223C2788100E80CDD /* DetailViewController.swift in Sources */,
 				FD0A28D523BFD8F500B9B985 /* Text.swift in Sources */,
 				FDB571AB23A5898E00BAD13C /* ListRepositoryCell.swift in Sources */,
 				E9DC1F2823B13DF5004F14FF /* FeedSupplementaryHeaderView.swift in Sources */,

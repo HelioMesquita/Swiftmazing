@@ -17,6 +17,7 @@ protocol ListDisplayLogic: class {
     func showTitle(_ title: String)
     func showReload(with viewModels: [List.ListCellViewModel])
     func showNextPage(with viewModels: [List.ListCellViewModel])
+    func showDetail()
 }
 
 class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
@@ -48,6 +49,7 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
     }
 
     func configure() {
+        collectionView.delegate = self
         collectionView.prefetchDataSource = self
         collectionView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
     }
@@ -60,6 +62,15 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         interactor?.resetProvider()
+    }
+
+}
+
+extension ListViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let element = dataSource.itemIdentifier(for: indexPath)?.repository else { return }
+        interactor?.repositorySelected(element)
     }
 
 }
@@ -95,6 +106,10 @@ extension ListViewController: ListDisplayLogic {
         snapshot.appendItems(items, toSection: .repo)
         dataSource.apply(snapshot, animatingDifferences: false)
         collectionView.refreshControl?.endRefreshing()
+    }
+
+    func showDetail() {
+        router?.routeToDetail()
     }
 
 }

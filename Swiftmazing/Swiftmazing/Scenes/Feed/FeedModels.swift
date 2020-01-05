@@ -78,7 +78,7 @@ enum Feed {
                                   section: .topRepos,
                                   images: topAvatars),
                 FeedCellViewModel(title: Text.updatedRepositories.value,
-                                  subtitle: Text.latestUpdates.value,
+                                  subtitle: Text.theLatestUpdates.value,
                                   description: Text.mostUpdatedRepositories.value,
                                   section: .lastUpdated,
                                   images: lastAvatars)

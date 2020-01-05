@@ -35,6 +35,11 @@
 		FDB571A623A5889800BAD13C /* FeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* FeedModels.swift */; };
 		FDB571A723A5889800BAD13C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* FeedViewController.swift */; };
 		FDB571A823A5889800BAD13C /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A123A5889800BAD13C /* FeedInteractor.swift */; };
+		FDE9BBFB23C2881D00E80CDD /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF423C2881D00E80CDD /* RepositoryDetailPresenter.swift */; };
+		FDE9BBFD23C2881D00E80CDD /* RepositoryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF623C2881D00E80CDD /* RepositoryDetailRouter.swift */; };
+		FDE9BBFF23C2881D00E80CDD /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF823C2881D00E80CDD /* RepositoryDetailViewController.swift */; };
+		FDE9BC0023C2881D00E80CDD /* RepositoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF923C2881D00E80CDD /* RepositoryDetailInteractor.swift */; };
+		FDE9BC0423C299B600E80CDD /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BC0323C299B600E80CDD /* Date+Utils.swift */; };
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC7239DD1B500C64A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
@@ -106,6 +111,11 @@
 		FDB5719F23A5889800BAD13C /* FeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModels.swift; sourceTree = "<group>"; };
 		FDB571A023A5889800BAD13C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FDB571A123A5889800BAD13C /* FeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
+		FDE9BBF423C2881D00E80CDD /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
+		FDE9BBF623C2881D00E80CDD /* RepositoryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailRouter.swift; sourceTree = "<group>"; };
+		FDE9BBF823C2881D00E80CDD /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		FDE9BBF923C2881D00E80CDD /* RepositoryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailInteractor.swift; sourceTree = "<group>"; };
+		FDE9BC0323C299B600E80CDD /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftmazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +213,7 @@
 				FD9DFB2E23B03E2E00F8B3AC /* Models */,
 				FDB5719B23A5888A00BAD13C /* Feed */,
 				FDB5718C23A580A300BAD13C /* List */,
+				FDE9BBE323C280B100E80CDD /* RepositoryDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 				FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */,
 				FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */,
 				FD20D61C23C054F8003CB202 /* Int+Utils.swift */,
+				FDE9BC0323C299B600E80CDD /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -268,6 +280,17 @@
 				FDB571A023A5889800BAD13C /* FeedViewController.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		FDE9BBE323C280B100E80CDD /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9BBF423C2881D00E80CDD /* RepositoryDetailPresenter.swift */,
+				FDE9BBF623C2881D00E80CDD /* RepositoryDetailRouter.swift */,
+				FDE9BBF923C2881D00E80CDD /* RepositoryDetailInteractor.swift */,
+				FDE9BBF823C2881D00E80CDD /* RepositoryDetailViewController.swift */,
+			);
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 		FDEEDEB1239DD1B500C64A0B = {
@@ -501,12 +524,14 @@
 				FDB5719623A5815D00BAD13C /* ListRouter.swift in Sources */,
 				FD1DD97123B5297500D92429 /* Repositories.swift in Sources */,
 				FDB5719423A5815D00BAD13C /* ListPresenter.swift in Sources */,
+				FDE9BBFD23C2881D00E80CDD /* RepositoryDetailRouter.swift in Sources */,
 				FD9DFB3223B03E6500F8B3AC /* Repository.swift in Sources */,
 				FD9DFB2D23B03CB900F8B3AC /* LastUpdatedRepositoriesProvider.swift in Sources */,
 				FD0A28D323BFD85200B9B985 /* Text.swift in Sources */,
 				FD9DFB3423B03E8E00F8B3AC /* RepositoryOwner.swift in Sources */,
 				FD20D61D23C054F8003CB202 /* Int+Utils.swift in Sources */,
 				FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */,
+				FDE9BBFF23C2881D00E80CDD /* RepositoryDetailViewController.swift in Sources */,
 				FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */,
 				FDB571A623A5889800BAD13C /* FeedModels.swift in Sources */,
 				FDB571A823A5889800BAD13C /* FeedInteractor.swift in Sources */,
@@ -515,12 +540,15 @@
 				FDB571A523A5889800BAD13C /* FeedRouter.swift in Sources */,
 				FDB571A723A5889800BAD13C /* FeedViewController.swift in Sources */,
 				FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */,
+				FDE9BC0023C2881D00E80CDD /* RepositoryDetailInteractor.swift in Sources */,
 				FDB571A323A5889800BAD13C /* FeedPresenter.swift in Sources */,
 				FDB5719923A5815D00BAD13C /* ListInteractor.swift in Sources */,
+				FDE9BBFB23C2881D00E80CDD /* RepositoryDetailPresenter.swift in Sources */,
 				FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */,
 				FDB5719723A5815D00BAD13C /* ListModels.swift in Sources */,
 				FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */,
 				FD69D92723A55A3E003D0070 /* Bundle+Utils.swift in Sources */,
+				FDE9BC0423C299B600E80CDD /* Date+Utils.swift in Sources */,
 				FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */,
 				FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */,
 			);

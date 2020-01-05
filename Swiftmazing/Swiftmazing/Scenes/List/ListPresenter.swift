@@ -18,6 +18,7 @@ protocol ListPresentationLogic {
     func presentTitle(_ title: String)
     func reloadMap(_ repositories: [Repository])
     func nextPageMap(_ repositories: [Repository])
+    func presentDetail()
 }
 
 class ListPresenter: ListPresentationLogic {
@@ -36,6 +37,10 @@ class ListPresenter: ListPresentationLogic {
 
     func presentTitle(_ title: String) {
         viewController?.showTitle(title)
+    }
+
+    func presentDetail() {
+        viewController?.showDetail()
     }
 
 }

@@ -149,7 +149,7 @@ internal class FeedRepositoryCell: UICollectionViewCell {
         additionalStackView.addArrangedSubview(additionalInfoLabel)
         NSLayoutConstraint.activate([
             additionalInfoLabel.widthAnchor.constraint(equalToConstant: additionalInfoWidth),
-            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
+            additionalInfoLabel.heightAnchor.constraint(equalToConstant: additionalInfoHeight)
         ])
     }
 

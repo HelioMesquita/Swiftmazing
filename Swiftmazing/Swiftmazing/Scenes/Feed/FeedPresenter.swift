@@ -17,6 +17,7 @@ import UIKit
 protocol FeedPresentationLogic {
     func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
     func presentList()
+    func presentDetail()
 }
 
 class FeedPresenter: FeedPresentationLogic {
@@ -34,6 +35,10 @@ class FeedPresenter: FeedPresentationLogic {
 
     func presentList() {
         viewController?.showList()
+    }
+
+    func presentDetail() {
+        viewController?.showDetail()
     }
 
 }

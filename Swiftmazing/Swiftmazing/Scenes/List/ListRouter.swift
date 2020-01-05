@@ -13,6 +13,7 @@
 import UIKit
 
 @objc protocol ListRoutingLogic {
+    func routeToDetail()
 }
 
 protocol ListDataPassing {
@@ -24,30 +25,16 @@ class ListRouter: ListRoutingLogic, ListDataPassing {
     weak var viewController: ListViewController?
     var dataStore: ListDataStore?
 
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //      let destinationVC = segue.destination as! SomewhereViewController
-    //      var destinationDS = destinationVC.router!.dataStore!
-    //      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //      let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //      var destinationDS = destinationVC.router!.dataStore!
-    //      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //      navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToDetail() {
+        let destinationViewController = RepositoryDetailViewController()
+        var destinationDataStore = destinationViewController.router?.dataStore
+        passDataToList(source: dataStore, destination: &destinationDataStore)
+        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
 
-    // MARK: Navigation
-
-    //func navigateToSomewhere(source: ListViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
-
-    // MARK: Passing data
-
-    //func passDataToSomewhere(source: ListDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToList(source: ListDataStore?, destination: inout RepositoryDetailDataStore?) {
+        guard let source = source, var destination = destination else { return }
+        destination.repository = source.selectedRepository
+    }
 
 }

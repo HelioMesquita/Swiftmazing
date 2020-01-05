@@ -13,9 +13,12 @@ enum Text: String {
     case renownedRepositories
     case bestTools
     case updatedRepositories
-    case latestUpdates
+    case theLatestUpdates
     case mostUpdatedRepositories
     case stars
+    case lastUpdate
+    case forks
+    case issues
 
     public var value: String {
         return String(describing: self).localized()

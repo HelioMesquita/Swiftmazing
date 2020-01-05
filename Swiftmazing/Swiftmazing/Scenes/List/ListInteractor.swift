@@ -17,11 +17,13 @@ import UIKit
 protocol ListBusinessLogic {
     func loadScreen()
     func reloadRepositories()
+    func repositorySelected(_ repository: Repository?)
     func resetProvider()
     func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
+    var selectedRepository: Repository? { get set }
     var listProvider: BaseRepositoriesProvider { get set }
     var listTitle: String { get set }
     var listRepositories: [Repository] { get set }
@@ -33,6 +35,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     var presenter: ListPresentationLogic?
 
     // MARK: DATASTORE
+    var selectedRepository: Repository?
     var listTitle: String = ""
     var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
     var listRepositories: [Repository] = []
@@ -53,6 +56,11 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     private func handleReloadSuccess(_ repositories: Repositories) {
         presenter?.reloadMap(repositories.items)
+    }
+
+    func repositorySelected(_ repository: Repository?) {
+        selectedRepository = repository
+        presenter?.presentDetail()
     }
 
     func prefetchNextPage(index: Int) {

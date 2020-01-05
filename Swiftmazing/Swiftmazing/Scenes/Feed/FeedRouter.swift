@@ -14,6 +14,7 @@ import UIKit
 
 @objc protocol FeedRoutingLogic {
     func routeToList()
+    func routeToDetail()
 }
 
 protocol FeedDataPassing {
@@ -37,6 +38,18 @@ class FeedRouter: FeedRoutingLogic, FeedDataPassing {
         destination.listProvider = source.listProvider
         destination.listRepositories = source.listRepositories
         destination.listTitle = source.listTitle
+    }
+
+    func routeToDetail() {
+        let destinationViewController = RepositoryDetailViewController()
+        var destinationDataStore = destinationViewController.router?.dataStore
+        passDataToList(source: dataStore, destination: &destinationDataStore)
+        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+
+    func passDataToList(source: FeedDataStore?, destination: inout RepositoryDetailDataStore?) {
+        guard let source = source, var destination = destination else { return }
+        destination.repository = source.selectedRepository
     }
 
 }

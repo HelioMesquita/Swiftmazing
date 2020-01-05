@@ -16,6 +16,7 @@ import Visual
 protocol FeedDisplayLogic: class {
     func show(_ viewModel: Feed.ViewModel)
     func showList()
+    func showDetail()
 }
 
 class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
@@ -97,12 +98,16 @@ extension FeedViewController: FeedDisplayLogic {
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
         snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
         dataSource.apply(snapshot, animatingDifferences: false)
-        collectionView.collectionViewLayout.invalidateLayout()
+//        collectionView.collectionViewLayout.invalidateLayout()
         collectionView.refreshControl?.endRefreshing()
     }
 
     func showList() {
         router?.routeToList()
+    }
+
+    func showDetail() {
+        router?.routeToDetail()
     }
 
 }

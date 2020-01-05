@@ -10,6 +10,9 @@
 "renownedRepositories" = "Repositórios renomados";
 "bestTools" = "As melhores ferramentas";
 "updatedRepositories" = "REPOSITÓRIOS ATUALIZADOS";
-"latestUpdates" = "As últimas atualizações";
+"theLatestUpdates" = "As últimas atualizações";
 "mostUpdatedRepositories" = "Repositórios mais atualizados";
 "stars" = "estrelas";
+"lastUpdate" = "Última atualização";
+"forks" = "forks";
+"issues" = "defeitos";
