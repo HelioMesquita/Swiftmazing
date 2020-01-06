@@ -32,8 +32,12 @@ def visualPods
     pod 'SDWebImage', '5.4.0'
 end
 
-def infrastructurePods
+def promiseKitPod
     pod 'PromiseKit', '6.10.0'
+end
+
+def infrastructurePods
+    promiseKitPod
 end
 
 ##Swiftmazing
@@ -54,10 +58,11 @@ target 'Infrastructure' do
     infrastructurePods
 end
 
-# target 'InfrastructureTests' do
-#     project 'Infrastructure/Infrastructure.xcodeproj'
-#     testingPods
-# end
+ target 'InfrastructureTests' do
+     project 'Infrastructure/Infrastructure.xcodeproj'
+     testingPods
+     promiseKitPod
+ end
 
 ##Visual
 target 'Visual' do

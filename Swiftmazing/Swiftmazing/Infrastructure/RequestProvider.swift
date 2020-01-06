@@ -20,15 +20,15 @@ extension RequestProviderProtocol {
     }
 
     var bodyParameters: Encodable? {
-      return nil
+        return nil
     }
 
     var queryParameters: [URLQueryItem]? {
-      return nil
+        return nil
     }
 
     var headers: [String: String] {
-      return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json"]
     }
 
 }

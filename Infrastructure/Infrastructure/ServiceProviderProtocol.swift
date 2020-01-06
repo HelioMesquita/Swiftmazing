@@ -17,10 +17,6 @@ public protocol ServiceProviderProtocol {
 
 extension ServiceProviderProtocol {
 
-    public var urlSession: URLSession {
-        return URLSession.shared
-    }
-
     public var jsonDecoder: JSONDecoder {
         return JSONDecoder()
     }
@@ -30,15 +26,17 @@ extension ServiceProviderProtocol {
             urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
                 Logger.show(request: request.asURLRequest, response, data, error)
 
-                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-                if 200...299 ~= statusCode {
-                    let data = data ?? Data()
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, let data = data else {
+                    seal.reject(RequestError.unknownError)
+                    return
+                }
 
+                if 200...299 ~= statusCode {
                     do {
                         let model = try self.jsonDecoder.decode(T.self, from: data)
                         seal.fulfill(model)
                     } catch {
-                        seal.reject(error)
+                        seal.reject(RequestError.invalidParser)
                     }
 
                 } else {

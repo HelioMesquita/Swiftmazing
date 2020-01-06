@@ -10,4 +10,5 @@
 "badRequest" = "There was an error loading your data.";
 "unauthorized" = "You do not have access to this type of information.";
 "notFound" = "Could not find what you requested, please try again";
-"unknownError" = "An error has occurred, please try again";
+"unknownError" = "An error has occurred, please check your internet try again";
+"invalidParser" = "An error has occurred, please check some update";

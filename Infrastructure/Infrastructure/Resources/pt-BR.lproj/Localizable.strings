@@ -10,4 +10,5 @@
 "badRequest" = "Houve algum erro ao carregar seus dados.";
 "unauthorized" = "Você não possui acesso a esse tipo de informação.";
 "notFound" = "Não foi encontrado o que você pediu, tente novamente";
-"unknownError" = "Ocorreu algum erro, tente novamente";
+"unknownError" = "Ocorreu algum erro, por favor verifique sua internet tente novamente";
+"invalidParser" = "Ocorreu algum erro, por favor verifique se há alguma atualização";
