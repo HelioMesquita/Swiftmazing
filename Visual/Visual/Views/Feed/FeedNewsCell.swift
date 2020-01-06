@@ -238,7 +238,7 @@ struct FeedNewsCell_Preview: PreviewProvider {
             FeedNewsCellRepresentable(titleLabel: .constant("Title Label"),
                                       subtitleLabel: .constant("Name label"),
                                       descriptionLabel: .constant("Description Label"),
-                                      avatar: .constant(UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)))
+                                      avatar: .constant(UIImage.Design.swift))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
         }

@@ -15,8 +15,8 @@ public class FeedSupplementaryFooterView: UICollectionReusableView {
     private let padding: CGFloat = 20.0
     private let line: UIView = UIView()
 
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
         backgroundColor = designBackgroundColor
         line.backgroundColor = designLineColor
         addSubview(line)

@@ -12,28 +12,42 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
     private var designTitleColor = UIColor.Design.title
     private var designBackgroundColor = UIColor.Design.background
-    private var designLinkColor = UIColor.Design.link
     private let padding: CGFloat = 20.0
 
     internal lazy var callBack: (FeedSection) -> Void = { sender in }
     internal var section: FeedSection?
-    internal let label: UILabel = UILabel()
-    internal var button: UIButton?
 
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    internal lazy var label: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = designTitleColor
+        return label
+    }()
+
+    internal lazy var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        button.addTarget(self, action: #selector(buttonclicked), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
         addLabel()
         addButton()
         backgroundColor = designBackgroundColor
     }
 
-    private func addLabel() {
-        label.textColor = designTitleColor
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.numberOfLines = 1
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
+    private func addLabel() {
+        addSubview(label)
+        label.text = "TEXTO"
         NSLayoutConstraint.activate([
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding)
@@ -41,13 +55,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     }
 
     private func addButton() {
-        let button = UIButton(type: .system)
-        self.button = button
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
-        button.addTarget(self, action: #selector(buttonclicked), for: .touchUpInside)
         addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             button.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor),
             button.leadingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor, constant: 12),
@@ -64,11 +72,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         self.section = section
         self.callBack = callBack
         label.text = section.value
-        button?.setTitle(buttonTitle, for: .normal)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        button.setTitle(buttonTitle, for: .normal)
     }
 
 }
@@ -84,12 +88,12 @@ internal struct FeedSupplementaryHeaderViewRepresentable: UIViewRepresentable {
     public typealias UIViewType = FeedSupplementaryHeaderView
 
     func makeUIView(context: UIViewRepresentableContext<FeedSupplementaryHeaderViewRepresentable>) -> FeedSupplementaryHeaderView {
-        return FeedSupplementaryHeaderView(frame: .zero)
+        return FeedSupplementaryHeaderView()
     }
 
     func updateUIView(_ uiView: FeedSupplementaryHeaderView, context: UIViewRepresentableContext<FeedSupplementaryHeaderViewRepresentable>) {
         uiView.label.text = titleLabel
-        uiView.button?.setTitle(button, for: .normal)
+        uiView.button.setTitle(button, for: .normal)
     }
 
 }
@@ -103,7 +107,7 @@ internal struct FeedSupplementaryHeaderView_Preview: PreviewProvider {
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
         }
-        .previewLayout(.fixed(width: 365, height: 40))
+        .previewLayout(.fixed(width: 375, height: 40))
         .padding(.horizontal, 8.0)
     }
 }

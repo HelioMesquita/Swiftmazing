@@ -23,9 +23,10 @@ class Pod::Target::BuildSettings::AggregateTargetSettings
 end
 
 
-def testingPods
+def unitTestingPods
     pod 'Quick', '2.2.0'
     pod 'Nimble', '8.0.4'
+    pod 'Nimble-Snapshots', '8.0.0'
 end
 
 def visualPods
@@ -60,7 +61,7 @@ end
 
  target 'InfrastructureTests' do
      project 'Infrastructure/Infrastructure.xcodeproj'
-     testingPods
+     unitTestingPods
      promiseKitPod
  end
 
@@ -70,8 +71,8 @@ target 'Visual' do
     visualPods
 end
 
-# target 'VisualTests' do
-#     project 'Visual/Visual.xcodeproj'
-
-# end
+ target 'VisualTests' do
+     project 'Visual/Visual.xcodeproj'
+     unitTestingPods
+ end
 
