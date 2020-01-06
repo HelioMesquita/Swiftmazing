@@ -8,12 +8,14 @@
 
 import Foundation
 
-public enum RequestError: Error, LocalizedError {
+public enum RequestError: Int, Error, LocalizedError {
 
-    case badRequest
-    case unauthorized
-    case notFound
-    case unknownError
+    public typealias RawValue = Int
+
+    case badRequest = 400
+    case unauthorized = 401
+    case notFound = 404
+    case unknownError = 0
 
     public var localizedDescription: String {
         return String(describing: self).localized()
