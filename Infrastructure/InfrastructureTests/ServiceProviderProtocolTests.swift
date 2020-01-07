@@ -30,12 +30,20 @@ class ServiceProvider: ServiceProviderProtocol {
 
 class ServiceProviderProtocolTests: QuickSpec {
 
-    struct BodyParser: Decodable {
+    struct BodyParser: RequestDecodable {
         let body: String
+
+        init() {
+            body = ""
+        }
     }
 
-    struct InvalidParser: Decodable {
+    struct InvalidParser: RequestDecodable {
         let corpo: String
+
+        init() {
+            corpo = ""
+        }
     }
 
     let jsonData = """
