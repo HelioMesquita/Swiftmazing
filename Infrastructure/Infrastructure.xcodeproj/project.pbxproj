@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C8837CBA3F0DFA72D38B98C /* Pods_Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB2ECC868DF15B191CCF858 /* Pods_Infrastructure.framework */; };
 		B7560B1EDEA10F2E0F70B9EA /* Pods_InfrastructureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB9026D8E83D2CED5A5AEF7 /* Pods_InfrastructureTests.framework */; };
+		E9059FA223C521DD006B16D3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9059FA123C521DD006B16D3 /* Text.swift */; };
 		E944CBCE23B16531006CF70E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944CBCD23B16531006CF70E /* Logger.swift */; };
 		E961CB8323C4C1E400239D14 /* RequestDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961CB8223C4C1E400239D14 /* RequestDecodable.swift */; };
 		E974C6A023C354D50095419B /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974C69F23C354D50095419B /* MockURLSession.swift */; };
@@ -46,6 +47,7 @@
 		5C8EAD9F06E21242F40F9CCB /* Pods-InfrastructureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfrastructureTests.debug.xcconfig"; path = "Target Support Files/Pods-InfrastructureTests/Pods-InfrastructureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F27621143154286226D4868 /* Pods-Infrastructure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.debug.xcconfig"; path = "Target Support Files/Pods-Infrastructure/Pods-Infrastructure.debug.xcconfig"; sourceTree = "<group>"; };
 		BFB9026D8E83D2CED5A5AEF7 /* Pods_InfrastructureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfrastructureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9059FA123C521DD006B16D3 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		E944CBCD23B16531006CF70E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E961CB8223C4C1E400239D14 /* RequestDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDecodable.swift; sourceTree = "<group>"; };
 		E974C69F23C354D50095419B /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		FD40A25923A5BB2B004855B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E9059FA123C521DD006B16D3 /* Text.swift */,
 				FDEEDF42239DD25400C64A0B /* Infrastructure.h */,
 				FDEEDF43239DD25400C64A0B /* Info.plist */,
 				FDB5718A23A563F800BAD13C /* Localizable.strings */,
@@ -372,6 +375,7 @@
 				FD69D91923A54FFE003D0070 /* HttpVerb.swift in Sources */,
 				FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */,
 				FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */,
+				E9059FA223C521DD006B16D3 /* Text.swift in Sources */,
 				E944CBCE23B16531006CF70E /* Logger.swift in Sources */,
 				E961CB8323C4C1E400239D14 /* RequestDecodable.swift in Sources */,
 				FD40A25C23A87F25004855B2 /* ServiceProviderProtocol.swift in Sources */,

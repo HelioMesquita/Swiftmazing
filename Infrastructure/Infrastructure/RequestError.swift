@@ -19,7 +19,7 @@ public enum RequestError: Int, Error, LocalizedError, Equatable {
     case notFound = 404
 
     public var localizedDescription: String {
-        return String(describing: self).localized()
+        return Text(rawValue: String(describing: self))?.value ?? ""
     }
 
 }

@@ -23,7 +23,7 @@ public enum FeedSection: String, CaseIterable {
     case lastUpdated
 
     public var value: String {
-        return String(describing: self).localized()
+        return String(describing: self.rawValue).localized()
     }
 }
 
