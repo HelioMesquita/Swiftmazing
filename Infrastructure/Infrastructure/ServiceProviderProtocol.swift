@@ -12,7 +12,7 @@ import PromiseKit
 public protocol ServiceProviderProtocol {
     var urlSession: URLSession { get }
     var jsonDecoder: JSONDecoder { get }
-    func execute<T: Decodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
+    func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
 }
 
 extension ServiceProviderProtocol {
@@ -21,7 +21,7 @@ extension ServiceProviderProtocol {
         return JSONDecoder()
     }
 
-    public func execute<T: Decodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
+    public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
         return Promise<T> { seal in
             urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
                 Logger.show(request: request.asURLRequest, response, data, error)

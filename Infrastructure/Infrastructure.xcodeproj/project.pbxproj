@@ -10,6 +10,7 @@
 		7C8837CBA3F0DFA72D38B98C /* Pods_Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB2ECC868DF15B191CCF858 /* Pods_Infrastructure.framework */; };
 		B7560B1EDEA10F2E0F70B9EA /* Pods_InfrastructureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB9026D8E83D2CED5A5AEF7 /* Pods_InfrastructureTests.framework */; };
 		E944CBCE23B16531006CF70E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944CBCD23B16531006CF70E /* Logger.swift */; };
+		E961CB8323C4C1E400239D14 /* RequestDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961CB8223C4C1E400239D14 /* RequestDecodable.swift */; };
 		E974C6A023C354D50095419B /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974C69F23C354D50095419B /* MockURLSession.swift */; };
 		E974C6A223C354DF0095419B /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974C6A123C354DF0095419B /* MockURLSessionDataTask.swift */; };
 		E974C6A423C3550C0095419B /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974C6A323C3550C0095419B /* MockProvider.swift */; };
@@ -46,6 +47,7 @@
 		8F27621143154286226D4868 /* Pods-Infrastructure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.debug.xcconfig"; path = "Target Support Files/Pods-Infrastructure/Pods-Infrastructure.debug.xcconfig"; sourceTree = "<group>"; };
 		BFB9026D8E83D2CED5A5AEF7 /* Pods_InfrastructureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfrastructureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E944CBCD23B16531006CF70E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E961CB8223C4C1E400239D14 /* RequestDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDecodable.swift; sourceTree = "<group>"; };
 		E974C69F23C354D50095419B /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		E974C6A123C354DF0095419B /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		E974C6A323C3550C0095419B /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				FD69D91523A54FFE003D0070 /* RequestProviderProtocol.swift */,
 				FD40A25B23A87F25004855B2 /* ServiceProviderProtocol.swift */,
 				E944CBCD23B16531006CF70E /* Logger.swift */,
+				E961CB8223C4C1E400239D14 /* RequestDecodable.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				FD40A25423A5B597004855B2 /* String+Utils.swift in Sources */,
 				FD69D91823A54FFE003D0070 /* RequestProviderProtocol.swift in Sources */,
 				E944CBCE23B16531006CF70E /* Logger.swift in Sources */,
+				E961CB8323C4C1E400239D14 /* RequestDecodable.swift in Sources */,
 				FD40A25C23A87F25004855B2 /* ServiceProviderProtocol.swift in Sources */,
 				FD69D91723A54FFE003D0070 /* RequestError.swift in Sources */,
 			);

@@ -9,6 +9,42 @@
 /* Begin PBXBuildFile section */
 		77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
 		E95670E223B1192E007611F8 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E961CB8723C4C2F400239D14 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718F23A5815D00BAD13C /* ListRouter.swift */; };
+		E961CB8823C4C2F400239D14 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD97023B5297500D92429 /* Repositories.swift */; };
+		E961CB8923C4C2F400239D14 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718D23A5815D00BAD13C /* ListPresenter.swift */; };
+		E961CB8A23C4C2F400239D14 /* RepositoryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF623C2881D00E80CDD /* RepositoryDetailRouter.swift */; };
+		E961CB8B23C4C2F400239D14 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3123B03E6500F8B3AC /* Repository.swift */; };
+		E961CB8C23C4C2F400239D14 /* LastUpdatedRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB2C23B03CB900F8B3AC /* LastUpdatedRepositoriesProvider.swift */; };
+		E961CB8D23C4C2F400239D14 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D223BFD85200B9B985 /* Text.swift */; };
+		E961CB8E23C4C2F400239D14 /* RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB3323B03E8E00F8B3AC /* RepositoryOwner.swift */; };
+		E961CB8F23C4C2F400239D14 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD20D61C23C054F8003CB202 /* Int+Utils.swift */; };
+		E961CB9123C4C2F400239D14 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF823C2881D00E80CDD /* RepositoryDetailViewController.swift */; };
+		E961CB9223C4C2F400239D14 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */; };
+		E961CB9323C4C2F400239D14 /* FeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719F23A5889800BAD13C /* FeedModels.swift */; };
+		E961CB9423C4C2F400239D14 /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A123A5889800BAD13C /* FeedInteractor.swift */; };
+		E961CB9523C4C2F400239D14 /* TopRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DFB2A23B03CAC00F8B3AC /* TopRepositoriesProvider.swift */; };
+		E961CB9623C4C2F400239D14 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92223A557E5003D0070 /* RequestProvider.swift */; };
+		E961CB9723C4C2F400239D14 /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719E23A5889800BAD13C /* FeedRouter.swift */; };
+		E961CB9823C4C2F400239D14 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571A023A5889800BAD13C /* FeedViewController.swift */; };
+		E961CB9923C4C2F400239D14 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719123A5815D00BAD13C /* ListViewController.swift */; };
+		E961CB9A23C4C2F400239D14 /* RepositoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF923C2881D00E80CDD /* RepositoryDetailInteractor.swift */; };
+		E961CB9B23C4C2F400239D14 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719C23A5889800BAD13C /* FeedPresenter.swift */; };
+		E961CB9C23C4C2F400239D14 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719223A5815D00BAD13C /* ListInteractor.swift */; };
+		E961CB9D23C4C2F400239D14 /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BBF423C2881D00E80CDD /* RepositoryDetailPresenter.swift */; };
+		E961CB9E23C4C2F400239D14 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */; };
+		E961CB9F23C4C2F400239D14 /* ListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5719023A5815D00BAD13C /* ListModels.swift */; };
+		E961CBA023C4C2F400239D14 /* BaseRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */; };
+		E961CBA123C4C2F400239D14 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92623A55A3E003D0070 /* Bundle+Utils.swift */; };
+		E961CBA223C4C2F400239D14 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BC0323C299B600E80CDD /* Date+Utils.swift */; };
+		E961CBA323C4C2F400239D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
+		E961CBA423C4C2F400239D14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
+		E961CBA623C4C2F400239D14 /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
+		E961CBA723C4C2F400239D14 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
+		E961CBA923C4C2F400239D14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD97623B52BA300D92429 /* Localizable.strings */; };
+		E961CBAA23C4C2F400239D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
+		E961CBAD23C4C2F400239D14 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E961CBAE23C4C2F400239D14 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E961CBB523C4C31F00239D14 /* ServiceProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961CBB423C4C31F00239D14 /* ServiceProviderMock.swift */; };
 		FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */; };
 		FD0A28D323BFD85200B9B985 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D223BFD85200B9B985 /* Text.swift */; };
 		FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */; };
@@ -65,6 +101,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E961CBAC23C4C2F400239D14 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E961CBAD23C4C2F400239D14 /* Visual.framework in Embed Frameworks */,
+				E961CBAE23C4C2F400239D14 /* Infrastructure.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD69D90F239F203F003D0070 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +132,9 @@
 		8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
 		9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftmazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95670D823B0CF70007611F8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftmazingMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E961CBB323C4C2F400239D14 /* SwiftmazingMock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = SwiftmazingMock.plist; path = /Users/800041661/Desktop/swiftmazing/Swiftmazing/SwiftmazingMock.plist; sourceTree = "<absolute>"; };
+		E961CBB423C4C31F00239D14 /* ServiceProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderMock.swift; sourceTree = "<group>"; };
 		FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FD0A28D223BFD85200B9B985 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesWorker.swift; sourceTree = "<group>"; };
@@ -130,6 +181,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E961CBA523C4C2F400239D14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E961CBA623C4C2F400239D14 /* Pods_Swiftmazing.framework in Frameworks */,
+				E961CBA723C4C2F400239D14 /* Infrastructure.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDEEDEB7239DD1B500C64A0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */,
+				E961CBB323C4C2F400239D14 /* SwiftmazingMock.plist */,
 				FDEEDECB239DD1B500C64A0B /* Info.plist */,
 				E95670D823B0CF70007611F8 /* Config.xcconfig */,
 				FD1DD97623B52BA300D92429 /* Localizable.strings */,
@@ -222,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				FD69D92023A557AE003D0070 /* ServiceProvider.swift */,
+				E961CBB423C4C31F00239D14 /* ServiceProviderMock.swift */,
 				FD69D92223A557E5003D0070 /* RequestProvider.swift */,
 			);
 			path = Infrastructure;
@@ -311,6 +373,7 @@
 				FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */,
 				FDEEDED0239DD1B500C64A0B /* SwiftmazingTests.xctest */,
 				FDEEDEDB239DD1B500C64A0B /* SwiftmazingUITests.xctest */,
+				E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,6 +411,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E961CB8423C4C2F400239D14 /* SwiftmazingMock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E961CBAF23C4C2F400239D14 /* Build configuration list for PBXNativeTarget "SwiftmazingMock" */;
+			buildPhases = (
+				E961CB8523C4C2F400239D14 /* [CP] Check Pods Manifest.lock */,
+				E961CB8623C4C2F400239D14 /* Sources */,
+				E961CBA523C4C2F400239D14 /* Frameworks */,
+				E961CBA823C4C2F400239D14 /* Resources */,
+				E961CBAB23C4C2F400239D14 /* [CP] Embed Pods Frameworks */,
+				E961CBAC23C4C2F400239D14 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftmazingMock;
+			productName = Swiftmazing;
+			productReference = E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FDEEDEB9239DD1B500C64A0B /* Swiftmazing */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDEEDEE4239DD1B600C64A0B /* Build configuration list for PBXNativeTarget "Swiftmazing" */;
@@ -444,11 +527,21 @@
 				FDEEDEB9239DD1B500C64A0B /* Swiftmazing */,
 				FDEEDECF239DD1B500C64A0B /* SwiftmazingTests */,
 				FDEEDEDA239DD1B500C64A0B /* SwiftmazingUITests */,
+				E961CB8423C4C2F400239D14 /* SwiftmazingMock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E961CBA823C4C2F400239D14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E961CBA923C4C2F400239D14 /* Localizable.strings in Resources */,
+				E961CBAA23C4C2F400239D14 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDEEDEB8239DD1B500C64A0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -514,9 +607,85 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E961CB8523C4C2F400239D14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swiftmazing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E961CBAB23C4C2F400239D14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E961CB8623C4C2F400239D14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E961CB8723C4C2F400239D14 /* ListRouter.swift in Sources */,
+				E961CB8823C4C2F400239D14 /* Repositories.swift in Sources */,
+				E961CB8923C4C2F400239D14 /* ListPresenter.swift in Sources */,
+				E961CB8A23C4C2F400239D14 /* RepositoryDetailRouter.swift in Sources */,
+				E961CB8B23C4C2F400239D14 /* Repository.swift in Sources */,
+				E961CB8C23C4C2F400239D14 /* LastUpdatedRepositoriesProvider.swift in Sources */,
+				E961CB8D23C4C2F400239D14 /* Text.swift in Sources */,
+				E961CB8E23C4C2F400239D14 /* RepositoryOwner.swift in Sources */,
+				E961CB8F23C4C2F400239D14 /* Int+Utils.swift in Sources */,
+				E961CB9123C4C2F400239D14 /* RepositoryDetailViewController.swift in Sources */,
+				E961CB9223C4C2F400239D14 /* String+Utils.swift in Sources */,
+				E961CB9323C4C2F400239D14 /* FeedModels.swift in Sources */,
+				E961CB9423C4C2F400239D14 /* FeedInteractor.swift in Sources */,
+				E961CB9523C4C2F400239D14 /* TopRepositoriesProvider.swift in Sources */,
+				E961CB9623C4C2F400239D14 /* RequestProvider.swift in Sources */,
+				E961CB9723C4C2F400239D14 /* FeedRouter.swift in Sources */,
+				E961CB9823C4C2F400239D14 /* FeedViewController.swift in Sources */,
+				E961CB9923C4C2F400239D14 /* ListViewController.swift in Sources */,
+				E961CB9A23C4C2F400239D14 /* RepositoryDetailInteractor.swift in Sources */,
+				E961CB9B23C4C2F400239D14 /* FeedPresenter.swift in Sources */,
+				E961CB9C23C4C2F400239D14 /* ListInteractor.swift in Sources */,
+				E961CB9D23C4C2F400239D14 /* RepositoryDetailPresenter.swift in Sources */,
+				E961CB9E23C4C2F400239D14 /* RepositoriesWorker.swift in Sources */,
+				E961CB9F23C4C2F400239D14 /* ListModels.swift in Sources */,
+				E961CBA023C4C2F400239D14 /* BaseRepositoriesProvider.swift in Sources */,
+				E961CBB523C4C31F00239D14 /* ServiceProviderMock.swift in Sources */,
+				E961CBA123C4C2F400239D14 /* Bundle+Utils.swift in Sources */,
+				E961CBA223C4C2F400239D14 /* Date+Utils.swift in Sources */,
+				E961CBA323C4C2F400239D14 /* AppDelegate.swift in Sources */,
+				E961CBA423C4C2F400239D14 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDEEDEB6239DD1B500C64A0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,6 +767,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E961CBB023C4C2F400239D14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMS2232J28;
+				DISPLAYNAME = "$(DISPLAYNAME)";
+				HOST = "$(HOST)";
+				INFOPLIST_FILE = Swiftmazing/Resources/SwiftmazingMock.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Swiftmazing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCHEME = "$(SCHEME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E961CBB123C4C2F400239D14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMS2232J28;
+				DISPLAYNAME = "$(DISPLAYNAME)";
+				HOST = "$(HOST)";
+				INFOPLIST_FILE = Swiftmazing/Resources/SwiftmazingMock.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.Swiftmazing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCHEME = "$(SCHEME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FDEEDEE2239DD1B600C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E95670D823B0CF70007611F8 /* Config.xcconfig */;
@@ -843,6 +1056,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E961CBAF23C4C2F400239D14 /* Build configuration list for PBXNativeTarget "SwiftmazingMock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E961CBB023C4C2F400239D14 /* Debug */,
+				E961CBB123C4C2F400239D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FDEEDEB5239DD1B500C64A0B /* Build configuration list for PBXProject "Swiftmazing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

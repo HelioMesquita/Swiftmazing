@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import Infrastructure
 
-struct Repositories: Decodable {
+struct Repositories: RequestDecodable {
 
     let items: [Repository]
+
+    init() {
+        items = [Repository(name: "Nmae", stars: 100, owner: RepositoryOwner(name: "name", avatar: URL(string: "https://avatars2.githubusercontent.com/u/6737871?v=4")!), description: "description", issues: 1, forks: 2, lastUpdate: Date())]
+    }
 
 }
