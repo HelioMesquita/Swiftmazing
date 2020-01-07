@@ -1,8 +1,8 @@
 //
-//  FeedRepositoryCellTests.swift
+//  ListRepositoryCellTests.swift
 //  VisualTests
 //
-//  Created by Helio Loredo Mesquita on 06/01/20.
+//  Created by Hélio Mesquita on 06/01/20.
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
@@ -12,20 +12,20 @@ import Nimble_Snapshots
 
 @testable import Visual
 
-class FeedRepositoryCellTests: QuickSpec {
+class ListRepositoryCellTests: QuickSpec {
 
     override func spec() {
 
-        var view: FeedRepositoryCell!
+        describe("ListRepositoryCell") {
 
-        describe("FeedRepositoryCell") {
+            var view: ListRepositoryCell!
 
             beforeEach {
-                view = FeedRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 79))
+                view = ListRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 118))
                 view.titleLabel.text = "Name label"
                 view.descriptionLabel.text = "Description Label"
                 view.imageView.image = UIImage.Design.swift
-                view.additionalInfoLabel.text = "27.1k"
+                view.additionalInfoLabel.text = "27.31k"
                 view.supplementaryInfoLabel.text = "stars"
             }
 

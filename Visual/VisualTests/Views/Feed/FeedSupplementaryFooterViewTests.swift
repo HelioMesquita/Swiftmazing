@@ -12,20 +12,16 @@ import Nimble_Snapshots
 
 @testable import Visual
 
-class FeedSupplementaryHeaderViewTests: QuickSpec {
-
-    var superView: UIView!
+class FeedSupplementaryFooterViewTests: QuickSpec {
 
     override func spec() {
 
-        describe("FeedSupplementaryHeaderView") {
+        describe("FeedSupplementaryFooterView") {
 
-            var view: FeedSupplementaryHeaderView!
+            var view: FeedSupplementaryFooterView!
 
             beforeEach {
-                view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-                view.label.text = "Name label"
-                view.button.setTitle("See more", for: .normal)
+                view = FeedSupplementaryFooterView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
             }
 
             it("returns the layout") {

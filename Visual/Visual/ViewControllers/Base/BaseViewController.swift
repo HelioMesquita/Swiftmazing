@@ -26,7 +26,6 @@ open class BaseViewController: UIViewController {
     }
 
     open func setup() {
-        fatalError("setup has not been implemented")
     }
 
 }

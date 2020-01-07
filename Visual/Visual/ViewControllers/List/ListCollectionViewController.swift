@@ -13,14 +13,14 @@ public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol {
     var description: String { get }
     var additionalInfo: String { get }
     var supplementaryInfo: String { get }
-    var image: URL { get }
+    var image: URL? { get }
+}
+
+public enum ListSection: String, CaseIterable {
+    case repo
 }
 
 open class ListCollectionViewController<T: ListCollectionViewModelProtocol>: BaseViewController {
-
-    public enum ListSection: String, CaseIterable {
-        case repo
-    }
 
     private var repositoriesItemHeight: NSCollectionLayoutDimension = .absolute(118)
     private var padding: CGFloat = 20

@@ -188,6 +188,8 @@ struct ListRepositoryCellRepresentable: UIViewRepresentable {
     @Binding var titleLabel: String
     @Binding var descriptionLabel: String
     @Binding var avatar: UIImage?
+    @Binding var additionalInfo: String
+    @Binding var supplementaryInfo: String
 
     public typealias UIViewType = ListRepositoryCell
 
@@ -198,7 +200,8 @@ struct ListRepositoryCellRepresentable: UIViewRepresentable {
     func updateUIView(_ uiView: ListRepositoryCell, context: UIViewRepresentableContext<ListRepositoryCellRepresentable>) {
         uiView.titleLabel.text = titleLabel
         uiView.descriptionLabel.text = descriptionLabel
-        uiView.imageView.image = avatar
+        uiView.additionalInfoLabel.text = additionalInfo
+        uiView.supplementaryInfoLabel.text = supplementaryInfo
     }
 
 }
@@ -209,11 +212,13 @@ struct ListRepositoryCell_Preview: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
             ListRepositoryCellRepresentable(titleLabel: .constant("Name label"),
                                             descriptionLabel: .constant("Description Label"),
-                                            avatar: .constant(UIImage.Design.swift))
+                                            avatar: .constant(UIImage.Design.swift),
+                                            additionalInfo: .constant("27.3l"),
+                                            supplementaryInfo: .constant("stars"))
             .environment(\.colorScheme, colorScheme)
             .previewDisplayName("\(colorScheme)")
         }
-        .previewLayout(.fixed(width: 365, height: 80))
+        .previewLayout(.fixed(width: 365, height: 118))
         .padding(.horizontal, 8.0)
     }
 }

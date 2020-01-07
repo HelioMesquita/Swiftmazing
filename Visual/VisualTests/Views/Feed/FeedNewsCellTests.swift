@@ -18,7 +18,7 @@ class FeedNewsCellTests: QuickSpec {
 
         var view: FeedNewsCell!
 
-        describe("FeedNewsCell"){
+        describe("FeedNewsCell") {
 
             beforeEach {
                 view = FeedNewsCell(frame: CGRect(x: 0, y: 0, width: 375, height: 320))
@@ -38,6 +38,7 @@ class FeedNewsCellTests: QuickSpec {
             }
 
             it("returns the layout") {
+//                expect(view) == recordSnapshot()
                 expect(view) == snapshot()
             }
         }

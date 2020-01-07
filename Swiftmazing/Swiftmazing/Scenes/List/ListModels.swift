@@ -29,7 +29,7 @@ enum List {
         var description: String
         var additionalInfo: String
         var supplementaryInfo: String
-        var image: URL
+        var image: URL?
 
         var repository: Repository?
 
