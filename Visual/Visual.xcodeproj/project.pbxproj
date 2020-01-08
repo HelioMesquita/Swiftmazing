@@ -28,6 +28,7 @@
 		FD3950F623C422710086FA42 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950F523C422600086FA42 /* DetailViewControllerTests.swift */; };
 		FD3950FC23C42DC90086FA42 /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950FB23C42DC90086FA42 /* BundleTests.swift */; };
 		FD3950FF23C42E3C0086FA42 /* BaseNavigationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */; };
+		FD39511023C691700086FA42 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510F23C691700086FA42 /* BaseUICollectionViewCell.swift */; };
 		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
 		FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */; };
 		FDB571AB23A5898E00BAD13C /* ListRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB571AA23A5898E00BAD13C /* ListRepositoryCell.swift */; };
@@ -84,6 +85,7 @@
 		FD3950F523C422600086FA42 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		FD3950FB23C42DC90086FA42 /* BundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
 		FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationControllerTests.swift; sourceTree = "<group>"; };
+		FD39510F23C691700086FA42 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		FDB571AA23A5898E00BAD13C /* ListRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoryCell.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		E910BAED23B157C2007C3BC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD39510E23C691600086FA42 /* Base */,
 				FD0A28D923BFE4F800B9B985 /* Feed */,
 				FD0A28DD23BFE51A00B9B985 /* List */,
 			);
@@ -252,6 +255,14 @@
 			isa = PBXGroup;
 			children = (
 				FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FD39510E23C691600086FA42 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FD39510F23C691700086FA42 /* BaseUICollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -584,6 +595,7 @@
 				FDB571B323A5A57F00BAD13C /* UICollectionView+Utils.swift in Sources */,
 				FDB571B523A5A5B100BAD13C /* UITableViewCell+UICollectionReusableView+Utils.swift in Sources */,
 				E910BAF023B157E9007C3BC3 /* FeedNewsCell.swift in Sources */,
+				FD39511023C691700086FA42 /* BaseUICollectionViewCell.swift in Sources */,
 				E93E33E723B62E0900D39189 /* UIImage+Utils.swift in Sources */,
 				FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */,
 			);

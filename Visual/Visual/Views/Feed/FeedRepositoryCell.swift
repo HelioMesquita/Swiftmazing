@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-internal class FeedRepositoryCell: UICollectionViewCell {
+internal class FeedRepositoryCell: BaseUICollectionViewCell {
 
     private var designTitleColor = UIColor.Design.title
     private var designSubtitleColor = UIColor.Design.subtitle

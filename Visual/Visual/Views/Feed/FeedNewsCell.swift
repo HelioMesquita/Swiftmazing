@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-public class FeedNewsCell: UICollectionViewCell {
+public class FeedNewsCell: BaseUICollectionViewCell {
 
     private var designLinkColor = UIColor.Design.link
     private var designTitleColor = UIColor.Design.title
