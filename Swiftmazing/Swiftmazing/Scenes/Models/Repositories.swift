@@ -16,7 +16,7 @@ struct Repositories: RequestDecodable {
     init() {
         let image = URL(string: "https://avatars3.githubusercontent.com/u/25267226?s=400&v=4")!
 
-        items = [Repository(name: "swiftmazing", stars: 100, owner: RepositoryOwner(name: "Helio Mesquita", avatar: image), description: "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.", issues: 1, forks: 2, lastUpdate: Date()),]
+        items = [Repository(name: "swiftmazing", stars: 100, owner: RepositoryOwner(name: "Helio Mesquita", avatar: image), description: "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.", issues: 1, forks: 2, lastUpdate: Date()) ]
     }
 
 }
