@@ -22,7 +22,6 @@ class Pod::Target::BuildSettings::AggregateTargetSettings
     end
 end
 
-
 def unitTestingPods
     pod 'Quick', '2.2.0'
     pod 'Nimble', '8.0.4'
@@ -33,27 +32,30 @@ def visualPods
     pod 'SDWebImage', '5.4.0'
 end
 
-def promiseKitPod
+def infrastructurePods
     pod 'PromiseKit', '6.10.0'
 end
 
-def infrastructurePods
-    promiseKitPod
+#######Swiftmazing######
+target 'Swiftmazing' do
+    project 'Swiftmazing/Swiftmazing.xcodeproj'
+    infrastructurePods
+    visualPods 
 end
 
-##Swiftmazing
-target 'Swiftmazing' do
+target 'SwiftmazingMock' do
     project 'Swiftmazing/Swiftmazing.xcodeproj'
     infrastructurePods
     visualPods
 end
 
-# target 'SwiftmazingTests' do
-#     project 'Swiftmazing/Swiftmazing.xcodeproj'
-#     testingPods
-# end
+target 'SwiftmazingFunctionalTests' do
+    project 'Swiftmazing/Swiftmazing.xcodeproj'
+    pod 'KIF', '3.7.8'
+end
+#########################
 
-##Infrastructure
+######Infrastructure#####
 target 'Infrastructure' do
     project 'Infrastructure/Infrastructure.xcodeproj'
     infrastructurePods
@@ -61,11 +63,12 @@ end
 
  target 'InfrastructureTests' do
      project 'Infrastructure/Infrastructure.xcodeproj'
+     infrastructurePods
      unitTestingPods
-     promiseKitPod
  end
+ #########################
 
-##Visual
+##########Visual##########
 target 'Visual' do
     project 'Visual/Visual.xcodeproj'
     visualPods
@@ -75,4 +78,4 @@ end
      project 'Visual/Visual.xcodeproj'
      unitTestingPods
  end
-
+#########################

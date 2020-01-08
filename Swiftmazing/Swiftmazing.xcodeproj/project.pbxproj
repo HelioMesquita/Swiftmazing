@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C9003AFFA8BB39171F15C38 /* Pods_SwiftmazingFunctionalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67FC08617C5C6A0108C8A243 /* Pods_SwiftmazingFunctionalTests.framework */; };
+		5F3CEC7FF67E61AB6C26B530 /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
 		77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
+		9CD6AA44650CCE7B1FFFCF63 /* Pods_SwiftmazingMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B9B8DEA01EE94C52A48CC0 /* Pods_SwiftmazingMock.framework */; };
 		E95670E223B1192E007611F8 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E961CB8723C4C2F400239D14 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB5718F23A5815D00BAD13C /* ListRouter.swift */; };
 		E961CB8823C4C2F400239D14 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DD97023B5297500D92429 /* Repositories.swift */; };
@@ -38,7 +41,6 @@
 		E961CBA223C4C2F400239D14 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9BC0323C299B600E80CDD /* Date+Utils.swift */; };
 		E961CBA323C4C2F400239D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		E961CBA423C4C2F400239D14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
-		E961CBA623C4C2F400239D14 /* Pods_Swiftmazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */; };
 		E961CBA723C4C2F400239D14 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		E961CBA923C4C2F400239D14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD97623B52BA300D92429 /* Localizable.strings */; };
 		E961CBAA23C4C2F400239D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
@@ -52,6 +54,7 @@
 		FD1DD97423B52BA300D92429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1DD97623B52BA300D92429 /* Localizable.strings */; };
 		FD20D61D23C054F8003CB202 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD20D61C23C054F8003CB202 /* Int+Utils.swift */; };
 		FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */; };
+		FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
@@ -80,18 +83,17 @@
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC7239DD1B500C64A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
 		FDEEDED5239DD1B500C64A0B /* SwiftmazingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */; };
-		FDEEDEE0239DD1B600C64A0B /* SwiftmazingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEDF239DD1B600C64A0B /* SwiftmazingUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDEEDED1239DD1B500C64A0B /* PBXContainerItemProxy */ = {
+		FD39510923C68D210086FA42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FDEEDEB2239DD1B500C64A0B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FDEEDEB9239DD1B500C64A0B;
-			remoteInfo = Swiftmazing;
+			remoteGlobalIDString = E961CB8423C4C2F400239D14;
+			remoteInfo = SwiftmazingMock;
 		};
-		FDEEDEDC239DD1B500C64A0B /* PBXContainerItemProxy */ = {
+		FDEEDED1239DD1B500C64A0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FDEEDEB2239DD1B500C64A0B /* Project object */;
 			proxyType = 1;
@@ -128,9 +130,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.release.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.release.xcconfig"; sourceTree = "<group>"; };
-		8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
+		1465F538032118B289334617 /* Pods-SwiftmazingFunctionalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingFunctionalTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B4D771D7E7C1ACC06A9023E /* Pods-SwiftmazingMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingMock.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock.release.xcconfig"; sourceTree = "<group>"; };
+		67FC08617C5C6A0108C8A243 /* Pods_SwiftmazingFunctionalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingFunctionalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EDD138093E4F7A2D540F795 /* Pods-SwiftmazingFunctionalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingFunctionalTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C3E6D36CD980E6E329EA537 /* Pods-SwiftmazingMock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingMock.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock.debug.xcconfig"; sourceTree = "<group>"; };
+		8E24A7749E0B282D8C93D11E /* Pods-Swiftmazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.release.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.release.xcconfig"; sourceTree = "<group>"; };
 		9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftmazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B9B8DEA01EE94C52A48CC0 /* Pods_SwiftmazingMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9506277BDC18906E9FA4F66 /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
 		E95670D823B0CF70007611F8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftmazingMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E961CBB323C4C2F400239D14 /* SwiftmazingMock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = SwiftmazingMock.plist; path = /Users/800041661/Desktop/swiftmazing/Swiftmazing/SwiftmazingMock.plist; sourceTree = "<absolute>"; };
@@ -143,6 +151,9 @@
 		FD1DD97723B52BAF00D92429 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD20D61C23C054F8003CB202 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoriesProvider.swift; sourceTree = "<group>"; };
+		FD39510423C68D210086FA42 /* SwiftmazingFunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftmazingFunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingFunctionalTests.swift; sourceTree = "<group>"; };
+		FD39510823C68D210086FA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D92023A557AE003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -175,9 +186,6 @@
 		FDEEDED0239DD1B500C64A0B /* SwiftmazingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftmazingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingTests.swift; sourceTree = "<group>"; };
 		FDEEDED6239DD1B500C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDEEDEDB239DD1B500C64A0B /* SwiftmazingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftmazingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDEEDEDF239DD1B600C64A0B /* SwiftmazingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingUITests.swift; sourceTree = "<group>"; };
-		FDEEDEE1239DD1B600C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +193,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E961CBA623C4C2F400239D14 /* Pods_Swiftmazing.framework in Frameworks */,
 				E961CBA723C4C2F400239D14 /* Infrastructure.framework in Frameworks */,
+				9CD6AA44650CCE7B1FFFCF63 /* Pods_SwiftmazingMock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD39510123C68D210086FA42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C9003AFFA8BB39171F15C38 /* Pods_SwiftmazingFunctionalTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,17 +212,11 @@
 			files = (
 				77C5A5220C1734CB96C068FA /* Pods_Swiftmazing.framework in Frameworks */,
 				FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */,
+				5F3CEC7FF67E61AB6C26B530 /* Pods_Swiftmazing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FDEEDECD239DD1B500C64A0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDEEDED8239DD1B500C64A0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,6 +232,8 @@
 				FD69D909239F203F003D0070 /* Infrastructure.framework */,
 				FD69D90A239F203F003D0070 /* Visual.framework */,
 				9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */,
+				67FC08617C5C6A0108C8A243 /* Pods_SwiftmazingFunctionalTests.framework */,
+				B9B9B8DEA01EE94C52A48CC0 /* Pods_SwiftmazingMock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,8 +241,12 @@
 		C8C245620F2996142E08336C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */,
-				3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */,
+				D9506277BDC18906E9FA4F66 /* Pods-Swiftmazing.debug.xcconfig */,
+				8E24A7749E0B282D8C93D11E /* Pods-Swiftmazing.release.xcconfig */,
+				1465F538032118B289334617 /* Pods-SwiftmazingFunctionalTests.debug.xcconfig */,
+				7EDD138093E4F7A2D540F795 /* Pods-SwiftmazingFunctionalTests.release.xcconfig */,
+				8C3E6D36CD980E6E329EA537 /* Pods-SwiftmazingMock.debug.xcconfig */,
+				1B4D771D7E7C1ACC06A9023E /* Pods-SwiftmazingMock.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -242,6 +258,15 @@
 				FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */,
 			);
 			path = Worker;
+			sourceTree = "<group>";
+		};
+		FD39510523C68D210086FA42 /* SwiftmazingFunctionalTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */,
+				FD39510823C68D210086FA42 /* Info.plist */,
+			);
+			path = SwiftmazingFunctionalTests;
 			sourceTree = "<group>";
 		};
 		FD69D910239F22D6003D0070 /* Application */ = {
@@ -360,7 +385,7 @@
 			children = (
 				FDEEDEBC239DD1B500C64A0B /* Swiftmazing */,
 				FDEEDED3239DD1B500C64A0B /* SwiftmazingTests */,
-				FDEEDEDE239DD1B600C64A0B /* SwiftmazingUITests */,
+				FD39510523C68D210086FA42 /* SwiftmazingFunctionalTests */,
 				FDEEDEBB239DD1B500C64A0B /* Products */,
 				C8C245620F2996142E08336C /* Pods */,
 				B626B8124CE1E8F2390226E6 /* Frameworks */,
@@ -372,8 +397,8 @@
 			children = (
 				FDEEDEBA239DD1B500C64A0B /* Swiftmazing.app */,
 				FDEEDED0239DD1B500C64A0B /* SwiftmazingTests.xctest */,
-				FDEEDEDB239DD1B500C64A0B /* SwiftmazingUITests.xctest */,
 				E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */,
+				FD39510423C68D210086FA42 /* SwiftmazingFunctionalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -399,15 +424,6 @@
 			path = SwiftmazingTests;
 			sourceTree = "<group>";
 		};
-		FDEEDEDE239DD1B600C64A0B /* SwiftmazingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FDEEDEDF239DD1B600C64A0B /* SwiftmazingUITests.swift */,
-				FDEEDEE1239DD1B600C64A0B /* Info.plist */,
-			);
-			path = SwiftmazingUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,12 +431,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E961CBAF23C4C2F400239D14 /* Build configuration list for PBXNativeTarget "SwiftmazingMock" */;
 			buildPhases = (
-				E961CB8523C4C2F400239D14 /* [CP] Check Pods Manifest.lock */,
+				3CFB1A76615C17F85CD4A345 /* [CP] Check Pods Manifest.lock */,
 				E961CB8623C4C2F400239D14 /* Sources */,
 				E961CBA523C4C2F400239D14 /* Frameworks */,
 				E961CBA823C4C2F400239D14 /* Resources */,
-				E961CBAB23C4C2F400239D14 /* [CP] Embed Pods Frameworks */,
 				E961CBAC23C4C2F400239D14 /* Embed Frameworks */,
+				9758C6B17AECF0283DAC86E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -430,6 +446,26 @@
 			productName = Swiftmazing;
 			productReference = E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FD39510323C68D210086FA42 /* SwiftmazingFunctionalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD39510B23C68D210086FA42 /* Build configuration list for PBXNativeTarget "SwiftmazingFunctionalTests" */;
+			buildPhases = (
+				969414340A6ED0306946E749 /* [CP] Check Pods Manifest.lock */,
+				FD39510023C68D210086FA42 /* Sources */,
+				FD39510123C68D210086FA42 /* Frameworks */,
+				FD39510223C68D210086FA42 /* Resources */,
+				04C88AA1D8E192D52CF1A8F0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD39510A23C68D210086FA42 /* PBXTargetDependency */,
+			);
+			name = SwiftmazingFunctionalTests;
+			productName = SwiftmazingFunctionalTests;
+			productReference = FD39510423C68D210086FA42 /* SwiftmazingFunctionalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		FDEEDEB9239DD1B500C64A0B /* Swiftmazing */ = {
 			isa = PBXNativeTarget;
@@ -469,24 +505,6 @@
 			productReference = FDEEDED0239DD1B500C64A0B /* SwiftmazingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FDEEDEDA239DD1B500C64A0B /* SwiftmazingUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDEEDEEA239DD1B600C64A0B /* Build configuration list for PBXNativeTarget "SwiftmazingUITests" */;
-			buildPhases = (
-				FDEEDED7239DD1B500C64A0B /* Sources */,
-				FDEEDED8239DD1B500C64A0B /* Frameworks */,
-				FDEEDED9239DD1B500C64A0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDEEDEDD239DD1B500C64A0B /* PBXTargetDependency */,
-			);
-			name = SwiftmazingUITests;
-			productName = SwiftmazingUITests;
-			productReference = FDEEDEDB239DD1B500C64A0B /* SwiftmazingUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -497,14 +515,14 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Hélio Mesquita";
 				TargetAttributes = {
+					FD39510323C68D210086FA42 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = E961CB8423C4C2F400239D14;
+					};
 					FDEEDEB9239DD1B500C64A0B = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 					FDEEDECF239DD1B500C64A0B = {
-						CreatedOnToolsVersion = 11.2.1;
-						TestTargetID = FDEEDEB9239DD1B500C64A0B;
-					};
-					FDEEDEDA239DD1B500C64A0B = {
 						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = FDEEDEB9239DD1B500C64A0B;
 					};
@@ -526,8 +544,8 @@
 			targets = (
 				FDEEDEB9239DD1B500C64A0B /* Swiftmazing */,
 				FDEEDECF239DD1B500C64A0B /* SwiftmazingTests */,
-				FDEEDEDA239DD1B500C64A0B /* SwiftmazingUITests */,
 				E961CB8423C4C2F400239D14 /* SwiftmazingMock */,
+				FD39510323C68D210086FA42 /* SwiftmazingFunctionalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -539,6 +557,13 @@
 			files = (
 				E961CBA923C4C2F400239D14 /* Localizable.strings in Resources */,
 				E961CBAA23C4C2F400239D14 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD39510223C68D210086FA42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,16 +583,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDEEDED9239DD1B500C64A0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04C88AA1D8E192D52CF1A8F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		35A2DE31185D70D5D7F44967 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,6 +619,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Swiftmazing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CFB1A76615C17F85CD4A345 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftmazingMock-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -607,7 +664,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E961CB8523C4C2F400239D14 /* [CP] Check Pods Manifest.lock */ = {
+		969414340A6ED0306946E749 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -622,28 +679,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Swiftmazing-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SwiftmazingFunctionalTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E961CBAB23C4C2F400239D14 /* [CP] Embed Pods Frameworks */ = {
+		9758C6B17AECF0283DAC86E2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -683,6 +740,14 @@
 				E961CBA223C4C2F400239D14 /* Date+Utils.swift in Sources */,
 				E961CBA323C4C2F400239D14 /* AppDelegate.swift in Sources */,
 				E961CBA423C4C2F400239D14 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD39510023C68D210086FA42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,26 +796,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDEEDED7239DD1B500C64A0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDEEDEE0239DD1B600C64A0B /* SwiftmazingUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FD39510A23C68D210086FA42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E961CB8423C4C2F400239D14 /* SwiftmazingMock */;
+			targetProxy = FD39510923C68D210086FA42 /* PBXContainerItemProxy */;
+		};
 		FDEEDED2239DD1B500C64A0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FDEEDEB9239DD1B500C64A0B /* Swiftmazing */;
 			targetProxy = FDEEDED1239DD1B500C64A0B /* PBXContainerItemProxy */;
-		};
-		FDEEDEDD239DD1B500C64A0B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FDEEDEB9239DD1B500C64A0B /* Swiftmazing */;
-			targetProxy = FDEEDEDC239DD1B500C64A0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -769,7 +826,7 @@
 /* Begin XCBuildConfiguration section */
 		E961CBB023C4C2F400239D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */;
+			baseConfigurationReference = 8C3E6D36CD980E6E329EA537 /* Pods-SwiftmazingMock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -791,7 +848,7 @@
 		};
 		E961CBB123C4C2F400239D14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */;
+			baseConfigurationReference = 1B4D771D7E7C1ACC06A9023E /* Pods-SwiftmazingMock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -808,6 +865,46 @@
 				SCHEME = "$(SCHEME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FD39510C23C68D210086FA42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1465F538032118B289334617 /* Pods-SwiftmazingFunctionalTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftmazingFunctionalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.SwiftmazingFunctionalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftmazingMock.app/SwiftmazingMock";
+			};
+			name = Debug;
+		};
+		FD39510D23C68D210086FA42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EDD138093E4F7A2D540F795 /* Pods-SwiftmazingFunctionalTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftmazingFunctionalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.SwiftmazingFunctionalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftmazingMock.app/SwiftmazingMock";
 			};
 			name = Release;
 		};
@@ -935,7 +1032,7 @@
 		};
 		FDEEDEE5239DD1B600C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FD474541E4AC34E25839DBA /* Pods-Swiftmazing.debug.xcconfig */;
+			baseConfigurationReference = D9506277BDC18906E9FA4F66 /* Pods-Swiftmazing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -957,7 +1054,7 @@
 		};
 		FDEEDEE6239DD1B600C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D7ACA8EEFD7954D2E0F9F39 /* Pods-Swiftmazing.release.xcconfig */;
+			baseConfigurationReference = 8E24A7749E0B282D8C93D11E /* Pods-Swiftmazing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1017,42 +1114,6 @@
 			};
 			name = Release;
 		};
-		FDEEDEEB239DD1B600C64A0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SwiftmazingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.SwiftmazingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Swiftmazing;
-			};
-			name = Debug;
-		};
-		FDEEDEEC239DD1B600C64A0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SwiftmazingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.callidus.SwiftmazingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Swiftmazing;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1061,6 +1122,15 @@
 			buildConfigurations = (
 				E961CBB023C4C2F400239D14 /* Debug */,
 				E961CBB123C4C2F400239D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD39510B23C68D210086FA42 /* Build configuration list for PBXNativeTarget "SwiftmazingFunctionalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD39510C23C68D210086FA42 /* Debug */,
+				FD39510D23C68D210086FA42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1088,15 +1158,6 @@
 			buildConfigurations = (
 				FDEEDEE8239DD1B600C64A0B /* Debug */,
 				FDEEDEE9239DD1B600C64A0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDEEDEEA239DD1B600C64A0B /* Build configuration list for PBXNativeTarget "SwiftmazingUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDEEDEEB239DD1B600C64A0B /* Debug */,
-				FDEEDEEC239DD1B600C64A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

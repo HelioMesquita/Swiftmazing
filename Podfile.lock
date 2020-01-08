@@ -4,6 +4,9 @@ PODS:
   - iOSSnapshotTestCase/Core (6.2.0)
   - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
+  - KIF (3.7.8):
+    - KIF/Core (= 3.7.8)
+  - KIF/Core (3.7.8)
   - Nimble (8.0.4)
   - Nimble-Snapshots (8.0.0):
     - Nimble-Snapshots/Core (= 8.0.0)
@@ -25,6 +28,7 @@ PODS:
   - SDWebImage/Core (5.4.0)
 
 DEPENDENCIES:
+  - KIF (= 3.7.8)
   - Nimble (= 8.0.4)
   - Nimble-Snapshots (= 8.0.0)
   - PromiseKit (= 6.10.0)
@@ -32,22 +36,25 @@ DEPENDENCIES:
   - SDWebImage (= 5.4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - iOSSnapshotTestCase
     - Nimble
     - Nimble-Snapshots
     - PromiseKit
     - Quick
     - SDWebImage
+  trunk:
+    - KIF
 
 SPEC CHECKSUMS:
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: 664d7311d091264494d35a9be719ce412e8e791d
+PODFILE CHECKSUM: 2f60daffdb9861afa4438108bb5129955c005504
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
