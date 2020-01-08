@@ -55,6 +55,7 @@
 		FD20D61D23C054F8003CB202 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD20D61C23C054F8003CB202 /* Int+Utils.swift */; };
 		FD24978023BD7AD300442956 /* BaseRepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* BaseRepositoriesProvider.swift */; };
 		FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */; };
+		FD39511323C697D90086FA42 /* KIF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511223C697D90086FA42 /* KIF+Utils.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
@@ -154,6 +155,7 @@
 		FD39510423C68D210086FA42 /* SwiftmazingFunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftmazingFunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingFunctionalTests.swift; sourceTree = "<group>"; };
 		FD39510823C68D210086FA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD39511223C697D90086FA42 /* KIF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Utils.swift"; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D92023A557AE003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -263,10 +265,19 @@
 		FD39510523C68D210086FA42 /* SwiftmazingFunctionalTests */ = {
 			isa = PBXGroup;
 			children = (
+				FD39511123C697BB0086FA42 /* Utils */,
 				FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */,
 				FD39510823C68D210086FA42 /* Info.plist */,
 			);
 			path = SwiftmazingFunctionalTests;
+			sourceTree = "<group>";
+		};
+		FD39511123C697BB0086FA42 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD39511223C697D90086FA42 /* KIF+Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FD69D910239F22D6003D0070 /* Application */ = {
@@ -747,6 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD39511323C697D90086FA42 /* KIF+Utils.swift in Sources */,
 				FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

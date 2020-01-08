@@ -13,7 +13,7 @@ public class BaseUICollectionViewCell: UICollectionViewCell {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         let thisType = type(of: self)
-        accessibilityIdentifier = String(describing: thisType)
+        accessibilityLabel = String(describing: thisType)
     }
 
     required init?(coder: NSCoder) {

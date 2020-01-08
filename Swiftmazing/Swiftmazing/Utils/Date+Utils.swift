@@ -12,7 +12,7 @@ extension Date {
 
     var monthDayYear: String {
         let format = DateFormatter()
-        format.dateFormat = "MM-dd-yyyy"
+        format.dateFormat = "MM/dd/yyyy"
         return format.string(from: self)
     }
 

@@ -13,16 +13,57 @@ import KIF
 
 class SwiftmazingFunctionalTests: KIFTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let repository = Repositories().items.first!
+
+    func testAppLoaded() {
+        tester().waitForView(withAccessibilityLabel: "Swiftmazing")
+        tester().waitForView(withAccessibilityLabel: repository.name)
+        tester().waitForView(withAccessibilityLabel: repository.owner.name)
+        tester().waitForView(withAccessibilityLabel: repository.stars.kiloFormat)
+        tester().waitForView(withAccessibilityLabel: Text.stars.value)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testTapOnSeeMoreButton() {
+        tester().waitForView(withAccessibilityLabel: "Swiftmazing")
+        tester().tapView(withAccessibilityLabel: "See more")
+        tester().waitForView(withAccessibilityLabel: repository.name)
+        tester().waitForView(withAccessibilityLabel: repository.description)
+        tester().waitForView(withAccessibilityLabel: repository.stars.kiloFormat)
+        tester().waitForView(withAccessibilityLabel: Text.stars.value)
     }
 
-    func testX() {
-        
+    func testTapOnFeedRepositoryCell() {
+        tester().waitForView(withAccessibilityLabel: "Swiftmazing")
+        tester().tapView(withAccessibilityLabel: "FeedRepositoryCell")
+        tester().waitForView(withAccessibilityLabel: repository.name)
+        tester().waitForView(withAccessibilityLabel: repository.owner.name)
+        tester().waitForView(withAccessibilityLabel: repository.description)
+        tester().waitForView(withAccessibilityLabel: " - \(repository.stars.kiloFormat) \(Text.stars.value)")
+        tester().waitForView(withAccessibilityLabel: " - \(repository.issues.kiloFormat) \(Text.issues.value) ")
+        tester().waitForView(withAccessibilityLabel: " - \(repository.forks.kiloFormat) \(Text.forks.value) ")
+        tester().waitForView(withAccessibilityLabel: " - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
+    }
+
+    func testTapOnNewsCell() {
+        tester().waitForView(withAccessibilityLabel: "Swiftmazing")
+        tester().tapView(withAccessibilityLabel: "FeedNewsCell")
+        tester().waitForView(withAccessibilityLabel: repository.name)
+        tester().waitForView(withAccessibilityLabel: repository.description)
+        tester().waitForView(withAccessibilityLabel: repository.stars.kiloFormat)
+        tester().waitForView(withAccessibilityLabel: Text.stars.value)
+    }
+
+    func testTapOnListRepositoryCell() {
+        tester().waitForView(withAccessibilityLabel: "Swiftmazing")
+        tester().tapView(withAccessibilityLabel: "FeedNewsCell")
+        tester().tapView(withAccessibilityLabel: "ListRepositoryCell")
+        tester().waitForView(withAccessibilityLabel: repository.name)
+        tester().waitForView(withAccessibilityLabel: repository.owner.name)
+        tester().waitForView(withAccessibilityLabel: repository.description)
+        tester().waitForView(withAccessibilityLabel: " - \(repository.stars.kiloFormat) \(Text.stars.value)")
+        tester().waitForView(withAccessibilityLabel: " - \(repository.issues.kiloFormat) \(Text.issues.value) ")
+        tester().waitForView(withAccessibilityLabel: " - \(repository.forks.kiloFormat) \(Text.forks.value) ")
+        tester().waitForView(withAccessibilityLabel: " - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
     }
 
 }
