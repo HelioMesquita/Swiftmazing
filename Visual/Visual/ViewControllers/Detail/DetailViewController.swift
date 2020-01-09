@@ -104,9 +104,8 @@ open class DetailViewController: BaseViewController {
         view.addSubview(titleStackView)
         NSLayoutConstraint.activate([
             titleStackView.topAnchor.constraint(equalTo: imageView.topAnchor),
-            titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: padding),
-            titleStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding),
-            titleStackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -padding)
+            titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            titleStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding)
         ])
     }
 
