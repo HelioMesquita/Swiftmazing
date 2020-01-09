@@ -45,6 +45,14 @@
 		E961CBAD23C4C2F400239D14 /* Visual.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D90A239F203F003D0070 /* Visual.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E961CBAE23C4C2F400239D14 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E961CBB523C4C31F00239D14 /* ServiceProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961CBB423C4C31F00239D14 /* ServiceProviderMock.swift */; };
+		E9D8E0FE23C745CD009E21F6 /* FeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E0FD23C745CD009E21F6 /* FeedInteractorTests.swift */; };
+		E9D8E10123C748C8009E21F6 /* RepositoriesWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10023C748C8009E21F6 /* RepositoriesWorkerSpy.swift */; };
+		E9D8E10323C752F6009E21F6 /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10223C7526C009E21F6 /* ListInteractorTests.swift */; };
+		E9D8E10523C7616F009E21F6 /* RepositoryDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10423C7616F009E21F6 /* RepositoryDetailInteractorTests.swift */; };
+		E9D8E10723C7637C009E21F6 /* RepositoryDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10623C7637C009E21F6 /* RepositoryDetailPresenterTests.swift */; };
+		E9D8E10923C7662E009E21F6 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10823C7662E009E21F6 /* FeedPresenterTests.swift */; };
+		E9D8E10B23C76A36009E21F6 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8E10A23C76A36009E21F6 /* ListPresenterTests.swift */; };
+		F767FD5CB73B93EC52E15BA3 /* Pods_SwiftmazingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7810EDA121B1A47A6BE927BB /* Pods_SwiftmazingTests.framework */; };
 		FD0A28D123BFD6AA00B9B985 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */; };
 		FD0A28D323BFD85200B9B985 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D223BFD85200B9B985 /* Text.swift */; };
 		FD0A28D823BFE23600B9B985 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */; };
@@ -132,16 +140,26 @@
 		1465F538032118B289334617 /* Pods-SwiftmazingFunctionalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingFunctionalTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B4D771D7E7C1ACC06A9023E /* Pods-SwiftmazingMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingMock.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock.release.xcconfig"; sourceTree = "<group>"; };
 		67FC08617C5C6A0108C8A243 /* Pods_SwiftmazingFunctionalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingFunctionalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7810EDA121B1A47A6BE927BB /* Pods_SwiftmazingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BDA2366ABD0B621340B5499 /* Pods-SwiftmazingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EDD138093E4F7A2D540F795 /* Pods-SwiftmazingFunctionalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingFunctionalTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftmazingFunctionalTests/Pods-SwiftmazingFunctionalTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C3E6D36CD980E6E329EA537 /* Pods-SwiftmazingMock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingMock.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingMock/Pods-SwiftmazingMock.debug.xcconfig"; sourceTree = "<group>"; };
 		8E24A7749E0B282D8C93D11E /* Pods-Swiftmazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.release.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.release.xcconfig"; sourceTree = "<group>"; };
 		9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftmazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B9B8DEA01EE94C52A48CC0 /* Pods_SwiftmazingMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftmazingMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9506277BDC18906E9FA4F66 /* Pods-Swiftmazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftmazing.debug.xcconfig"; path = "Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing.debug.xcconfig"; sourceTree = "<group>"; };
+		E5AF31A700378C15D893CDFB /* Pods-SwiftmazingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftmazingTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E95670D823B0CF70007611F8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E961CBB223C4C2F400239D14 /* SwiftmazingMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftmazingMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E961CBB323C4C2F400239D14 /* SwiftmazingMock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = SwiftmazingMock.plist; path = /Users/800041661/Desktop/swiftmazing/Swiftmazing/SwiftmazingMock.plist; sourceTree = "<absolute>"; };
 		E961CBB423C4C31F00239D14 /* ServiceProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderMock.swift; sourceTree = "<group>"; };
+		E9D8E0FD23C745CD009E21F6 /* FeedInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorTests.swift; sourceTree = "<group>"; };
+		E9D8E10023C748C8009E21F6 /* RepositoriesWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesWorkerSpy.swift; sourceTree = "<group>"; };
+		E9D8E10223C7526C009E21F6 /* ListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractorTests.swift; sourceTree = "<group>"; };
+		E9D8E10423C7616F009E21F6 /* RepositoryDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailInteractorTests.swift; sourceTree = "<group>"; };
+		E9D8E10623C7637C009E21F6 /* RepositoryDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenterTests.swift; sourceTree = "<group>"; };
+		E9D8E10823C7662E009E21F6 /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
+		E9D8E10A23C76A36009E21F6 /* ListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		FD0A28D023BFD6AA00B9B985 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FD0A28D223BFD85200B9B985 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		FD0A28D723BFE23600B9B985 /* RepositoriesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesWorker.swift; sourceTree = "<group>"; };
@@ -219,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F767FD5CB73B93EC52E15BA3 /* Pods_SwiftmazingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +252,7 @@
 				9BF4210EE54F318DF9AF3F39 /* Pods_Swiftmazing.framework */,
 				67FC08617C5C6A0108C8A243 /* Pods_SwiftmazingFunctionalTests.framework */,
 				B9B9B8DEA01EE94C52A48CC0 /* Pods_SwiftmazingMock.framework */,
+				7810EDA121B1A47A6BE927BB /* Pods_SwiftmazingTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,9 +266,56 @@
 				7EDD138093E4F7A2D540F795 /* Pods-SwiftmazingFunctionalTests.release.xcconfig */,
 				8C3E6D36CD980E6E329EA537 /* Pods-SwiftmazingMock.debug.xcconfig */,
 				1B4D771D7E7C1ACC06A9023E /* Pods-SwiftmazingMock.release.xcconfig */,
+				E5AF31A700378C15D893CDFB /* Pods-SwiftmazingTests.debug.xcconfig */,
+				7BDA2366ABD0B621340B5499 /* Pods-SwiftmazingTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		E9D8E0F923C745A0009E21F6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8E0FC23C745BC009E21F6 /* Feed */,
+				E9D8E0FB23C745B6009E21F6 /* List */,
+				E9D8E0FA23C745AB009E21F6 /* RepositoryDetail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E9D8E0FA23C745AB009E21F6 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8E10623C7637C009E21F6 /* RepositoryDetailPresenterTests.swift */,
+				E9D8E10423C7616F009E21F6 /* RepositoryDetailInteractorTests.swift */,
+			);
+			path = RepositoryDetail;
+			sourceTree = "<group>";
+		};
+		E9D8E0FB23C745B6009E21F6 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8E10A23C76A36009E21F6 /* ListPresenterTests.swift */,
+				E9D8E10223C7526C009E21F6 /* ListInteractorTests.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E9D8E0FC23C745BC009E21F6 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8E10823C7662E009E21F6 /* FeedPresenterTests.swift */,
+				E9D8E0FD23C745CD009E21F6 /* FeedInteractorTests.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		E9D8E0FF23C748B1009E21F6 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8E10023C748C8009E21F6 /* RepositoriesWorkerSpy.swift */,
+			);
+			path = Spy;
 			sourceTree = "<group>";
 		};
 		FD0A28D623BFE20E00B9B985 /* Worker */ = {
@@ -433,6 +500,8 @@
 		FDEEDED3239DD1B500C64A0B /* SwiftmazingTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9D8E0FF23C748B1009E21F6 /* Spy */,
+				E9D8E0F923C745A0009E21F6 /* Scenes */,
 				FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */,
 				FDEEDED6239DD1B500C64A0B /* Info.plist */,
 			);
@@ -506,9 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDEEDEE7239DD1B600C64A0B /* Build configuration list for PBXNativeTarget "SwiftmazingTests" */;
 			buildPhases = (
+				530B4E351613A803E2F6C6EF /* [CP] Check Pods Manifest.lock */,
 				FDEEDECC239DD1B500C64A0B /* Sources */,
 				FDEEDECD239DD1B500C64A0B /* Frameworks */,
 				FDEEDECE239DD1B500C64A0B /* Resources */,
+				824D5A7CE4CEA2684A4659F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -679,6 +750,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swiftmazing/Pods-Swiftmazing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		530B4E351613A803E2F6C6EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftmazingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		824D5A7CE4CEA2684A4659F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftmazingTests/Pods-SwiftmazingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		969414340A6ED0306946E749 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,6 +916,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D8E10123C748C8009E21F6 /* RepositoriesWorkerSpy.swift in Sources */,
+				E9D8E10523C7616F009E21F6 /* RepositoryDetailInteractorTests.swift in Sources */,
+				E9D8E10B23C76A36009E21F6 /* ListPresenterTests.swift in Sources */,
+				E9D8E0FE23C745CD009E21F6 /* FeedInteractorTests.swift in Sources */,
+				E9D8E10723C7637C009E21F6 /* RepositoryDetailPresenterTests.swift in Sources */,
+				E9D8E10923C7662E009E21F6 /* FeedPresenterTests.swift in Sources */,
+				E9D8E10323C752F6009E21F6 /* ListInteractorTests.swift in Sources */,
 				FDEEDED5239DD1B500C64A0B /* SwiftmazingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1090,6 +1207,7 @@
 		};
 		FDEEDEE8239DD1B600C64A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AF31A700378C15D893CDFB /* Pods-SwiftmazingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1110,6 +1228,7 @@
 		};
 		FDEEDEE9239DD1B600C64A0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BDA2366ABD0B621340B5499 /* Pods-SwiftmazingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

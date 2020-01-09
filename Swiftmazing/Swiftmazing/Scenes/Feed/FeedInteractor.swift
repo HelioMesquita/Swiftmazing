@@ -52,11 +52,11 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
         when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
     }
 
-    func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
+    private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
         presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
     }
 
-    func handleError(_ error: Error) {
+    private func handleError(_ error: Error) {
         presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
     }
 

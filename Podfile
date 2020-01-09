@@ -43,6 +43,12 @@ target 'Swiftmazing' do
     visualPods 
 end
 
+target 'SwiftmazingTests' do
+    project 'Swiftmazing/Swiftmazing.xcodeproj'
+    infrastructurePods
+    unitTestingPods
+end
+
 target 'SwiftmazingMock' do
     project 'Swiftmazing/Swiftmazing.xcodeproj'
     infrastructurePods

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Repository: Decodable {
+class Repository: Decodable {
 
     let name: String
     let stars: Int
@@ -17,6 +17,16 @@ struct Repository: Decodable {
     let issues: Int
     let forks: Int
     let lastUpdate: Date
+
+    init(name: String, stars: Int, owner: RepositoryOwner, description: String?, issues: Int, forks: Int, lastUpdate: Date) {
+        self.name = name
+        self.stars = stars
+        self.owner = owner
+        self.description = description
+        self.issues = issues
+        self.forks = forks
+        self.lastUpdate = lastUpdate
+    }
 
     enum CodingKeys: String, CodingKey {
         case name

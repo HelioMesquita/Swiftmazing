@@ -32,9 +32,9 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FDEEDECF239DD1B500C64A0B"
-            BuildableName = "SwiftmazingTests.xctest"
-            BlueprintName = "SwiftmazingTests"
+            BlueprintIdentifier = "FDEEDEB9239DD1B500C64A0B"
+            BuildableName = "Swiftmazing.app"
+            BlueprintName = "Swiftmazing"
             ReferencedContainer = "container:Swiftmazing.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
