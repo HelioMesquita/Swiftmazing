@@ -59,11 +59,6 @@ class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
         interactor?.reloadRepositories()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        interactor?.resetProvider()
-    }
-
 }
 
 extension ListViewController: UICollectionViewDelegate {

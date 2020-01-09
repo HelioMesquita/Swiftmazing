@@ -25,7 +25,7 @@ protocol FeedBusinessLogic {
 protocol FeedDataStore {
     var selectedRepository: Repository? { get set }
     var listTitle: String { get set }
-    var listProvider: BaseRepositoriesProvider { get set }
+    var listFilter: Filter { get set }
     var listRepositories: [Repository] { get set }
 }
 
@@ -33,12 +33,10 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
     var presenter: FeedPresentationLogic?
     let worker: RepositoriesWorker
-    let topRepositoriesProvider = TopRepositoriesProvider()
-    let lastUpdatedRepositoriesProvider = LastUpdatedRepositoriesProvider()
 
     // MARK: DATASTORE
     var listTitle: String = ""
-    var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
+    var listFilter: Filter = .none
     var listRepositories: [Repository] = []
     var selectedRepository: Repository?
 
@@ -47,8 +45,8 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     }
 
     func loadScreen() {
-        let topRepo = worker.getRepositories(from: topRepositoriesProvider)
-        let lastUpdated = worker.getRepositories(from: lastUpdatedRepositoriesProvider)
+        let topRepo = worker.getRepositories(with: .stars)
+        let lastUpdated = worker.getRepositories(with: .updated)
 
         when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
     }
@@ -64,14 +62,14 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
     func topRepoListSelected(_ repositories: [Repository], title: String) {
         listRepositories = repositories
-        listProvider = topRepositoriesProvider
+        listFilter = .stars
         listTitle = title
         presenter?.presentList()
     }
 
     func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
         listRepositories = repositories
-        listProvider = lastUpdatedRepositoriesProvider
+        listFilter = .updated
         listTitle = title
         presenter?.presentList()
     }

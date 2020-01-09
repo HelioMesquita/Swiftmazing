@@ -18,13 +18,12 @@ protocol ListBusinessLogic {
     func loadScreen()
     func reloadRepositories()
     func repositorySelected(_ repository: Repository?)
-    func resetProvider()
     func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
     var selectedRepository: Repository? { get set }
-    var listProvider: BaseRepositoriesProvider { get set }
+    var listFilter: Filter { get set }
     var listTitle: String { get set }
     var listRepositories: [Repository] { get set }
 }
@@ -32,16 +31,19 @@ protocol ListDataStore {
 class ListInteractor: ListBusinessLogic, ListDataStore {
 
     let worker: RepositoriesWorker
+    let itemsPerPage: Int
     var presenter: ListPresentationLogic?
+    var currentPage: Int = 1
 
     // MARK: DATASTORE
     var selectedRepository: Repository?
     var listTitle: String = ""
-    var listProvider: BaseRepositoriesProvider = BaseRepositoriesProvider(filter: .none)
+    var listFilter: Filter = .none
     var listRepositories: [Repository] = []
 
-    init(worker: RepositoriesWorker = RepositoriesWorker()) {
+    init(worker: RepositoriesWorker = RepositoriesWorker(), itemsPerPage: Int = RepositoriesProvider.itemsPerPage) {
         self.worker = worker
+        self.itemsPerPage = itemsPerPage
     }
 
     func loadScreen() {
@@ -50,8 +52,8 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
 
     func reloadRepositories() {
-        resetProvider()
-        worker.getRepositories(from: listProvider).done(handleReloadSuccess).cauterize()
+        currentPage = 1
+        worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).cauterize()
     }
 
     private func handleReloadSuccess(_ repositories: Repositories) {
@@ -65,23 +67,19 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     func prefetchNextPage(index: Int) {
         let indexAdjusted = index + 1
-        let totalItems = listProvider.currentPage * listProvider.itemsPerPage
+        let totalItems = currentPage * itemsPerPage
         if indexAdjusted == totalItems {
             loadNextPage()
         }
     }
 
     private func loadNextPage() {
-        listProvider.currentPage += 1
-        worker.getRepositories(from: listProvider).done(handleNextSuccess).cauterize()
+        currentPage += 1
+        worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).cauterize()
     }
 
     private func handleNextSuccess(_ repositories: Repositories) {
         presenter?.nextPageMap(repositories.items)
-    }
-
-    func resetProvider() {
-        listProvider.currentPage = 1
     }
 
 }

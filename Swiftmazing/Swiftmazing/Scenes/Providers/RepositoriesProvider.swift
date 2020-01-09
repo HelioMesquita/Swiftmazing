@@ -15,25 +15,26 @@ enum Filter: String {
     case none = ""
 }
 
-class BaseRepositoriesProvider: RequestProviderProtocol {
+class RepositoriesProvider: RequestProviderProtocol {
 
+    static let itemsPerPage: Int = 10
     var httpVerb: HttpVerbs = .GET
     var path: String = "/search/repositories"
-    var currentPage: Int = 1
-    let itemsPerPage: Int = 10
+    var page: Int
     let filter: Filter
 
     var queryParameters: [URLQueryItem]? {
         return [
             URLQueryItem(name: "q", value: "language:swift"),
             URLQueryItem(name: "sort", value: filter.rawValue),
-            URLQueryItem(name: "per_page", value: "\(itemsPerPage)"),
-            URLQueryItem(name: "page", value: "\(currentPage)")
+            URLQueryItem(name: "per_page", value: "\(RepositoriesProvider.itemsPerPage)"),
+            URLQueryItem(name: "page", value: "\(page)")
         ]
     }
 
-    init(filter: Filter) {
+    init(filter: Filter, page: Int) {
         self.filter = filter
+        self.page = page
     }
 
 }
