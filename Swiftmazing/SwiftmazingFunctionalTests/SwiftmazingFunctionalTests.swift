@@ -29,8 +29,7 @@ class SwiftmazingFunctionalTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: repository.description)
         tester().waitForView(withAccessibilityLabel: repository.stars.kiloFormat)
         tester().waitForView(withAccessibilityLabel: Text.stars.value)
-
-        tester().tapView(withAccessibilityLabel: "Swiftmazing")
+        tester().navigateToFeed()
     }
 
     func testTapOnFeedRepositoryCellItShowsDetail() {
@@ -42,8 +41,7 @@ class SwiftmazingFunctionalTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: " - \(repository.issues.kiloFormat) \(Text.issues.value) ")
         tester().waitForView(withAccessibilityLabel: " - \(repository.forks.kiloFormat) \(Text.forks.value) ")
         tester().waitForView(withAccessibilityLabel: " - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
-
-        tester().tapView(withAccessibilityLabel: "Swiftmazing")
+        tester().navigateToFeed()
     }
 
     func testTapOnNewsCellItShowsList() {
@@ -52,8 +50,7 @@ class SwiftmazingFunctionalTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: repository.description)
         tester().waitForView(withAccessibilityLabel: repository.stars.kiloFormat)
         tester().waitForView(withAccessibilityLabel: Text.stars.value)
-
-        tester().tapView(withAccessibilityLabel: "Swiftmazing")
+        tester().navigateToFeed()
     }
 
     func testTapOnListRepositoryCellItShowsDetail() {
@@ -68,7 +65,7 @@ class SwiftmazingFunctionalTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: " - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
 
         tester().tapView(withAccessibilityLabel: "Last updates")
-        tester().tapView(withAccessibilityLabel: "Swiftmazing")
+        tester().navigateToFeed()
     }
 
 }
