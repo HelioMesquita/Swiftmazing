@@ -19,6 +19,7 @@ protocol ListPresentationLogic {
     func reloadMap(_ repositories: [Repository])
     func nextPageMap(_ repositories: [Repository])
     func presentDetail()
+    func presentTryAgain(message: String)
 }
 
 class ListPresenter: ListPresentationLogic {
@@ -41,6 +42,10 @@ class ListPresenter: ListPresentationLogic {
 
     func presentDetail() {
         viewController?.showDetail()
+    }
+
+    func presentTryAgain(message: String) {
+        viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
     }
 
 }

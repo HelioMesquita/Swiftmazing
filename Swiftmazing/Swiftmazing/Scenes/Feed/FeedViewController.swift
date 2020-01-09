@@ -13,7 +13,7 @@
 import UIKit
 import Visual
 
-protocol FeedDisplayLogic: class {
+protocol FeedDisplayLogic: AlertDisplayLogic {
     func show(_ viewModel: Feed.ViewModel)
     func showList()
     func showDetail()
@@ -108,15 +108,6 @@ extension FeedViewController: FeedDisplayLogic {
 
     func showDetail() {
         router?.routeToDetail()
-    }
-
-    func showTryAgain(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: Text.tryAgain.value, style: .default) { _ in
-            self.interactor?.loadScreen()
-        }
-        alertController.addAction(action)
-        present(alertController, animated: true)
     }
 
 }

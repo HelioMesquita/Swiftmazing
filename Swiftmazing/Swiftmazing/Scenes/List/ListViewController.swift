@@ -13,7 +13,7 @@
 import UIKit
 import Visual
 
-protocol ListDisplayLogic: class {
+protocol ListDisplayLogic: AlertDisplayLogic {
     func showTitle(_ title: String)
     func showReload(with viewModels: [List.ListCellViewModel])
     func showNextPage(with viewModels: [List.ListCellViewModel])

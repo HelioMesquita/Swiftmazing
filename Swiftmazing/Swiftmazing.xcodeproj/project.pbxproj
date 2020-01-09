@@ -54,6 +54,7 @@
 		FD24978023BD7AD300442956 /* RepositoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977F23BD7AD300442956 /* RepositoriesProvider.swift */; };
 		FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */; };
 		FD39511323C697D90086FA42 /* KIF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511223C697D90086FA42 /* KIF+Utils.swift */; };
+		FD39511623C6C5360086FA42 /* AlertDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
@@ -152,6 +153,7 @@
 		FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingFunctionalTests.swift; sourceTree = "<group>"; };
 		FD39510823C68D210086FA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD39511223C697D90086FA42 /* KIF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Utils.swift"; sourceTree = "<group>"; };
+		FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayLogic.swift; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D92023A557AE003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -274,6 +276,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FD39511423C6C5250086FA42 /* DisplayLogic */ = {
+			isa = PBXGroup;
+			children = (
+				FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */,
+			);
+			path = DisplayLogic;
+			sourceTree = "<group>";
+		};
 		FD69D910239F22D6003D0070 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +309,7 @@
 		FD69D912239F2305003D0070 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FD39511423C6C5250086FA42 /* DisplayLogic */,
 				FD0A28D623BFE20E00B9B985 /* Worker */,
 				FD9DFB2F23B03E3400F8B3AC /* Providers */,
 				FD9DFB2E23B03E2E00F8B3AC /* Models */,
@@ -772,6 +783,7 @@
 				FDB571A823A5889800BAD13C /* FeedInteractor.swift in Sources */,
 				FD69D92323A557E5003D0070 /* RequestProvider.swift in Sources */,
 				FDB571A523A5889800BAD13C /* FeedRouter.swift in Sources */,
+				FD39511623C6C5360086FA42 /* AlertDisplayLogic.swift in Sources */,
 				FDB571A723A5889800BAD13C /* FeedViewController.swift in Sources */,
 				FDB5719823A5815D00BAD13C /* ListViewController.swift in Sources */,
 				FDE9BC0023C2881D00E80CDD /* RepositoryDetailInteractor.swift in Sources */,

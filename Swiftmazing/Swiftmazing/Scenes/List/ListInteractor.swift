@@ -12,6 +12,7 @@
 // This tag below is used to create the testable files from the Cuckoo pod
 // CUCKOO_TESTABLE
 
+import Infrastructure
 import UIKit
 
 protocol ListBusinessLogic {
@@ -53,7 +54,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     func reloadRepositories() {
         currentPage = 1
-        worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).cauterize()
+        worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).catch(handleError)
     }
 
     private func handleReloadSuccess(_ repositories: Repositories) {
@@ -75,11 +76,15 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
     private func loadNextPage() {
         currentPage += 1
-        worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).cauterize()
+        worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).catch(handleError)
     }
 
     private func handleNextSuccess(_ repositories: Repositories) {
         presenter?.nextPageMap(repositories.items)
+    }
+
+    private func handleError(_ error: Error) {
+        presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
     }
 
 }

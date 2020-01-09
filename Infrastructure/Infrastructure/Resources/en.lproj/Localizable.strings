@@ -7,8 +7,9 @@
 */
 
 
-"badRequest" = "There was an error loading your data.";
-"unauthorized" = "You do not have access to this type of information.";
+"badRequest" = "There was an error loading your data";
+"unauthorized" = "You do not have access to this type of information";
 "notFound" = "Could not find what you requested, please try again";
 "unknownError" = "Please check your internet try again";
 "invalidParser" = "Please check some update";
+"forbidden" = "Try again later. Temporarily blocked";

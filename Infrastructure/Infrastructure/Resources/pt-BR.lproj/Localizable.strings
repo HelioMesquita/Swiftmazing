@@ -12,3 +12,4 @@
 "notFound" = "Não foi encontrado o que você pediu, tente novamente";
 "unknownError" = "Por favor verifique sua internet e tente novamente";
 "invalidParser" = "Por favor verifique se há alguma atualização";
+"forbidden" = "Tente novamente mais tarde. Temporariamente bloqueado";
