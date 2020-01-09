@@ -19,6 +19,8 @@ enum Text: String {
     case lastUpdate
     case forks
     case issues
+    case tryAgain
+    case anErrorHappened
 
     public var value: String {
         return String(describing: self).localized()

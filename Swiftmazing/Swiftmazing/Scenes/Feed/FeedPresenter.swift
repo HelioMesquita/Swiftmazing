@@ -18,6 +18,7 @@ protocol FeedPresentationLogic {
     func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
     func presentList()
     func presentDetail()
+    func presentTryAgain(message: String)
 }
 
 class FeedPresenter: FeedPresentationLogic {
@@ -31,6 +32,10 @@ class FeedPresenter: FeedPresentationLogic {
 
         let viewModel = Feed.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
         viewController?.show(viewModel)
+    }
+
+    func presentTryAgain(message: String) {
+        viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
     }
 
     func presentList() {

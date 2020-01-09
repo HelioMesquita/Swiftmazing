@@ -13,6 +13,7 @@
 // CUCKOO_TESTABLE
 
 import UIKit
+import Infrastructure
 import PromiseKit
 
 protocol FeedBusinessLogic {
@@ -48,11 +49,15 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
         let topRepo = worker.getRepositories(with: .stars)
         let lastUpdated = worker.getRepositories(with: .updated)
 
-        when(fulfilled: topRepo, lastUpdated).done(handleSuccess).cauterize()
+        when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
     }
 
     func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
         presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
+    }
+
+    func handleError(_ error: Error) {
+        presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
     }
 
     func repositorySelected(_ repository: Repository?) {

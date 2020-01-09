@@ -17,6 +17,7 @@ protocol FeedDisplayLogic: class {
     func show(_ viewModel: Feed.ViewModel)
     func showList()
     func showDetail()
+    func showTryAgain(title: String, message: String)
 }
 
 class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
@@ -98,7 +99,6 @@ extension FeedViewController: FeedDisplayLogic {
         snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
         snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
         dataSource.apply(snapshot, animatingDifferences: false)
-//        collectionView.collectionViewLayout.invalidateLayout()
         collectionView.refreshControl?.endRefreshing()
     }
 
@@ -108,6 +108,15 @@ extension FeedViewController: FeedDisplayLogic {
 
     func showDetail() {
         router?.routeToDetail()
+    }
+
+    func showTryAgain(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: Text.tryAgain.value, style: .default) { _ in
+            self.interactor?.loadScreen()
+        }
+        alertController.addAction(action)
+        present(alertController, animated: true)
     }
 
 }
