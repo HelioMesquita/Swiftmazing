@@ -102,6 +102,10 @@ extension FeedViewController: FeedDisplayLogic {
         collectionView.refreshControl?.endRefreshing()
     }
 
+    func reload() {
+        interactor?.loadScreen()
+    }
+
     func showList() {
         router?.routeToList()
     }

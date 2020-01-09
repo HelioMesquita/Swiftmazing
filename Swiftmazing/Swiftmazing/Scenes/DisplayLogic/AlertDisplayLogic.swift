@@ -10,6 +10,7 @@ import UIKit
 
 protocol AlertDisplayLogic: class {
     func showTryAgain(title: String, message: String)
+    func reload()
 }
 
 extension AlertDisplayLogic where Self: UIViewController {
@@ -17,7 +18,7 @@ extension AlertDisplayLogic where Self: UIViewController {
     func showTryAgain(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: Text.tryAgain.value, style: .default) { _ in
-            self.interactor?.loadScreen()
+            self.reload()
         }
         alertController.addAction(action)
         present(alertController, animated: true)

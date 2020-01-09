@@ -55,6 +55,7 @@
 		FD39510723C68D210086FA42 /* SwiftmazingFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510623C68D210086FA42 /* SwiftmazingFunctionalTests.swift */; };
 		FD39511323C697D90086FA42 /* KIF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511223C697D90086FA42 /* KIF+Utils.swift */; };
 		FD39511623C6C5360086FA42 /* AlertDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */; };
+		FD39511723C6C68F0086FA42 /* AlertDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
@@ -739,6 +740,7 @@
 				E961CB9623C4C2F400239D14 /* RequestProvider.swift in Sources */,
 				E961CB9723C4C2F400239D14 /* FeedRouter.swift in Sources */,
 				E961CB9823C4C2F400239D14 /* FeedViewController.swift in Sources */,
+				FD39511723C6C68F0086FA42 /* AlertDisplayLogic.swift in Sources */,
 				E961CB9923C4C2F400239D14 /* ListViewController.swift in Sources */,
 				E961CB9A23C4C2F400239D14 /* RepositoryDetailInteractor.swift in Sources */,
 				E961CB9B23C4C2F400239D14 /* FeedPresenter.swift in Sources */,

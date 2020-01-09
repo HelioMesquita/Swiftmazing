@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FDEEDECF239DD1B500C64A0B"
+            BuildableName = "SwiftmazingTests.xctest"
+            BlueprintName = "SwiftmazingTests"
+            ReferencedContainer = "container:Swiftmazing.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,16 +46,6 @@
                BlueprintIdentifier = "FDEEDECF239DD1B500C64A0B"
                BuildableName = "SwiftmazingTests.xctest"
                BlueprintName = "SwiftmazingTests"
-               ReferencedContainer = "container:Swiftmazing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDEEDEDA239DD1B500C64A0B"
-               BuildableName = "SwiftmazingUITests.xctest"
-               BlueprintName = "SwiftmazingUITests"
                ReferencedContainer = "container:Swiftmazing.xcodeproj">
             </BuildableReference>
          </TestableReference>
