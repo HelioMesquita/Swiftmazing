@@ -52,6 +52,14 @@ For each scheme in project run some tests targets
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
 * The SwiftmazingTests scheme runs all tests 
 
+The all tests can be run also using Fastlane just execute
+
+```
+bundle exec fastlane tests
+```
+
+When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage
+
 ## Built With
 
 * [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework.
