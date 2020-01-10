@@ -18,7 +18,7 @@ class RequestErrorTests: QuickSpec {
 
         describe("#localizedDescription") {
             it("returns text from localizable strings") {
-                expect(RequestError.badRequest.localizedDescription).to(equal("There was an error loading your data."))
+                expect(RequestError.badRequest.localizedDescription).to(equal("There was an error loading your data"))
             }
         }
     }
