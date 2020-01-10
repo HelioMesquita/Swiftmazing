@@ -28,7 +28,7 @@ public extension RequestProviderProtocol {
         components.path = path
         components.queryItems = queryParameters
 
-        var request = URLRequest(url: components.url)
+        var request = URLRequest(url: components.url!)
         request.httpMethod = httpVerb.rawValue
         headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
 
