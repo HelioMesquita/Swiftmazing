@@ -1,7 +1,7 @@
 # Swiftmazing
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.
-The application was developed in a modular way, with their respective tests usin Quick, Nimble, Snapshots and/or KIF, using the modern collection view and integrated with fastlane and slather generating test coverage.
+The application was developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage.
 
 ## Features
 
@@ -23,9 +23,9 @@ The application was developed in a modular way, with their respective tests usin
 
 ### Prerequisites
 
-* Xcode 11.3
-* Cocoapods 1.8.5
-* Bundler 2.0.2
+* [Xcode](https://developer.apple.com/xcode/) 11.3
+* [Cocoapods](https://cocoapods.org) 1.8.5
+* [Bundler](https://bundler.io) 2.0.2
 
 ### Installing
 
@@ -46,11 +46,11 @@ Open the directory project and touble tap on Swiftmazing.xcworkspace
 ## Running the tests
 
 For each scheme in project run some tests targets
-<p>The visual scheme runs the snapshots tests for all views and view controllers</p>
-<p>The Infrastructure scheme runs the unit tests using Quick and Nimble for all network tests</p>
-<p>The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules</p>
-<p>The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application</p>
-<p>The SwiftmazingTests scheme runs all tests</p>
+* The visual scheme runs the snapshots tests for all views and view controllers
+* The Infrastructure scheme runs the unit tests using Quick and Nimble for all network tests
+* The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
+* The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
+* The SwiftmazingTests scheme runs all tests 
 
 ## Built With
 
