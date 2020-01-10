@@ -1,7 +1,7 @@
 # Swiftmazing
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.
-The application was developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage.
+It were developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage.
 
 ## Features
 
