@@ -26,6 +26,8 @@ It were developed in a modular way, with their respective tests using Quick, Nim
 * Unit tests
 * Snapshots Tests
 * Functional Tests
+* Travis CI integration
+* Codecov integration
 * Fastlane integration
 * Slather integration
 
