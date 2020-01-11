@@ -11,7 +11,7 @@ import Foundation
 extension Int {
 
     var kiloFormat: String {
-        if self > 1000 {
+        if self >= 1000 {
             var result: String = ""
             let remainder = self / 1000
             result += "\(remainder)"

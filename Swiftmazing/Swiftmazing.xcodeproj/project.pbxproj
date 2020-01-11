@@ -64,6 +64,7 @@
 		FD39511323C697D90086FA42 /* KIF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511223C697D90086FA42 /* KIF+Utils.swift */; };
 		FD39511623C6C5360086FA42 /* AlertDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */; };
 		FD39511723C6C68F0086FA42 /* AlertDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */; };
+		FD39511A23C7CF1B0086FA42 /* Int+UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39511923C7CF1B0086FA42 /* Int+UtilsTests.swift */; };
 		FD69D90B239F203F003D0070 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; };
 		FD69D90C239F203F003D0070 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D909239F203F003D0070 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD69D92123A557AE003D0070 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69D92023A557AE003D0070 /* ServiceProvider.swift */; };
@@ -173,6 +174,7 @@
 		FD39510823C68D210086FA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD39511223C697D90086FA42 /* KIF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Utils.swift"; sourceTree = "<group>"; };
 		FD39511523C6C5360086FA42 /* AlertDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayLogic.swift; sourceTree = "<group>"; };
+		FD39511923C7CF1B0086FA42 /* Int+UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+UtilsTests.swift"; sourceTree = "<group>"; };
 		FD69D909239F203F003D0070 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D90A239F203F003D0070 /* Visual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Visual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD69D92023A557AE003D0070 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -352,6 +354,14 @@
 			path = DisplayLogic;
 			sourceTree = "<group>";
 		};
+		FD39511823C7CEF50086FA42 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD39511923C7CF1B0086FA42 /* Int+UtilsTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FD69D910239F22D6003D0070 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +510,7 @@
 		FDEEDED3239DD1B500C64A0B /* SwiftmazingTests */ = {
 			isa = PBXGroup;
 			children = (
+				FD39511823C7CEF50086FA42 /* Utils */,
 				E9D8E0FF23C748B1009E21F6 /* Spy */,
 				E9D8E0F923C745A0009E21F6 /* Scenes */,
 				FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */,
@@ -922,6 +933,7 @@
 				E9D8E0FE23C745CD009E21F6 /* FeedInteractorTests.swift in Sources */,
 				E9D8E10723C7637C009E21F6 /* RepositoryDetailPresenterTests.swift in Sources */,
 				E9D8E10923C7662E009E21F6 /* FeedPresenterTests.swift in Sources */,
+				FD39511A23C7CF1B0086FA42 /* Int+UtilsTests.swift in Sources */,
 				E9D8E10323C752F6009E21F6 /* ListInteractorTests.swift in Sources */,
 				FDEEDED5239DD1B500C64A0B /* SwiftmazingTests.swift in Sources */,
 			);
