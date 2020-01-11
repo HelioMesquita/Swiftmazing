@@ -1,6 +1,10 @@
 language:
   - swift
 osx_image: xcode11.3
+cache:
+  bundler: true
+  cocoapods: true
+
 before_install:
 - gem install bundler
 - bundler install
