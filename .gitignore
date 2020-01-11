@@ -81,7 +81,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-fastlane/html
+fastlane/slather
 vendor/
 
 # Code Injection

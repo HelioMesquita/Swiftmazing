@@ -1,6 +1,10 @@
-coverage_service: html
+coverage_service: cobertura_xml
 workspace: Swiftmazing.xcworkspace
 xcodeproj: Swiftmazing/Swiftmazing.xcodeproj
 scheme: SwiftmazingTests
 
-output_directory: fastlane/html
+output_directory: fastlane/slather
+ignore:
+  - Infrastructure/InfrastructureTests/*
+  - Visual/VisualTests/*
+  - Swiftmazing/SwiftmazingTests/*

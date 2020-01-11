@@ -10,4 +10,4 @@ before_install:
 script:
   - bundle exec fastlane tests
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -f fastlane/slather/cobertura.xml -X coveragepy -X gcov -X xcode
