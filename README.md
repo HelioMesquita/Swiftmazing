@@ -4,7 +4,8 @@
 [![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/circleci/project/github/fastlane/fastlane/master.svg)](https://circleci.com/gh/fastlane/fastlane)
+[![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)
+[![Build Status](https://travis-ci.org/HelioMesquita/Swiftmazing.svg?branch=master)](https://travis-ci.org/HelioMesquita/Swiftmazing)
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.
 It were developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage.

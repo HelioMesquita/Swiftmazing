@@ -1,0 +1,13 @@
+language:
+  - swift
+osx_image: xcode11.3
+before_install:
+- gem install bundler
+- bundler install
+- gem install cocoapods
+- pod install
+
+script:
+  - bundle exec fastlane tests
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
