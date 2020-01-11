@@ -25,7 +25,7 @@ It were developed in a modular way, with their respective tests using Quick, Nim
 
 * [Xcode](https://developer.apple.com/xcode/) 11.3
 * [Cocoapods](https://cocoapods.org) 1.8.5
-* [Bundler](https://bundler.io) 2.0.2
+* [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
 
 ### Installing
 
@@ -55,6 +55,7 @@ For each scheme in project run some tests targets
 The all tests can be run also using Fastlane just execute
 
 ```
+bundle install
 bundle exec fastlane tests
 ```
 
