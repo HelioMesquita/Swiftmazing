@@ -24,6 +24,7 @@ class RepositoryDetailPresenterTests: QuickSpec {
         var showTitleCalled: Bool = false
         var showAuthorCalled: Bool = false
         var showDescriptionsCalled: Bool = false
+        var showButtonTitleCalled: Bool = false
 
         func showImage(_ imageURL: URL) {
             showImageCalled = true
@@ -39,6 +40,10 @@ class RepositoryDetailPresenterTests: QuickSpec {
 
         func showDescriptions(_ texts: [String]) {
             showDescriptionsCalled = true
+        }
+
+        func showButtonTitle(_ text: String) {
+            showButtonTitleCalled = true
         }
 
     }
@@ -75,6 +80,10 @@ class RepositoryDetailPresenterTests: QuickSpec {
 
             it("shows description") {
                 expect(self.viewController.showDescriptionsCalled).to(beTrue())
+            }
+
+            it("shows button") {
+                expect(self.viewController.showButtonTitleCalled).to(beTrue())
             }
         }
     }

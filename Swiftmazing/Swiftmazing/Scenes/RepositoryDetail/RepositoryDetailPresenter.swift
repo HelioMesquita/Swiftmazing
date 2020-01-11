@@ -35,6 +35,7 @@ class RepositoryDetailPresenter: RepositoryDetailPresentationLogic {
         texts.append(" - \(repository.forks.kiloFormat) \(Text.forks.value) ")
         texts.append(" - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
         viewController?.showDescriptions(texts)
+        viewController?.showButtonTitle(Text.seeRepository.value)
     }
 
 }

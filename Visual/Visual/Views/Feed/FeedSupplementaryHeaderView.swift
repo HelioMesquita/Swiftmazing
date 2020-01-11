@@ -29,7 +29,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
     internal lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
-        button.addTarget(self, action: #selector(buttonclicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -63,7 +63,7 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
         ])
     }
 
-    @objc private func buttonclicked() {
+    @objc private func buttonClicked() {
         guard let section = section else { return }
         callBack(section)
     }

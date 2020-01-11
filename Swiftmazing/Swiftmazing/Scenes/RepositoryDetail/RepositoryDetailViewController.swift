@@ -18,6 +18,7 @@ protocol RepositoryDetailDisplayLogic: class {
     func showTitle(_ text: String)
     func showAuthor(_ text: String)
     func showDescriptions(_ texts: [String])
+    func showButtonTitle(_ text: String)
 }
 
 class RepositoryDetailViewController: DetailViewController {
@@ -43,6 +44,10 @@ class RepositoryDetailViewController: DetailViewController {
         interactor?.loadScreen()
     }
 
+    override func buttonClicked() {
+        router?.routeToPage()
+    }
+
 }
 
 extension RepositoryDetailViewController: RepositoryDetailDisplayLogic {
@@ -61,6 +66,10 @@ extension RepositoryDetailViewController: RepositoryDetailDisplayLogic {
 
     func showDescriptions(_ texts: [String]) {
         setDescriptions(texts)
+    }
+
+    func showButtonTitle(_ text: String) {
+        setButtonTitle(text)
     }
 
 }

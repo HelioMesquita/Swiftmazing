@@ -13,6 +13,7 @@
 import UIKit
 
 @objc protocol RepositoryDetailRoutingLogic {
+    func routeToPage()
 }
 
 protocol RepositoryDetailDataPassing {
@@ -23,5 +24,10 @@ class RepositoryDetailRouter: RepositoryDetailRoutingLogic, RepositoryDetailData
 
     weak var viewController: RepositoryDetailViewController?
     var dataStore: RepositoryDetailDataStore?
+
+    func routeToPage() {
+        guard let url = dataStore?.repository?.url else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 
 }

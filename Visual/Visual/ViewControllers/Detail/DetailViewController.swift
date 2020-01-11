@@ -13,11 +13,13 @@ open class DetailViewController: BaseViewController {
     private var designTitleColor = UIColor.Design.title
     private var designSubtitleColor = UIColor.Design.subtitle
     private var designLineColor = UIColor.Design.line
+    private var designLinkColor = UIColor.Design.link
 
     private var padding: CGFloat = 10
     private var imageSize: CGFloat = 118
     private var lineHeight: CGFloat = 1
     private var stackSpacing: CGFloat = 8
+    private var additionalInfoHeight: CGFloat = 28
 
     var guide: UILayoutGuide {
         return view.layoutMarginsGuide
@@ -58,6 +60,18 @@ open class DetailViewController: BaseViewController {
         return stackView
     }()
 
+    internal lazy var linkButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = designLineColor
+        button.layer.cornerRadius = 14
+        button.clipsToBounds = true
+        button.setTitleColor(designLinkColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     private lazy var lineView: UIView = {
         let line = UIView()
         line.backgroundColor = designLineColor
@@ -86,6 +100,7 @@ open class DetailViewController: BaseViewController {
         addTitleStackView()
         addTitleLabel()
         addAuthorLabel()
+        addLinkButton()
         addLine()
         addDescriptionStackView()
     }
@@ -106,6 +121,16 @@ open class DetailViewController: BaseViewController {
             titleStackView.topAnchor.constraint(equalTo: imageView.topAnchor),
             titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             titleStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding)
+        ])
+    }
+
+    private func addLinkButton() {
+        view.addSubview(linkButton)
+        NSLayoutConstraint.activate([
+            linkButton.topAnchor.constraint(greaterThanOrEqualTo: titleStackView.bottomAnchor),
+            linkButton.heightAnchor.constraint(equalToConstant: additionalInfoHeight),
+            linkButton.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding),
+            linkButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
         ])
     }
 
@@ -159,6 +184,18 @@ open class DetailViewController: BaseViewController {
 
     public func setImage(_ url: URL) {
         imageView.sd_setImage(with: url)
+    }
+
+    public func setButtonTitle(_ text: String) {
+        linkButton.setTitle(text, for: .normal)
+        if let text = linkButton.titleLabel?.text, let font = linkButton.titleLabel?.font {
+            let width = text.width(withConstrainedHeight: additionalInfoHeight, font: font)
+            let total: CGFloat = (padding * 2) + width
+            linkButton.widthAnchor.constraint(equalToConstant: total).isActive = true
+        }
+    }
+
+    @objc open func buttonClicked() {
     }
 
 }
