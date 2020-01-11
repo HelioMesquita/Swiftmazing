@@ -69,7 +69,12 @@ bundle install
 bundle exec fastlane tests
 ```
 
-When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage
+When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage. The relatory can be found at 
+
+```
+fastlane/hml
+```
+
 
 ## Built With
 
