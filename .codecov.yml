@@ -1,0 +1,4 @@
+ignore:
+  - Infrastructure/InfrastructureTests/*
+  - Visual/VisualTests/*
+  - Swiftmazing/SwiftmazingTests/*
