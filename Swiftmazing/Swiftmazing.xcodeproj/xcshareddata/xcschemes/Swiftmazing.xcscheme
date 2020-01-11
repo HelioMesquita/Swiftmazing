@@ -49,36 +49,6 @@
                ReferencedContainer = "container:Swiftmazing.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDEEDF47239DD25500C64A0B"
-               BuildableName = "InfrastructureTests.xctest"
-               BlueprintName = "InfrastructureTests"
-               ReferencedContainer = "container:../Infrastructure/Infrastructure.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD39510323C68D210086FA42"
-               BuildableName = "SwiftmazingFunctionalTests.xctest"
-               BlueprintName = "SwiftmazingFunctionalTests"
-               ReferencedContainer = "container:Swiftmazing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDEEDF23239DD22300C64A0B"
-               BuildableName = "VisualTests.xctest"
-               BlueprintName = "VisualTests"
-               ReferencedContainer = "container:../Visual/Visual.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -1,6 +1,13 @@
 coverage_service: cobertura_xml
 workspace: Swiftmazing.xcworkspace
-xcodeproj: Swiftmazing/Swiftmazing.xcodeproj
-scheme: SwiftmazingTests
+
+scheme: SwiftmazingCodeCoverage
 
 output_directory: fastlane/slather
+
+xcodeproj: Swiftmazing/Swiftmazing.xcodeproj
+ignore:
+  - Infrastructure/InfrastructureTests/*
+  - Visual/VisualTests/*
+  - Swiftmazing/SwiftmazingTests/*
+  - Swiftmazing/SwiftmazingFunctionalTests/*
