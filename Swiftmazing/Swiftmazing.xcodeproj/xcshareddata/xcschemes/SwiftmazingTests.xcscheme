@@ -27,6 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
+      language = "en"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
       <CodeCoverageTargets>
@@ -37,18 +38,22 @@
             BlueprintName = "Swiftmazing"
             ReferencedContainer = "container:Swiftmazing.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FDEEDF3E239DD25400C64A0B"
+            BuildableName = "Infrastructure.framework"
+            BlueprintName = "Infrastructure"
+            ReferencedContainer = "container:../Infrastructure/Infrastructure.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FDEEDF1A239DD22300C64A0B"
+            BuildableName = "Visual.framework"
+            BlueprintName = "Visual"
+            ReferencedContainer = "container:../Visual/Visual.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDEEDECF239DD1B500C64A0B"
-               BuildableName = "SwiftmazingTests.xctest"
-               BlueprintName = "SwiftmazingTests"
-               ReferencedContainer = "container:Swiftmazing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -66,6 +71,16 @@
                BlueprintIdentifier = "FD39510323C68D210086FA42"
                BuildableName = "SwiftmazingFunctionalTests.xctest"
                BlueprintName = "SwiftmazingFunctionalTests"
+               ReferencedContainer = "container:Swiftmazing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDEEDECF239DD1B500C64A0B"
+               BuildableName = "SwiftmazingTests.xctest"
+               BlueprintName = "SwiftmazingTests"
                ReferencedContainer = "container:Swiftmazing.xcodeproj">
             </BuildableReference>
          </TestableReference>

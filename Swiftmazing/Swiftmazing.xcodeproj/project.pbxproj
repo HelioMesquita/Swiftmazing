@@ -90,7 +90,6 @@
 		FDEEDEBE239DD1B500C64A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBD239DD1B500C64A0B /* AppDelegate.swift */; };
 		FDEEDEC0239DD1B500C64A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDEBF239DD1B500C64A0B /* SceneDelegate.swift */; };
 		FDEEDEC7239DD1B500C64A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */; };
-		FDEEDED5239DD1B500C64A0B /* SwiftmazingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,7 +202,6 @@
 		FDEEDEC6239DD1B500C64A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDEEDECB239DD1B500C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDEEDED0239DD1B500C64A0B /* SwiftmazingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftmazingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftmazingTests.swift; sourceTree = "<group>"; };
 		FDEEDED6239DD1B500C64A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -513,7 +511,6 @@
 				FD39511823C7CEF50086FA42 /* Utils */,
 				E9D8E0FF23C748B1009E21F6 /* Spy */,
 				E9D8E0F923C745A0009E21F6 /* Scenes */,
-				FDEEDED4239DD1B500C64A0B /* SwiftmazingTests.swift */,
 				FDEEDED6239DD1B500C64A0B /* Info.plist */,
 			);
 			path = SwiftmazingTests;
@@ -935,7 +932,6 @@
 				E9D8E10923C7662E009E21F6 /* FeedPresenterTests.swift in Sources */,
 				FD39511A23C7CF1B0086FA42 /* Int+UtilsTests.swift in Sources */,
 				E9D8E10323C752F6009E21F6 /* ListInteractorTests.swift in Sources */,
-				FDEEDED5239DD1B500C64A0B /* SwiftmazingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
