@@ -8,16 +8,15 @@ Make sure you have the latest version of the Xcode command line tools installed:
 xcode-select --install
 ```
 
-Install _fastlane_ using
+Install fastlane using bundler
 ```
-[sudo] gem install fastlane -NV
+bundler install
 ```
-or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ### tests
 ```
-fastlane tests
+bundler exec fastlane tests
 ```
 Runs all the unit tests and UI Tests for all
 

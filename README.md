@@ -26,6 +26,8 @@ It were developed in a modular way, with their respective tests using Quick, Nim
 * Unit tests
 * Snapshots Tests
 * Functional Tests
+* Travis CI integration
+* Codecov integration
 * Fastlane integration
 * Slather integration
 
@@ -67,7 +69,12 @@ bundle install
 bundle exec fastlane tests
 ```
 
-When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage
+When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage. The relatory can be found at 
+
+```
+fastlane/hml
+```
+
 
 ## Built With
 
