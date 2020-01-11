@@ -4,10 +4,10 @@ A iOS application with layout based on App Store that can check the most starred
 It were developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage.
 
 
-[![Swift 5.1](https://img.shields.io/badge/Swift-5.1-green.svg?style=flat)](https://swift.org)
-[![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3-green.svg?style=flat)](https://developer.apple.com/xcode/)
+[![Swift 5.1](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
+[![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/circleci/project/github/fastlane/fastlane/master.svg)](https://circleci.com/gh/fastlane/fastlane)
 
 ## Features
