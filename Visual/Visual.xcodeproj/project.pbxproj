@@ -27,7 +27,6 @@
 		FD24977E23BD400900442956 /* NSCollectionLayoutDimension+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24977D23BD400900442956 /* NSCollectionLayoutDimension+Utils.swift */; };
 		FD3950F623C422710086FA42 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950F523C422600086FA42 /* DetailViewControllerTests.swift */; };
 		FD3950FC23C42DC90086FA42 /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950FB23C42DC90086FA42 /* BundleTests.swift */; };
-		FD3950FF23C42E3C0086FA42 /* BaseNavigationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */; };
 		FD39511023C691700086FA42 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39510F23C691700086FA42 /* BaseUICollectionViewCell.swift */; };
 		FD40A25223A5B57B004855B2 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */; };
 		FD40A26223ABBDD1004855B2 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */; };
@@ -84,7 +83,6 @@
 		FD24977D23BD400900442956 /* NSCollectionLayoutDimension+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutDimension+Utils.swift"; sourceTree = "<group>"; };
 		FD3950F523C422600086FA42 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		FD3950FB23C42DC90086FA42 /* BundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
-		FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationControllerTests.swift; sourceTree = "<group>"; };
 		FD39510F23C691700086FA42 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		FD40A25123A5B57B004855B2 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		FD40A26123ABBDD1004855B2 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
@@ -251,14 +249,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		FD3950FD23C42E230086FA42 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				FD3950FE23C42E2B0086FA42 /* BaseNavigationControllerTests.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		FD39510E23C691600086FA42 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,7 +303,6 @@
 		FDE9BC0A23C40BEB00E80CDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FD3950FD23C42E230086FA42 /* Base */,
 				FDE9BC0B23C4186400E80CDD /* Feed */,
 				FDE9BC1123C41DED00E80CDD /* List */,
 				FDE9BC1223C41DF300E80CDD /* Detail */,
@@ -613,7 +602,6 @@
 				FD3950F623C422710086FA42 /* DetailViewControllerTests.swift in Sources */,
 				FDE9BC1023C41D8300E80CDD /* Constants.swift in Sources */,
 				FDE9BC0D23C4187C00E80CDD /* FeedCollectionViewControllerTests.swift in Sources */,
-				FD3950FF23C42E3C0086FA42 /* BaseNavigationControllerTests.swift in Sources */,
 				E9B7C50223C39433007B0261 /* FeedSupplementaryFooterViewTests.swift in Sources */,
 				FD3950FC23C42DC90086FA42 /* BundleTests.swift in Sources */,
 			);

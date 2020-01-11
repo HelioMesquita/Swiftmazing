@@ -1,0 +1,6 @@
+coverage_service: html
+workspace: Swiftmazing.xcworkspace
+xcodeproj: Swiftmazing/Swiftmazing.xcodeproj
+scheme: SwiftmazingTests
+
+output_directory: fastlane/html
