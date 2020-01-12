@@ -1,6 +1,6 @@
 <h3 align="center">
-  <a href="https://github.com/HelioMesquita/Swiftmazing/blob/master/Swiftmazing/assets/swiftmazing.png">
-  <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/Swiftmazing/assets/swiftmazing.png?raw=true" alt="Swiftmazing Logo" width="500">
+  <a href="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/swiftmazing.png">
+  <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/swiftmazing.png?raw=true" alt="Swiftmazing Logo" width="500">
   </a>
 </h3>
 
