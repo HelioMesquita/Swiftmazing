@@ -34,7 +34,7 @@ It were developed in a modular way, with their respective tests using Quick, Nim
 ### Prerequisites
 
 * [Xcode](https://developer.apple.com/xcode/) 11.3
-* [Cocoapods](https://cocoapods.org) 1.8.5
+* [Cocoapods](https://cocoapods.org) 1.8.4
 * [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
 
 ### Installing
@@ -79,7 +79,7 @@ fastlane/hml
 ## Built With
 
 * [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework.
-* [Nimble](https://github.com/Quick/Nimble) -   A Matcher Framework for Swift and Objective-C
+* [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C
 * [Nimble-Snapshots](Nimble-Snapshots) - Nimble matchers for FBSnapshotTestCase
 * [SDWebImage](https://github.com/SDWebImage/SDWebImage) - Asynchronous image downloader with cache support as a UIImageView category
 * [PromiseKit](https://github.com/mxcl/PromiseKit) - Promises for Swift & ObjC.
