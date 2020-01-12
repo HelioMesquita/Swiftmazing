@@ -1,4 +1,8 @@
-# Swiftmazing
+<h3 align="center">
+  <a href="https://github.com/HelioMesquita/Swiftmazing/blob/master/Swiftmazing/assets/swiftmazing.png">
+  <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/Swiftmazing/assets/swiftmazing.png?raw=true" alt="Swiftmazing Logo" width="500">
+  </a>
+</h3>
 
 [![Swift 5.1](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
 [![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3-blue.svg?style=flat)](https://developer.apple.com/xcode/)
