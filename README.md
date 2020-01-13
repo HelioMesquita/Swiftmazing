@@ -17,10 +17,10 @@ A iOS application with layout based on App Store that can check the most starred
 ## Features
 
 <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/appscreenlight.png" align="right"
-     title="App preview light mode" width="200" height="433">
+     title="App preview light mode" width="220  " height="476">
 
 <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/appscreendark.png" align="right"
-     title="App preview dark mode" width="200" height="433">
+     title="App preview dark mode" width="220 " height="476">
 
 * Modularization
 * CLEAN Swift Architecture (VIP)
@@ -29,9 +29,9 @@ A iOS application with layout based on App Store that can check the most starred
 * Pull-to-Refresh
 * Infinity Scroll using PrefetchItems
 * View Code (UIKit)
-* Preview for View Code using UIViewRepresentable
+* Preview using UIViewRepresentable
 * Dark Mode
-* Internationalization (English and Portuguese-Brazil)
+* Internationalization (English and PT-Br)
 * Unit tests
 * Snapshots Tests
 * Functional Tests
