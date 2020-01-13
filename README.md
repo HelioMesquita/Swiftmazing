@@ -17,10 +17,10 @@ A iOS application with layout based on App Store that can check the most starred
 ## Features
 
 <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/appscreenlight.png" align="right"
-     title="App preview light mode" width="120" height="260">
+     title="App preview light mode" width="200" height="433">
 
 <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/appscreendark.png" align="right"
-     title="App preview dark mode" width="120" height="260">
+     title="App preview dark mode" width="200" height="433">
 
 * Modularization
 * CLEAN Swift Architecture (VIP)
@@ -78,7 +78,7 @@ bundle install
 bundle exec fastlane tests
 ```
 
-When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage in xml. The relatory can be found at
+When running the tests using this command automaticaly runs [Slather](https://github.com/SlatherOrg/slather) that generates a test relatory of code coverage in xml. The relatory can be found at 
 
 ```
 fastlane/slather
