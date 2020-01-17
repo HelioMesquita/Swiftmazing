@@ -60,7 +60,7 @@ Go to cloned directory and execute
 pod install
 ```
 
-Open the directory project and touble tap on Swiftmazing.xcworkspace
+Open the directory project and double tap on Swiftmazing.xcworkspace
 
 ## Running the tests
 
