@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)
 [![Build Status](https://travis-ci.org/HelioMesquita/Swiftmazing.svg?branch=master)](https://travis-ci.org/HelioMesquita/Swiftmazing)
 
-A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It were developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage
+A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage
 
 
 ## Features
