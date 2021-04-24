@@ -72,8 +72,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  dartmazing: 819df5000230c355f5c048ba4895d191338395bc
-  dartmazing_network: 79acd292dc952578582263be6ce041741c8b9c17
+  dartmazing: dcaee710ab69c1621f57b8e9fc777448b52754e2
+  dartmazing_network: 3d687c3f9b455c5f0198299edf08bde104ccbf3e
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FlutterPluginRegistrant: 5421fa4bd07e458d2165f9e829c170320d48399e
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6

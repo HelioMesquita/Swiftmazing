@@ -13,6 +13,7 @@ config:
 settings:
   base:
     IPHONEOS_DEPLOYMENT_TARGET: 13
+    ENABLE_BITCODE: NO
 
 targets:
   
@@ -141,5 +142,3 @@ targets:
       base:
         INFOPLIST_FILE: InfrastructureTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.infrastructuretests
-
-  
