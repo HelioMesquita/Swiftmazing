@@ -10,7 +10,7 @@ import Foundation
 
 internal extension Bundle {
 
-    private static let bundleID = "com.callidus.Visual"
+    private static let bundleID = "com.infrastructure"
 
     static var module: Bundle {
         return Bundle(identifier: bundleID) ?? .main

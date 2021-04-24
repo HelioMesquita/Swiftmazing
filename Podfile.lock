@@ -36,7 +36,7 @@ DEPENDENCIES:
   - SDWebImage (= 5.4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - iOSSnapshotTestCase
     - KIF
     - Nimble
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: 3cfca52c98d69bab58ca75e432a086894ad554e0
+PODFILE CHECKSUM: 959da762ccff5c99b14603b3469367e3e99048fd
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

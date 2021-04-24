@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 
-@testable import Infrastructure
+@testable import Visual
 
 class BundleTests: QuickSpec {
 
@@ -18,7 +18,7 @@ class BundleTests: QuickSpec {
 
         describe("#module") {
             it("returns module name") {
-                expect(Bundle.module.bundleIdentifier).to(equal("com.callidus.Infrastructure"))
+                expect(Bundle.module.bundleIdentifier).to(equal("com.visual"))
             }
         }
     }
