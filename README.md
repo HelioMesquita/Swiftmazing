@@ -42,13 +42,14 @@ A iOS application with layout based on App Store that can check the most starred
 
 ### Prerequisites
 
-* [Xcode](https://developer.apple.com/xcode/) 11.3
-* [Cocoapods](https://cocoapods.org) 1.8.4
+* [Xcode](https://developer.apple.com/xcode/) 12.2
+* [xcodegen](https://github.com/yonaskolb/XcodeGen) 2.20.0
+* [Cocoapods](https://cocoapods.org) 1.10.1
 * [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
 
 ### Installing
 
-First of all download and install Xcode and Cocoapods, then clone the repository
+First of all download and install Xcode, Cocoapods and xcodegen, then clone the repository
 
 ```
 https://github.com/HelioMesquita/Swiftmazing.git
@@ -57,7 +58,7 @@ https://github.com/HelioMesquita/Swiftmazing.git
 Go to cloned directory and execute
 
 ```
-pod install
+xcodegen generate
 ```
 
 Open the directory project and double tap on Swiftmazing.xcworkspace
