@@ -8,14 +8,14 @@
 
 import UIKit
 
-internal extension UIColor {
+public extension UIColor {
 
     struct Design {
-        static let background = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
-        static let title = UIColor(named: "title", in: Bundle.module, compatibleWith: nil)
-        static let subtitle = UIColor(named: "subtitle", in: Bundle.module, compatibleWith: nil)
-        static let link = UIColor(named: "link", in: Bundle.module, compatibleWith: nil)
-        static let line = UIColor(named: "line", in: Bundle.module, compatibleWith: nil)
+        public static let background = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
+        public static let title = UIColor(named: "title", in: Bundle.module, compatibleWith: nil)
+        public static let subtitle = UIColor(named: "subtitle", in: Bundle.module, compatibleWith: nil)
+        public static let link = UIColor(named: "link", in: Bundle.module, compatibleWith: nil)
+        public static let line = UIColor(named: "line", in: Bundle.module, compatibleWith: nil)
     }
 
 }

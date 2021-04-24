@@ -1,4 +1,14 @@
 PODS:
+  - Alamofire (5.4.3)
+  - dartmazing (0.0.1):
+    - Flutter
+  - dartmazing_network (0.0.1):
+    - Alamofire (~> 5.4)
+    - Flutter
+  - Flutter (1.0.0)
+  - FlutterPluginRegistrant (0.0.1):
+    - dartmazing_network
+    - Flutter
   - iOSSnapshotTestCase (6.2.0):
     - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
   - iOSSnapshotTestCase/Core (6.2.0)
@@ -28,6 +38,10 @@ PODS:
   - SDWebImage/Core (5.4.0)
 
 DEPENDENCIES:
+  - dartmazing (from `../Dartmazing/dartmazing/.ios/Flutter`)
+  - dartmazing_network (from `../Dartmazing/dartmazing/.ios/Flutter/.symlinks/dartmazing_network/ios`)
+  - Flutter (from `../Dartmazing/dartmazing/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `../Dartmazing/dartmazing/.ios/Flutter/FlutterPluginRegistrant`)
   - KIF (= 3.7.8)
   - Nimble (= 8.0.4)
   - Nimble-Snapshots (= 8.0.0)
@@ -37,6 +51,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - iOSSnapshotTestCase
     - KIF
     - Nimble
@@ -45,7 +60,22 @@ SPEC REPOS:
     - Quick
     - SDWebImage
 
+EXTERNAL SOURCES:
+  dartmazing:
+    :path: "../Dartmazing/dartmazing/.ios/Flutter"
+  dartmazing_network:
+    :path: "../Dartmazing/dartmazing/.ios/Flutter/.symlinks/dartmazing_network/ios"
+  Flutter:
+    :path: "../Dartmazing/dartmazing/.ios/Flutter/engine"
+  FlutterPluginRegistrant:
+    :path: "../Dartmazing/dartmazing/.ios/Flutter/FlutterPluginRegistrant"
+
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  dartmazing: 819df5000230c355f5c048ba4895d191338395bc
+  dartmazing_network: 79acd292dc952578582263be6ce041741c8b9c17
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  FlutterPluginRegistrant: 5421fa4bd07e458d2165f9e829c170320d48399e
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
@@ -54,6 +84,6 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: 959da762ccff5c99b14603b3469367e3e99048fd
+PODFILE CHECKSUM: b528abf3be116d53d8d5c1912eda737bc289dee2
 
 COCOAPODS: 1.10.1

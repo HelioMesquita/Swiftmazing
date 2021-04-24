@@ -14,10 +14,14 @@ def infrastructurePods
   pod 'PromiseKit', '6.10.0'
 end
 
+flutter_application_path = '../Dartmazing/dartmazing'
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
 target 'Swiftmazing' do
   use_frameworks!
   infrastructurePods
   visualPods
+  install_all_flutter_pods(flutter_application_path)
 
   target 'SwiftmazingFunctionalTests' do
     inherit! :search_paths
@@ -36,6 +40,7 @@ target 'SwiftmazingMock' do
   use_frameworks!
   infrastructurePods
   visualPods
+  install_all_flutter_pods(flutter_application_path)
 end
 
 target 'Visual' do
