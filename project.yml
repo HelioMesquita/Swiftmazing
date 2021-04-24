@@ -37,10 +37,10 @@ targets:
     dependencies:
       - target: Visual
         codeSign: false
-        embed: false
+        embed: true
       - target: Infrastructure
         codeSign: false
-        embed: false
+        embed: true
 
   SwiftmazingMock:
     type: application
