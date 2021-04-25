@@ -36,10 +36,10 @@ targets:
 
     dependencies:
       - target: Visual
-        codeSign: false
+        codeSign: true
         embed: true
       - target: Infrastructure
-        codeSign: false
+        codeSign: true
         embed: true
 
   SwiftmazingMock:
@@ -58,15 +58,15 @@ targets:
         HOST: api.github.com
         SCHEME: https
         INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing.mock
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
 
     dependencies:
       - target: Visual
-        codeSign: false
-        embed: false
+        codeSign: true
+        embed: true
       - target: Infrastructure
-        codeSign: false
-        embed: false
+        codeSign: true
+        embed: true
 
   SwiftmazingFunctionalTests:
     type: bundle.unit-test
