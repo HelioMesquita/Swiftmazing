@@ -90,7 +90,6 @@ class SelectorViewController: UIViewController {
             
             case "openNativeScreen":
                 let nativeScreenWithBack = NativeScreenWithBack()
-                nativeScreenWithBack.modalPresentationStyle = .fullScreen
                 flutterViewController.present(nativeScreenWithBack, animated: true)
 
             default:
