@@ -24,6 +24,9 @@ targets:
       - path: Swiftmazing/
         excludes:
           - "**/ServiceProviderMock.swift"
+      - path: Dartmazing/Debug
+        excludes:
+          - "*.xcframework"
 
     settings:
       base:
@@ -33,6 +36,7 @@ targets:
         SCHEME: https
         INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+        SWIFT_OBJC_BRIDGING_HEADER: Dartmazing/Debug/Swiftmazing-Bridging-Header.h
 
     dependencies:
       - target: Visual
@@ -41,6 +45,10 @@ targets:
       - target: Infrastructure
         codeSign: true
         embed: true
+      - framework: Dartmazing/Debug/Alamofire.xcframework
+      - framework: Dartmazing/Debug/App.xcframework
+      - framework: Dartmazing/Debug/dartmazing_network.xcframework
+      - framework: Dartmazing/Debug/Flutter.xcframework
 
   SwiftmazingMock:
     type: application

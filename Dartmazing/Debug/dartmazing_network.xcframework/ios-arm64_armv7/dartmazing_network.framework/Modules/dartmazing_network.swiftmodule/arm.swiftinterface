@@ -1,0 +1,15 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target armv7-apple-ios10.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name dartmazing_network
+import Alamofire
+import Flutter
+import Foundation
+import Swift
+import UIKit
+@_exported import dartmazing_network
+@objc @_inheritsConvenienceInitializers public class SwiftDartmazingNetworkPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin {
+  @objc public static func register(with registrar: Flutter.FlutterPluginRegistrar)
+  @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
+  @objc override dynamic public init()
+  @objc deinit
+}
