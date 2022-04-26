@@ -4,8 +4,8 @@
   </a>
 </h3>
 
-[![Swift 5.1](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
-[![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3-blue.svg?style=flat)](https://developer.apple.com/xcode/)
+[![Swift 5.3](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
+[![Xcode 13.2.1](https://img.shields.io/badge/Xcode-11.3-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)
@@ -42,7 +42,7 @@ A iOS application with layout based on App Store that can check the most starred
 
 ### Prerequisites
 
-* [Xcode](https://developer.apple.com/xcode/) 12.2
+* [Xcode](https://developer.apple.com/xcode/) 13.2.1
 * [xcodegen](https://github.com/yonaskolb/XcodeGen) 2.20.0
 * [Cocoapods](https://cocoapods.org) 1.10.1
 * [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
