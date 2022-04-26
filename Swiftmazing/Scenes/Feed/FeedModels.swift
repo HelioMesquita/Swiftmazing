@@ -15,7 +15,7 @@ import Visual
 
 enum Feed {
 
-    struct ViewModel {
+    class ViewModel {
         let news: [FeedCellViewModel]
         let topRepos: [FeedCellViewModel]
         let lastUpdated: [FeedCellViewModel]
@@ -27,7 +27,7 @@ enum Feed {
         }
     }
 
-    struct FeedCellViewModel: FeedCollectionViewModelProtocol {
+    class FeedCellViewModel: FeedCollectionViewModelProtocol {
         var title: String
         var subtitle: String?
         var description: String
@@ -57,7 +57,7 @@ enum Feed {
         }
     }
 
-    struct MapRepoViewModel {
+    class MapRepoViewModel {
         var items: [FeedCellViewModel]
 
         init(repositories: [Repository], section: FeedSection) {
@@ -65,7 +65,7 @@ enum Feed {
         }
     }
 
-    struct MapNewsViewModel {
+    class MapNewsViewModel {
         var items: [FeedCellViewModel]
 
         init(topRepos: [Repository], lastUpdated: [Repository]) {
