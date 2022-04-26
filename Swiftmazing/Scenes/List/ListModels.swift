@@ -15,7 +15,7 @@ import Visual
 
 enum List {
 
-    struct MapRepoViewModel {
+    class MapRepoViewModel {
         var items: [ListCellViewModel]
 
         init(repositories: [Repository]) {
@@ -23,7 +23,7 @@ enum List {
         }
     }
 
-    struct ListCellViewModel: ListCollectionViewModelProtocol {
+    class ListCellViewModel: ListCollectionViewModelProtocol {
         var title: String
         var subtitle: String
         var description: String
