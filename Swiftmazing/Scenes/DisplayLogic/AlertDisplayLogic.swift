@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AlertDisplayLogic: class {
+protocol AlertDisplayLogic: AnyObject {
     func showTryAgain(title: String, message: String)
     func reload()
 }

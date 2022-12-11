@@ -1,0 +1,77 @@
+targets:
+  
+  Swiftmazing:
+    type: application
+    platform: iOS
+
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProviderMock.swift"
+
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+
+    dependencies:
+      - target: Visual
+        codeSign: true
+        embed: true
+      - target: Infrastructure
+        codeSign: true
+        embed: true
+
+  SwiftmazingMock:
+    type: application
+    platform: iOS
+
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProvider.swift"
+
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+
+    dependencies:
+      - target: Visual
+        codeSign: true
+        embed: true
+      - target: Infrastructure
+        codeSign: true
+        embed: true
+
+  SwiftmazingFunctionalTests:
+    type: bundle.unit-test
+    platform: iOS
+
+    sources:
+      - path: SwiftmazingFunctionalTests
+
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
+
+  SwiftmazingTests:
+    type: bundle.unit-test
+    platform: iOS
+
+    sources:
+      - path: SwiftmazingTests
+
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests

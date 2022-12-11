@@ -23,6 +23,7 @@ A iOS application with layout based on App Store that can check the most starred
      title="App preview dark mode" width="220 " height="476">
 
 * Modularization
+* Xcodegen (single or multiple-files)
 * CLEAN Swift Architecture (VIP)
 * Modern Collection View
 * Mock Mode

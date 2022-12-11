@@ -13,7 +13,7 @@
 import UIKit
 import Visual
 
-protocol RepositoryDetailDisplayLogic: class {
+protocol RepositoryDetailDisplayLogic: AnyObject {
     func showImage(_ imageURL: URL)
     func showTitle(_ text: String)
     func showAuthor(_ text: String)
