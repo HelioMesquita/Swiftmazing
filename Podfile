@@ -28,6 +28,7 @@ target 'Swiftmazing' do
     inherit! :search_paths
     infrastructurePods
     visualPods
+    unitTestingPods
   end
 
 end
