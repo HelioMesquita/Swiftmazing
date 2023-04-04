@@ -19,4 +19,4 @@ jobs:
     - name: Xcodegen
       run: xcodegen
     - name: Build and test
-      run: xcodebuild -scheme SwiftmazingTest -destination 'platform=iOS Simulator,name=iPhone 14' -workspace Swiftmazing.xcworkspace/ test
+      run: xcodebuild -scheme SwiftmazingTests -destination 'platform=iOS Simulator,name=iPhone 14' -workspace Swiftmazing.xcworkspace/ test
