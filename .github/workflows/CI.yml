@@ -12,7 +12,7 @@ on:
 jobs:
   build-and-test:
 
-    runs-on: macoi7
+    runs-on: maci7
 
     steps:
     - uses: actions/checkout@v3
