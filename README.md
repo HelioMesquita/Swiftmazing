@@ -42,9 +42,9 @@ A iOS application with layout based on App Store that can check the most starred
 
 ### Prerequisites
 
-* [Xcode](https://developer.apple.com/xcode/) 13.2.1
+* [Xcode](https://developer.apple.com/xcode/) 15.3
 * [xcodegen](https://github.com/yonaskolb/XcodeGen) 2.20.0
-* [Cocoapods](https://cocoapods.org) 1.10.1
+* [Cocoapods](https://cocoapods.org) 1.15.1
 * [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
 
 ### Installing

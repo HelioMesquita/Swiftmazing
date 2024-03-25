@@ -1,0 +1,1238 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "dartmazing_network"
+      },
+      {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "dartmazing_network"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Network",
+        "printedName": "Network",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "fetch",
+            "printedName": "fetch(requestNative:onSuccess:onFailure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RequestNative",
+                "printedName": "dartmazing_network.RequestNative",
+                "usr": "s:18dartmazing_network13RequestNativeV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18dartmazing_network7NetworkC5fetch13requestNative9onSuccess0G7FailureyAA07RequestF0V_ySDySSypGcyAA0J5ErrorOctF",
+            "mangledName": "$s18dartmazing_network7NetworkC5fetch13requestNative9onSuccess0G7FailureyAA07RequestF0V_ySDySSypGcyAA0J5ErrorOctF",
+            "moduleName": "dartmazing_network",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Network",
+                "printedName": "dartmazing_network.Network",
+                "usr": "s:18dartmazing_network7NetworkC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18dartmazing_network7NetworkCACycfc",
+            "mangledName": "$s18dartmazing_network7NetworkCACycfc",
+            "moduleName": "dartmazing_network",
+            "implicit": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:18dartmazing_network7NetworkC",
+        "mangledName": "$s18dartmazing_network7NetworkC",
+        "moduleName": "dartmazing_network",
+        "isOpen": true
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "dartmazing_network",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RequestError",
+        "printedName": "RequestError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "unknownError",
+            "printedName": "unknownError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO07unknownD0yA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO07unknownD0yA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "invalidParser",
+            "printedName": "invalidParser",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO13invalidParseryA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO13invalidParseryA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "badRequest",
+            "printedName": "badRequest",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO03badC0yA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO03badC0yA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "unauthorized",
+            "printedName": "unauthorized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO12unauthorizedyA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO12unauthorizedyA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "forbidden",
+            "printedName": "forbidden",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO9forbiddenyA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO9forbiddenyA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "notFound",
+            "printedName": "notFound",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(dartmazing_network.RequestError.Type) -> dartmazing_network.RequestError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "dartmazing_network.RequestError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequestError",
+                        "printedName": "dartmazing_network.RequestError",
+                        "usr": "s:18dartmazing_network12RequestErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:18dartmazing_network12RequestErrorO8notFoundyA2CmF",
+            "mangledName": "$s18dartmazing_network12RequestErrorO8notFoundyA2CmF",
+            "moduleName": "dartmazing_network",
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "message",
+            "printedName": "message",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network12RequestErrorO7messageSSvp",
+            "mangledName": "$s18dartmazing_network12RequestErrorO7messageSSvp",
+            "moduleName": "dartmazing_network",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network12RequestErrorO7messageSSvg",
+                "mangledName": "$s18dartmazing_network12RequestErrorO7messageSSvg",
+                "moduleName": "dartmazing_network",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "flutterError",
+            "printedName": "flutterError",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterError",
+                "printedName": "Flutter.FlutterError",
+                "usr": "c:objc(cs)FlutterError"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network12RequestErrorO07flutterD0So07FlutterD0Cvp",
+            "mangledName": "$s18dartmazing_network12RequestErrorO07flutterD0So07FlutterD0Cvp",
+            "moduleName": "dartmazing_network",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network12RequestErrorO07flutterD0So07FlutterD0Cvg",
+                "mangledName": "$s18dartmazing_network12RequestErrorO07flutterD0So07FlutterD0Cvg",
+                "moduleName": "dartmazing_network",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "dartmazing_network.RequestError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestError",
+                    "printedName": "dartmazing_network.RequestError",
+                    "usr": "s:18dartmazing_network12RequestErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18dartmazing_network12RequestErrorO8rawValueACSgSi_tcfc",
+            "mangledName": "$s18dartmazing_network12RequestErrorO8rawValueACSgSi_tcfc",
+            "moduleName": "dartmazing_network",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network12RequestErrorO8rawValueSivp",
+            "mangledName": "$s18dartmazing_network12RequestErrorO8rawValueSivp",
+            "moduleName": "dartmazing_network",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network12RequestErrorO8rawValueSivg",
+                "mangledName": "$s18dartmazing_network12RequestErrorO8rawValueSivg",
+                "moduleName": "dartmazing_network",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:18dartmazing_network12RequestErrorO",
+        "mangledName": "$s18dartmazing_network12RequestErrorO",
+        "moduleName": "dartmazing_network",
+        "enumRawTypeName": "Int",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RequestNative",
+        "printedName": "RequestNative",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "url",
+            "printedName": "url",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network13RequestNativeV3urlSSvp",
+            "mangledName": "$s18dartmazing_network13RequestNativeV3urlSSvp",
+            "moduleName": "dartmazing_network",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network13RequestNativeV3urlSSvg",
+                "mangledName": "$s18dartmazing_network13RequestNativeV3urlSSvg",
+                "moduleName": "dartmazing_network",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "body",
+            "printedName": "body",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network13RequestNativeV4bodySDySSypGvp",
+            "mangledName": "$s18dartmazing_network13RequestNativeV4bodySDySSypGvp",
+            "moduleName": "dartmazing_network",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 1,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network13RequestNativeV4bodySDySSypGvg",
+                "mangledName": "$s18dartmazing_network13RequestNativeV4bodySDySSypGvg",
+                "moduleName": "dartmazing_network",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "headers",
+            "printedName": "headers",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network13RequestNativeV7headersSDyS2SGvp",
+            "mangledName": "$s18dartmazing_network13RequestNativeV7headersSDyS2SGvp",
+            "moduleName": "dartmazing_network",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 2,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network13RequestNativeV7headersSDyS2SGvg",
+                "mangledName": "$s18dartmazing_network13RequestNativeV7headersSDyS2SGvg",
+                "moduleName": "dartmazing_network",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "method",
+            "printedName": "method",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network13RequestNativeV6methodSSvp",
+            "mangledName": "$s18dartmazing_network13RequestNativeV6methodSSvp",
+            "moduleName": "dartmazing_network",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 3,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network13RequestNativeV6methodSSvg",
+                "mangledName": "$s18dartmazing_network13RequestNativeV6methodSSvg",
+                "moduleName": "dartmazing_network",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(json:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "dartmazing_network.RequestNative?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestNative",
+                    "printedName": "dartmazing_network.RequestNative",
+                    "usr": "s:18dartmazing_network13RequestNativeV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18dartmazing_network13RequestNativeV4jsonACSgSDySSypG_tcfc",
+            "mangledName": "$s18dartmazing_network13RequestNativeV4jsonACSgSDySSypG_tcfc",
+            "moduleName": "dartmazing_network",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "asURLRequest",
+            "printedName": "asURLRequest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URLRequest",
+                "printedName": "Foundation.URLRequest",
+                "usr": "s:10Foundation10URLRequestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18dartmazing_network13RequestNativeV12asURLRequest10Foundation0F0Vvp",
+            "mangledName": "$s18dartmazing_network13RequestNativeV12asURLRequest10Foundation0F0Vvp",
+            "moduleName": "dartmazing_network",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URLRequest",
+                    "printedName": "Foundation.URLRequest",
+                    "usr": "s:10Foundation10URLRequestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18dartmazing_network13RequestNativeV12asURLRequest10Foundation0F0Vvg",
+                "mangledName": "$s18dartmazing_network13RequestNativeV12asURLRequest10Foundation0F0Vvg",
+                "moduleName": "dartmazing_network",
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:18dartmazing_network13RequestNativeV",
+        "mangledName": "$s18dartmazing_network13RequestNativeV",
+        "moduleName": "dartmazing_network",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "dartmazing_network"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "dartmazing_network"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SwiftDartmazingNetworkPlugin",
+        "printedName": "SwiftDartmazingNetworkPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@dartmazing_network@objc(cs)SwiftDartmazingNetworkPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s18dartmazing_network28SwiftDartmazingNetworkPluginC8register4withySo07FlutterF9Registrar_p_tFZ",
+            "moduleName": "dartmazing_network",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@dartmazing_network@objc(cs)SwiftDartmazingNetworkPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s18dartmazing_network28SwiftDartmazingNetworkPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "dartmazing_network",
+            "isOpen": true,
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SwiftDartmazingNetworkPlugin",
+                "printedName": "dartmazing_network.SwiftDartmazingNetworkPlugin",
+                "usr": "c:@M@dartmazing_network@objc(cs)SwiftDartmazingNetworkPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@dartmazing_network@objc(cs)SwiftDartmazingNetworkPlugin(im)init",
+            "mangledName": "$s18dartmazing_network28SwiftDartmazingNetworkPluginCACycfc",
+            "moduleName": "dartmazing_network",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@dartmazing_network@objc(cs)SwiftDartmazingNetworkPlugin",
+        "mangledName": "$s18dartmazing_network28SwiftDartmazingNetworkPluginC",
+        "moduleName": "dartmazing_network",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 210,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 237,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 261,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 289,
+      "length": 3,
+      "value": "401"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 314,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 338,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 210,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 237,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 261,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 289,
+      "length": 3,
+      "value": "401"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 314,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 338,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 210,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 237,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 261,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 289,
+      "length": 3,
+      "value": "401"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 314,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/mesquitahelio\/Desktop\/Dartmazing\/dartmazing_network\/ios\/Classes\/RequestError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 338,
+      "length": 3,
+      "value": "404"
+    }
+  ]
+}

@@ -7,11 +7,11 @@ def unitTestingPods
 end
 
 def visualPods
-  pod 'SDWebImage', '5.4.0'
+  pod 'SDWebImage', '5.19.0'
 end
 
 def infrastructurePods
-  pod 'PromiseKit', '6.10.0'
+  pod 'PromiseKit', '8.0.0'
 end
 
 target 'Swiftmazing' do
