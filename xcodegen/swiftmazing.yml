@@ -27,8 +27,13 @@ targets:
         embed: true
 
     scheme:
+      gatherCoverageData: true
+      coverageTargets:
+        - Swiftmazing
       testTargets:
         - SwiftmazingTests
+        - VisualTests
+        - InfrastructureTests
 
   SwiftmazingTests:
     type: bundle.unit-test
