@@ -83,3 +83,6 @@ targets:
       base:
         INFOPLIST_FILE: SwiftmazingTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+
+    dependencies:
+      - target: SwiftmazingMock
