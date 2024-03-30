@@ -14,18 +14,17 @@ def infrastructurePods
   pod 'PromiseKit', '8.0.0'
 end
 
-# target 'Swiftmazing' do
-#   use_frameworks!
-#   infrastructurePods
-#   visualPods
+target 'SwiftmazingMock' do
+  use_frameworks!
+  infrastructurePods
+  visualPods
 
-#   # target 'SwiftmazingFunctionalTests' do
-#   #   inherit! :search_paths
-#   #   pod 'KIF', '3.8.9'
-#   # end
+  target 'SwiftmazingFunctionalTests' do
+    inherit! :search_paths
+    pod 'KIF', '3.8.9'
+  end
 
-
-# end
+end
 
 target 'Swiftmazing' do
   use_frameworks!

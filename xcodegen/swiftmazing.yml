@@ -45,44 +45,47 @@ targets:
     dependencies:
       - target: Swiftmazing
 
-  # SwiftmazingMock:
-  #   type: application
-  #   platform: iOS
+  SwiftmazingMock:
+    type: application
+    platform: iOS
 
-  #   sources:
-  #     - path: Swiftmazing/
-  #       excludes:
-  #         - "**/ServiceProvider.swift"
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProvider.swift"
 
-  #   settings:
-  #     base:
-  #       TARGETED_DEVICE_FAMILY: 1
-  #       DISPLAYNAME: Swiftmazing
-  #       HOST: api.github.com
-  #       SCHEME: https
-  #       INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-  #       PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
 
-  #   dependencies:
-  #     - target: Visual
-  #       codeSign: true
-  #       embed: true
-  #     - target: Infrastructure
-  #       codeSign: true
-  #       embed: true
+    dependencies:
+      - target: Visual
+        codeSign: true
+        embed: true
+      - target: Infrastructure
+        codeSign: true
+        embed: true
 
-  #   scheme:
-  #     testTargets:
-  #       - SwiftmazingTests
+    scheme:
+      testTargets:
+        - SwiftmazingFunctionalTests
 
-  # SwiftmazingFunctionalTests:
-  #   type: bundle.unit-test
-  #   platform: iOS
+  SwiftmazingFunctionalTests:
+    type: bundle.unit-test
+    platform: iOS
 
-  #   sources:
-  #     - path: SwiftmazingFunctionalTests
+    sources:
+      - path: SwiftmazingFunctionalTests
 
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
-  #       PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
+
+    dependencies:
+      - target: SwiftmazingMock
