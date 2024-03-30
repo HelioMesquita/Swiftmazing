@@ -11,24 +11,24 @@ import Infrastructure
 
 extension RequestProviderProtocol {
 
-    var scheme: String {
-        return Bundle.main.scheme
-    }
+  var scheme: String {
+    return Bundle.main.scheme
+  }
 
-    var host: String {
-        return Bundle.main.host
-    }
+  var host: String {
+    return Bundle.main.host
+  }
 
-    var bodyParameters: Encodable? {
-        return nil
-    }
+  var bodyParameters: Encodable? {
+    return nil
+  }
 
-    var queryParameters: [URLQueryItem]? {
-        return nil
-    }
+  var queryParameters: [URLQueryItem]? {
+    return nil
+  }
 
-    var headers: [String: String] {
-        return ["Content-Type": "application/json"]
-    }
+  var headers: [String: String] {
+    return ["Content-Type": "application/json"]
+  }
 
 }

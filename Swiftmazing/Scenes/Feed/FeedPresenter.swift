@@ -15,35 +15,39 @@
 import UIKit
 
 protocol FeedPresentationLogic {
-    func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
-    func presentList()
-    func presentDetail()
-    func presentTryAgain(message: String)
+  func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
+  func presentList()
+  func presentDetail()
+  func presentTryAgain(message: String)
 }
 
 class FeedPresenter: FeedPresentationLogic {
 
-    weak var viewController: FeedDisplayLogic?
+  weak var viewController: FeedDisplayLogic?
 
-    func mapResponse(_ topRepoResponse: Repositories, _ lastUpdatedtResponse: Repositories) {
-        let topRepoViewModel = Feed.MapRepoViewModel(repositories: topRepoResponse.items, section: .topRepos)
-        let lastUpdatedViewModel = Feed.MapRepoViewModel(repositories: lastUpdatedtResponse.items, section: .lastUpdated)
-        let newsViewModel = Feed.MapNewsViewModel(topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)
+  func mapResponse(_ topRepoResponse: Repositories, _ lastUpdatedtResponse: Repositories) {
+    let topRepoViewModel = Feed.MapRepoViewModel(
+      repositories: topRepoResponse.items, section: .topRepos)
+    let lastUpdatedViewModel = Feed.MapRepoViewModel(
+      repositories: lastUpdatedtResponse.items, section: .lastUpdated)
+    let newsViewModel = Feed.MapNewsViewModel(
+      topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)
 
-        let viewModel = Feed.ViewModel(news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
-        viewController?.show(viewModel)
-    }
+    let viewModel = Feed.ViewModel(
+      news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
+    viewController?.show(viewModel)
+  }
 
-    func presentTryAgain(message: String) {
-        viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
-    }
+  func presentTryAgain(message: String) {
+    viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
+  }
 
-    func presentList() {
-        viewController?.showList()
-    }
+  func presentList() {
+    viewController?.showList()
+  }
 
-    func presentDetail() {
-        viewController?.showDetail()
-    }
+  func presentDetail() {
+    viewController?.showDetail()
+  }
 
 }

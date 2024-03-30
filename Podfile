@@ -1,17 +1,29 @@
 platform :ios, '13.0'
 
 def unitTestingPods
-  pod 'Quick', '2.2.0'
-  pod 'Nimble', '8.0.4'
-  pod 'Nimble-Snapshots', '8.0.0'
+  pod 'Quick', '7.4.1'
+  pod 'Nimble', '12.0.0'
+  pod 'Nimble-Snapshots', '9.6.1'
 end
 
 def visualPods
-  pod 'SDWebImage', '5.4.0'
+  pod 'SDWebImage', '5.19.0'
 end
 
 def infrastructurePods
-  pod 'PromiseKit', '6.10.0'
+  pod 'PromiseKit', '8.0.0'
+end
+
+target 'SwiftmazingMock' do
+  use_frameworks!
+  infrastructurePods
+  visualPods
+
+  target 'SwiftmazingFunctionalTests' do
+    inherit! :search_paths
+    pod 'KIF', '3.8.9'
+  end
+
 end
 
 target 'Swiftmazing' do
@@ -19,24 +31,13 @@ target 'Swiftmazing' do
   infrastructurePods
   visualPods
 
-  target 'SwiftmazingFunctionalTests' do
-    inherit! :search_paths
-    pod 'KIF', '3.7.8'
-  end
-
   target 'SwiftmazingTests' do
     inherit! :search_paths
+    unitTestingPods
     infrastructurePods
     visualPods
-    unitTestingPods
   end
 
-end
-
-target 'SwiftmazingMock' do
-  use_frameworks!
-  infrastructurePods
-  visualPods
 end
 
 target 'Visual' do
@@ -63,6 +64,8 @@ post_install do |installer_representation|
   installer_representation.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
           config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = 13
+          
       end
   end
 end

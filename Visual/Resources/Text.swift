@@ -9,13 +9,13 @@
 import Foundation
 
 internal enum Text: String {
-    case seeMore
-    case news
-    case topRepos
-    case lastUpdated
+  case seeMore
+  case news
+  case topRepos
+  case lastUpdated
 
-    public var value: String {
-        return String(describing: self.rawValue).localized()
-    }
+  public var value: String {
+    return String(describing: self.rawValue).localized()
+  }
 
 }

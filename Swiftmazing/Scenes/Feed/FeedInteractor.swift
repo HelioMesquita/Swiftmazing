@@ -12,71 +12,71 @@
 // This tag below is used to create the testable files from the Cuckoo pod
 // CUCKOO_TESTABLE
 
-import UIKit
 import Infrastructure
 import PromiseKit
+import UIKit
 
 protocol FeedBusinessLogic {
-    func loadScreen()
-    func repositorySelected(_ repository: Repository?)
-    func topRepoListSelected(_ repositories: [Repository], title: String)
-    func lastUpdatedListSelected(_ repositories: [Repository], title: String)
+  func loadScreen()
+  func repositorySelected(_ repository: Repository?)
+  func topRepoListSelected(_ repositories: [Repository], title: String)
+  func lastUpdatedListSelected(_ repositories: [Repository], title: String)
 }
 
 protocol FeedDataStore {
-    var selectedRepository: Repository? { get set }
-    var listTitle: String { get set }
-    var listFilter: Filter { get set }
-    var listRepositories: [Repository] { get set }
+  var selectedRepository: Repository? { get set }
+  var listTitle: String { get set }
+  var listFilter: Filter { get set }
+  var listRepositories: [Repository] { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
-    var presenter: FeedPresentationLogic?
-    let worker: RepositoriesWorker
+  var presenter: FeedPresentationLogic?
+  let worker: RepositoriesWorker
 
-    // MARK: DATASTORE
-    var listTitle: String = ""
-    var listFilter: Filter = .none
-    var listRepositories: [Repository] = []
-    var selectedRepository: Repository?
+  // MARK: DATASTORE
+  var listTitle: String = ""
+  var listFilter: Filter = .none
+  var listRepositories: [Repository] = []
+  var selectedRepository: Repository?
 
-    init(worker: RepositoriesWorker = RepositoriesWorker()) {
-        self.worker = worker
-    }
+  init(worker: RepositoriesWorker = RepositoriesWorker()) {
+    self.worker = worker
+  }
 
-    func loadScreen() {
-        let topRepo = worker.getRepositories(with: .stars)
-        let lastUpdated = worker.getRepositories(with: .updated)
+  func loadScreen() {
+    let topRepo = worker.getRepositories(with: .stars)
+    let lastUpdated = worker.getRepositories(with: .updated)
 
-        when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
-    }
+    when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
+  }
 
-    private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
-        presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
-    }
+  private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
+    presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
+  }
 
-    private func handleError(_ error: Error) {
-        presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
-    }
+  private func handleError(_ error: Error) {
+    presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
+  }
 
-    func repositorySelected(_ repository: Repository?) {
-        selectedRepository = repository
-        presenter?.presentDetail()
-    }
+  func repositorySelected(_ repository: Repository?) {
+    selectedRepository = repository
+    presenter?.presentDetail()
+  }
 
-    func topRepoListSelected(_ repositories: [Repository], title: String) {
-        listRepositories = repositories
-        listFilter = .stars
-        listTitle = title
-        presenter?.presentList()
-    }
+  func topRepoListSelected(_ repositories: [Repository], title: String) {
+    listRepositories = repositories
+    listFilter = .stars
+    listTitle = title
+    presenter?.presentList()
+  }
 
-    func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
-        listRepositories = repositories
-        listFilter = .updated
-        listTitle = title
-        presenter?.presentList()
-    }
+  func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
+    listRepositories = repositories
+    listFilter = .updated
+    listTitle = title
+    presenter?.presentList()
+  }
 
 }

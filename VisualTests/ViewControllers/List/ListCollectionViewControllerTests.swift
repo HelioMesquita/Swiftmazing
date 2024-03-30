@@ -6,41 +6,47 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import Visual
 
 class MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
-    var title: String = "Title"
-    var description: String = "Description"
-    var additionalInfo: String = "27.3k"
-    var supplementaryInfo: String = "stars"
-    var image: URL?
+  var title: String = "Title"
+  var description: String = "Description"
+  var additionalInfo: String = "27.3k"
+  var supplementaryInfo: String = "stars"
+  var image: URL?
 }
 
 class ListCollectionViewControllerTests: QuickSpec {
 
-    override func spec() {
+  override class func spec() {
 
-        var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
+    var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
 
-        describe("ListCollectionViewController") {
+    describe("ListCollectionViewController") {
 
-            beforeEach {
-                view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
-                view.viewDidLoad()
-                var snapshot = NSDiffableDataSourceSnapshot<ListSection, MockListCollectionViewModelProtocol>()
-                snapshot.appendSections([.repo])
-                snapshot.appendItems([MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol()], toSection: .repo)
-                view.dataSource.apply(snapshot, animatingDifferences: false)
-            }
+      beforeEach {
+        view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
+        view.viewDidLoad()
+        var snapshot = NSDiffableDataSourceSnapshot<
+          ListSection, MockListCollectionViewModelProtocol
+        >()
+        snapshot.appendSections([.repo])
+        snapshot.appendItems(
+          [
+            MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(),
+            MockListCollectionViewModelProtocol(),
+          ], toSection: .repo)
+        view.dataSource.apply(snapshot, animatingDifferences: false)
+      }
 
-            it("returns the layout") {
-//                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-                expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-            }
-        }
+      it("returns the layout") {
+        //                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
+        expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
+      }
     }
+  }
 }

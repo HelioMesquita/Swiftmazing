@@ -6,43 +6,55 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import Visual
 
 class MockFeedCollectionViewModelProtocol: FeedCollectionViewModelProtocol {
-    var title: String = "Title"
-    var description: String = "Description"
-    var subtitle: String? = "Subtitle"
-    var additionalInfo: String? = "Additional Info"
-    var supplementaryInfo: String? = "Supplementary Info"
-    var images: [URL] = []
+  var title: String = "Title"
+  var description: String = "Description"
+  var subtitle: String? = "Subtitle"
+  var additionalInfo: String? = "Additional Info"
+  var supplementaryInfo: String? = "Supplementary Info"
+  var images: [URL] = []
 }
 
 class FeedCollectionViewControllerTests: QuickSpec {
 
-    override func spec() {
+  override class func spec() {
 
-        var view: FeedCollectionViewController<MockFeedCollectionViewModelProtocol>!
+    var view: FeedCollectionViewController<MockFeedCollectionViewModelProtocol>!
 
-        describe("FeedCollectionViewController") {
+    describe("FeedCollectionViewController") {
 
-            beforeEach {
-                view = FeedCollectionViewController<MockFeedCollectionViewModelProtocol>()
-                var snapshot = NSDiffableDataSourceSnapshot<FeedSection, MockFeedCollectionViewModelProtocol>()
-                snapshot.appendSections([.news, .topRepos, .lastUpdated])
-                snapshot.appendItems([MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()], toSection: .news)
-                snapshot.appendItems([MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()], toSection: .topRepos)
-                snapshot.appendItems([MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()], toSection: .lastUpdated)
-                view.dataSource.apply(snapshot, animatingDifferences: false)
-            }
+      beforeEach {
+        view = FeedCollectionViewController<MockFeedCollectionViewModelProtocol>()
+        var snapshot = NSDiffableDataSourceSnapshot<
+          FeedSection, MockFeedCollectionViewModelProtocol
+        >()
+        snapshot.appendSections([.news, .topRepos, .lastUpdated])
+        snapshot.appendItems(
+          [MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()],
+          toSection: .news)
+        snapshot.appendItems(
+          [
+            MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
+            MockFeedCollectionViewModelProtocol(),
+          ], toSection: .topRepos)
+        snapshot.appendItems(
+          [
+            MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
+            MockFeedCollectionViewModelProtocol(),
+          ], toSection: .lastUpdated)
+        view.dataSource.apply(snapshot, animatingDifferences: false)
+      }
 
-            it("returns the layout") {
-//                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-                expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-            }
-        }
+      it("returns the layout") {
+        //                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
+        expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
+      }
     }
+  }
 }

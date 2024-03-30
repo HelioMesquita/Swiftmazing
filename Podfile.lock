@@ -1,39 +1,39 @@
 PODS:
-  - iOSSnapshotTestCase (6.2.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
-  - iOSSnapshotTestCase/Core (6.2.0)
-  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+  - iOSSnapshotTestCase (8.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 8.0.0)
+  - iOSSnapshotTestCase/Core (8.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (8.0.0):
     - iOSSnapshotTestCase/Core
-  - KIF (3.7.8):
-    - KIF/Core (= 3.7.8)
-  - KIF/Core (3.7.8)
-  - Nimble (8.0.4)
-  - Nimble-Snapshots (8.0.0):
-    - Nimble-Snapshots/Core (= 8.0.0)
-  - Nimble-Snapshots/Core (8.0.0):
-    - iOSSnapshotTestCase (~> 6.0)
-    - Nimble (~> 8.0)
-  - PromiseKit (6.10.0):
-    - PromiseKit/CorePromise (= 6.10.0)
-    - PromiseKit/Foundation (= 6.10.0)
-    - PromiseKit/UIKit (= 6.10.0)
-  - PromiseKit/CorePromise (6.10.0)
-  - PromiseKit/Foundation (6.10.0):
+  - KIF (3.8.9):
+    - KIF/Core (= 3.8.9)
+  - KIF/Core (3.8.9)
+  - Nimble (12.0.0)
+  - Nimble-Snapshots (9.6.1):
+    - Nimble-Snapshots/Core (= 9.6.1)
+  - Nimble-Snapshots/Core (9.6.1):
+    - iOSSnapshotTestCase (~> 8.0)
+    - Nimble (~> 12.0)
+  - PromiseKit (8.0.0):
+    - PromiseKit/CorePromise (= 8.0.0)
+    - PromiseKit/Foundation (= 8.0.0)
+    - PromiseKit/UIKit (= 8.0.0)
+  - PromiseKit/CorePromise (8.0.0)
+  - PromiseKit/Foundation (8.0.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.10.0):
+  - PromiseKit/UIKit (8.0.0):
     - PromiseKit/CorePromise
-  - Quick (2.2.0)
-  - SDWebImage (5.4.0):
-    - SDWebImage/Core (= 5.4.0)
-  - SDWebImage/Core (5.4.0)
+  - Quick (7.4.1)
+  - SDWebImage (5.19.0):
+    - SDWebImage/Core (= 5.19.0)
+  - SDWebImage/Core (5.19.0)
 
 DEPENDENCIES:
-  - KIF (= 3.7.8)
-  - Nimble (= 8.0.4)
-  - Nimble-Snapshots (= 8.0.0)
-  - PromiseKit (= 6.10.0)
-  - Quick (= 2.2.0)
-  - SDWebImage (= 5.4.0)
+  - KIF (= 3.8.9)
+  - Nimble (= 12.0.0)
+  - Nimble-Snapshots (= 9.6.1)
+  - PromiseKit (= 8.0.0)
+  - Quick (= 7.4.1)
+  - SDWebImage (= 5.19.0)
 
 SPEC REPOS:
   trunk:
@@ -46,14 +46,14 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
-  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
-  KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
-  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
-  Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
-  PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
-  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
+  iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
+  KIF: 7660c626b0f2d4562533590960db70a36d640558
+  Nimble: 02a4990866e51868303a466970cd1c81bb84a192
+  Nimble-Snapshots: 4988d1cf2fe062f13bd2eb87c4279770785e682b
+  PromiseKit: 7039707ba8764b6ce98501debce2489561b038a5
+  Quick: 6afbb0e4554ca0032a90c144f4ab71cd433e7dac
+  SDWebImage: 981fd7e860af070920f249fd092420006014c3eb
 
-PODFILE CHECKSUM: 959da762ccff5c99b14603b3469367e3e99048fd
+PODFILE CHECKSUM: 0f12ac9d96126d73e67ca985ecc02660e9b56913
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

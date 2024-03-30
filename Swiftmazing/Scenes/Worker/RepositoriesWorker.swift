@@ -8,20 +8,20 @@
 // CUCKOO_TESTABLE
 
 import Foundation
-import PromiseKit
 import Infrastructure
+import PromiseKit
 
 class RepositoriesWorker {
 
-    let serviceProvider: ServiceProviderProtocol
+  let serviceProvider: ServiceProviderProtocol
 
-    init(serviceProvider: ServiceProviderProtocol = ServiceProvider()) {
-        self.serviceProvider = serviceProvider
-    }
+  init(serviceProvider: ServiceProviderProtocol = ServiceProvider()) {
+    self.serviceProvider = serviceProvider
+  }
 
-    func getRepositories(with filter: Filter, page: Int = 1) -> Promise<Repositories> {
-        let provider = RepositoriesProvider(filter: filter, page: page)
-        return serviceProvider.execute(request: provider, parser: Repositories.self)
-    }
+  func getRepositories(with filter: Filter, page: Int = 1) -> Promise<Repositories> {
+    let provider = RepositoriesProvider(filter: filter, page: page)
+    return serviceProvider.execute(request: provider, parser: Repositories.self)
+  }
 
 }

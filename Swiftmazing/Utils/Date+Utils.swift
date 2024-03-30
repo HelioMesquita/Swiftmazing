@@ -10,10 +10,10 @@ import Foundation
 
 extension Date {
 
-    var monthDayYear: String {
-        let format = DateFormatter()
-        format.dateFormat = "MM/dd/yyyy"
-        return format.string(from: self)
-    }
+  var monthDayYear: String {
+    let format = DateFormatter()
+    format.dateFormat = "MM/dd/yyyy"
+    return format.string(from: self)
+  }
 
 }

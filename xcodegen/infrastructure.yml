@@ -11,6 +11,10 @@ targets:
         INFOPLIST_FILE: Infrastructure/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.infrastructure
 
+    scheme:
+      testTargets:
+        - InfrastructureTests
+
   InfrastructureTests:
     type: bundle.unit-test
     platform: iOS

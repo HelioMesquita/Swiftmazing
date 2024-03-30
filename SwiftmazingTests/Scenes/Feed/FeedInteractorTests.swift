@@ -6,13 +6,18 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
+import Quick
 
-@testable import Swiftmazing
 @testable import PromiseKit
+@testable import Swiftmazing
 
 class FeedInteractorTests: QuickSpec {
+
+  override class func spec() {
+    super.spec()
+    PromiseKit.conf.Q.map = nil
+    PromiseKit.conf.Q.return = nil
 
     var sut: FeedInteractor!
     var presenter: PresenterSpy!
@@ -22,132 +27,127 @@ class FeedInteractorTests: QuickSpec {
 
     class PresenterSpy: FeedPresentationLogic {
 
-        var mapResponseCalled = false
-        var presentListCalled = false
-        var presentDetailCalled = false
-        var presentTryAgainCalled = false
+      var mapResponseCalled = false
+      var presentListCalled = false
+      var presentDetailCalled = false
+      var presentTryAgainCalled = false
 
-        func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
-            mapResponseCalled = true
-        }
+      func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
+        mapResponseCalled = true
+      }
 
-        func presentList() {
-            presentListCalled = true
-        }
+      func presentList() {
+        presentListCalled = true
+      }
 
-        func presentDetail() {
-            presentDetailCalled = true
-        }
+      func presentDetail() {
+        presentDetailCalled = true
+      }
 
-        func presentTryAgain(message: String) {
-            presentTryAgainCalled = true
-        }
+      func presentTryAgain(message: String) {
+        presentTryAgainCalled = true
+      }
 
     }
 
-    override func spec() {
-        super.spec()
-        PromiseKit.conf.Q.map = nil
-        PromiseKit.conf.Q.return = nil
+    beforeEach {
+      repositories = Repositories().items
+      repository = Repositories().items.first
 
+      worker = RepositoriesWorkerSpy()
+      presenter = PresenterSpy()
+      sut = FeedInteractor(worker: worker)
+      sut.presenter = presenter
+    }
+
+    describe("#loadScreen") {
+      context("when successful request") {
         beforeEach {
-            self.repositories = Repositories().items
-            self.repository = Repositories().items.first
-
-            self.worker = RepositoriesWorkerSpy()
-            self.presenter = PresenterSpy()
-            self.sut = FeedInteractor(worker: self.worker)
-            self.sut.presenter = self.presenter
+          sut.loadScreen()
         }
 
-        describe("#loadScreen") {
-            context("when successful request") {
-                beforeEach {
-                    self.sut.loadScreen()
-                }
+        it("calls to presenter map the response") {
+          expect(presenter.mapResponseCalled).to(beTrue())
+        }
+      }
 
-                it("calls to presenter map the response") {
-                    expect(self.presenter.mapResponseCalled).to(beTrue())
-                }
-            }
-
-            context("when unsuccessful request") {
-                beforeEach {
-                    self.worker.isSuccess = false
-                    self.sut.loadScreen()
-                }
-
-                it("presents try again") {
-                    expect(self.presenter.presentTryAgainCalled).to(beTrue())
-                }
-            }
+      context("when unsuccessful request") {
+        beforeEach {
+          worker.isSuccess = false
+          sut.loadScreen()
         }
 
-        describe("#repositorySelected") {
-            context("when is selected a repository cell") {
-                beforeEach {
-                    self.sut.repositorySelected(self.repository)
-                }
-
-                it("saves the selected repository") {
-                    expect(self.sut.selectedRepository) === self.repository
-
-                }
-
-                it("calls to presenter show the detail") {
-                    expect(self.presenter.presentDetailCalled).to(beTrue())
-                }
-            }
+        it("presents try again") {
+          expect(presenter.presentTryAgainCalled).to(beTrue())
         }
-
-        describe("#topRepoListSelected") {
-            context("when is selected a news cell or see more") {
-                beforeEach {
-                    self.sut.topRepoListSelected(self.repositories, title: "title")
-                }
-
-                it("saves the repositories") {
-                    expect(self.sut.listRepositories) === self.repositories
-                }
-
-                it("saves the filter selected") {
-                    expect(self.sut.listFilter).to(equal(.stars))
-                }
-
-                it("saves the title") {
-                    expect(self.sut.listTitle).to(equal("title"))
-                }
-
-                it("calls to presenter show the list") {
-                    expect(self.presenter.presentListCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#lastUpdatedListSelected") {
-            context("when is selected a news cell or see more") {
-                beforeEach {
-                    self.sut.lastUpdatedListSelected(self.repositories, title: "title")
-                }
-
-                it("saves the repositories") {
-                    expect(self.sut.listRepositories) === self.repositories
-                }
-
-                it("saves the filter selected") {
-                    expect(self.sut.listFilter).to(equal(.updated))
-                }
-
-                it("saves the title") {
-                    expect(self.sut.listTitle).to(equal("title"))
-                }
-
-                it("calls to presenter show the list") {
-                    expect(self.presenter.presentListCalled).to(beTrue())
-                }
-            }
-        }
-
+      }
     }
+
+    describe("#repositorySelected") {
+      context("when is selected a repository cell") {
+        beforeEach {
+          sut.repositorySelected(repository)
+        }
+
+        it("saves the selected repository") {
+          expect(sut.selectedRepository) === repository
+
+        }
+
+        it("calls to presenter show the detail") {
+          expect(presenter.presentDetailCalled).to(beTrue())
+        }
+      }
+    }
+
+    describe("#topRepoListSelected") {
+      context("when is selected a news cell or see more") {
+        beforeEach {
+          sut.topRepoListSelected(repositories, title: "title")
+        }
+
+        it("saves the repositories") {
+          expect(sut.listRepositories.first) === repositories.first
+        }
+
+        it("saves the filter selected") {
+          expect(sut.listFilter).to(equal(.stars))
+        }
+
+        it("saves the title") {
+          expect(sut.listTitle).to(equal("title"))
+        }
+
+        it("calls to presenter show the list") {
+          expect(presenter.presentListCalled).to(beTrue())
+        }
+      }
+    }
+
+    describe("#lastUpdatedListSelected") {
+      context("when is selected a news cell or see more") {
+        beforeEach {
+          sut.lastUpdatedListSelected(repositories, title: "title")
+        }
+
+        it("saves the repositories") {
+          expect(sut.listRepositories.first) === repositories.first
+        }
+
+        it("saves the filter selected") {
+          expect(sut.listFilter).to(equal(.updated))
+        }
+
+        it("saves the title") {
+          expect(sut.listTitle).to(equal("title"))
+        }
+
+        it("calls to presenter show the list") {
+          expect(presenter.presentListCalled).to(beTrue())
+        }
+      }
+    }
+
+  }
 
 }

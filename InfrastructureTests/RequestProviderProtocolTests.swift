@@ -6,32 +6,34 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
+import Quick
 
 @testable import Infrastructure
 
 class RequestProviderProtocolTests: QuickSpec {
 
+  override class func spec() {
+    super.spec()
+
     let subject: RequestProviderProtocol = MockProvider()
 
-    override func spec() {
-        super.spec()
+    describe("#asURLRequest") {
+      it("returns full url") {
+        expect(subject.asURLRequest.url?.absoluteString).to(
+          equal("https://api.github.com/repositories?key=value"))
+      }
 
-        describe("#asURLRequest") {
-            it("returns full url") {
-                expect(self.subject.asURLRequest.url?.absoluteString).to(equal("https://api.github.com/repositories?key=value"))
-            }
+      it("returns header") {
+        expect(subject.asURLRequest.allHTTPHeaderFields).to(
+          equal(["Content-Type": "application/json"]))
+      }
 
-            it("returns header") {
-                expect(self.subject.asURLRequest.allHTTPHeaderFields).to(equal(["Content-Type": "application/json"]))
-            }
-
-            it("returns body") {
-                expect(self.subject.asURLRequest.httpBody).toNot(beNil())
-            }
-        }
-
+      it("returns body") {
+        expect(subject.asURLRequest.httpBody).toNot(beNil())
+      }
     }
+
+  }
 
 }

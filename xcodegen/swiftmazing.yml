@@ -26,6 +26,30 @@ targets:
         codeSign: true
         embed: true
 
+    scheme:
+      gatherCoverageData: true
+      coverageTargets:
+        - Swiftmazing
+      testTargets:
+        - SwiftmazingTests
+        - VisualTests
+        - InfrastructureTests
+
+  SwiftmazingTests:
+    type: bundle.unit-test
+    platform: iOS
+
+    sources:
+      - path: SwiftmazingTests
+
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+
+    dependencies:
+      - target: Swiftmazing
+
   SwiftmazingMock:
     type: application
     platform: iOS
@@ -52,6 +76,10 @@ targets:
         codeSign: true
         embed: true
 
+    scheme:
+      testTargets:
+        - SwiftmazingFunctionalTests
+
   SwiftmazingFunctionalTests:
     type: bundle.unit-test
     platform: iOS
@@ -64,14 +92,5 @@ targets:
         INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
 
-  SwiftmazingTests:
-    type: bundle.unit-test
-    platform: iOS
-
-    sources:
-      - path: SwiftmazingTests
-
-    settings:
-      base:
-        INFOPLIST_FILE: SwiftmazingTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+    dependencies:
+      - target: SwiftmazingMock

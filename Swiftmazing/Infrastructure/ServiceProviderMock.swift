@@ -12,18 +12,19 @@ import PromiseKit
 
 class ServiceProvider: ServiceProviderProtocol {
 
-    var urlSession: URLSession {
-        return URLSession.shared
-    }
+  var urlSession: URLSession {
+    return URLSession.shared
+  }
 
-    var jsonDecoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return decoder
-    }
+  var jsonDecoder: JSONDecoder {
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    return decoder
+  }
 
-    func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
-        return .value(T.init())
-    }
+  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
+  {
+    return .value(T.init())
+  }
 
 }

@@ -4,12 +4,10 @@
   </a>
 </h3>
 
-[![Swift 5.3](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
-[![Xcode 14.1.0](https://img.shields.io/badge/Xcode-14.1.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
+[![Swift 5.10](https://img.shields.io/badge/Swift-5.10-blue.svg?style=flat)](https://swift.org)
+[![Xcode 15.3.0](https://img.shields.io/badge/Xcode-15.3.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
-[![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)
-[![Build Status](https://travis-ci.org/HelioMesquita/Swiftmazing.svg?branch=master)](https://travis-ci.org/HelioMesquita/Swiftmazing)
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage
 
@@ -23,7 +21,7 @@ A iOS application with layout based on App Store that can check the most starred
      title="App preview dark mode" width="220 " height="476">
 
 * Modularization
-* Xcodegen (single or multiple-files)
+* Xcodegen
 * CLEAN Swift Architecture (VIP)
 * Modern Collection View
 * Mock Mode
@@ -36,16 +34,16 @@ A iOS application with layout based on App Store that can check the most starred
 * Unit tests
 * Snapshots Tests
 * Functional Tests
-* Travis CI integration
+<!-- * Travis CI integration
 * Codecov integration
 * Fastlane integration
-* Slather integration
+* Slather integration -->
 
 ### Prerequisites
 
-* [Xcode](https://developer.apple.com/xcode/) 14.1.0
-* [xcodegen](https://github.com/yonaskolb/XcodeGen) 2.20.0
-* [Cocoapods](https://cocoapods.org) 1.10.1
+* [Xcode](https://developer.apple.com/xcode/) 15.3.0
+* [xcodegen](https://github.com/yonaskolb/XcodeGen) 2.39.1
+* [Cocoapods](https://cocoapods.org) 1.15.2
 * [Bundler](https://bundler.io) 2.0.2 - Only for execute Fastlane
 
 ### Installing
@@ -67,13 +65,12 @@ Open the directory project and double tap on Swiftmazing.xcworkspace
 ## Running the tests
 
 For each scheme in project run some tests targets
-* The visual scheme runs the snapshots tests for all views and view controllers
+* The Visual scheme runs the snapshots tests for all views and view controllers
 * The Infrastructure scheme runs the unit tests using Quick and Nimble for all network tests
 * The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
-* The SwiftmazingTests scheme runs all tests 
 
-The all tests can be run also using Fastlane just execute
+<!-- The all tests can be run also using Fastlane just execute
 
 ```
 bundle install
@@ -87,7 +84,7 @@ fastlane/slather
 ```
 
 If you want to see relatory in html, modify the ```.slather.yml``` changing key ```coverage_service``` to ```html```
-
+ -->
 
 ## Built With
 
