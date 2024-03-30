@@ -9,7 +9,7 @@
 import Nimble
 import Quick
 
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class IntUtilsTests: QuickSpec {
 

@@ -1,30 +1,34 @@
 targets:
   
-  Swiftmazing:
-    type: application
-    platform: iOS
+  # Swiftmazing:
+  #   type: application
+  #   platform: iOS
 
-    sources:
-      - path: Swiftmazing/
-        excludes:
-          - "**/ServiceProviderMock.swift"
+  #   sources:
+  #     - path: Swiftmazing/
+  #       excludes:
+  #         - "**/ServiceProviderMock.swift"
 
-    settings:
-      base:
-        TARGETED_DEVICE_FAMILY: 1
-        DISPLAYNAME: Swiftmazing
-        HOST: api.github.com
-        SCHEME: https
-        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+  #   settings:
+  #     base:
+  #       TARGETED_DEVICE_FAMILY: 1
+  #       DISPLAYNAME: Swiftmazing
+  #       HOST: api.github.com
+  #       SCHEME: https
+  #       INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+  #       PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
 
-    dependencies:
-      - target: Visual
-        codeSign: true
-        embed: true
-      - target: Infrastructure
-        codeSign: true
-        embed: true
+  #   dependencies:
+  #     - target: Visual
+  #       codeSign: true
+  #       embed: true
+  #     - target: Infrastructure
+  #       codeSign: true
+  #       embed: true
+
+  #   scheme:
+  #     testTargets:
+  #       - SwiftmazingTests
 
   SwiftmazingMock:
     type: application
@@ -52,17 +56,21 @@ targets:
         codeSign: true
         embed: true
 
-  SwiftmazingFunctionalTests:
-    type: bundle.unit-test
-    platform: iOS
+    scheme:
+      testTargets:
+        - SwiftmazingTests
 
-    sources:
-      - path: SwiftmazingFunctionalTests
+  # SwiftmazingFunctionalTests:
+  #   type: bundle.unit-test
+  #   platform: iOS
 
-    settings:
-      base:
-        INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
+  #   sources:
+  #     - path: SwiftmazingFunctionalTests
+
+  #   settings:
+  #     base:
+  #       INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
+  #       PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
 
   SwiftmazingTests:
     type: bundle.unit-test
@@ -75,14 +83,3 @@ targets:
       base:
         INFOPLIST_FILE: SwiftmazingTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
-
-schemes:
-  SwiftmazingMock:
-    build:
-      targets:
-        SwiftmazingMock: all
-    test:
-      gatherCoverageData: true
-      targets:
-        - SwiftmazingTests
-        - SwiftmazingFunctionalTests

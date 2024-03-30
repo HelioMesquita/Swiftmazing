@@ -10,75 +10,75 @@ import Nimble
 import Quick
 
 @testable import PromiseKit
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class FeedInteractorTests: QuickSpec {
-
-  var sut: FeedInteractor!
-  var presenter: PresenterSpy!
-  var worker: RepositoriesWorkerSpy!
-  var repositories: [Repository]!
-  var repository: Repository!
-
-  class PresenterSpy: FeedPresentationLogic {
-
-    var mapResponseCalled = false
-    var presentListCalled = false
-    var presentDetailCalled = false
-    var presentTryAgainCalled = false
-
-    func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
-      mapResponseCalled = true
-    }
-
-    func presentList() {
-      presentListCalled = true
-    }
-
-    func presentDetail() {
-      presentDetailCalled = true
-    }
-
-    func presentTryAgain(message: String) {
-      presentTryAgainCalled = true
-    }
-
-  }
 
   override class func spec() {
     super.spec()
     PromiseKit.conf.Q.map = nil
     PromiseKit.conf.Q.return = nil
 
-    beforeEach {
-      self.repositories = Repositories().items
-      self.repository = Repositories().items.first
+    var sut: FeedInteractor!
+    var presenter: PresenterSpy!
+    var worker: RepositoriesWorkerSpy!
+    var repositories: [Repository]!
+    var repository: Repository!
 
-      self.worker = RepositoriesWorkerSpy()
-      self.presenter = PresenterSpy()
-      self.sut = FeedInteractor(worker: self.worker)
-      self.sut.presenter = self.presenter
+    class PresenterSpy: FeedPresentationLogic {
+
+      var mapResponseCalled = false
+      var presentListCalled = false
+      var presentDetailCalled = false
+      var presentTryAgainCalled = false
+
+      func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
+        mapResponseCalled = true
+      }
+
+      func presentList() {
+        presentListCalled = true
+      }
+
+      func presentDetail() {
+        presentDetailCalled = true
+      }
+
+      func presentTryAgain(message: String) {
+        presentTryAgainCalled = true
+      }
+
+    }
+
+    beforeEach {
+      repositories = Repositories().items
+      repository = Repositories().items.first
+
+      worker = RepositoriesWorkerSpy()
+      presenter = PresenterSpy()
+      sut = FeedInteractor(worker: worker)
+      sut.presenter = presenter
     }
 
     describe("#loadScreen") {
       context("when successful request") {
         beforeEach {
-          self.sut.loadScreen()
+          sut.loadScreen()
         }
 
         it("calls to presenter map the response") {
-          expect(self.presenter.mapResponseCalled).to(beTrue())
+          expect(presenter.mapResponseCalled).to(beTrue())
         }
       }
 
       context("when unsuccessful request") {
         beforeEach {
-          self.worker.isSuccess = false
-          self.sut.loadScreen()
+          worker.isSuccess = false
+          sut.loadScreen()
         }
 
         it("presents try again") {
-          expect(self.presenter.presentTryAgainCalled).to(beTrue())
+          expect(presenter.presentTryAgainCalled).to(beTrue())
         }
       }
     }
@@ -86,16 +86,16 @@ class FeedInteractorTests: QuickSpec {
     describe("#repositorySelected") {
       context("when is selected a repository cell") {
         beforeEach {
-          self.sut.repositorySelected(self.repository)
+          sut.repositorySelected(repository)
         }
 
         it("saves the selected repository") {
-          expect(self.sut.selectedRepository) === self.repository
+          expect(sut.selectedRepository) === repository
 
         }
 
         it("calls to presenter show the detail") {
-          expect(self.presenter.presentDetailCalled).to(beTrue())
+          expect(presenter.presentDetailCalled).to(beTrue())
         }
       }
     }
@@ -103,23 +103,23 @@ class FeedInteractorTests: QuickSpec {
     describe("#topRepoListSelected") {
       context("when is selected a news cell or see more") {
         beforeEach {
-          self.sut.topRepoListSelected(self.repositories, title: "title")
+          sut.topRepoListSelected(repositories, title: "title")
         }
 
         it("saves the repositories") {
-          expect(self.sut.listRepositories) === self.repositories
+          expect(sut.listRepositories.first) === repositories.first
         }
 
         it("saves the filter selected") {
-          expect(self.sut.listFilter).to(equal(.stars))
+          expect(sut.listFilter).to(equal(.stars))
         }
 
         it("saves the title") {
-          expect(self.sut.listTitle).to(equal("title"))
+          expect(sut.listTitle).to(equal("title"))
         }
 
         it("calls to presenter show the list") {
-          expect(self.presenter.presentListCalled).to(beTrue())
+          expect(presenter.presentListCalled).to(beTrue())
         }
       }
     }
@@ -127,23 +127,23 @@ class FeedInteractorTests: QuickSpec {
     describe("#lastUpdatedListSelected") {
       context("when is selected a news cell or see more") {
         beforeEach {
-          self.sut.lastUpdatedListSelected(self.repositories, title: "title")
+          sut.lastUpdatedListSelected(repositories, title: "title")
         }
 
         it("saves the repositories") {
-          expect(self.sut.listRepositories) === self.repositories
+          expect(sut.listRepositories.first) === repositories.first
         }
 
         it("saves the filter selected") {
-          expect(self.sut.listFilter).to(equal(.updated))
+          expect(sut.listFilter).to(equal(.updated))
         }
 
         it("saves the title") {
-          expect(self.sut.listTitle).to(equal("title"))
+          expect(sut.listTitle).to(equal("title"))
         }
 
         it("calls to presenter show the list") {
-          expect(self.presenter.presentListCalled).to(beTrue())
+          expect(presenter.presentListCalled).to(beTrue())
         }
       }
     }

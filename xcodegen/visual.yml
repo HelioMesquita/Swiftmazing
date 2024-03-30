@@ -11,6 +11,10 @@ targets:
         INFOPLIST_FILE: Visual/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.visual
 
+    scheme:
+      testTargets:
+        - VisualTests
+
   VisualTests:
     type: bundle.unit-test
     platform: iOS
@@ -24,13 +28,3 @@ targets:
       base:
         INFOPLIST_FILE: VisualTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.visualtests
-
-schemes:
-  Visual:
-    build:
-      targets:
-        Visual: all
-    test:
-      gatherCoverageData: true
-      targets:
-        - VisualTests

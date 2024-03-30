@@ -10,80 +10,80 @@ import Nimble
 import Quick
 
 @testable import PromiseKit
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class RepositoryDetailPresenterTests: QuickSpec {
-
-  var sut: RepositoryDetailPresenter!
-  var viewController: ViewControllerSpy!
-  var repository: Repository!
-
-  class ViewControllerSpy: RepositoryDetailDisplayLogic {
-
-    var showImageCalled: Bool = false
-    var showTitleCalled: Bool = false
-    var showAuthorCalled: Bool = false
-    var showDescriptionsCalled: Bool = false
-    var showButtonTitleCalled: Bool = false
-
-    func showImage(_ imageURL: URL) {
-      showImageCalled = true
-    }
-
-    func showTitle(_ text: String) {
-      showTitleCalled = true
-    }
-
-    func showAuthor(_ text: String) {
-      showAuthorCalled = true
-    }
-
-    func showDescriptions(_ texts: [String]) {
-      showDescriptionsCalled = true
-    }
-
-    func showButtonTitle(_ text: String) {
-      showButtonTitleCalled = true
-    }
-
-  }
 
   override class func spec() {
     super.spec()
     PromiseKit.conf.Q.map = nil
     PromiseKit.conf.Q.return = nil
 
-    beforeEach {
-      self.repository = Repositories().items.first
+    var sut: RepositoryDetailPresenter!
+    var viewController: ViewControllerSpy!
+    var repository: Repository!
 
-      self.viewController = ViewControllerSpy()
-      self.sut = RepositoryDetailPresenter()
-      self.sut.viewController = self.viewController
+    class ViewControllerSpy: RepositoryDetailDisplayLogic {
+
+      var showImageCalled: Bool = false
+      var showTitleCalled: Bool = false
+      var showAuthorCalled: Bool = false
+      var showDescriptionsCalled: Bool = false
+      var showButtonTitleCalled: Bool = false
+
+      func showImage(_ imageURL: URL) {
+        showImageCalled = true
+      }
+
+      func showTitle(_ text: String) {
+        showTitleCalled = true
+      }
+
+      func showAuthor(_ text: String) {
+        showAuthorCalled = true
+      }
+
+      func showDescriptions(_ texts: [String]) {
+        showDescriptionsCalled = true
+      }
+
+      func showButtonTitle(_ text: String) {
+        showButtonTitleCalled = true
+      }
+
+    }
+
+    beforeEach {
+      repository = Repositories().items.first
+
+      viewController = ViewControllerSpy()
+      sut = RepositoryDetailPresenter()
+      sut.viewController = viewController
     }
 
     describe("#presentRepository") {
       beforeEach {
-        self.sut.presentRepository(self.repository)
+        sut.presentRepository(repository)
       }
 
       it("shows image") {
-        expect(self.viewController.showImageCalled).to(beTrue())
+        expect(viewController.showImageCalled).to(beTrue())
       }
 
       it("shows title") {
-        expect(self.viewController.showTitleCalled).to(beTrue())
+        expect(viewController.showTitleCalled).to(beTrue())
       }
 
       it("shows author") {
-        expect(self.viewController.showAuthorCalled).to(beTrue())
+        expect(viewController.showAuthorCalled).to(beTrue())
       }
 
       it("shows description") {
-        expect(self.viewController.showDescriptionsCalled).to(beTrue())
+        expect(viewController.showDescriptionsCalled).to(beTrue())
       }
 
       it("shows button") {
-        expect(self.viewController.showButtonTitleCalled).to(beTrue())
+        expect(viewController.showButtonTitleCalled).to(beTrue())
       }
     }
   }

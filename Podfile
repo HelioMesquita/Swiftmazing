@@ -19,25 +19,27 @@ end
 #   infrastructurePods
 #   visualPods
 
-#   target 'SwiftmazingFunctionalTests' do
-#     inherit! :search_paths
-#     pod 'KIF', '3.7.8'
-#   end
+#   # target 'SwiftmazingFunctionalTests' do
+#   #   inherit! :search_paths
+#   #   pod 'KIF', '3.8.9'
+#   # end
 
-#   target 'SwiftmazingTests' do
-#     inherit! :search_paths
-#     infrastructurePods
-#     visualPods
-#     unitTestingPods
-#   end
 
 # end
 
-# target 'SwiftmazingMock' do
-#   use_frameworks!
-#   infrastructurePods
-#   visualPods
-# end
+target 'SwiftmazingMock' do
+  use_frameworks!
+  infrastructurePods
+  visualPods
+
+  target 'SwiftmazingTests' do
+    inherit! :search_paths
+    unitTestingPods
+    infrastructurePods
+    visualPods
+  end
+
+end
 
 target 'Visual' do
   use_frameworks!
@@ -63,6 +65,8 @@ post_install do |installer_representation|
   installer_representation.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
           config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = 13
+          
       end
   end
 end

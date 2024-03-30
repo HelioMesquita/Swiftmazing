@@ -9,7 +9,7 @@
 import Foundation
 
 @testable import PromiseKit
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class RepositoriesWorkerSpy: RepositoriesWorker {
 

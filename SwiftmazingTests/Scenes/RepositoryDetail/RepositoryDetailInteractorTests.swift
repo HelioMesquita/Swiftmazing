@@ -10,56 +10,56 @@ import Nimble
 import Quick
 
 @testable import PromiseKit
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class RepositoryDetailInteractorTests: QuickSpec {
-
-  var sut: RepositoryDetailInteractor!
-  var presenter: PresenterSpy!
-  var repository: Repository!
-
-  class PresenterSpy: RepositoryDetailPresentationLogic {
-
-    var presentRepositoryCalled = false
-
-    func presentRepository(_ repository: Repository) {
-      presentRepositoryCalled = true
-    }
-
-  }
 
   override class func spec() {
     super.spec()
     PromiseKit.conf.Q.map = nil
     PromiseKit.conf.Q.return = nil
 
-    beforeEach {
-      self.repository = Repositories().items.first
+    var sut: RepositoryDetailInteractor!
+    var presenter: PresenterSpy!
+    var repository: Repository!
 
-      self.presenter = PresenterSpy()
-      self.sut = RepositoryDetailInteractor()
-      self.sut.presenter = self.presenter
+    class PresenterSpy: RepositoryDetailPresentationLogic {
+
+      var presentRepositoryCalled = false
+
+      func presentRepository(_ repository: Repository) {
+        presentRepositoryCalled = true
+      }
+
+    }
+
+    beforeEach {
+      repository = Repositories().items.first
+
+      presenter = PresenterSpy()
+      sut = RepositoryDetailInteractor()
+      sut.presenter = presenter
     }
 
     describe("#loadScreen") {
       context("when repository is not nil") {
         beforeEach {
-          self.sut.repository = self.repository
-          self.sut.loadScreen()
+          sut.repository = repository
+          sut.loadScreen()
         }
 
         it("calls to presenter map the response") {
-          expect(self.presenter.presentRepositoryCalled).to(beTrue())
+          expect(presenter.presentRepositoryCalled).to(beTrue())
         }
       }
 
       context("when repository is nil") {
         beforeEach {
-          self.sut.loadScreen()
+          sut.loadScreen()
         }
 
         it("presents try again") {
-          expect(self.presenter.presentRepositoryCalled).to(beFalse())
+          expect(presenter.presentRepositoryCalled).to(beFalse())
         }
       }
     }

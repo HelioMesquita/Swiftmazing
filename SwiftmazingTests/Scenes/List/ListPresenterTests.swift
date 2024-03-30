@@ -10,101 +10,101 @@ import Nimble
 import Quick
 
 @testable import PromiseKit
-@testable import Swiftmazing
+@testable import SwiftmazingMock
 
 class ListPresenterTests: QuickSpec {
-
-  var sut: ListPresenter!
-  var viewController: ViewControllerSpy!
-
-  class ViewControllerSpy: ListDisplayLogic {
-
-    var showDetailCalled: Bool = false
-    var showTitleCalled: Bool = false
-    var showReloadCalled: Bool = false
-    var showNextPageCalled: Bool = false
-    var showTryAgainCalled: Bool = false
-
-    func showTitle(_ title: String) {
-      showTitleCalled = true
-    }
-
-    func showReload(with viewModels: [List.ListCellViewModel]) {
-      showReloadCalled = true
-    }
-    func showNextPage(with viewModels: [List.ListCellViewModel]) {
-      showNextPageCalled = true
-    }
-
-    func showDetail() {
-      showDetailCalled = true
-    }
-
-    func showTryAgain(title: String, message: String) {
-      showTryAgainCalled = true
-    }
-
-    func reload() {}
-
-  }
 
   override class func spec() {
     super.spec()
 
+    var sut: ListPresenter!
+    var viewController: ViewControllerSpy!
+
+    class ViewControllerSpy: ListDisplayLogic {
+
+      var showDetailCalled: Bool = false
+      var showTitleCalled: Bool = false
+      var showReloadCalled: Bool = false
+      var showNextPageCalled: Bool = false
+      var showTryAgainCalled: Bool = false
+
+      func showTitle(_ title: String) {
+        showTitleCalled = true
+      }
+
+      func showReload(with viewModels: [List.ListCellViewModel]) {
+        showReloadCalled = true
+      }
+      func showNextPage(with viewModels: [List.ListCellViewModel]) {
+        showNextPageCalled = true
+      }
+
+      func showDetail() {
+        showDetailCalled = true
+      }
+
+      func showTryAgain(title: String, message: String) {
+        showTryAgainCalled = true
+      }
+
+      func reload() {}
+
+    }
+
     beforeEach {
-      self.viewController = ViewControllerSpy()
-      self.sut = ListPresenter()
-      self.sut.viewController = self.viewController
+      viewController = ViewControllerSpy()
+      sut = ListPresenter()
+      sut.viewController = viewController
     }
 
     describe("presentTitle") {
       beforeEach {
-        self.sut.presentTitle("")
+        sut.presentTitle("")
       }
 
       it("calls show title") {
-        expect(self.viewController.showTitleCalled).to(beTrue())
+        expect(viewController.showTitleCalled).to(beTrue())
       }
 
     }
     describe("reloadMap") {
       beforeEach {
-        self.sut.reloadMap(Repositories().items)
+        sut.reloadMap(Repositories().items)
       }
 
       it("calls to reload screen") {
-        expect(self.viewController.showReloadCalled).to(beTrue())
+        expect(viewController.showReloadCalled).to(beTrue())
       }
     }
 
     describe("nextPageMap") {
       beforeEach {
-        self.sut.nextPageMap(Repositories().items)
+        sut.nextPageMap(Repositories().items)
       }
 
       it("calls to show next page") {
-        expect(self.viewController.showNextPageCalled).to(beTrue())
+        expect(viewController.showNextPageCalled).to(beTrue())
       }
     }
 
     describe("#presentDetail") {
       beforeEach {
-        self.sut.presentDetail()
+        sut.presentDetail()
       }
 
       it("calls show list") {
-        expect(self.viewController.showDetailCalled).to(beTrue())
+        expect(viewController.showDetailCalled).to(beTrue())
       }
     }
 
     describe("#presentTryAgain") {
       beforeEach {
-        self.sut.presentTryAgain(message: "")
+        sut.presentTryAgain(message: "")
       }
 
       context("when failure the request") {
         it("calls try again") {
-          expect(self.viewController.showTryAgainCalled).to(beTrue())
+          expect(viewController.showTryAgainCalled).to(beTrue())
         }
       }
     }
