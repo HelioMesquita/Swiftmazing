@@ -14,7 +14,7 @@ import Nimble_Snapshots
 
 class FeedRepositoryCellTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         var view: FeedRepositoryCell!
 

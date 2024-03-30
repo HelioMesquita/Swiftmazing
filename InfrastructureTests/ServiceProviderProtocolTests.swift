@@ -46,29 +46,29 @@ class ServiceProviderProtocolTests: QuickSpec {
         }
     }
 
-    let jsonData = """
-        {
-          "body": "body123"
-        }
-    """.data(using: .utf8)!
-
-    var subject: ServiceProviderProtocol!
-
-    override func spec() {
+    override class func spec() {
         super.spec()
         PromiseKit.conf.Q.map = nil
         PromiseKit.conf.Q.return = nil
+        
+        let jsonData = """
+            {
+              "body": "body123"
+            }
+        """.data(using: .utf8)!
+
+        var subject: ServiceProviderProtocol!
 
         describe("#execute") {
             context("when successful request") {
                 beforeEach {
-                    let mockURLSession = MockURLSession(data: self.jsonData, statusCode: 200)
-                    self.subject = ServiceProvider(customURLSession: mockURLSession)
+                    let mockURLSession = MockURLSession(data: jsonData, statusCode: 200)
+                    subject = ServiceProvider(customURLSession: mockURLSession)
                 }
 
                 context("with a correct parser") {
                     it("returns body response parsed") {
-                        self.subject.execute(request: MockProvider(), parser: BodyParser.self).done { response in
+                        subject.execute(request: MockProvider(), parser: BodyParser.self).done { response in
                             expect(response.body).to(equal("body123"))
                         }.catch { _ in
                             XCTFail()
@@ -77,7 +77,7 @@ class ServiceProviderProtocolTests: QuickSpec {
                 }
                 context("with a invalid parser") {
                     it("returns a error invalid parser") {
-                        self.subject.execute(request: MockProvider(), parser: InvalidParser.self).done { _ in
+                        subject.execute(request: MockProvider(), parser: InvalidParser.self).done { _ in
                             XCTFail()
                         }.catch { error in
                             expect((error as? RequestError)).to(equal(RequestError.invalidParser))
@@ -89,12 +89,12 @@ class ServiceProviderProtocolTests: QuickSpec {
             context("when unsuccessful request") {
                 context("with known error") {
                     beforeEach {
-                        let mockURLSession = MockURLSession(data: self.jsonData, statusCode: 401)
-                        self.subject = ServiceProvider(customURLSession: mockURLSession)
+                        let mockURLSession = MockURLSession(data: jsonData, statusCode: 401)
+                        subject = ServiceProvider(customURLSession: mockURLSession)
                     }
 
                     it("returns specific error") {
-                        self.subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
+                        subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
                             XCTFail()
                         }.catch { error in
                             expect((error as? RequestError)).to(equal(RequestError.unauthorized))
@@ -104,12 +104,12 @@ class ServiceProviderProtocolTests: QuickSpec {
 
                 context("with unknown error") {
                     beforeEach {
-                        let mockURLSession = MockURLSession(data: self.jsonData, statusCode: 999)
-                        self.subject = ServiceProvider(customURLSession: mockURLSession)
+                        let mockURLSession = MockURLSession(data: jsonData, statusCode: 999)
+                        subject = ServiceProvider(customURLSession: mockURLSession)
                     }
 
                     it("returns specific error") {
-                        self.subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
+                        subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
                             XCTFail()
                         }.catch { error in
                             expect((error as? RequestError)).to(equal(RequestError.unknownError))

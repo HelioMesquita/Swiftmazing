@@ -48,7 +48,7 @@ class ListPresenterTests: QuickSpec {
 
     }
 
-    override func spec() {
+    override class func spec() {
         super.spec()
 
         beforeEach {

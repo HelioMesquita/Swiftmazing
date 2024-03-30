@@ -48,7 +48,7 @@ class RepositoryDetailPresenterTests: QuickSpec {
 
     }
 
-    override func spec() {
+    override class func spec() {
         super.spec()
         PromiseKit.conf.Q.map = nil
         PromiseKit.conf.Q.return = nil

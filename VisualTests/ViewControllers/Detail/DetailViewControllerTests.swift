@@ -14,7 +14,7 @@ import Nimble_Snapshots
 
 class DetailViewControllerTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         var view: DetailViewController!
 

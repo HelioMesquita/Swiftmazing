@@ -13,7 +13,7 @@ import Nimble
 
 class IntUtilsTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         super.spec()
 
         describe("#kiloFormat") {

@@ -23,7 +23,7 @@ class MockFeedCollectionViewModelProtocol: FeedCollectionViewModelProtocol {
 
 class FeedCollectionViewControllerTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         var view: FeedCollectionViewController<MockFeedCollectionViewModelProtocol>!
 

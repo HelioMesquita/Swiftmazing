@@ -13,7 +13,7 @@ import Nimble
 
 class BundleTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         super.spec()
 
         describe("#module") {

@@ -24,3 +24,13 @@ targets:
       base:
         INFOPLIST_FILE: VisualTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.visualtests
+
+schemes:
+  Visual:
+    build:
+      targets:
+        Visual: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - VisualTests

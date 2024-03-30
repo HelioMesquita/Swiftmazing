@@ -14,7 +14,7 @@ import Nimble_Snapshots
 
 class ListRepositoryCellTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         describe("ListRepositoryCell") {
 

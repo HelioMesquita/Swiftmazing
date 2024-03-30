@@ -4,8 +4,8 @@
   </a>
 </h3>
 
-[![Swift 5.3](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
-[![Xcode 14.1.0](https://img.shields.io/badge/Xcode-14.1.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
+[![Swift 5.10](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
+[![Xcode 15.3.0](https://img.shields.io/badge/Xcode-14.1.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)

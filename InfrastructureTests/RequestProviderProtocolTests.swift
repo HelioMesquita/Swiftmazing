@@ -13,22 +13,22 @@ import Nimble
 
 class RequestProviderProtocolTests: QuickSpec {
 
-    let subject: RequestProviderProtocol = MockProvider()
-
-    override func spec() {
+    override class func spec() {
         super.spec()
+        
+        let subject: RequestProviderProtocol = MockProvider()
 
         describe("#asURLRequest") {
             it("returns full url") {
-                expect(self.subject.asURLRequest.url?.absoluteString).to(equal("https://api.github.com/repositories?key=value"))
+                expect(subject.asURLRequest.url?.absoluteString).to(equal("https://api.github.com/repositories?key=value"))
             }
 
             it("returns header") {
-                expect(self.subject.asURLRequest.allHTTPHeaderFields).to(equal(["Content-Type": "application/json"]))
+                expect(subject.asURLRequest.allHTTPHeaderFields).to(equal(["Content-Type": "application/json"]))
             }
 
             it("returns body") {
-                expect(self.subject.asURLRequest.httpBody).toNot(beNil())
+                expect(subject.asURLRequest.httpBody).toNot(beNil())
             }
         }
 

@@ -22,7 +22,7 @@ class MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
 
 class ListCollectionViewControllerTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
 

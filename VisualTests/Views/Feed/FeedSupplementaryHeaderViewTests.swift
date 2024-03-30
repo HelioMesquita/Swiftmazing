@@ -16,7 +16,7 @@ class FeedSupplementaryHeaderViewTests: QuickSpec {
 
     var superView: UIView!
 
-    override func spec() {
+    override class func spec() {
 
         describe("FeedSupplementaryHeaderView") {
 

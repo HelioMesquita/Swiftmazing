@@ -22,3 +22,13 @@ targets:
       base:
         INFOPLIST_FILE: InfrastructureTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.infrastructuretests
+
+schemes:
+  Infrastructure:
+    build:
+      targets:
+        Infrastructure: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - InfrastructureTests

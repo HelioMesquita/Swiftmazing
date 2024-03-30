@@ -14,7 +14,7 @@ import Nimble_Snapshots
 
 class FeedSupplementaryFooterViewTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
 
         describe("FeedSupplementaryFooterView") {
 

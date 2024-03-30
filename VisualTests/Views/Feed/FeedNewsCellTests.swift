@@ -14,7 +14,14 @@ import Nimble_Snapshots
 
 class FeedNewsCellTests: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
+        
+        func createImage() -> UIImageView {
+             let imageView = UIImageView(image: UIImage.Design.swift)
+             imageView.contentMode = .scaleAspectFill
+             imageView.clipsToBounds = true
+             return imageView
+         }
 
         var view: FeedNewsCell!
 
@@ -25,16 +32,16 @@ class FeedNewsCellTests: QuickSpec {
                 view.titleLabel.text = "Title label"
                 view.subtitleLabel.text = "Subtitle label"
                 view.descriptionLabel.text = "Description Label"
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
+                view.oddImagesStackView.addArrangedSubview(createImage())
+                view.oddImagesStackView.addArrangedSubview(createImage())
+                view.oddImagesStackView.addArrangedSubview(createImage())
+                view.oddImagesStackView.addArrangedSubview(createImage())
+                view.oddImagesStackView.addArrangedSubview(createImage())
+                view.evenImagesStackView.addArrangedSubview(createImage())
+                view.evenImagesStackView.addArrangedSubview(createImage())
+                view.evenImagesStackView.addArrangedSubview(createImage())
+                view.evenImagesStackView.addArrangedSubview(createImage())
+                view.evenImagesStackView.addArrangedSubview(createImage())
             }
 
             it("returns the layout") {
@@ -44,10 +51,4 @@ class FeedNewsCellTests: QuickSpec {
         }
     }
 
-    func createImage() -> UIImageView {
-         let imageView = UIImageView(image: UIImage.Design.swift)
-         imageView.contentMode = .scaleAspectFill
-         imageView.clipsToBounds = true
-         return imageView
-     }
 }

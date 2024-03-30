@@ -15,9 +15,9 @@ settings:
     IPHONEOS_DEPLOYMENT_TARGET: 13
 
 include:
-  - path: xcodegen/infrastructure.yml
-    relativePaths: false
-  - path: xcodegen/swiftmazing.yml
-    relativePaths: false
+  # - path: xcodegen/swiftmazing.yml
+  #   relativePaths: false
   - path: xcodegen/visual.yml
+    relativePaths: false
+  - path: xcodegen/infrastructure.yml
     relativePaths: false
