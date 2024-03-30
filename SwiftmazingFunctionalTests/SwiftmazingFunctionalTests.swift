@@ -9,7 +9,7 @@
 import KIF
 import XCTest
 
-@testable import SwiftmazingMock
+@testable import Swiftmazing
 
 class SwiftmazingFunctionalTests: KIFTestCase {
 

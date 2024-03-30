@@ -27,7 +27,7 @@ end
 
 # end
 
-target 'SwiftmazingMock' do
+target 'Swiftmazing' do
   use_frameworks!
   infrastructurePods
   visualPods

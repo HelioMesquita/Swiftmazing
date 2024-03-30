@@ -10,7 +10,7 @@ import Nimble
 import Quick
 
 @testable import PromiseKit
-@testable import SwiftmazingMock
+@testable import Swiftmazing
 
 class FeedPresenterTests: QuickSpec {
 
