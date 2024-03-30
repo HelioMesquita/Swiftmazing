@@ -15,24 +15,24 @@
 import UIKit
 
 protocol RepositoryDetailBusinessLogic {
-    func loadScreen()
+  func loadScreen()
 }
 
 protocol RepositoryDetailDataStore {
-    var repository: Repository? { get set }
+  var repository: Repository? { get set }
 }
 
 class RepositoryDetailInteractor: RepositoryDetailBusinessLogic, RepositoryDetailDataStore {
 
-    var presenter: RepositoryDetailPresentationLogic?
+  var presenter: RepositoryDetailPresentationLogic?
 
-    // MARK: DATASTORE
-    var repository: Repository?
+  // MARK: DATASTORE
+  var repository: Repository?
 
-    func loadScreen() {
-        if let repository = repository {
-            presenter?.presentRepository(repository)
-        }
+  func loadScreen() {
+    if let repository = repository {
+      presenter?.presentRepository(repository)
     }
+  }
 
 }

@@ -6,32 +6,32 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import Visual
 
 class FeedSupplementaryHeaderViewTests: QuickSpec {
 
-    var superView: UIView!
+  var superView: UIView!
 
-    override class func spec() {
+  override class func spec() {
 
-        describe("FeedSupplementaryHeaderView") {
+    describe("FeedSupplementaryHeaderView") {
 
-            var view: FeedSupplementaryHeaderView!
+      var view: FeedSupplementaryHeaderView!
 
-            beforeEach {
-                view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-                view.label.text = "Name label"
-                view.button.setTitle("See more", for: .normal)
-            }
+      beforeEach {
+        view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+        view.label.text = "Name label"
+        view.button.setTitle("See more", for: .normal)
+      }
 
-            it("returns the layout") {
-//                expect(view) == recordSnapshot()
-                expect(view) == snapshot()
-            }
-        }
+      it("returns the layout") {
+        //                expect(view) == recordSnapshot()
+        expect(view) == snapshot()
+      }
     }
+  }
 }

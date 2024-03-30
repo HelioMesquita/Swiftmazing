@@ -9,23 +9,23 @@
 import Foundation
 
 public protocol BaseHashbleProtocol: Hashable {
-    var id: String { get }
+  var id: String { get }
 
-    func hash(into hasher: inout Hasher)
+  func hash(into hasher: inout Hasher)
 }
 
-public extension BaseHashbleProtocol {
+extension BaseHashbleProtocol {
 
-    var id: String {
-        return UUID().uuidString
-    }
+  public var id: String {
+    return UUID().uuidString
+  }
 
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
-    }
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    return lhs.id == rhs.id
+  }
 
 }

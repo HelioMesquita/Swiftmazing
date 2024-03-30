@@ -6,31 +6,31 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import Visual
 
 class DetailViewControllerTests: QuickSpec {
 
-    override class func spec() {
+  override class func spec() {
 
-        var view: DetailViewController!
+    var view: DetailViewController!
 
-        describe("FeedCollectionViewController") {
+    describe("FeedCollectionViewController") {
 
-            beforeEach {
-                view = DetailViewController()
-                view.titleLabel.text = "Title"
-                view.authorLabel.text = "Author"
-                view.setDescriptions(["Descriptions", "Descriptions"])
-            }
+      beforeEach {
+        view = DetailViewController()
+        view.titleLabel.text = "Title"
+        view.authorLabel.text = "Author"
+        view.setDescriptions(["Descriptions", "Descriptions"])
+      }
 
-            it("returns the layout") {
-//                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-                expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-            }
-        }
+      it("returns the layout") {
+        //                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
+        expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
+      }
     }
+  }
 }

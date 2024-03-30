@@ -6,21 +6,22 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
+import Quick
 
 @testable import Infrastructure
 
 class RequestErrorTests: QuickSpec {
 
-    override class func spec() {
-        super.spec()
+  override class func spec() {
+    super.spec()
 
-        describe("#localizedDescription") {
-            it("returns text from localizable strings") {
-                expect(RequestError.badRequest.localizedDescription).to(equal("There was an error loading your data"))
-            }
-        }
+    describe("#localizedDescription") {
+      it("returns text from localizable strings") {
+        expect(RequestError.badRequest.localizedDescription).to(
+          equal("There was an error loading your data"))
+      }
     }
+  }
 
 }

@@ -15,33 +15,33 @@ import Visual
 
 enum List {
 
-    class MapRepoViewModel {
-        var items: [ListCellViewModel]
+  class MapRepoViewModel {
+    var items: [ListCellViewModel]
 
-        init(repositories: [Repository]) {
-            items = repositories.compactMap { ListCellViewModel(repository: $0) }
-        }
+    init(repositories: [Repository]) {
+      items = repositories.compactMap { ListCellViewModel(repository: $0) }
     }
+  }
 
-    class ListCellViewModel: ListCollectionViewModelProtocol {
-        var title: String
-        var subtitle: String
-        var description: String
-        var additionalInfo: String
-        var supplementaryInfo: String
-        var image: URL?
+  class ListCellViewModel: ListCollectionViewModelProtocol {
+    var title: String
+    var subtitle: String
+    var description: String
+    var additionalInfo: String
+    var supplementaryInfo: String
+    var image: URL?
 
-        var repository: Repository?
+    var repository: Repository?
 
-        init(repository: Repository, supplementaryInfo: String = Text.stars.value) {
-            self.title = repository.name
-            self.subtitle = repository.owner.name
-            self.description = repository.description ?? ""
-            self.image = repository.owner.avatar
-            self.repository = repository
-            self.additionalInfo = repository.stars.kiloFormat
-            self.supplementaryInfo =  supplementaryInfo
-        }
+    init(repository: Repository, supplementaryInfo: String = Text.stars.value) {
+      self.title = repository.name
+      self.subtitle = repository.owner.name
+      self.description = repository.description ?? ""
+      self.image = repository.owner.avatar
+      self.repository = repository
+      self.additionalInfo = repository.stars.kiloFormat
+      self.supplementaryInfo = supplementaryInfo
     }
+  }
 
 }

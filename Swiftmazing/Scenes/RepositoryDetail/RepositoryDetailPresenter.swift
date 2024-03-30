@@ -15,27 +15,27 @@
 import UIKit
 
 protocol RepositoryDetailPresentationLogic {
-    func presentRepository(_ repository: Repository)
+  func presentRepository(_ repository: Repository)
 }
 
 class RepositoryDetailPresenter: RepositoryDetailPresentationLogic {
 
-    weak var viewController: RepositoryDetailDisplayLogic?
+  weak var viewController: RepositoryDetailDisplayLogic?
 
-    func presentRepository(_ repository: Repository) {
-        viewController?.showImage(repository.owner.avatar)
-        viewController?.showTitle(repository.name)
-        viewController?.showAuthor(repository.owner.name)
-        var texts: [String] = []
-        if let description = repository.description {
-            texts.append(description)
-        }
-        texts.append(" - \(repository.stars.kiloFormat) \(Text.stars.value)")
-        texts.append(" - \(repository.issues.kiloFormat) \(Text.issues.value) ")
-        texts.append(" - \(repository.forks.kiloFormat) \(Text.forks.value) ")
-        texts.append(" - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
-        viewController?.showDescriptions(texts)
-        viewController?.showButtonTitle(Text.seeRepository.value)
+  func presentRepository(_ repository: Repository) {
+    viewController?.showImage(repository.owner.avatar)
+    viewController?.showTitle(repository.name)
+    viewController?.showAuthor(repository.owner.name)
+    var texts: [String] = []
+    if let description = repository.description {
+      texts.append(description)
     }
+    texts.append(" - \(repository.stars.kiloFormat) \(Text.stars.value)")
+    texts.append(" - \(repository.issues.kiloFormat) \(Text.issues.value) ")
+    texts.append(" - \(repository.forks.kiloFormat) \(Text.forks.value) ")
+    texts.append(" - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
+    viewController?.showDescriptions(texts)
+    viewController?.showButtonTitle(Text.seeRepository.value)
+  }
 
 }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-internal extension NSCollectionLayoutDimension {
+extension NSCollectionLayoutDimension {
 
-    class var completedWidth: NSCollectionLayoutDimension {
-        return .fractionalWidth(1.0)
-    }
+  class var completedWidth: NSCollectionLayoutDimension {
+    return .fractionalWidth(1.0)
+  }
 
-    class var completedHeight: NSCollectionLayoutDimension {
-        return .fractionalHeight(1.0)
-    }
+  class var completedHeight: NSCollectionLayoutDimension {
+    return .fractionalHeight(1.0)
+  }
 
 }

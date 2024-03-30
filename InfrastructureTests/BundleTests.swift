@@ -6,21 +6,21 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
+import Quick
 
 @testable import Infrastructure
 
 class BundleTests: QuickSpec {
 
-    override class func spec() {
-        super.spec()
+  override class func spec() {
+    super.spec()
 
-        describe("#module") {
-            it("returns module name") {
-                expect(Bundle.module.bundleIdentifier).to(equal("com.infrastructure"))
-            }
-        }
+    describe("#module") {
+      it("returns module name") {
+        expect(Bundle.module.bundleIdentifier).to(equal("com.infrastructure"))
+      }
     }
+  }
 
 }

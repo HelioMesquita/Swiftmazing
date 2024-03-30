@@ -6,33 +6,33 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import Visual
 
 class ListRepositoryCellTests: QuickSpec {
 
-    override class func spec() {
+  override class func spec() {
 
-        describe("ListRepositoryCell") {
+    describe("ListRepositoryCell") {
 
-            var view: ListRepositoryCell!
+      var view: ListRepositoryCell!
 
-            beforeEach {
-                view = ListRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 118))
-                view.titleLabel.text = "Name label"
-                view.descriptionLabel.text = "Description Label"
-                view.imageView.image = UIImage.Design.swift
-                view.additionalInfoLabel.text = "27.31k"
-                view.supplementaryInfoLabel.text = "stars"
-            }
+      beforeEach {
+        view = ListRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 118))
+        view.titleLabel.text = "Name label"
+        view.descriptionLabel.text = "Description Label"
+        view.imageView.image = UIImage.Design.swift
+        view.additionalInfoLabel.text = "27.31k"
+        view.supplementaryInfoLabel.text = "stars"
+      }
 
-            it("returns the layout") {
-//                expect(view) == recordSnapshot()
-                expect(view) == snapshot()
-            }
-        }
+      it("returns the layout") {
+        //                expect(view) == recordSnapshot()
+        expect(view) == snapshot()
+      }
     }
+  }
 }

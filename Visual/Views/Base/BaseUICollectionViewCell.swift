@@ -10,14 +10,14 @@ import UIKit
 
 public class BaseUICollectionViewCell: UICollectionViewCell {
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        let thisType = type(of: self)
-        accessibilityLabel = String(describing: thisType)
-    }
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
+    let thisType = type(of: self)
+    accessibilityLabel = String(describing: thisType)
+  }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
 }

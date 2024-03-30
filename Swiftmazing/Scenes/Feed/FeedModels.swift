@@ -15,75 +15,79 @@ import Visual
 
 enum Feed {
 
-    class ViewModel {
-        let news: [FeedCellViewModel]
-        let topRepos: [FeedCellViewModel]
-        let lastUpdated: [FeedCellViewModel]
+  class ViewModel {
+    let news: [FeedCellViewModel]
+    let topRepos: [FeedCellViewModel]
+    let lastUpdated: [FeedCellViewModel]
 
-        init(news: MapNewsViewModel, topRepos: MapRepoViewModel, lastUpdated: MapRepoViewModel) {
-            self.news = news.items
-            self.topRepos = topRepos.items
-            self.lastUpdated = lastUpdated.items
-        }
+    init(news: MapNewsViewModel, topRepos: MapRepoViewModel, lastUpdated: MapRepoViewModel) {
+      self.news = news.items
+      self.topRepos = topRepos.items
+      self.lastUpdated = lastUpdated.items
+    }
+  }
+
+  class FeedCellViewModel: FeedCollectionViewModelProtocol {
+    var title: String
+    var subtitle: String?
+    var description: String
+    var images: [URL]
+    var additionalInfo: String?
+    var supplementaryInfo: String?
+
+    var section: FeedSection
+    var repository: Repository?
+
+    init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL])
+    {
+      self.title = title
+      self.subtitle = subtitle
+      self.description = description
+      self.images = images
+      self.section = section
     }
 
-    class FeedCellViewModel: FeedCollectionViewModelProtocol {
-        var title: String
-        var subtitle: String?
-        var description: String
-        var images: [URL]
-        var additionalInfo: String?
-        var supplementaryInfo: String?
-
-        var section: FeedSection
-        var repository: Repository?
-
-        init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL]) {
-            self.title = title
-            self.subtitle = subtitle
-            self.description = description
-            self.images = images
-            self.section = section
-        }
-
-        init(repository: Repository, section: FeedSection, supplementaryInfo: String = Text.stars.value) {
-            self.title = repository.name
-            self.description = repository.owner.name
-            self.additionalInfo = repository.stars.kiloFormat
-            self.supplementaryInfo = supplementaryInfo
-            self.images = [repository.owner.avatar]
-            self.section = section
-            self.repository = repository
-        }
+    init(repository: Repository, section: FeedSection, supplementaryInfo: String = Text.stars.value)
+    {
+      self.title = repository.name
+      self.description = repository.owner.name
+      self.additionalInfo = repository.stars.kiloFormat
+      self.supplementaryInfo = supplementaryInfo
+      self.images = [repository.owner.avatar]
+      self.section = section
+      self.repository = repository
     }
+  }
 
-    class MapRepoViewModel {
-        var items: [FeedCellViewModel]
+  class MapRepoViewModel {
+    var items: [FeedCellViewModel]
 
-        init(repositories: [Repository], section: FeedSection) {
-            items = repositories.compactMap { FeedCellViewModel(repository: $0, section: section) }
-        }
+    init(repositories: [Repository], section: FeedSection) {
+      items = repositories.compactMap { FeedCellViewModel(repository: $0, section: section) }
     }
+  }
 
-    class MapNewsViewModel {
-        var items: [FeedCellViewModel]
+  class MapNewsViewModel {
+    var items: [FeedCellViewModel]
 
-        init(topRepos: [Repository], lastUpdated: [Repository]) {
-            let topAvatars = topRepos.compactMap { $0.owner.avatar }
-            let lastAvatars = lastUpdated.compactMap { $0.owner.avatar }
-            items = [
-                FeedCellViewModel(title: Text.bestRepositories.value,
-                                  subtitle: Text.renownedRepositories.value,
-                                  description: Text.bestTools.value,
-                                  section: .topRepos,
-                                  images: topAvatars),
-                FeedCellViewModel(title: Text.updatedRepositories.value,
-                                  subtitle: Text.theLatestUpdates.value,
-                                  description: Text.mostUpdatedRepositories.value,
-                                  section: .lastUpdated,
-                                  images: lastAvatars)
-            ]
-        }
+    init(topRepos: [Repository], lastUpdated: [Repository]) {
+      let topAvatars = topRepos.compactMap { $0.owner.avatar }
+      let lastAvatars = lastUpdated.compactMap { $0.owner.avatar }
+      items = [
+        FeedCellViewModel(
+          title: Text.bestRepositories.value,
+          subtitle: Text.renownedRepositories.value,
+          description: Text.bestTools.value,
+          section: .topRepos,
+          images: topAvatars),
+        FeedCellViewModel(
+          title: Text.updatedRepositories.value,
+          subtitle: Text.theLatestUpdates.value,
+          description: Text.mostUpdatedRepositories.value,
+          section: .lastUpdated,
+          images: lastAvatars),
+      ]
     }
+  }
 
 }

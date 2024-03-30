@@ -75,3 +75,14 @@ targets:
       base:
         INFOPLIST_FILE: SwiftmazingTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+
+schemes:
+  SwiftmazingMock:
+    build:
+      targets:
+        SwiftmazingMock: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - SwiftmazingTests
+        - SwiftmazingFunctionalTests

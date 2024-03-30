@@ -8,10 +8,10 @@
 
 import UIKit
 
-internal extension UIImage {
+extension UIImage {
 
-    struct Design {
-        static let swift = UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)
-    }
+  struct Design {
+    static let swift = UIImage(named: "swift", in: Bundle.module, compatibleWith: nil)
+  }
 
 }

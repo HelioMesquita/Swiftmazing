@@ -8,15 +8,15 @@
 
 import UIKit
 
-internal  protocol ReusableView {
-    static var reuseIdentifier: String { get }
+internal protocol ReusableView {
+  static var reuseIdentifier: String { get }
 }
 
 extension ReusableView {
 
-    public static var reuseIdentifier: String {
-        return String(describing: self)
-    }
+  public static var reuseIdentifier: String {
+    return String(describing: self)
+  }
 
 }
 

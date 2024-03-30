@@ -10,48 +10,50 @@ import Foundation
 import PromiseKit
 
 public protocol ServiceProviderProtocol {
-    var urlSession: URLSession { get }
-    var jsonDecoder: JSONDecoder { get }
-    func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
+  var urlSession: URLSession { get }
+  var jsonDecoder: JSONDecoder { get }
+  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
 }
 
 extension ServiceProviderProtocol {
 
-    public var jsonDecoder: JSONDecoder {
-        return JSONDecoder()
-    }
+  public var jsonDecoder: JSONDecoder {
+    return JSONDecoder()
+  }
 
-    public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
-        return Promise<T> { seal in
-            urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
-                Logger.show(request: request.asURLRequest, response, data, error)
+  public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type)
+    -> Promise<T>
+  {
+    return Promise<T> { seal in
+      urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
+        Logger.show(request: request.asURLRequest, response, data, error)
 
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, let data = data else {
-                    seal.reject(RequestError.unknownError)
-                    return
-                }
-
-                if 200...299 ~= statusCode {
-                    do {
-                        let model = try self.jsonDecoder.decode(T.self, from: data)
-                        seal.fulfill(model)
-                    } catch {
-                        seal.reject(RequestError.invalidParser)
-                    }
-
-                } else {
-                    seal.reject(self.identify(statusCode: statusCode))
-                }
-            }.resume()
-        }
-    }
-
-    fileprivate func identify(statusCode: Int) -> RequestError {
-        guard let error = RequestError(rawValue: statusCode) else {
-            return .unknownError
+        guard let statusCode = (response as? HTTPURLResponse)?.statusCode, let data = data else {
+          seal.reject(RequestError.unknownError)
+          return
         }
 
-        return error
+        if 200...299 ~= statusCode {
+          do {
+            let model = try self.jsonDecoder.decode(T.self, from: data)
+            seal.fulfill(model)
+          } catch {
+            seal.reject(RequestError.invalidParser)
+          }
+
+        } else {
+          seal.reject(self.identify(statusCode: statusCode))
+        }
+      }.resume()
     }
+  }
+
+  fileprivate func identify(statusCode: Int) -> RequestError {
+    guard let error = RequestError(rawValue: statusCode) else {
+      return .unknownError
+    }
+
+    return error
+  }
 
 }

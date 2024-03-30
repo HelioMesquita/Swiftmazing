@@ -14,97 +14,97 @@ import UIKit
 import Visual
 
 protocol ListDisplayLogic: AlertDisplayLogic {
-    func showTitle(_ title: String)
-    func showReload(with viewModels: [List.ListCellViewModel])
-    func showNextPage(with viewModels: [List.ListCellViewModel])
-    func showDetail()
+  func showTitle(_ title: String)
+  func showReload(with viewModels: [List.ListCellViewModel])
+  func showNextPage(with viewModels: [List.ListCellViewModel])
+  func showDetail()
 }
 
 class ListViewController: ListCollectionViewController<List.ListCellViewModel> {
 
-    var interactor: ListBusinessLogic?
-    var router: (ListRoutingLogic & ListDataPassing)?
+  var interactor: ListBusinessLogic?
+  var router: (ListRoutingLogic & ListDataPassing)?
 
-    override func setup() {
-        let viewController = self
-        let interactor = ListInteractor()
-        let presenter = ListPresenter()
-        let router = ListRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-        interactor.presenter = presenter
-    }
+  override func setup() {
+    let viewController = self
+    let interactor = ListInteractor()
+    let presenter = ListPresenter()
+    let router = ListRouter()
+    viewController.interactor = interactor
+    viewController.router = router
+    presenter.viewController = viewController
+    router.viewController = viewController
+    router.dataStore = interactor
+    interactor.presenter = presenter
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        interactor?.loadScreen()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    interactor?.loadScreen()
+  }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configure()
-    }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configure()
+  }
 
-    func configure() {
-        collectionView.delegate = self
-        collectionView.prefetchDataSource = self
-        collectionView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
-    }
+  func configure() {
+    collectionView.delegate = self
+    collectionView.prefetchDataSource = self
+    collectionView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+  }
 
-    @objc func reload() {
-        collectionView.refreshControl?.beginRefreshing()
-        interactor?.reloadRepositories()
-    }
+  @objc func reload() {
+    collectionView.refreshControl?.beginRefreshing()
+    interactor?.reloadRepositories()
+  }
 
 }
 
 extension ListViewController: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let element = dataSource.itemIdentifier(for: indexPath)?.repository else { return }
-        interactor?.repositorySelected(element)
-    }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let element = dataSource.itemIdentifier(for: indexPath)?.repository else { return }
+    interactor?.repositorySelected(element)
+  }
 
 }
 
 extension ListViewController: UICollectionViewDataSourcePrefetching {
 
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            interactor?.prefetchNextPage(index: indexPath.row)
-        }
+  func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+    for indexPath in indexPaths {
+      interactor?.prefetchNextPage(index: indexPath.row)
     }
+  }
 
 }
 
 extension ListViewController: ListDisplayLogic {
 
-    func showTitle(_ title: String) {
-        self.title = title
-    }
+  func showTitle(_ title: String) {
+    self.title = title
+  }
 
-    func showReload(with viewModels: [List.ListCellViewModel]) {
-        loadList(viewModels)
-    }
+  func showReload(with viewModels: [List.ListCellViewModel]) {
+    loadList(viewModels)
+  }
 
-    func showNextPage(with viewModels: [List.ListCellViewModel]) {
-        let items = dataSource.snapshot().itemIdentifiers + viewModels
-        loadList(items)
-    }
+  func showNextPage(with viewModels: [List.ListCellViewModel]) {
+    let items = dataSource.snapshot().itemIdentifiers + viewModels
+    loadList(items)
+  }
 
-    private func loadList(_ items: [List.ListCellViewModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
-        snapshot.appendSections([.repo])
-        snapshot.appendItems(items, toSection: .repo)
-        dataSource.apply(snapshot, animatingDifferences: false)
-        collectionView.refreshControl?.endRefreshing()
-    }
+  private func loadList(_ items: [List.ListCellViewModel]) {
+    var snapshot = NSDiffableDataSourceSnapshot<ListSection, List.ListCellViewModel>()
+    snapshot.appendSections([.repo])
+    snapshot.appendItems(items, toSection: .repo)
+    dataSource.apply(snapshot, animatingDifferences: false)
+    collectionView.refreshControl?.endRefreshing()
+  }
 
-    func showDetail() {
-        router?.routeToDetail()
-    }
+  func showDetail() {
+    router?.routeToDetail()
+  }
 
 }

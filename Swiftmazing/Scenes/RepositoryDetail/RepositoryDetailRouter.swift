@@ -13,21 +13,21 @@
 import UIKit
 
 @objc protocol RepositoryDetailRoutingLogic {
-    func routeToPage()
+  func routeToPage()
 }
 
 protocol RepositoryDetailDataPassing {
-    var dataStore: RepositoryDetailDataStore? { get }
+  var dataStore: RepositoryDetailDataStore? { get }
 }
 
 class RepositoryDetailRouter: RepositoryDetailRoutingLogic, RepositoryDetailDataPassing {
 
-    weak var viewController: RepositoryDetailViewController?
-    var dataStore: RepositoryDetailDataStore?
+  weak var viewController: RepositoryDetailViewController?
+  var dataStore: RepositoryDetailDataStore?
 
-    func routeToPage() {
-        guard let url = dataStore?.repository?.url else { return }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
+  func routeToPage() {
+    guard let url = dataStore?.repository?.url else { return }
+    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+  }
 
 }

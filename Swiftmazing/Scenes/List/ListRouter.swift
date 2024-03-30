@@ -13,28 +13,29 @@
 import UIKit
 
 @objc protocol ListRoutingLogic {
-    func routeToDetail()
+  func routeToDetail()
 }
 
 protocol ListDataPassing {
-    var dataStore: ListDataStore? { get }
+  var dataStore: ListDataStore? { get }
 }
 
 class ListRouter: ListRoutingLogic, ListDataPassing {
 
-    weak var viewController: ListViewController?
-    var dataStore: ListDataStore?
+  weak var viewController: ListViewController?
+  var dataStore: ListDataStore?
 
-    func routeToDetail() {
-        let destinationViewController = RepositoryDetailViewController()
-        var destinationDataStore = destinationViewController.router?.dataStore
-        passDataToList(source: dataStore, destination: &destinationDataStore)
-        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
-    }
+  func routeToDetail() {
+    let destinationViewController = RepositoryDetailViewController()
+    var destinationDataStore = destinationViewController.router?.dataStore
+    passDataToList(source: dataStore, destination: &destinationDataStore)
+    viewController?.navigationController?.pushViewController(
+      destinationViewController, animated: true)
+  }
 
-    func passDataToList(source: ListDataStore?, destination: inout RepositoryDetailDataStore?) {
-        guard let source = source, var destination = destination else { return }
-        destination.repository = source.selectedRepository
-    }
+  func passDataToList(source: ListDataStore?, destination: inout RepositoryDetailDataStore?) {
+    guard let source = source, var destination = destination else { return }
+    destination.repository = source.selectedRepository
+  }
 
 }
