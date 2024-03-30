@@ -8,8 +8,6 @@
 [![Xcode 15.3.0](https://img.shields.io/badge/Xcode-15.3.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
-[![codecov](https://codecov.io/gh/HelioMesquita/Swiftmazing/branch/master/graph/badge.svg)](https://codecov.io/gh/HelioMesquita/Swiftmazing)
-[![Build Status](https://travis-ci.org/HelioMesquita/Swiftmazing.svg?branch=master)](https://travis-ci.org/HelioMesquita/Swiftmazing)
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way, with their respective tests using Quick, Nimble, Snapshots and/or KIF, the using the modern collection view and integrated with fastlane and slather generating test coverage
 
@@ -67,11 +65,10 @@ Open the directory project and double tap on Swiftmazing.xcworkspace
 ## Running the tests
 
 For each scheme in project run some tests targets
-* The visual scheme runs the snapshots tests for all views and view controllers
+* The Visual scheme runs the snapshots tests for all views and view controllers
 * The Infrastructure scheme runs the unit tests using Quick and Nimble for all network tests
 * The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
-* The SwiftmazingTests scheme runs all tests 
 
 The all tests can be run also using Fastlane just execute
 
