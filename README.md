@@ -34,10 +34,10 @@ A iOS application with layout based on App Store that can check the most starred
 * Unit tests
 * Snapshots Tests
 * Functional Tests
-* Travis CI integration
+<!-- * Travis CI integration
 * Codecov integration
 * Fastlane integration
-* Slather integration
+* Slather integration -->
 
 ### Prerequisites
 
@@ -70,7 +70,7 @@ For each scheme in project run some tests targets
 * The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
 
-The all tests can be run also using Fastlane just execute
+<!-- The all tests can be run also using Fastlane just execute
 
 ```
 bundle install
@@ -84,7 +84,7 @@ fastlane/slather
 ```
 
 If you want to see relatory in html, modify the ```.slather.yml``` changing key ```coverage_service``` to ```html```
-
+ -->
 
 ## Built With
 
