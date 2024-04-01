@@ -12,7 +12,7 @@ config:
 
 settings:
   base:
-    IPHONEOS_DEPLOYMENT_TARGET: 13
+    IPHONEOS_DEPLOYMENT_TARGET: 14
 
 include:
   - path: xcodegen/swiftmazing.yml

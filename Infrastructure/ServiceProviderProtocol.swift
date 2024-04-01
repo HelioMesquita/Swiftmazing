@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import PromiseKit
+import OSLog
 
 public protocol ServiceProviderProtocol {
   var urlSession: URLSession { get }
   var jsonDecoder: JSONDecoder { get }
-  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
+  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) async throws ->  T
 }
 
 extension ServiceProviderProtocol {
@@ -22,29 +22,26 @@ extension ServiceProviderProtocol {
   }
 
   public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type)
-    -> Promise<T>
+    async throws -> T
   {
-    return Promise<T> { seal in
-      urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
-        Logger.show(request: request.asURLRequest, response, data, error)
-
-        guard let statusCode = (response as? HTTPURLResponse)?.statusCode, let data = data else {
-          seal.reject(RequestError.unknownError)
-          return
-        }
-
-        if 200...299 ~= statusCode {
-          do {
-            let model = try self.jsonDecoder.decode(T.self, from: data)
-            seal.fulfill(model)
-          } catch {
-            seal.reject(RequestError.invalidParser)
-          }
-
-        } else {
-          seal.reject(self.identify(statusCode: statusCode))
-        }
-      }.resume()
+    let (data, response) = try await urlSession.data(for: request.asURLRequest)
+    
+    
+    guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+      throw RequestError.unknownError
+    }
+    
+    show(request: request.asURLRequest, response, data)
+    
+    if 200...299 ~= statusCode {
+      do {
+        let model = try self.jsonDecoder.decode(T.self, from: data)
+        return model
+      } catch {
+        throw RequestError.invalidParser
+      }
+    } else {
+      throw identify(statusCode: statusCode)
     }
   }
 
@@ -54,6 +51,42 @@ extension ServiceProviderProtocol {
     }
 
     return error
+  }
+  
+  private func show(request: URLRequest, _ response: URLResponse?, _ data: Data?) {
+    #if DEBUG
+      var requestLog = "REQUEST=================================================\n"
+      requestLog += "🎯🎯🎯 URL: \(request.url?.absoluteString ?? "")\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog += "⚒⚒⚒ HTTP METHOD: \(request.httpMethod ?? "")\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog += "📝📝📝 HEADERS: \(request.allHTTPHeaderFields ?? [:])\n"
+      requestLog += "-----------------------------------------------------------\n"
+
+      requestLog += "RESPONSE================================================\n"
+      requestLog += "⚠️⚠️⚠️ STATUS CODE: \((response as? HTTPURLResponse)?.statusCode ?? 0)\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog +=
+        "📒📒📒 HEADERS: \((response as? HTTPURLResponse)?.allHeaderFields as? [String: String] ?? [:])\n"
+      requestLog += "-----------------------------------------------------------\n"
+
+      if let dataObj = data {
+        do {
+          let json = try JSONSerialization.jsonObject(with: dataObj, options: .mutableContainers)
+          let prettyPrintedData = try JSONSerialization.data(
+            withJSONObject: json, options: .prettyPrinted)
+          requestLog +=
+            "⬇️⬇️⬇️ RESPONSE DATA: \n\(String(bytes: prettyPrintedData, encoding: .utf8) ?? "")"
+        } catch {
+          requestLog += "⬇️⬇️⬇️ RESPONSE DATA: \n\(String(data: dataObj, encoding: .utf8) ?? "")"
+        }
+        requestLog += "\n===========================================================\n"
+      }
+    
+    
+    Logger(subsystem: "infrastructure", category: "infrastructure").debug("\(requestLog)")
+
+    #endif
   }
 
 }

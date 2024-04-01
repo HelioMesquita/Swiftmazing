@@ -13,7 +13,6 @@
 // CUCKOO_TESTABLE
 
 import Infrastructure
-import PromiseKit
 import UIKit
 
 protocol FeedBusinessLogic {
