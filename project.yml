@@ -7,7 +7,6 @@ packages:
     url: "https://github.com/ashfurrow/Nimble-Snapshots.git"
     exactVersion: 9.6.1
 options:
-  postGenCommand: pod install --repo-update
   indentWidth: 2
   tabWidth: 2
   groupSortPosition: bottom

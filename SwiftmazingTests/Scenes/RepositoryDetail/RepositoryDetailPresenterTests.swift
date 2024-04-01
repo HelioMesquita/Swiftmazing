@@ -11,7 +11,7 @@ import XCTest
 @testable import Swiftmazing
 
 class RepositoryDetailPresenterTests: XCTestCase {
-  
+
   var sut: RepositoryDetailPresenter!
   var viewController: ViewControllerSpy!
   var repository: RepositoryModel!
@@ -45,7 +45,7 @@ class RepositoryDetailPresenterTests: XCTestCase {
     }
 
   }
-  
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     repository = RepositoryModel(
@@ -55,7 +55,7 @@ class RepositoryDetailPresenterTests: XCTestCase {
       description:
         "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
       issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
-    
+
     viewController = ViewControllerSpy()
     sut = RepositoryDetailPresenter()
     sut.viewController = viewController
@@ -65,7 +65,7 @@ class RepositoryDetailPresenterTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
-  
+
   func testPresentRepository() {
     sut.presentRepository(repository)
     XCTAssertTrue(viewController.showImageCalled)
@@ -74,5 +74,5 @@ class RepositoryDetailPresenterTests: XCTestCase {
     XCTAssertTrue(viewController.showDescriptionsCalled)
     XCTAssertTrue(viewController.showButtonTitleCalled)
   }
-  
+
 }

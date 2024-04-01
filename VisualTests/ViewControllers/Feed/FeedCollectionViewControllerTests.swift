@@ -6,9 +6,8 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
 import Nimble_Snapshots
-import Quick
+import XCTest
 
 @testable import Visual
 
@@ -21,40 +20,40 @@ class MockFeedCollectionViewModelProtocol: FeedCollectionViewModelProtocol {
   var images: [URL] = []
 }
 
-class FeedCollectionViewControllerTests: QuickSpec {
+class FeedCollectionViewControllerTests: XCTestCase {
 
-  override class func spec() {
+  var view: FeedCollectionViewController<MockFeedCollectionViewModelProtocol>!
 
-    var view: FeedCollectionViewController<MockFeedCollectionViewModelProtocol>!
-
-    describe("FeedCollectionViewController") {
-
-      beforeEach {
-        view = FeedCollectionViewController<MockFeedCollectionViewModelProtocol>()
-        var snapshot = NSDiffableDataSourceSnapshot<
-          FeedSection, MockFeedCollectionViewModelProtocol
-        >()
-        snapshot.appendSections([.news, .topRepos, .lastUpdated])
-        snapshot.appendItems(
-          [MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()],
-          toSection: .news)
-        snapshot.appendItems(
-          [
-            MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
-            MockFeedCollectionViewModelProtocol(),
-          ], toSection: .topRepos)
-        snapshot.appendItems(
-          [
-            MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
-            MockFeedCollectionViewModelProtocol(),
-          ], toSection: .lastUpdated)
-        view.dataSource.apply(snapshot, animatingDifferences: false)
-      }
-
-      it("returns the layout") {
-        //                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-        expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-      }
-    }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = FeedCollectionViewController<MockFeedCollectionViewModelProtocol>()
+    var snapshot = NSDiffableDataSourceSnapshot<
+      FeedSection, MockFeedCollectionViewModelProtocol
+    >()
+    snapshot.appendSections([.news, .topRepos, .lastUpdated])
+    snapshot.appendItems(
+      [MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol()],
+      toSection: .news)
+    snapshot.appendItems(
+      [
+        MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
+        MockFeedCollectionViewModelProtocol(),
+      ], toSection: .topRepos)
+    snapshot.appendItems(
+      [
+        MockFeedCollectionViewModelProtocol(), MockFeedCollectionViewModelProtocol(),
+        MockFeedCollectionViewModelProtocol(),
+      ], toSection: .lastUpdated)
+    view.dataSource.apply(snapshot, animatingDifferences: false)
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    expect(self.view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
+  }
+
 }

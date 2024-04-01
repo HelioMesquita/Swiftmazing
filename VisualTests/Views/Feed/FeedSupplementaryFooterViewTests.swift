@@ -8,26 +8,27 @@
 
 import Nimble
 import Nimble_Snapshots
-import Quick
+import XCTest
 
 @testable import Visual
 
-class FeedSupplementaryFooterViewTests: QuickSpec {
+class FeedSupplementaryFooterViewTests: XCTestCase {
 
-  override class func spec() {
+  var view: FeedSupplementaryFooterView!
 
-    describe("FeedSupplementaryFooterView") {
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = FeedSupplementaryFooterView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
 
-      var view: FeedSupplementaryFooterView!
-
-      beforeEach {
-        view = FeedSupplementaryFooterView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-      }
-
-      it("returns the layout") {
-        //                expect(view) == recordSnapshot()
-        expect(view) == snapshot()
-      }
-    }
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    expect(view) == snapshot()
+  }
+
 }

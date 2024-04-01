@@ -8,31 +8,31 @@
 
 import Nimble
 import Nimble_Snapshots
-import Quick
+import XCTest
 
 @testable import Visual
 
-class FeedRepositoryCellTests: QuickSpec {
+class FeedRepositoryCellTests: XCTestCase {
 
-  override class func spec() {
+  var view: FeedRepositoryCell!
 
-    var view: FeedRepositoryCell!
-
-    describe("FeedRepositoryCell") {
-
-      beforeEach {
-        view = FeedRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 79))
-        view.titleLabel.text = "Name label"
-        view.descriptionLabel.text = "Description Label"
-        view.imageView.image = UIImage.Design.swift
-        view.additionalInfoLabel.text = "27.1k"
-        view.supplementaryInfoLabel.text = "stars"
-      }
-
-      it("returns the layout") {
-        //                expect(view) == recordSnapshot()
-        expect(view) == snapshot()
-      }
-    }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = FeedRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 79))
+    view.titleLabel.text = "Name label"
+    view.descriptionLabel.text = "Description Label"
+    view.imageView.image = UIImage.Design.swift
+    view.additionalInfoLabel.text = "27.1k"
+    view.supplementaryInfoLabel.text = "stars"
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    expect(self.view) == snapshot()
+  }
+
 }

@@ -47,7 +47,7 @@ class ListPresenterTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    
+
     viewController = ViewControllerSpy()
     sut = ListPresenter()
     sut.viewController = viewController
@@ -57,31 +57,31 @@ class ListPresenterTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
-  
+
   func testPresentTitle() {
     sut.presentTitle("")
     XCTAssertTrue(viewController.showTitleCalled)
   }
-  
+
   func testReloadMap() {
     sut.reloadMap(RepositoriesModel(items: []).items)
     XCTAssertTrue(viewController.showReloadCalled)
 
   }
-  
+
   func testNextPageMap() {
     sut.nextPageMap(RepositoriesModel(items: []).items)
     XCTAssertTrue(viewController.showNextPageCalled)
   }
-  
+
   func testPresentDetail() {
     sut.presentDetail()
     XCTAssertTrue(viewController.showDetailCalled)
   }
-  
+
   func testPresentTryAgain() {
     sut.presentTryAgain(message: "")
     XCTAssertTrue(viewController.showTryAgainCalled)
   }
-    
+
 }

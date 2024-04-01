@@ -11,7 +11,7 @@ import XCTest
 @testable import Swiftmazing
 
 class RepositoryDetailInteractorTests: XCTestCase {
-  
+
   var sut: RepositoryDetailInteractor!
   var presenter: PresenterSpy!
   var repository: RepositoryModel!
@@ -25,7 +25,7 @@ class RepositoryDetailInteractorTests: XCTestCase {
     }
 
   }
-  
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     repository = RepositoryModel(
@@ -35,7 +35,7 @@ class RepositoryDetailInteractorTests: XCTestCase {
       description:
         "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
       issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
-    
+
     presenter = PresenterSpy()
     sut = RepositoryDetailInteractor()
     sut.presenter = presenter
@@ -45,16 +45,16 @@ class RepositoryDetailInteractorTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
-  
+
   func testWithRepository() {
     sut.repository = repository
     sut.loadScreen()
     XCTAssertTrue(presenter.presentRepositoryCalled)
   }
-  
+
   func testEmptyRepository() {
     sut.loadScreen()
     XCTAssertFalse(presenter.presentRepositoryCalled)
   }
-  
+
 }

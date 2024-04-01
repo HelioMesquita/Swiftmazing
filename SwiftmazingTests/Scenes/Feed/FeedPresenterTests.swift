@@ -11,7 +11,7 @@ import XCTest
 @testable import Swiftmazing
 
 class FeedPresenterTests: XCTestCase {
-  
+
   var sut: FeedPresenter!
   var viewController: ViewControllerSpy!
 
@@ -52,25 +52,25 @@ class FeedPresenterTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
-  
+
   func testMapResponse() {
     sut.mapResponse(RepositoriesModel(items: []), RepositoriesModel(items: []))
     XCTAssertTrue(viewController.showCalled)
   }
-  
+
   func testPresentTryAgain() {
     sut.presentTryAgain(message: "")
     XCTAssertTrue(viewController.showTryAgainCalled)
   }
-  
+
   func testPresentList() {
     sut.presentList()
     XCTAssertTrue(viewController.showListCalled)
   }
-  
+
   func testPresentDetail() {
     sut.presentDetail()
     XCTAssertTrue(viewController.showDetailCalled)
   }
-  
+
 }

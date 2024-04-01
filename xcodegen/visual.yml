@@ -24,3 +24,6 @@ targets:
       base:
         INFOPLIST_FILE: VisualTests/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.visualtests
+    dependencies:
+      - package: SDWebImage
+      - package: Nimble-Snapshots

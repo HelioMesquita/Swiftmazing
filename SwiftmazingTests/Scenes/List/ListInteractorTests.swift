@@ -11,7 +11,7 @@ import XCTest
 @testable import Swiftmazing
 
 class ListInteractorTests: XCTestCase {
-  
+
   var sut: ListInteractor!
   var presenter: PresenterSpy!
   var worker: RepositoriesWorkerSpy!
@@ -47,7 +47,7 @@ class ListInteractorTests: XCTestCase {
     }
 
   }
-  
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     repositories = RepositoriesModel(items: []).items
@@ -58,25 +58,25 @@ class ListInteractorTests: XCTestCase {
     sut = ListInteractor(worker: worker)
     sut.presenter = presenter
   }
-  
+
   override func tearDownWithError() throws {
     sut = nil
     try super.tearDownWithError()
   }
-  
+
   func testLoadScreen() {
     sut.loadScreen()
     XCTAssertTrue(presenter.presentTitleCalled)
     XCTAssertTrue(presenter.reloadMapCalled)
   }
-  
+
   func testReloadRepositoriesOnSuccess() {
     sut.reloadRepositories()
     sut.handleReloadSuccess(RepositoriesModel(items: []))
     XCTAssertEqual(sut.currentPage, 1)
     XCTAssertTrue(presenter.reloadMapCalled)
   }
-  
+
   func testReloadRepositoriesOnFailure() {
     worker.isSuccess = false
     sut.reloadRepositories()
@@ -84,21 +84,21 @@ class ListInteractorTests: XCTestCase {
     XCTAssertEqual(sut.currentPage, 1)
     XCTAssertTrue(presenter.presentTryAgainCalled)
   }
-  
+
   func testRepositySelected() {
     sut.repositorySelected(repository)
     XCTAssertTrue(sut.selectedRepository === repository)
     XCTAssertTrue(presenter.presentDetailCalled)
   }
-  
+
   func testPrefetchNextPage() {
     sut.prefetchNextPage(index: 5)
     XCTAssertEqual(sut.currentPage, 1)
   }
-  
+
   func testPrefetchNextPageOnSuccess() {
     sut.prefetchNextPage(index: 9)
     XCTAssertEqual(sut.currentPage, 2)
   }
-  
+
 }
