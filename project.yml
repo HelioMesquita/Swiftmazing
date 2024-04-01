@@ -1,5 +1,11 @@
 name: Swiftmazing
-
+packages:
+  SDWebImage:
+    url: "https://github.com/SDWebImage/SDWebImage.git"
+    exactVersion: 5.19.1
+  Nimble-Snapshots:
+    url: "https://github.com/ashfurrow/Nimble-Snapshots.git"
+    exactVersion: 9.6.1
 options:
   postGenCommand: pod install --repo-update
   indentWidth: 2
@@ -8,15 +14,12 @@ options:
   xcodeVersion: 0800
   groupOrdering: 
     - order: [Swiftmazing, SwiftmazingTests, SwiftmazingFunctionalTests, Infrastructure, InfrastructureTests, Visual, VisualTests]
-
 config:
   debug: debug
   release: release
-
 settings:
   base:
     IPHONEOS_DEPLOYMENT_TARGET: 14
-
 include:
   - path: xcodegen/swiftmazing.yml
     relativePaths: false

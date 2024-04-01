@@ -2,28 +2,24 @@ targets:
   Visual:
     type: framework
     platform: iOS
-
     sources:
       - path: Visual
-
     settings:
       base:
         INFOPLIST_FILE: Visual/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.visual
-
+    dependencies:
+      - package: SDWebImage
     scheme:
       testTargets:
         - VisualTests
-
   VisualTests:
     type: bundle.unit-test
     platform: iOS
-
     sources:
       - path: VisualTests
         excludes:
         - "/ReferenceImages"
-
     settings:
       base:
         INFOPLIST_FILE: VisualTests/Info.plist
