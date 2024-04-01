@@ -57,13 +57,13 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     }
   }
 
-  private func handleSuccess(
+  func handleSuccess(
     _ topRepoResponse: RepositoriesModel, _ lastUpdatedResponse: RepositoriesModel
   ) {
     presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
   }
 
-  private func handleError(_ error: Error) {
+  func handleError(_ error: Error) {
     presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
   }
 

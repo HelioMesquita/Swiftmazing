@@ -9,7 +9,6 @@
 import Nimble
 import Quick
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
 class ListPresenterTests: QuickSpec {
@@ -69,7 +68,7 @@ class ListPresenterTests: QuickSpec {
     }
     describe("reloadMap") {
       beforeEach {
-        sut.reloadMap(Repositories().items)
+        sut.reloadMap(RepositoriesModel(items: []).items)
       }
 
       it("calls to reload screen") {
@@ -79,7 +78,7 @@ class ListPresenterTests: QuickSpec {
 
     describe("nextPageMap") {
       beforeEach {
-        sut.nextPageMap(Repositories().items)
+        sut.nextPageMap(RepositoriesModel(items: []).items)
       }
 
       it("calls to show next page") {

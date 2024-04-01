@@ -9,7 +9,6 @@
 import Nimble
 import Quick
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
 class FeedPresenterTests: QuickSpec {
@@ -54,7 +53,7 @@ class FeedPresenterTests: QuickSpec {
 
     describe("#mapResponse") {
       beforeEach {
-        sut.mapResponse(Repositories(), Repositories())
+        sut.mapResponse(RepositoriesModel(items: []), RepositoriesModel(items: []))
       }
 
       context("when has received the request") {

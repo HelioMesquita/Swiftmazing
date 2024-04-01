@@ -9,21 +9,18 @@
 import Nimble
 import Quick
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
 class ListInteractorTests: QuickSpec {
 
   override class func spec() {
     super.spec()
-    PromiseKit.conf.Q.map = nil
-    PromiseKit.conf.Q.return = nil
 
     var sut: ListInteractor!
     var presenter: PresenterSpy!
     var worker: RepositoriesWorkerSpy!
-    var repositories: [Repository]!
-    var repository: Repository!
+    var repositories: [RepositoryModel]!
+    var repository: RepositoryModel!
 
     class PresenterSpy: ListPresentationLogic {
 
@@ -37,11 +34,11 @@ class ListInteractorTests: QuickSpec {
         presentTitleCalled = true
       }
 
-      func reloadMap(_ repositories: [Repository]) {
+      func reloadMap(_ repositories: [RepositoryModel]) {
         reloadMapCalled = true
       }
 
-      func nextPageMap(_ repositories: [Repository]) {
+      func nextPageMap(_ repositories: [RepositoryModel]) {
         nextPageMapCalled = true
       }
 
@@ -56,8 +53,8 @@ class ListInteractorTests: QuickSpec {
     }
 
     beforeEach {
-      repositories = Repositories().items
-      repository = Repositories().items.first
+      repositories = RepositoriesModel(items: []).items
+      repository = RepositoriesModel(items: []).items.first
 
       worker = RepositoriesWorkerSpy()
       presenter = PresenterSpy()

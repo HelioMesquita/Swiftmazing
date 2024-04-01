@@ -32,8 +32,6 @@ targets:
         - Swiftmazing
       testTargets:
         - SwiftmazingTests
-        - VisualTests
-        - InfrastructureTests
 
   SwiftmazingTests:
     type: bundle.unit-test

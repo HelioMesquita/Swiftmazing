@@ -6,148 +6,93 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
-class FeedInteractorTests: QuickSpec {
+class FeedInteractorTests: XCTestCase {
 
-  override class func spec() {
-    super.spec()
-    PromiseKit.conf.Q.map = nil
-    PromiseKit.conf.Q.return = nil
+  class PresenterSpy: FeedPresentationLogic {
 
-    var sut: FeedInteractor!
-    var presenter: PresenterSpy!
-    var worker: RepositoriesWorkerSpy!
-    var repositories: [Repository]!
-    var repository: Repository!
+    var mapResponseCalled = false
+    var presentListCalled = false
+    var presentDetailCalled = false
+    var presentTryAgainCalled = false
 
-    class PresenterSpy: FeedPresentationLogic {
-
-      var mapResponseCalled = false
-      var presentListCalled = false
-      var presentDetailCalled = false
-      var presentTryAgainCalled = false
-
-      func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
-        mapResponseCalled = true
-      }
-
-      func presentList() {
-        presentListCalled = true
-      }
-
-      func presentDetail() {
-        presentDetailCalled = true
-      }
-
-      func presentTryAgain(message: String) {
-        presentTryAgainCalled = true
-      }
-
+    func mapResponse(_ topRepoResponse: RepositoriesModel, _ mostRecentResponse: RepositoriesModel)
+    {
+      mapResponseCalled = true
     }
 
-    beforeEach {
-      repositories = Repositories().items
-      repository = Repositories().items.first
-
-      worker = RepositoriesWorkerSpy()
-      presenter = PresenterSpy()
-      sut = FeedInteractor(worker: worker)
-      sut.presenter = presenter
+    func presentList() {
+      presentListCalled = true
     }
 
-    describe("#loadScreen") {
-      context("when successful request") {
-        beforeEach {
-          sut.loadScreen()
-        }
-
-        it("calls to presenter map the response") {
-          expect(presenter.mapResponseCalled).to(beTrue())
-        }
-      }
-
-      context("when unsuccessful request") {
-        beforeEach {
-          worker.isSuccess = false
-          sut.loadScreen()
-        }
-
-        it("presents try again") {
-          expect(presenter.presentTryAgainCalled).to(beTrue())
-        }
-      }
+    func presentDetail() {
+      presentDetailCalled = true
     }
 
-    describe("#repositorySelected") {
-      context("when is selected a repository cell") {
-        beforeEach {
-          sut.repositorySelected(repository)
-        }
-
-        it("saves the selected repository") {
-          expect(sut.selectedRepository) === repository
-
-        }
-
-        it("calls to presenter show the detail") {
-          expect(presenter.presentDetailCalled).to(beTrue())
-        }
-      }
+    func presentTryAgain(message: String) {
+      presentTryAgainCalled = true
     }
 
-    describe("#topRepoListSelected") {
-      context("when is selected a news cell or see more") {
-        beforeEach {
-          sut.topRepoListSelected(repositories, title: "title")
-        }
+  }
 
-        it("saves the repositories") {
-          expect(sut.listRepositories.first) === repositories.first
-        }
+  var sut: FeedInteractor!
+  var presenter: PresenterSpy!
+  var worker: RepositoriesWorkerSpy!
+  var repositories: [RepositoryModel]!
+  var repository: RepositoryModel!
 
-        it("saves the filter selected") {
-          expect(sut.listFilter).to(equal(.stars))
-        }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    repository = RepositoryModel(
+      name: "swiftmazing", stars: 100,
+      owner: RepositoryOwnerModel(
+        name: "Helio Mesquita", avatar: URL(string: "www.google.com.br")!),
+      description:
+        "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
+      issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
 
-        it("saves the title") {
-          expect(sut.listTitle).to(equal("title"))
-        }
+    worker = RepositoriesWorkerSpy()
+    presenter = PresenterSpy()
+    sut = FeedInteractor(worker: worker)
+    sut.presenter = presenter
+  }
 
-        it("calls to presenter show the list") {
-          expect(presenter.presentListCalled).to(beTrue())
-        }
-      }
-    }
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
 
-    describe("#lastUpdatedListSelected") {
-      context("when is selected a news cell or see more") {
-        beforeEach {
-          sut.lastUpdatedListSelected(repositories, title: "title")
-        }
+  func testLoadScreenOnSuccess() {
+    sut.handleSuccess(RepositoriesModel(items: []), RepositoriesModel(items: []))
+    XCTAssertTrue(presenter.mapResponseCalled)
+  }
 
-        it("saves the repositories") {
-          expect(sut.listRepositories.first) === repositories.first
-        }
+  func testLoadScreenOnFailure() {
+    sut.handleError(NSError(domain: "", code: 0))
+    XCTAssertFalse(presenter.mapResponseCalled)
+  }
 
-        it("saves the filter selected") {
-          expect(sut.listFilter).to(equal(.updated))
-        }
+  func testRepositorySelected() {
+    sut.repositorySelected(repository)
+    XCTAssertTrue(sut.selectedRepository === repository)
+    XCTAssertTrue(presenter.presentDetailCalled)
+  }
 
-        it("saves the title") {
-          expect(sut.listTitle).to(equal("title"))
-        }
+  func testTopRepoListSelected() {
+    sut.topRepoListSelected([repository], title: "title")
+    XCTAssertTrue(sut.listRepositories.first === repository)
+    XCTAssertTrue(sut.listFilter == .stars)
+    XCTAssertTrue(sut.listTitle == "title")
+  }
 
-        it("calls to presenter show the list") {
-          expect(presenter.presentListCalled).to(beTrue())
-        }
-      }
-    }
-
+  func testLastUpdatedListSelected() {
+    sut.lastUpdatedListSelected([repository], title: "title")
+    XCTAssertTrue(sut.listRepositories.first === repository)
+    XCTAssertTrue(sut.listFilter == .updated)
+    XCTAssertTrue(sut.listTitle == "title")
   }
 
 }

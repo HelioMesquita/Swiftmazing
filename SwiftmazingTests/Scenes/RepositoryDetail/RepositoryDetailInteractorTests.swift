@@ -6,63 +6,55 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
-class RepositoryDetailInteractorTests: QuickSpec {
+class RepositoryDetailInteractorTests: XCTestCase {
+  
+  var sut: RepositoryDetailInteractor!
+  var presenter: PresenterSpy!
+  var repository: RepositoryModel!
 
-  override class func spec() {
-    super.spec()
-    PromiseKit.conf.Q.map = nil
-    PromiseKit.conf.Q.return = nil
+  class PresenterSpy: RepositoryDetailPresentationLogic {
 
-    var sut: RepositoryDetailInteractor!
-    var presenter: PresenterSpy!
-    var repository: Repository!
+    var presentRepositoryCalled = false
 
-    class PresenterSpy: RepositoryDetailPresentationLogic {
-
-      var presentRepositoryCalled = false
-
-      func presentRepository(_ repository: Repository) {
-        presentRepositoryCalled = true
-      }
-
+    func presentRepository(_ repository: RepositoryModel) {
+      presentRepositoryCalled = true
     }
 
-    beforeEach {
-      repository = Repositories().items.first
-
-      presenter = PresenterSpy()
-      sut = RepositoryDetailInteractor()
-      sut.presenter = presenter
-    }
-
-    describe("#loadScreen") {
-      context("when repository is not nil") {
-        beforeEach {
-          sut.repository = repository
-          sut.loadScreen()
-        }
-
-        it("calls to presenter map the response") {
-          expect(presenter.presentRepositoryCalled).to(beTrue())
-        }
-      }
-
-      context("when repository is nil") {
-        beforeEach {
-          sut.loadScreen()
-        }
-
-        it("presents try again") {
-          expect(presenter.presentRepositoryCalled).to(beFalse())
-        }
-      }
-    }
+  }
+  
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    repository = RepositoryModel(
+      name: "swiftmazing", stars: 100,
+      owner: RepositoryOwnerModel(
+        name: "Helio Mesquita", avatar: URL(string: "www.google.com.br")!),
+      description:
+        "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
+      issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
+    
+    presenter = PresenterSpy()
+    sut = RepositoryDetailInteractor()
+    sut.presenter = presenter
   }
 
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+  
+  func testWithRepository() {
+    sut.repository = repository
+    sut.loadScreen()
+    XCTAssertTrue(presenter.presentRepositoryCalled)
+  }
+  
+  func testEmptyRepository() {
+    sut.loadScreen()
+    XCTAssertFalse(presenter.presentRepositoryCalled)
+  }
+  
 }
