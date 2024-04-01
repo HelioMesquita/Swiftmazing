@@ -6,172 +6,99 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
 @testable import Swiftmazing
 
-class ListInteractorTests: QuickSpec {
+class ListInteractorTests: XCTestCase {
+  
+  var sut: ListInteractor!
+  var presenter: PresenterSpy!
+  var worker: RepositoriesWorkerSpy!
+  var repositories: [RepositoryModel]!
+  var repository: RepositoryModel!
 
-  override class func spec() {
-    super.spec()
+  class PresenterSpy: ListPresentationLogic {
 
-    var sut: ListInteractor!
-    var presenter: PresenterSpy!
-    var worker: RepositoriesWorkerSpy!
-    var repositories: [RepositoryModel]!
-    var repository: RepositoryModel!
+    var presentTitleCalled: Bool = false
+    var reloadMapCalled: Bool = false
+    var nextPageMapCalled: Bool = false
+    var presentDetailCalled: Bool = false
+    var presentTryAgainCalled: Bool = false
 
-    class PresenterSpy: ListPresentationLogic {
-
-      var presentTitleCalled: Bool = false
-      var reloadMapCalled: Bool = false
-      var nextPageMapCalled: Bool = false
-      var presentDetailCalled: Bool = false
-      var presentTryAgainCalled: Bool = false
-
-      func presentTitle(_ title: String) {
-        presentTitleCalled = true
-      }
-
-      func reloadMap(_ repositories: [RepositoryModel]) {
-        reloadMapCalled = true
-      }
-
-      func nextPageMap(_ repositories: [RepositoryModel]) {
-        nextPageMapCalled = true
-      }
-
-      func presentDetail() {
-        presentDetailCalled = true
-      }
-
-      func presentTryAgain(message: String) {
-        presentTryAgainCalled = true
-      }
-
+    func presentTitle(_ title: String) {
+      presentTitleCalled = true
     }
 
-    beforeEach {
-      repositories = RepositoriesModel(items: []).items
-      repository = RepositoriesModel(items: []).items.first
-
-      worker = RepositoriesWorkerSpy()
-      presenter = PresenterSpy()
-      sut = ListInteractor(worker: worker)
-      sut.presenter = presenter
+    func reloadMap(_ repositories: [RepositoryModel]) {
+      reloadMapCalled = true
     }
 
-    describe("#loadScreen") {
-      context("when the screen loads") {
-        beforeEach {
-          sut.loadScreen()
-        }
-
-        it("calls to presenter show the title") {
-          expect(presenter.presentTitleCalled).to(beTrue())
-        }
-
-        it("calls to presenter map the response") {
-          expect(presenter.reloadMapCalled).to(beTrue())
-        }
-      }
+    func nextPageMap(_ repositories: [RepositoryModel]) {
+      nextPageMapCalled = true
     }
 
-    describe("#reloadRepositories") {
-      context("when is pulled to refresh") {
-        context("perform the request") {
-          context("successful request") {
-            beforeEach {
-              sut.reloadRepositories()
-            }
-
-            it("sets the current page to 1") {
-              expect(sut.currentPage).to(equal(1))
-            }
-
-            it("calls to presenter map the response") {
-              expect(presenter.reloadMapCalled).to(beTrue())
-            }
-          }
-
-          context("unsuccessful request") {
-            beforeEach {
-              worker.isSuccess = false
-              sut.reloadRepositories()
-            }
-
-            it("sets the current page to 1") {
-              expect(sut.currentPage).to(equal(1))
-            }
-
-            it("presents try again") {
-              expect(presenter.presentTryAgainCalled).to(beTrue())
-            }
-          }
-        }
-
-      }
+    func presentDetail() {
+      presentDetailCalled = true
     }
 
-    describe("#repositorySelected") {
-      context("when is selected a repository cell") {
-        beforeEach {
-          sut.repositorySelected(repository)
-        }
-
-        it("saves the selected repository") {
-          expect(sut.selectedRepository) === repository
-
-        }
-
-        it("calls to presenter show the detail") {
-          expect(presenter.presentDetailCalled).to(beTrue())
-        }
-      }
-    }
-
-    describe("#prefetchNextPage") {
-      context("when the list is in the middle") {
-        beforeEach {
-          sut.prefetchNextPage(index: 5)
-        }
-        it("does not get to next page") {
-          expect(presenter.nextPageMapCalled).to(beFalse())
-        }
-      }
-
-      context("when finished the list") {
-        context("perform the request") {
-          context("successful request") {
-            beforeEach {
-              sut.prefetchNextPage(index: 9)
-            }
-
-            it("calls to presenter map the response") {
-              expect(presenter.nextPageMapCalled).to(beTrue())
-            }
-
-            it("increases the current page by one") {
-              expect(sut.currentPage).to(equal(2))
-            }
-          }
-
-          context("unsuccessful request") {
-            beforeEach {
-              worker.isSuccess = false
-              sut.prefetchNextPage(index: 9)
-            }
-
-            it("presents try again") {
-              expect(presenter.presentTryAgainCalled).to(beTrue())
-            }
-          }
-        }
-
-      }
+    func presentTryAgain(message: String) {
+      presentTryAgainCalled = true
     }
 
   }
+  
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    repositories = RepositoriesModel(items: []).items
+    repository = RepositoriesModel(items: []).items.first
 
+    worker = RepositoriesWorkerSpy()
+    presenter = PresenterSpy()
+    sut = ListInteractor(worker: worker)
+    sut.presenter = presenter
+  }
+  
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+  
+  func testLoadScreen() {
+    sut.loadScreen()
+    XCTAssertTrue(presenter.presentTitleCalled)
+    XCTAssertTrue(presenter.reloadMapCalled)
+  }
+  
+  func testReloadRepositoriesOnSuccess() {
+    sut.reloadRepositories()
+    sut.handleReloadSuccess(RepositoriesModel(items: []))
+    XCTAssertEqual(sut.currentPage, 1)
+    XCTAssertTrue(presenter.reloadMapCalled)
+  }
+  
+  func testReloadRepositoriesOnFailure() {
+    worker.isSuccess = false
+    sut.reloadRepositories()
+    sut.handleError(NSError(domain: "", code: 0))
+    XCTAssertEqual(sut.currentPage, 1)
+    XCTAssertTrue(presenter.presentTryAgainCalled)
+  }
+  
+  func testRepositySelected() {
+    sut.repositorySelected(repository)
+    XCTAssertTrue(sut.selectedRepository === repository)
+    XCTAssertTrue(presenter.presentDetailCalled)
+  }
+  
+  func testPrefetchNextPage() {
+    sut.prefetchNextPage(index: 5)
+    XCTAssertEqual(sut.currentPage, 1)
+  }
+  
+  func testPrefetchNextPageOnSuccess() {
+    sut.prefetchNextPage(index: 9)
+    XCTAssertEqual(sut.currentPage, 2)
+  }
+  
 }

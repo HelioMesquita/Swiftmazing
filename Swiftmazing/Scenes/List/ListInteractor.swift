@@ -67,7 +67,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func handleReloadSuccess(_ repositories: RepositoriesModel) {
+  func handleReloadSuccess(_ repositories: RepositoriesModel) {
     presenter?.reloadMap(repositories.items)
   }
 
@@ -84,7 +84,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func loadNextPage() {
+  func loadNextPage() {
     currentPage += 1
     Task { @MainActor in
       do {
@@ -96,11 +96,11 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func handleNextSuccess(_ repositories: RepositoriesModel) {
+  func handleNextSuccess(_ repositories: RepositoriesModel) {
     presenter?.nextPageMap(repositories.items)
   }
 
-  private func handleError(_ error: Error) {
+  func handleError(_ error: Error) {
     presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
   }
 
