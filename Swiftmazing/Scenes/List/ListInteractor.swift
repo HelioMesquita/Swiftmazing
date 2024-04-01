@@ -57,8 +57,14 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
   func reloadRepositories() {
     currentPage = 1
-    worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).catch(
-      handleError)
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleReloadSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
+    }
   }
 
   private func handleReloadSuccess(_ repositories: Repositories) {
@@ -80,8 +86,14 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
   private func loadNextPage() {
     currentPage += 1
-    worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).catch(
-      handleError)
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleNextSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
+    }
   }
 
   private func handleNextSuccess(_ repositories: Repositories) {

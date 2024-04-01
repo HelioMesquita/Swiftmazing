@@ -18,6 +18,7 @@ public enum RequestError: Int, Error, LocalizedError, Equatable {
   case unauthorized = 401
   case forbidden = 403
   case notFound = 404
+  case serverError = 500
 
   public var localizedDescription: String {
     return Text(rawValue: String(describing: self))?.value ?? ""

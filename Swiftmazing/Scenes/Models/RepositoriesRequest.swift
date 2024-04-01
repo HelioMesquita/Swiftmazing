@@ -15,7 +15,7 @@ enum Filter: String {
   case none = ""
 }
 
-class RepositoriesRequest: RequestProviderProtocol {
+class RepositoriesProvider: RequestProviderProtocol {
 
   static let itemsPerPage: Int = 10
   var httpVerb: HttpVerbs = .GET
@@ -27,7 +27,7 @@ class RepositoriesRequest: RequestProviderProtocol {
     return [
       URLQueryItem(name: "q", value: "language:swift"),
       URLQueryItem(name: "sort", value: filter.rawValue),
-      URLQueryItem(name: "per_page", value: "\(RepositoriesRequest.itemsPerPage)"),
+      URLQueryItem(name: "per_page", value: "\(RepositoriesProvider.itemsPerPage)"),
       URLQueryItem(name: "page", value: "\(page)"),
     ]
   }

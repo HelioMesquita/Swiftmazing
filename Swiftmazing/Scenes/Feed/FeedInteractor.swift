@@ -45,10 +45,16 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
   }
 
   func loadScreen() {
-    let topRepo = worker.getRepositories(with: .stars)
-    let lastUpdated = worker.getRepositories(with: .updated)
-
-    when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
+    Task { @MainActor in
+      do {
+        async let topRepo = worker.getRepositories(with: .stars)
+        async let lastUpdated = worker.getRepositories(with: .updated)
+        let (topRepoData, lastUpdatedData) = try await (topRepo, lastUpdated)
+        handleSuccess(topRepoData, lastUpdatedData)
+      } catch {
+        handleError(error)
+      }
+    }
   }
 
   private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {

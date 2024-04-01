@@ -4,7 +4,10 @@ options:
   postGenCommand: pod install --repo-update
   indentWidth: 2
   tabWidth: 2
+  groupSortPosition: bottom
   xcodeVersion: 0800
+  groupOrdering: 
+    - order: [Swiftmazing, SwiftmazingTests, SwiftmazingFunctionalTests, Infrastructure, InfrastructureTests, Visual, VisualTests]
 
 config:
   debug: debug

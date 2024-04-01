@@ -12,7 +12,8 @@ import OSLog
 public protocol ServiceProviderProtocol {
   var urlSession: URLSession { get }
   var jsonDecoder: JSONDecoder { get }
-  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) async throws ->  T
+  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) async throws
+    -> T
 }
 
 extension ServiceProviderProtocol {
@@ -25,14 +26,13 @@ extension ServiceProviderProtocol {
     async throws -> T
   {
     let (data, response) = try await urlSession.data(for: request.asURLRequest)
-    
-    
+
     guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
       throw RequestError.unknownError
     }
-    
+
     show(request: request.asURLRequest, response, data)
-    
+
     if 200...299 ~= statusCode {
       do {
         let model = try self.jsonDecoder.decode(T.self, from: data)
@@ -52,7 +52,7 @@ extension ServiceProviderProtocol {
 
     return error
   }
-  
+
   private func show(request: URLRequest, _ response: URLResponse?, _ data: Data?) {
     #if DEBUG
       var requestLog = "REQUEST=================================================\n"
@@ -82,9 +82,8 @@ extension ServiceProviderProtocol {
         }
         requestLog += "\n===========================================================\n"
       }
-    
-    
-    Logger(subsystem: "infrastructure", category: "infrastructure").debug("\(requestLog)")
+
+      Logger(subsystem: "infrastructure", category: "infrastructure").debug("\(requestLog)")
 
     #endif
   }
