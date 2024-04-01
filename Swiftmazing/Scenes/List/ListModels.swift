@@ -18,7 +18,7 @@ enum List {
   class MapRepoViewModel {
     var items: [ListCellViewModel]
 
-    init(repositories: [Repository]) {
+    init(repositories: [RepositoryModel]) {
       items = repositories.compactMap { ListCellViewModel(repository: $0) }
     }
   }
@@ -31,9 +31,9 @@ enum List {
     var supplementaryInfo: String
     var image: URL?
 
-    var repository: Repository?
+    var repository: RepositoryModel?
 
-    init(repository: Repository, supplementaryInfo: String = Text.stars.value) {
+    init(repository: RepositoryModel, supplementaryInfo: String = Text.stars.value) {
       self.title = repository.name
       self.subtitle = repository.owner.name
       self.description = repository.description ?? ""

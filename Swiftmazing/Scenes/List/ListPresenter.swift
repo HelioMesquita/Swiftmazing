@@ -16,8 +16,8 @@ import UIKit
 
 protocol ListPresentationLogic {
   func presentTitle(_ title: String)
-  func reloadMap(_ repositories: [Repository])
-  func nextPageMap(_ repositories: [Repository])
+  func reloadMap(_ repositories: [RepositoryModel])
+  func nextPageMap(_ repositories: [RepositoryModel])
   func presentDetail()
   func presentTryAgain(message: String)
 }
@@ -26,12 +26,12 @@ class ListPresenter: ListPresentationLogic {
 
   weak var viewController: ListDisplayLogic?
 
-  func reloadMap(_ repositories: [Repository]) {
+  func reloadMap(_ repositories: [RepositoryModel]) {
     let items = List.MapRepoViewModel(repositories: repositories).items
     viewController?.showReload(with: items)
   }
 
-  func nextPageMap(_ repositories: [Repository]) {
+  func nextPageMap(_ repositories: [RepositoryModel]) {
     let items = List.MapRepoViewModel(repositories: repositories).items
     viewController?.showNextPage(with: items)
   }

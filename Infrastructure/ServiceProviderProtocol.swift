@@ -12,8 +12,10 @@ import OSLog
 public protocol ServiceProviderProtocol {
   var urlSession: URLSession { get }
   var jsonDecoder: JSONDecoder { get }
-  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) async throws
-    -> T
+  func execute<BuilderType: BuilderProviderProtocol>(
+    request: RequestProviderProtocol, builder: BuilderType
+  ) async throws
+    -> BuilderType.ModelType
 }
 
 extension ServiceProviderProtocol {
@@ -22,8 +24,10 @@ extension ServiceProviderProtocol {
     return JSONDecoder()
   }
 
-  public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type)
-    async throws -> T
+  public func execute<BuilderType: BuilderProviderProtocol>(
+    request: RequestProviderProtocol, builder: BuilderType
+  )
+    async throws -> BuilderType.ModelType
   {
     let (data, response) = try await urlSession.data(for: request.asURLRequest)
 
@@ -35,8 +39,8 @@ extension ServiceProviderProtocol {
 
     if 200...299 ~= statusCode {
       do {
-        let model = try self.jsonDecoder.decode(T.self, from: data)
-        return model
+        let response = try self.jsonDecoder.decode(BuilderType.ResponseType.self, from: data)
+        return try builder.build(response: response)
       } catch {
         throw RequestError.invalidParser
       }

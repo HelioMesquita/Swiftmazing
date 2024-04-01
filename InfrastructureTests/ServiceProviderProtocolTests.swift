@@ -18,7 +18,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         }
     """.data(using: .utf8)!
 
-  struct BodyParser: RequestDecodable {
+  struct ValidParser: RequestDecodable {
     let body: String
 
     init() {
@@ -32,6 +32,24 @@ class ServiceProviderProtocolTests: XCTestCase {
     init() {
       corpo = ""
     }
+  }
+
+  struct ValidBuilder: BuilderProviderProtocol {
+    func build(response: ServiceProviderProtocolTests.ValidParser) throws
+      -> ServiceProviderProtocolTests.ValidParser
+    {
+      return response
+    }
+
+  }
+
+  struct InvalidBuilder: BuilderProviderProtocol {
+    func build(response: ServiceProviderProtocolTests.InvalidParser) throws
+      -> ServiceProviderProtocolTests.ValidParser
+    {
+      return ValidParser()
+    }
+
   }
 
   var mockURLSession: URLSession!
@@ -60,7 +78,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession()
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        let response = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        let response = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
         XCTAssertEqual(response.body, "body123")
         expectation.fulfill()
       } catch {
@@ -78,7 +96,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
         _ = try await subject.execute(
-          request: MockProvider(), parser: InvalidParser.self)
+          request: MockProvider(), builder: InvalidBuilder())
 
         XCTFail()
       } catch {
@@ -96,7 +114,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 400)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {
@@ -115,7 +133,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 401)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {
@@ -134,7 +152,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 403)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {
@@ -153,7 +171,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 404)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {
@@ -172,7 +190,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 500)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {
@@ -190,7 +208,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         generateMockURLSession(statusCode: 999)
         let subject = ServiceProvider(customURLSession: mockURLSession)
 
-        _ = try await subject.execute(request: MockProvider(), parser: BodyParser.self)
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
 
         XCTFail()
       } catch {

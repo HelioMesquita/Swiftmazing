@@ -18,15 +18,15 @@ import UIKit
 protocol ListBusinessLogic {
   func loadScreen()
   func reloadRepositories()
-  func repositorySelected(_ repository: Repository?)
+  func repositorySelected(_ repository: RepositoryModel?)
   func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
-  var selectedRepository: Repository? { get set }
+  var selectedRepository: RepositoryModel? { get set }
   var listFilter: Filter { get set }
   var listTitle: String { get set }
-  var listRepositories: [Repository] { get set }
+  var listRepositories: [RepositoryModel] { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
@@ -37,10 +37,10 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
   var currentPage: Int = 1
 
   // MARK: DATASTORE
-  var selectedRepository: Repository?
+  var selectedRepository: RepositoryModel?
   var listTitle: String = ""
   var listFilter: Filter = .none
-  var listRepositories: [Repository] = []
+  var listRepositories: [RepositoryModel] = []
 
   init(
     worker: RepositoriesWorker = RepositoriesWorker(),
@@ -67,11 +67,11 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func handleReloadSuccess(_ repositories: Repositories) {
+  private func handleReloadSuccess(_ repositories: RepositoriesModel) {
     presenter?.reloadMap(repositories.items)
   }
 
-  func repositorySelected(_ repository: Repository?) {
+  func repositorySelected(_ repository: RepositoryModel?) {
     selectedRepository = repository
     presenter?.presentDetail()
   }
@@ -96,7 +96,7 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func handleNextSuccess(_ repositories: Repositories) {
+  private func handleNextSuccess(_ repositories: RepositoriesModel) {
     presenter?.nextPageMap(repositories.items)
   }
 

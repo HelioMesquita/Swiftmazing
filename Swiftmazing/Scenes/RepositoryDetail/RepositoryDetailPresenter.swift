@@ -15,14 +15,14 @@
 import UIKit
 
 protocol RepositoryDetailPresentationLogic {
-  func presentRepository(_ repository: Repository)
+  func presentRepository(_ repository: RepositoryModel)
 }
 
 class RepositoryDetailPresenter: RepositoryDetailPresentationLogic {
 
   weak var viewController: RepositoryDetailDisplayLogic?
 
-  func presentRepository(_ repository: Repository) {
+  func presentRepository(_ repository: RepositoryModel) {
     viewController?.showImage(repository.owner.avatar)
     viewController?.showTitle(repository.name)
     viewController?.showAuthor(repository.owner.name)

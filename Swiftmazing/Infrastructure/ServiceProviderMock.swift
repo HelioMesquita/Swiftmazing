@@ -8,7 +8,6 @@
 
 import Foundation
 import Infrastructure
-import PromiseKit
 
 class ServiceProvider: ServiceProviderProtocol {
 
@@ -22,9 +21,8 @@ class ServiceProvider: ServiceProviderProtocol {
     return decoder
   }
 
-  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
-  {
-    return .value(T.init())
+  func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> T {
+    return T.init()
   }
 
 }

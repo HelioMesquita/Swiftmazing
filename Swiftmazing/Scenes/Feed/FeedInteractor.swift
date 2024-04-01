@@ -17,16 +17,16 @@ import UIKit
 
 protocol FeedBusinessLogic {
   func loadScreen()
-  func repositorySelected(_ repository: Repository?)
-  func topRepoListSelected(_ repositories: [Repository], title: String)
-  func lastUpdatedListSelected(_ repositories: [Repository], title: String)
+  func repositorySelected(_ repository: RepositoryModel?)
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String)
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String)
 }
 
 protocol FeedDataStore {
-  var selectedRepository: Repository? { get set }
+  var selectedRepository: RepositoryModel? { get set }
   var listTitle: String { get set }
   var listFilter: Filter { get set }
-  var listRepositories: [Repository] { get set }
+  var listRepositories: [RepositoryModel] { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
@@ -37,8 +37,8 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
   // MARK: DATASTORE
   var listTitle: String = ""
   var listFilter: Filter = .none
-  var listRepositories: [Repository] = []
-  var selectedRepository: Repository?
+  var listRepositories: [RepositoryModel] = []
+  var selectedRepository: RepositoryModel?
 
   init(worker: RepositoriesWorker = RepositoriesWorker()) {
     self.worker = worker
@@ -57,7 +57,9 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     }
   }
 
-  private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
+  private func handleSuccess(
+    _ topRepoResponse: RepositoriesModel, _ lastUpdatedResponse: RepositoriesModel
+  ) {
     presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
   }
 
@@ -65,19 +67,19 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
   }
 
-  func repositorySelected(_ repository: Repository?) {
+  func repositorySelected(_ repository: RepositoryModel?) {
     selectedRepository = repository
     presenter?.presentDetail()
   }
 
-  func topRepoListSelected(_ repositories: [Repository], title: String) {
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String) {
     listRepositories = repositories
     listFilter = .stars
     listTitle = title
     presenter?.presentList()
   }
 
-  func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String) {
     listRepositories = repositories
     listFilter = .updated
     listTitle = title

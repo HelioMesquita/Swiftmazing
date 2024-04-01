@@ -18,9 +18,9 @@ class RepositoriesWorker {
     self.serviceProvider = serviceProvider
   }
 
-  func getRepositories(with filter: Filter, page: Int = 1) async throws -> Repositories {
+  func getRepositories(with filter: Filter, page: Int = 1) async throws -> RepositoriesModel {
     let provider = RepositoriesProvider(filter: filter, page: page)
-    return try await serviceProvider.execute(request: provider, parser: Repositories.self)
+    return try await serviceProvider.execute(request: provider, builder: RepositoryBuilder())
   }
 
 }

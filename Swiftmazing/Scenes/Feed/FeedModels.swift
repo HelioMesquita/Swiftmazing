@@ -36,7 +36,7 @@ enum Feed {
     var supplementaryInfo: String?
 
     var section: FeedSection
-    var repository: Repository?
+    var repository: RepositoryModel?
 
     init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL])
     {
@@ -47,8 +47,10 @@ enum Feed {
       self.section = section
     }
 
-    init(repository: Repository, section: FeedSection, supplementaryInfo: String = Text.stars.value)
-    {
+    init(
+      repository: RepositoryModel, section: FeedSection,
+      supplementaryInfo: String = Text.stars.value
+    ) {
       self.title = repository.name
       self.description = repository.owner.name
       self.additionalInfo = repository.stars.kiloFormat
@@ -62,7 +64,7 @@ enum Feed {
   class MapRepoViewModel {
     var items: [FeedCellViewModel]
 
-    init(repositories: [Repository], section: FeedSection) {
+    init(repositories: [RepositoryModel], section: FeedSection) {
       items = repositories.compactMap { FeedCellViewModel(repository: $0, section: section) }
     }
   }
@@ -70,7 +72,7 @@ enum Feed {
   class MapNewsViewModel {
     var items: [FeedCellViewModel]
 
-    init(topRepos: [Repository], lastUpdated: [Repository]) {
+    init(topRepos: [RepositoryModel], lastUpdated: [RepositoryModel]) {
       let topAvatars = topRepos.compactMap { $0.owner.avatar }
       let lastAvatars = lastUpdated.compactMap { $0.owner.avatar }
       items = [

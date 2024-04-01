@@ -66,7 +66,7 @@ Open the directory project and double tap on Swiftmazing.xcworkspace
 
 For each scheme in project run some tests targets
 * The Visual scheme runs the snapshots tests for all views and view controllers
-* The Infrastructure scheme runs the unit tests using Quick and Nimble for all network tests
+* The Infrastructure scheme runs the unit tests for all network tests
 * The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
 
@@ -92,5 +92,4 @@ If you want to see relatory in html, modify the ```.slather.yml``` changing key 
 * [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C
 * [Nimble-Snapshots](Nimble-Snapshots) - Nimble matchers for FBSnapshotTestCase
 * [SDWebImage](https://github.com/SDWebImage/SDWebImage) - Asynchronous image downloader with cache support as a UIImageView category
-* [PromiseKit](https://github.com/mxcl/PromiseKit) - Promises for Swift & ObjC.
 * [KIF](https://github.com/kif-framework/KIF) - Keep It Functional - An iOS Functional Testing Framework
