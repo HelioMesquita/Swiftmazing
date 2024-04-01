@@ -67,7 +67,7 @@ Open the directory project and double tap on Swiftmazing.xcworkspace
 For each scheme in project run some tests targets
 * The Visual scheme runs the snapshots tests for all views and view controllers
 * The Infrastructure scheme runs the unit tests for all network tests
-* The Swiftmazing scheme runs the unit tests using Quick and Nimble for all bussiness and presentation rules
+* The Swiftmazing scheme runs the unit tests for all bussiness and presentation rules
 * The SwiftmazingMock scheme runs the functional tests using KIF in a mocked application
 
 <!-- The all tests can be run also using Fastlane just execute
