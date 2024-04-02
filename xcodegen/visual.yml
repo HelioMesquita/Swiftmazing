@@ -26,4 +26,4 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.visualtests
     dependencies:
       - package: SDWebImage
-      - package: Nimble-Snapshots
+      - package: SnapshotTesting

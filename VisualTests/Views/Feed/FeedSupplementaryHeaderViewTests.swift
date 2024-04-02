@@ -6,8 +6,7 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Nimble_Snapshots
+import SnapshotTesting
 import XCTest
 
 @testable import Visual
@@ -29,7 +28,7 @@ class FeedSupplementaryHeaderViewTests: XCTestCase {
   }
 
   func testLayout() {
-    expect(self.view) == snapshot()
+    assertSnapshot(of: self.view, as: .image)
   }
 
 }

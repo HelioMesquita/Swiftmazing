@@ -3,9 +3,9 @@ packages:
   SDWebImage:
     url: "https://github.com/SDWebImage/SDWebImage.git"
     exactVersion: 5.19.1
-  Nimble-Snapshots:
-    url: "https://github.com/ashfurrow/Nimble-Snapshots.git"
-    exactVersion: 9.6.1
+  SnapshotTesting:
+    url: "https://github.com/pointfreeco/swift-snapshot-testing"
+    exactVersion: 1.15.4
 options:
   indentWidth: 2
   tabWidth: 2

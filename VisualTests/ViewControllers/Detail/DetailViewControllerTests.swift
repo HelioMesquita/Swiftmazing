@@ -6,8 +6,7 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Nimble_Snapshots
+import SnapshotTesting
 import XCTest
 
 @testable import Visual
@@ -30,7 +29,7 @@ class DetailViewControllerTests: XCTestCase {
   }
 
   func testLayout() {
-    expect(self.view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
+    assertSnapshot(of: self.view, as: .image)
   }
 
 }
