@@ -8,7 +8,7 @@
 
 import Foundation
 
-@testable import Infrastructure
+@testable import NetworkLayer
 
 class MockProvider: RequestProviderProtocol {
 

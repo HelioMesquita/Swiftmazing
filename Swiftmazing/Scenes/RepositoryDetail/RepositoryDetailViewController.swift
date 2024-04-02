@@ -11,7 +11,7 @@
 //
 
 import UIKit
-import Visual
+import UIComponents
 
 protocol RepositoryDetailDisplayLogic: AnyObject {
   func showImage(_ imageURL: URL)

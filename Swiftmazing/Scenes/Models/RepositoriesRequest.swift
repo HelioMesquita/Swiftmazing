@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Infrastructure
+import NetworkLayer
 
 enum Filter: String {
   case stars

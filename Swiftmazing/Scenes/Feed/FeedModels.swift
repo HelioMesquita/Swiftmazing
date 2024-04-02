@@ -11,7 +11,7 @@
 //
 
 import UIKit
-import Visual
+import UIComponents
 
 enum Feed {
 

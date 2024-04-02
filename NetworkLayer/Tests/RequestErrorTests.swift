@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import Infrastructure
+@testable import NetworkLayer
 
 class RequestErrorTests: XCTestCase {
 

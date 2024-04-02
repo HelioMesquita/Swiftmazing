@@ -9,16 +9,17 @@
 import SnapshotTesting
 import XCTest
 
-@testable import Visual
+@testable import UIComponents
 
-class FeedSupplementaryFooterViewTests: XCTestCase {
+class FeedSupplementaryHeaderViewTests: XCTestCase {
 
-  var view: FeedSupplementaryFooterView!
+  var view: FeedSupplementaryHeaderView!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    view = FeedSupplementaryFooterView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-
+    view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+    view.label.text = "Name label"
+    view.button.setTitle("See more", for: .normal)
   }
 
   override func tearDownWithError() throws {

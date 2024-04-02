@@ -33,7 +33,6 @@ A iOS application with layout based on App Store that can check the most starred
 * Internationalization (English and PT-Br)
 * Unit tests
 * Snapshots Tests
-* Functional Tests
 * Await/Async Request
 
 ### Prerequisites
@@ -60,9 +59,10 @@ Open the directory project and double tap on Swiftmazing.xcodeproj
 ## Running the tests
 
 For each scheme in project run some tests targets
-* The Visual scheme runs the snapshots tests for all views and view controllers
-* The Infrastructure scheme runs the unit tests for all network tests
-* The Swiftmazing scheme runs the unit tests for all bussiness and presentation rules
+* The Swiftmazing scheme runs the unit tests for all business and presentation rules
+* The UIComponents scheme runs the snapshot tests for all views and view controllers
+* The NetworkLayer scheme runs the unit tests for all network tests
+
 
 ## Built With
 

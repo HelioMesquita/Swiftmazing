@@ -1,9 +1,9 @@
 name: Swiftmazing
 packages:
-  Infrastructure:
-    path: Infrastructure
-  Visual:
-    path: Visual
+  NetworkLayer:
+    path: NetworkLayer
+  UIComponents:
+    path: UIComponents
 options:
   indentWidth: 2
   tabWidth: 2
@@ -34,11 +34,11 @@ targets:
         INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
     dependencies:
-      - package: Visual
-        product: Visual
+      - package: NetworkLayer
+        product: NetworkLayer
         link: true
-      - package: Infrastructure
-        product: Infrastructure
+      - package: UIComponents
+        product: UIComponents
         link: true
     scheme:
       gatherCoverageData: true
@@ -73,10 +73,10 @@ targets:
         INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
     dependencies:
-      - package: Visual
-        product: Visual
+      - package: NetworkLayer
+        product: NetworkLayer
         link: true
-      - package: Infrastructure
-        product: Infrastructure
+      - package: UIComponents
+        product: UIComponents
         link: true
 

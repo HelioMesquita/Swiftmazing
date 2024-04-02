@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Visual",
+    name: "UIComponents",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
@@ -12,8 +12,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Visual",
-            targets: ["Visual"]),
+            name: "UIComponents",
+            targets: ["UIComponents"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,16 +24,16 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Visual",
+            name: "UIComponents",
             dependencies: [
                 .product(name: "SDWebImage", package: "SDWebImage"),
             ],
             path: "Sources"
         ),
         .testTarget(
-            name: "VisualTests",
+            name: "UIComponentsTests",
             dependencies: [
-                "Visual",
+                "UIComponents",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ],
             path: "Tests"

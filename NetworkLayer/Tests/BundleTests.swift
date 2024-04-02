@@ -8,13 +8,13 @@
 
 import XCTest
 
-@testable import Infrastructure
+@testable import NetworkLayer
 
 class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier, "Infrastructure-Infrastructure-resources")
+      Bundle.module.bundleIdentifier, "NetworkLayer-NetworkLayer-resources")
   }
 
 }

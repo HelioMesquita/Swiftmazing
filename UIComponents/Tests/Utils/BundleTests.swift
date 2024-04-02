@@ -8,13 +8,13 @@
 
 import XCTest
 
-@testable import Visual
+@testable import UIComponents
 
 class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier, "Visual-Visual-resources")
+      Bundle.module.bundleIdentifier, "UIComponents-UIComponents-resources")
   }
 
 }

@@ -9,7 +9,7 @@
 import SnapshotTesting
 import XCTest
 
-@testable import Visual
+@testable import UIComponents
 
 class FeedRepositoryCellTests: XCTestCase {
 
