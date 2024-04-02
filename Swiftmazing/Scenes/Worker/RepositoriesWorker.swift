@@ -8,7 +8,7 @@
 // CUCKOO_TESTABLE
 
 import Foundation
-import Infrastructure
+import NetworkLayer
 
 class RepositoriesWorker {
 

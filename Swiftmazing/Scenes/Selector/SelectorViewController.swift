@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Visual
+import UIComponents
 import Flutter
 import WebKit
 

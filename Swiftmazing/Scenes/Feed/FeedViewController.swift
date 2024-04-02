@@ -11,7 +11,7 @@
 //
 
 import UIKit
-import Visual
+import UIComponents
 
 protocol FeedDisplayLogic: AlertDisplayLogic {
   func show(_ viewModel: Feed.ViewModel)
