@@ -1,7 +1,0 @@
-default_platform(:ios)
-
-desc "Runs all the unit tests and UI Tests for all"
-lane :tests do
-  scan(workspace: "Swiftmazing.xcworkspace", devices: ["iPhone 11"], scheme: "SwiftmazingCodeCoverage")
-  slather
-end

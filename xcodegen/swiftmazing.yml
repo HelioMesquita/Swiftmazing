@@ -60,21 +60,3 @@ targets:
       - target: Infrastructure
         codeSign: true
         embed: true
-    # scheme:
-    #   testTargets:
-    #     - SwiftmazingFunctionalTests
-
-  # SwiftmazingFunctionalTests:
-  #   type: bundle.unit-test
-  #   platform: iOS
-
-  #   sources:
-  #     - path: SwiftmazingFunctionalTests
-
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
-  #       PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
-
-  #   dependencies:
-  #     - target: SwiftmazingMock
