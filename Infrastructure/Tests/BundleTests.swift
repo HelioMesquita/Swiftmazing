@@ -14,7 +14,7 @@ class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier, "com.infrastructure")
+      Bundle.module.bundleIdentifier, "Infrastructure-Infrastructure-resources")
   }
 
 }

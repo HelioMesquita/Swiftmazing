@@ -14,7 +14,7 @@ class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier, "com.visual")
+      Bundle.module.bundleIdentifier, "Visual-Visual-resources")
   }
 
 }

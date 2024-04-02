@@ -1,28 +1,82 @@
 name: Swiftmazing
 packages:
-  SDWebImage:
-    url: "https://github.com/SDWebImage/SDWebImage.git"
-    exactVersion: 5.19.1
-  SnapshotTesting:
-    url: "https://github.com/pointfreeco/swift-snapshot-testing"
-    exactVersion: 1.15.4
+  Infrastructure:
+    path: Infrastructure
+  Visual:
+    path: Visual
 options:
   indentWidth: 2
   tabWidth: 2
-  groupSortPosition: bottom
+  groupSortPosition: top
   xcodeVersion: 0800
   groupOrdering: 
-    - order: [Swiftmazing, SwiftmazingTests, SwiftmazingFunctionalTests, Infrastructure, InfrastructureTests, Visual, VisualTests]
+    - order: [Swiftmazing, SwiftmazingTests]
 config:
   debug: debug
   release: release
 settings:
   base:
-    IPHONEOS_DEPLOYMENT_TARGET: 14
-include:
-  - path: xcodegen/swiftmazing.yml
-    relativePaths: false
-  - path: xcodegen/visual.yml
-    relativePaths: false
-  - path: xcodegen/infrastructure.yml
-    relativePaths: false
+    IPHONEOS_DEPLOYMENT_TARGET: 15
+targets:
+  Swiftmazing:
+    type: application
+    platform: iOS
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProviderMock.swift"
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+    dependencies:
+      - package: Visual
+        product: Visual
+        link: true
+      - package: Infrastructure
+        product: Infrastructure
+        link: true
+    scheme:
+      gatherCoverageData: true
+      coverageTargets:
+        - Swiftmazing
+      testTargets:
+        - SwiftmazingTests
+  SwiftmazingTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: SwiftmazingTests
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+    dependencies:
+      - target: Swiftmazing
+  SwiftmazingMock:
+    type: application
+    platform: iOS
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProvider.swift"
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+    dependencies:
+      - package: Visual
+        product: Visual
+        link: true
+      - package: Infrastructure
+        product: Infrastructure
+        link: true
+

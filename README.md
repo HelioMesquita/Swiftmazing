@@ -9,7 +9,7 @@
 [![SPM](https://img.shields.io/badge/spm-compatible-blue.svg?style=flat)](https://www.apple.com)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
 
-A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way, with their respective tests, using the modern collection view
+A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way using SPM, with their respective tests and using the modern collection view
 
 
 ## Features
@@ -20,7 +20,7 @@ A iOS application with layout based on App Store that can check the most starred
 <img src="https://github.com/HelioMesquita/Swiftmazing/blob/master/.assets/appscreendark.png" align="right"
      title="App preview dark mode" width="220 " height="476">
 
-* Modularization
+* Modularization using SPM
 * Xcodegen
 * CLEAN Swift Architecture (VIP)
 * Modern Collection View
@@ -43,7 +43,7 @@ A iOS application with layout based on App Store that can check the most starred
 
 ### Installing
 
-First of all download and install Xcode, Cocoapods and xcodegen, then clone the repository
+First of all download and install Xcode, and Xcodegen, then clone the repository
 
 ```
 https://github.com/HelioMesquita/Swiftmazing.git
