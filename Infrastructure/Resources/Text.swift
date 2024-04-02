@@ -10,14 +10,14 @@ import Foundation
 
 internal enum Text: String {
 
-    case unknownError
-    case invalidParser
-    case badRequest
-    case unauthorized
-    case notFound
+  case unknownError
+  case invalidParser
+  case badRequest
+  case unauthorized
+  case notFound
 
-    public var value: String {
-        return String(describing: self.rawValue).localized()
-    }
+  public var value: String {
+    return String(describing: self.rawValue).localized()
+  }
 
 }

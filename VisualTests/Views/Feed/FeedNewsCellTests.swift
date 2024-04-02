@@ -6,48 +6,47 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
-import Nimble_Snapshots
+import SnapshotTesting
+import XCTest
 
 @testable import Visual
 
-class FeedNewsCellTests: QuickSpec {
+class FeedNewsCellTests: XCTestCase {
 
-    override func spec() {
+  func createImage() -> UIImageView {
+    let imageView = UIImageView(image: UIImage.Design.swift)
+    imageView.contentMode = .scaleAspectFill
+    imageView.clipsToBounds = true
+    return imageView
+  }
 
-        var view: FeedNewsCell!
+  var view: FeedNewsCell!
 
-        describe("FeedNewsCell") {
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = FeedNewsCell(frame: CGRect(x: 0, y: 0, width: 375, height: 320))
+    view.titleLabel.text = "Title label"
+    view.subtitleLabel.text = "Subtitle label"
+    view.descriptionLabel.text = "Description Label"
+    view.oddImagesStackView.addArrangedSubview(createImage())
+    view.oddImagesStackView.addArrangedSubview(createImage())
+    view.oddImagesStackView.addArrangedSubview(createImage())
+    view.oddImagesStackView.addArrangedSubview(createImage())
+    view.oddImagesStackView.addArrangedSubview(createImage())
+    view.evenImagesStackView.addArrangedSubview(createImage())
+    view.evenImagesStackView.addArrangedSubview(createImage())
+    view.evenImagesStackView.addArrangedSubview(createImage())
+    view.evenImagesStackView.addArrangedSubview(createImage())
+    view.evenImagesStackView.addArrangedSubview(createImage())
+  }
 
-            beforeEach {
-                view = FeedNewsCell(frame: CGRect(x: 0, y: 0, width: 375, height: 320))
-                view.titleLabel.text = "Title label"
-                view.subtitleLabel.text = "Subtitle label"
-                view.descriptionLabel.text = "Description Label"
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.oddImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-                view.evenImagesStackView.addArrangedSubview(self.createImage())
-            }
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
 
-            it("returns the layout") {
-//                expect(view) == recordSnapshot()
-                expect(view) == snapshot()
-            }
-        }
-    }
+  func testLayout() {
+    assertSnapshot(of: self.view, as: .image)
+  }
 
-    func createImage() -> UIImageView {
-         let imageView = UIImageView(image: UIImage.Design.swift)
-         imageView.contentMode = .scaleAspectFill
-         imageView.clipsToBounds = true
-         return imageView
-     }
 }

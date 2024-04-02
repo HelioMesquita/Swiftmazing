@@ -1,153 +1,28 @@
 name: Swiftmazing
-
+packages:
+  SDWebImage:
+    url: "https://github.com/SDWebImage/SDWebImage.git"
+    exactVersion: 5.19.1
+  SnapshotTesting:
+    url: "https://github.com/pointfreeco/swift-snapshot-testing"
+    exactVersion: 1.15.4
 options:
-  postGenCommand: pod install --repo-update
-  indentWidth: 4
-  tabWidth: 4
+  indentWidth: 2
+  tabWidth: 2
+  groupSortPosition: bottom
   xcodeVersion: 0800
-
+  groupOrdering: 
+    - order: [Swiftmazing, SwiftmazingTests, SwiftmazingFunctionalTests, Infrastructure, InfrastructureTests, Visual, VisualTests]
 config:
   debug: debug
   release: release
-
 settings:
   base:
-    IPHONEOS_DEPLOYMENT_TARGET: 13
-
-targets:
-  
-  Swiftmazing:
-    type: application
-    platform: iOS
-
-    sources:
-      - path: Swiftmazing/
-        excludes:
-          - "**/ServiceProviderMock.swift"
-      - path: Dartmazing/Debug
-        excludes:
-          - "*.xcframework"
-
-    settings:
-      base:
-        TARGETED_DEVICE_FAMILY: 1
-        DISPLAYNAME: Swiftmazing
-        HOST: api.github.com
-        SCHEME: https
-        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
-        SWIFT_OBJC_BRIDGING_HEADER: Dartmazing/Debug/Swiftmazing-Bridging-Header.h
-
-    dependencies:
-      - target: Visual
-        codeSign: true
-        embed: true
-      - target: Infrastructure
-        codeSign: true
-        embed: true
-      - framework: Dartmazing/Debug/Alamofire.xcframework
-      - framework: Dartmazing/Debug/App.xcframework
-      - framework: Dartmazing/Debug/dartmazing_network.xcframework
-      - framework: Dartmazing/Debug/Flutter.xcframework
-
-  SwiftmazingMock:
-    type: application
-    platform: iOS
-
-    sources:
-      - path: Swiftmazing/
-        excludes:
-          - "**/ServiceProvider.swift"
-
-    settings:
-      base:
-        TARGETED_DEVICE_FAMILY: 1
-        DISPLAYNAME: Swiftmazing
-        HOST: api.github.com
-        SCHEME: https
-        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
-
-    dependencies:
-      - target: Visual
-        codeSign: true
-        embed: true
-      - target: Infrastructure
-        codeSign: true
-        embed: true
-
-  SwiftmazingFunctionalTests:
-    type: bundle.unit-test
-    platform: iOS
-
-    sources:
-      - path: SwiftmazingFunctionalTests
-
-    settings:
-      base:
-        INFOPLIST_FILE: SwiftmazingFunctionalTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingfunctionaltests
-
-  SwiftmazingTests:
-    type: bundle.unit-test
-    platform: iOS
-
-    sources:
-      - path: SwiftmazingTests
-
-    settings:
-      base:
-        INFOPLIST_FILE: SwiftmazingTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
-
-  Visual:
-    type: framework
-    platform: iOS
-
-    sources:
-      - path: Visual
-
-    settings:
-      base:
-        INFOPLIST_FILE: Visual/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.visual
-
-  VisualTests:
-    type: bundle.unit-test
-    platform: iOS
-
-    sources:
-      - path: VisualTests
-        excludes:
-        - "/ReferenceImages"
-
-    settings:
-      base:
-        INFOPLIST_FILE: VisualTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.visualtests
-
-  Infrastructure:
-    type: framework
-    platform: iOS
-
-    sources:
-      - path: Infrastructure
-
-    settings:
-      base:
-        INFOPLIST_FILE: Infrastructure/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.infrastructure
-
-  InfrastructureTests:
-    type: bundle.unit-test
-    platform: iOS
-
-    sources:
-      - path: InfrastructureTests
-    
-    settings:
-      base:
-        INFOPLIST_FILE: InfrastructureTests/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.infrastructuretests
-
-  
+    IPHONEOS_DEPLOYMENT_TARGET: 14
+include:
+  - path: xcodegen/swiftmazing.yml
+    relativePaths: false
+  - path: xcodegen/visual.yml
+    relativePaths: false
+  - path: xcodegen/infrastructure.yml
+    relativePaths: false

@@ -7,51 +7,89 @@
 //
 
 import Foundation
-import PromiseKit
+import OSLog
 
 public protocol ServiceProviderProtocol {
-    var urlSession: URLSession { get }
-    var jsonDecoder: JSONDecoder { get }
-    func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T>
+  var urlSession: URLSession { get }
+  var jsonDecoder: JSONDecoder { get }
+  func execute<BuilderType: BuilderProviderProtocol>(
+    request: RequestProviderProtocol, builder: BuilderType
+  ) async throws
+    -> BuilderType.ModelType
 }
 
 extension ServiceProviderProtocol {
 
-    public var jsonDecoder: JSONDecoder {
-        return JSONDecoder()
+  public var jsonDecoder: JSONDecoder {
+    return JSONDecoder()
+  }
+
+  public func execute<BuilderType: BuilderProviderProtocol>(
+    request: RequestProviderProtocol, builder: BuilderType
+  )
+    async throws -> BuilderType.ModelType
+  {
+    let (data, response) = try await urlSession.data(for: request.asURLRequest)
+
+    guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+      throw RequestError.unknownError
     }
 
-    public func execute<T: RequestDecodable>(request: RequestProviderProtocol, parser: T.Type) -> Promise<T> {
-        return Promise<T> { seal in
-            urlSession.dataTask(with: request.asURLRequest) { (data, response, error) in
-                Logger.show(request: request.asURLRequest, response, data, error)
+    show(request: request.asURLRequest, response, data)
 
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, let data = data else {
-                    seal.reject(RequestError.unknownError)
-                    return
-                }
+    if 200...299 ~= statusCode {
+      do {
+        let response = try self.jsonDecoder.decode(BuilderType.ResponseType.self, from: data)
+        return try builder.build(response: response)
+      } catch {
+        throw RequestError.invalidParser
+      }
+    } else {
+      throw identify(statusCode: statusCode)
+    }
+  }
 
-                if 200...299 ~= statusCode {
-                    do {
-                        let model = try self.jsonDecoder.decode(T.self, from: data)
-                        seal.fulfill(model)
-                    } catch {
-                        seal.reject(RequestError.invalidParser)
-                    }
+  fileprivate func identify(statusCode: Int) -> RequestError {
+    guard let error = RequestError(rawValue: statusCode) else {
+      return .unknownError
+    }
 
-                } else {
-                    seal.reject(self.identify(statusCode: statusCode))
-                }
-            }.resume()
+    return error
+  }
+
+  private func show(request: URLRequest, _ response: URLResponse?, _ data: Data?) {
+    #if DEBUG
+      var requestLog = "REQUEST=================================================\n"
+      requestLog += "🎯🎯🎯 URL: \(request.url?.absoluteString ?? "")\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog += "⚒⚒⚒ HTTP METHOD: \(request.httpMethod ?? "")\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog += "📝📝📝 HEADERS: \(request.allHTTPHeaderFields ?? [:])\n"
+      requestLog += "-----------------------------------------------------------\n"
+
+      requestLog += "RESPONSE================================================\n"
+      requestLog += "⚠️⚠️⚠️ STATUS CODE: \((response as? HTTPURLResponse)?.statusCode ?? 0)\n"
+      requestLog += "-----------------------------------------------------------\n"
+      requestLog +=
+        "📒📒📒 HEADERS: \((response as? HTTPURLResponse)?.allHeaderFields as? [String: String] ?? [:])\n"
+      requestLog += "-----------------------------------------------------------\n"
+
+      if let dataObj = data {
+        do {
+          let json = try JSONSerialization.jsonObject(with: dataObj, options: .mutableContainers)
+          let prettyPrintedData = try JSONSerialization.data(
+            withJSONObject: json, options: .prettyPrinted)
+          requestLog +=
+            "⬇️⬇️⬇️ RESPONSE DATA: \n\(String(bytes: prettyPrintedData, encoding: .utf8) ?? "")"
+        } catch {
+          requestLog += "⬇️⬇️⬇️ RESPONSE DATA: \n\(String(data: dataObj, encoding: .utf8) ?? "")"
         }
-    }
+        requestLog += "\n===========================================================\n"
+      }
 
-    fileprivate func identify(statusCode: Int) -> RequestError {
-        guard let error = RequestError(rawValue: statusCode) else {
-            return .unknownError
-        }
+      Logger(subsystem: "infrastructure", category: "infrastructure").debug("\(requestLog)")
 
-        return error
-    }
+    #endif
+  }
 
 }

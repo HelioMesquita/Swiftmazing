@@ -1,0 +1,70 @@
+targets:
+  Swiftmazing:
+    type: application
+    platform: iOS
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProviderMock.swift"
+      - path: Dartmazing/Debug
+        excludes:
+          - "*.xcframework"
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+        SWIFT_OBJC_BRIDGING_HEADER: Dartmazing/Debug/Swiftmazing-Bridging-Header.h
+    dependencies:
+      - target: Visual
+        codeSign: true
+        embed: true
+      - target: Infrastructure
+        codeSign: true
+        embed: true
+      - framework: Dartmazing/Debug/Alamofire.xcframework
+      - framework: Dartmazing/Debug/App.xcframework
+      - framework: Dartmazing/Debug/dartmazing_network.xcframework
+      - framework: Dartmazing/Debug/Flutter.xcframework
+    scheme:
+      gatherCoverageData: true
+      coverageTargets:
+        - Swiftmazing
+      testTargets:
+        - SwiftmazingTests
+  SwiftmazingTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: SwiftmazingTests
+    settings:
+      base:
+        INFOPLIST_FILE: SwiftmazingTests/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
+    dependencies:
+      - target: Swiftmazing
+  SwiftmazingMock:
+    type: application
+    platform: iOS
+    sources:
+      - path: Swiftmazing/
+        excludes:
+          - "**/ServiceProvider.swift"
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        DISPLAYNAME: Swiftmazing
+        HOST: api.github.com
+        SCHEME: https
+        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+    dependencies:
+      - target: Visual
+        codeSign: true
+        embed: true
+      - target: Infrastructure
+        codeSign: true
+        embed: true

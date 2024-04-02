@@ -9,20 +9,19 @@
 import Foundation
 
 @testable import Swiftmazing
-@testable import PromiseKit
 
 class RepositoriesWorkerSpy: RepositoriesWorker {
 
-    var isSuccess = true
+  var isSuccess = true
 
-    override func getRepositories(with filter: Filter, page: Int = 1) -> Promise<Repositories> {
-        return Promise<Repositories> { seal in
-            if isSuccess {
-                seal.fulfill(Repositories())
-            } else {
-                seal.reject(NSError(domain: "", code: 0))
-            }
-        }
+  override func getRepositories(with filter: Filter, page: Int = 1) async throws
+    -> RepositoriesModel
+  {
+    if isSuccess {
+      return RepositoriesModel(items: [])
+    } else {
+      throw NSError(domain: "", code: 0)
     }
+  }
 
 }

@@ -6,148 +6,93 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
+import XCTest
 
 @testable import Swiftmazing
-@testable import PromiseKit
 
-class FeedInteractorTests: QuickSpec {
+class FeedInteractorTests: XCTestCase {
 
-    var sut: FeedInteractor!
-    var presenter: PresenterSpy!
-    var worker: RepositoriesWorkerSpy!
-    var repositories: [Repository]!
-    var repository: Repository!
+  class PresenterSpy: FeedPresentationLogic {
 
-    class PresenterSpy: FeedPresentationLogic {
+    var mapResponseCalled = false
+    var presentListCalled = false
+    var presentDetailCalled = false
+    var presentTryAgainCalled = false
 
-        var mapResponseCalled = false
-        var presentListCalled = false
-        var presentDetailCalled = false
-        var presentTryAgainCalled = false
-
-        func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories) {
-            mapResponseCalled = true
-        }
-
-        func presentList() {
-            presentListCalled = true
-        }
-
-        func presentDetail() {
-            presentDetailCalled = true
-        }
-
-        func presentTryAgain(message: String) {
-            presentTryAgainCalled = true
-        }
-
+    func mapResponse(_ topRepoResponse: RepositoriesModel, _ mostRecentResponse: RepositoriesModel)
+    {
+      mapResponseCalled = true
     }
 
-    override func spec() {
-        super.spec()
-        PromiseKit.conf.Q.map = nil
-        PromiseKit.conf.Q.return = nil
-
-        beforeEach {
-            self.repositories = Repositories().items
-            self.repository = Repositories().items.first
-
-            self.worker = RepositoriesWorkerSpy()
-            self.presenter = PresenterSpy()
-            self.sut = FeedInteractor(worker: self.worker)
-            self.sut.presenter = self.presenter
-        }
-
-        describe("#loadScreen") {
-            context("when successful request") {
-                beforeEach {
-                    self.sut.loadScreen()
-                }
-
-                it("calls to presenter map the response") {
-                    expect(self.presenter.mapResponseCalled).to(beTrue())
-                }
-            }
-
-            context("when unsuccessful request") {
-                beforeEach {
-                    self.worker.isSuccess = false
-                    self.sut.loadScreen()
-                }
-
-                it("presents try again") {
-                    expect(self.presenter.presentTryAgainCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#repositorySelected") {
-            context("when is selected a repository cell") {
-                beforeEach {
-                    self.sut.repositorySelected(self.repository)
-                }
-
-                it("saves the selected repository") {
-                    expect(self.sut.selectedRepository) === self.repository
-
-                }
-
-                it("calls to presenter show the detail") {
-                    expect(self.presenter.presentDetailCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#topRepoListSelected") {
-            context("when is selected a news cell or see more") {
-                beforeEach {
-                    self.sut.topRepoListSelected(self.repositories, title: "title")
-                }
-
-                it("saves the repositories") {
-                    expect(self.sut.listRepositories) === self.repositories
-                }
-
-                it("saves the filter selected") {
-                    expect(self.sut.listFilter).to(equal(.stars))
-                }
-
-                it("saves the title") {
-                    expect(self.sut.listTitle).to(equal("title"))
-                }
-
-                it("calls to presenter show the list") {
-                    expect(self.presenter.presentListCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#lastUpdatedListSelected") {
-            context("when is selected a news cell or see more") {
-                beforeEach {
-                    self.sut.lastUpdatedListSelected(self.repositories, title: "title")
-                }
-
-                it("saves the repositories") {
-                    expect(self.sut.listRepositories) === self.repositories
-                }
-
-                it("saves the filter selected") {
-                    expect(self.sut.listFilter).to(equal(.updated))
-                }
-
-                it("saves the title") {
-                    expect(self.sut.listTitle).to(equal("title"))
-                }
-
-                it("calls to presenter show the list") {
-                    expect(self.presenter.presentListCalled).to(beTrue())
-                }
-            }
-        }
-
+    func presentList() {
+      presentListCalled = true
     }
+
+    func presentDetail() {
+      presentDetailCalled = true
+    }
+
+    func presentTryAgain(message: String) {
+      presentTryAgainCalled = true
+    }
+
+  }
+
+  var sut: FeedInteractor!
+  var presenter: PresenterSpy!
+  var worker: RepositoriesWorkerSpy!
+  var repositories: [RepositoryModel]!
+  var repository: RepositoryModel!
+
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    repository = RepositoryModel(
+      name: "swiftmazing", stars: 100,
+      owner: RepositoryOwnerModel(
+        name: "Helio Mesquita", avatar: URL(string: "www.google.com.br")!),
+      description:
+        "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
+      issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
+
+    worker = RepositoriesWorkerSpy()
+    presenter = PresenterSpy()
+    sut = FeedInteractor(worker: worker)
+    sut.presenter = presenter
+  }
+
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+
+  func testLoadScreenOnSuccess() {
+    sut.handleSuccess(RepositoriesModel(items: []), RepositoriesModel(items: []))
+    XCTAssertTrue(presenter.mapResponseCalled)
+  }
+
+  func testLoadScreenOnFailure() {
+    sut.handleError(NSError(domain: "", code: 0))
+    XCTAssertFalse(presenter.mapResponseCalled)
+  }
+
+  func testRepositorySelected() {
+    sut.repositorySelected(repository)
+    XCTAssertTrue(sut.selectedRepository === repository)
+    XCTAssertTrue(presenter.presentDetailCalled)
+  }
+
+  func testTopRepoListSelected() {
+    sut.topRepoListSelected([repository], title: "title")
+    XCTAssertTrue(sut.listRepositories.first === repository)
+    XCTAssertTrue(sut.listFilter == .stars)
+    XCTAssertTrue(sut.listTitle == "title")
+  }
+
+  func testLastUpdatedListSelected() {
+    sut.lastUpdatedListSelected([repository], title: "title")
+    XCTAssertTrue(sut.listRepositories.first === repository)
+    XCTAssertTrue(sut.listFilter == .updated)
+    XCTAssertTrue(sut.listTitle == "title")
+  }
 
 }

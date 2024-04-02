@@ -15,37 +15,37 @@
 import UIKit
 
 protocol ListPresentationLogic {
-    func presentTitle(_ title: String)
-    func reloadMap(_ repositories: [Repository])
-    func nextPageMap(_ repositories: [Repository])
-    func presentDetail()
-    func presentTryAgain(message: String)
+  func presentTitle(_ title: String)
+  func reloadMap(_ repositories: [RepositoryModel])
+  func nextPageMap(_ repositories: [RepositoryModel])
+  func presentDetail()
+  func presentTryAgain(message: String)
 }
 
 class ListPresenter: ListPresentationLogic {
 
-    weak var viewController: ListDisplayLogic?
+  weak var viewController: ListDisplayLogic?
 
-    func reloadMap(_ repositories: [Repository]) {
-        let items = List.MapRepoViewModel(repositories: repositories).items
-        viewController?.showReload(with: items)
-    }
+  func reloadMap(_ repositories: [RepositoryModel]) {
+    let items = List.MapRepoViewModel(repositories: repositories).items
+    viewController?.showReload(with: items)
+  }
 
-    func nextPageMap(_ repositories: [Repository]) {
-        let items = List.MapRepoViewModel(repositories: repositories).items
-        viewController?.showNextPage(with: items)
-    }
+  func nextPageMap(_ repositories: [RepositoryModel]) {
+    let items = List.MapRepoViewModel(repositories: repositories).items
+    viewController?.showNextPage(with: items)
+  }
 
-    func presentTitle(_ title: String) {
-        viewController?.showTitle(title)
-    }
+  func presentTitle(_ title: String) {
+    viewController?.showTitle(title)
+  }
 
-    func presentDetail() {
-        viewController?.showDetail()
-    }
+  func presentDetail() {
+    viewController?.showDetail()
+  }
 
-    func presentTryAgain(message: String) {
-        viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
-    }
+  func presentTryAgain(message: String) {
+    viewController?.showTryAgain(title: Text.anErrorHappened.value, message: message)
+  }
 
 }

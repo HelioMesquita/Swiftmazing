@@ -6,21 +6,15 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
+import XCTest
 
 @testable import Infrastructure
 
-class BundleTests: QuickSpec {
+class BundleTests: XCTestCase {
 
-    override func spec() {
-        super.spec()
-
-        describe("#module") {
-            it("returns module name") {
-                expect(Bundle.module.bundleIdentifier).to(equal("com.infrastructure"))
-            }
-        }
-    }
+  func testReturnsModuleName() {
+    XCTAssertEqual(
+      Bundle.module.bundleIdentifier, "com.infrastructure")
+  }
 
 }

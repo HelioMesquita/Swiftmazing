@@ -6,86 +6,73 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
+import XCTest
 
 @testable import Swiftmazing
-@testable import PromiseKit
 
-class RepositoryDetailPresenterTests: QuickSpec {
+class RepositoryDetailPresenterTests: XCTestCase {
 
-    var sut: RepositoryDetailPresenter!
-    var viewController: ViewControllerSpy!
-    var repository: Repository!
+  var sut: RepositoryDetailPresenter!
+  var viewController: ViewControllerSpy!
+  var repository: RepositoryModel!
 
-    class ViewControllerSpy: RepositoryDetailDisplayLogic {
+  class ViewControllerSpy: RepositoryDetailDisplayLogic {
 
-        var showImageCalled: Bool = false
-        var showTitleCalled: Bool = false
-        var showAuthorCalled: Bool = false
-        var showDescriptionsCalled: Bool = false
-        var showButtonTitleCalled: Bool = false
+    var showImageCalled: Bool = false
+    var showTitleCalled: Bool = false
+    var showAuthorCalled: Bool = false
+    var showDescriptionsCalled: Bool = false
+    var showButtonTitleCalled: Bool = false
 
-        func showImage(_ imageURL: URL) {
-            showImageCalled = true
-        }
-
-        func showTitle(_ text: String) {
-            showTitleCalled = true
-        }
-
-        func showAuthor(_ text: String) {
-            showAuthorCalled = true
-        }
-
-        func showDescriptions(_ texts: [String]) {
-            showDescriptionsCalled = true
-        }
-
-        func showButtonTitle(_ text: String) {
-            showButtonTitleCalled = true
-        }
-
+    func showImage(_ imageURL: URL) {
+      showImageCalled = true
     }
 
-    override func spec() {
-        super.spec()
-        PromiseKit.conf.Q.map = nil
-        PromiseKit.conf.Q.return = nil
-
-        beforeEach {
-            self.repository = Repositories().items.first
-
-            self.viewController = ViewControllerSpy()
-            self.sut = RepositoryDetailPresenter()
-            self.sut.viewController = self.viewController
-        }
-
-        describe("#presentRepository") {
-            beforeEach {
-                self.sut.presentRepository(self.repository)
-            }
-
-            it("shows image") {
-                expect(self.viewController.showImageCalled).to(beTrue())
-            }
-
-            it("shows title") {
-                expect(self.viewController.showTitleCalled).to(beTrue())
-            }
-
-            it("shows author") {
-                expect(self.viewController.showAuthorCalled).to(beTrue())
-            }
-
-            it("shows description") {
-                expect(self.viewController.showDescriptionsCalled).to(beTrue())
-            }
-
-            it("shows button") {
-                expect(self.viewController.showButtonTitleCalled).to(beTrue())
-            }
-        }
+    func showTitle(_ text: String) {
+      showTitleCalled = true
     }
+
+    func showAuthor(_ text: String) {
+      showAuthorCalled = true
+    }
+
+    func showDescriptions(_ texts: [String]) {
+      showDescriptionsCalled = true
+    }
+
+    func showButtonTitle(_ text: String) {
+      showButtonTitleCalled = true
+    }
+
+  }
+
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    repository = RepositoryModel(
+      name: "swiftmazing", stars: 100,
+      owner: RepositoryOwnerModel(
+        name: "Helio Mesquita", avatar: URL(string: "www.google.com.br")!),
+      description:
+        "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
+      issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
+
+    viewController = ViewControllerSpy()
+    sut = RepositoryDetailPresenter()
+    sut.viewController = viewController
+  }
+
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+
+  func testPresentRepository() {
+    sut.presentRepository(repository)
+    XCTAssertTrue(viewController.showImageCalled)
+    XCTAssertTrue(viewController.showTitleCalled)
+    XCTAssertTrue(viewController.showAuthorCalled)
+    XCTAssertTrue(viewController.showDescriptionsCalled)
+    XCTAssertTrue(viewController.showButtonTitleCalled)
+  }
 
 }

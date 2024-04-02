@@ -6,21 +6,15 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
+import XCTest
 
 @testable import Infrastructure
 
-class RequestErrorTests: QuickSpec {
+class RequestErrorTests: XCTestCase {
 
-    override func spec() {
-        super.spec()
-
-        describe("#localizedDescription") {
-            it("returns text from localizable strings") {
-                expect(RequestError.badRequest.localizedDescription).to(equal("There was an error loading your data"))
-            }
-        }
-    }
+  func testLocalizedDescriptionReturnsTextFromLocalizableStrings() {
+    XCTAssertEqual(
+      RequestError.badRequest.localizedDescription, "There was an error loading your data")
+  }
 
 }

@@ -6,41 +6,46 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
-import Nimble_Snapshots
+import SnapshotTesting
+import XCTest
 
 @testable import Visual
 
 class MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
-    var title: String = "Title"
-    var description: String = "Description"
-    var additionalInfo: String = "27.3k"
-    var supplementaryInfo: String = "stars"
-    var image: URL?
+  var title: String = "Title"
+  var description: String = "Description"
+  var additionalInfo: String = "27.3k"
+  var supplementaryInfo: String = "stars"
+  var image: URL?
 }
 
-class ListCollectionViewControllerTests: QuickSpec {
+class ListCollectionViewControllerTests: XCTestCase {
 
-    override func spec() {
+  var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
 
-        var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
+    view.viewDidLoad()
+    var snapshot = NSDiffableDataSourceSnapshot<
+      ListSection, MockListCollectionViewModelProtocol
+    >()
+    snapshot.appendSections([.repo])
+    snapshot.appendItems(
+      [
+        MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(),
+        MockListCollectionViewModelProtocol(),
+      ], toSection: .repo)
+    view.dataSource.apply(snapshot, animatingDifferences: false)
+  }
 
-        describe("ListCollectionViewController") {
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
 
-            beforeEach {
-                view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
-                view.viewDidLoad()
-                var snapshot = NSDiffableDataSourceSnapshot<ListSection, MockListCollectionViewModelProtocol>()
-                snapshot.appendSections([.repo])
-                snapshot.appendItems([MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol()], toSection: .repo)
-                view.dataSource.apply(snapshot, animatingDifferences: false)
-            }
+  func testLayout() {
+    assertSnapshot(of: self.view, as: .image)
+  }
 
-            it("returns the layout") {
-//                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-                expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-            }
-        }
-    }
 }

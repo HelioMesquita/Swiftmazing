@@ -13,63 +13,63 @@
 import UIKit
 import Visual
 
-protocol RepositoryDetailDisplayLogic: class {
-    func showImage(_ imageURL: URL)
-    func showTitle(_ text: String)
-    func showAuthor(_ text: String)
-    func showDescriptions(_ texts: [String])
-    func showButtonTitle(_ text: String)
+protocol RepositoryDetailDisplayLogic: AnyObject {
+  func showImage(_ imageURL: URL)
+  func showTitle(_ text: String)
+  func showAuthor(_ text: String)
+  func showDescriptions(_ texts: [String])
+  func showButtonTitle(_ text: String)
 }
 
 class RepositoryDetailViewController: DetailViewController {
 
-    var interactor: RepositoryDetailBusinessLogic?
-    var router: (RepositoryDetailRoutingLogic & RepositoryDetailDataPassing)?
+  var interactor: RepositoryDetailBusinessLogic?
+  var router: (RepositoryDetailRoutingLogic & RepositoryDetailDataPassing)?
 
-    override func setup() {
-        let viewController = self
-        let interactor = RepositoryDetailInteractor()
-        let presenter = RepositoryDetailPresenter()
-        let router = RepositoryDetailRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-        interactor.presenter = presenter
-    }
+  override func setup() {
+    let viewController = self
+    let interactor = RepositoryDetailInteractor()
+    let presenter = RepositoryDetailPresenter()
+    let router = RepositoryDetailRouter()
+    viewController.interactor = interactor
+    viewController.router = router
+    presenter.viewController = viewController
+    router.viewController = viewController
+    router.dataStore = interactor
+    interactor.presenter = presenter
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        interactor?.loadScreen()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    interactor?.loadScreen()
+  }
 
-    override func buttonClicked() {
-        router?.routeToPage()
-    }
+  override func buttonClicked() {
+    router?.routeToPage()
+  }
 
 }
 
 extension RepositoryDetailViewController: RepositoryDetailDisplayLogic {
 
-    func showImage(_ imageURL: URL) {
-        setImage(imageURL)
-    }
+  func showImage(_ imageURL: URL) {
+    setImage(imageURL)
+  }
 
-    func showTitle(_ text: String) {
-        setTitle(text)
-    }
+  func showTitle(_ text: String) {
+    setTitle(text)
+  }
 
-    func showAuthor(_ text: String) {
-        setAuthor(text)
-    }
+  func showAuthor(_ text: String) {
+    setAuthor(text)
+  }
 
-    func showDescriptions(_ texts: [String]) {
-        setDescriptions(texts)
-    }
+  func showDescriptions(_ texts: [String]) {
+    setDescriptions(texts)
+  }
 
-    func showButtonTitle(_ text: String) {
-        setButtonTitle(text)
-    }
+  func showButtonTitle(_ text: String) {
+    setButtonTitle(text)
+  }
 
 }

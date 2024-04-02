@@ -6,96 +6,71 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Quick
-import Nimble
+import XCTest
 
 @testable import Swiftmazing
-@testable import PromiseKit
 
-class FeedPresenterTests: QuickSpec {
+class FeedPresenterTests: XCTestCase {
 
-    var sut: FeedPresenter!
-    var viewController: ViewControllerSpy!
+  var sut: FeedPresenter!
+  var viewController: ViewControllerSpy!
 
-    class ViewControllerSpy: FeedDisplayLogic {
-        var showCalled: Bool = false
-        var showListCalled: Bool = false
-        var showDetailCalled: Bool = false
-        var showTryAgainCalled: Bool = false
+  class ViewControllerSpy: FeedDisplayLogic {
+    var showCalled: Bool = false
+    var showListCalled: Bool = false
+    var showDetailCalled: Bool = false
+    var showTryAgainCalled: Bool = false
 
-        func show(_ viewModel: Feed.ViewModel) {
-            showCalled = true
-        }
-
-        func showList() {
-            showListCalled = true
-        }
-
-        func showDetail() {
-            showDetailCalled = true
-        }
-
-        func showTryAgain(title: String, message: String) {
-            showTryAgainCalled = true
-        }
-
-        func reload() {}
-
+    func show(_ viewModel: Feed.ViewModel) {
+      showCalled = true
     }
 
-    override func spec() {
-        super.spec()
-
-        beforeEach {
-            self.viewController = ViewControllerSpy()
-            self.sut = FeedPresenter()
-            self.sut.viewController = self.viewController
-        }
-
-        describe("#mapResponse") {
-            beforeEach {
-                self.sut.mapResponse(Repositories(), Repositories())
-            }
-
-            context("when has received the request") {
-                it("calls show method") {
-                    expect(self.viewController.showCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#presentTryAgain") {
-            beforeEach {
-                self.sut.presentTryAgain(message: "")
-            }
-
-            context("when failure the request") {
-                it("calls try again") {
-                    expect(self.viewController.showTryAgainCalled).to(beTrue())
-                }
-            }
-        }
-
-        describe("#presentList") {
-            beforeEach {
-                self.sut.presentList()
-            }
-
-            it("calls show list") {
-                expect(self.viewController.showListCalled).to(beTrue())
-            }
-        }
-
-        describe("#presentDetail") {
-            beforeEach {
-                self.sut.presentDetail()
-            }
-
-            it("calls show list") {
-                expect(self.viewController.showDetailCalled).to(beTrue())
-            }
-        }
+    func showList() {
+      showListCalled = true
     }
+
+    func showDetail() {
+      showDetailCalled = true
+    }
+
+    func showTryAgain(title: String, message: String) {
+      showTryAgainCalled = true
+    }
+
+    func reload() {}
+
+  }
+
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    viewController = ViewControllerSpy()
+    sut = FeedPresenter()
+    sut.viewController = viewController
+  }
+
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+
+  func testMapResponse() {
+    sut.mapResponse(RepositoriesModel(items: []), RepositoriesModel(items: []))
+    XCTAssertTrue(viewController.showCalled)
+  }
+
+  func testPresentTryAgain() {
+    sut.presentTryAgain(message: "")
+    XCTAssertTrue(viewController.showTryAgainCalled)
+  }
+
+  func testPresentList() {
+    sut.presentList()
+    XCTAssertTrue(viewController.showListCalled)
+  }
+
+  func testPresentDetail() {
+    sut.presentDetail()
+    XCTAssertTrue(viewController.showDetailCalled)
+  }
 
 }
-

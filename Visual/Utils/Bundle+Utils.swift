@@ -8,12 +8,12 @@
 
 import Foundation
 
-internal extension Bundle {
+extension Bundle {
 
-    private static let bundleID = "com.visual"
+  private static let bundleID = "com.visual"
 
-    static var module: Bundle {
-        return Bundle(identifier: bundleID) ?? .main
-    }
+  static var module: Bundle {
+    return Bundle(identifier: bundleID) ?? .main
+  }
 
 }

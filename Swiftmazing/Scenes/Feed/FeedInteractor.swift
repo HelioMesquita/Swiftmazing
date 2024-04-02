@@ -12,71 +12,78 @@
 // This tag below is used to create the testable files from the Cuckoo pod
 // CUCKOO_TESTABLE
 
-import UIKit
 import Infrastructure
-import PromiseKit
+import UIKit
 
 protocol FeedBusinessLogic {
-    func loadScreen()
-    func repositorySelected(_ repository: Repository?)
-    func topRepoListSelected(_ repositories: [Repository], title: String)
-    func lastUpdatedListSelected(_ repositories: [Repository], title: String)
+  func loadScreen()
+  func repositorySelected(_ repository: RepositoryModel?)
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String)
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String)
 }
 
 protocol FeedDataStore {
-    var selectedRepository: Repository? { get set }
-    var listTitle: String { get set }
-    var listFilter: Filter { get set }
-    var listRepositories: [Repository] { get set }
+  var selectedRepository: RepositoryModel? { get set }
+  var listTitle: String { get set }
+  var listFilter: Filter { get set }
+  var listRepositories: [RepositoryModel] { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
 
-    var presenter: FeedPresentationLogic?
-    let worker: RepositoriesWorker
+  var presenter: FeedPresentationLogic?
+  let worker: RepositoriesWorker
 
-    // MARK: DATASTORE
-    var listTitle: String = ""
-    var listFilter: Filter = .none
-    var listRepositories: [Repository] = []
-    var selectedRepository: Repository?
+  // MARK: DATASTORE
+  var listTitle: String = ""
+  var listFilter: Filter = .none
+  var listRepositories: [RepositoryModel] = []
+  var selectedRepository: RepositoryModel?
 
-    init(worker: RepositoriesWorker = RepositoriesWorker()) {
-        self.worker = worker
+  init(worker: RepositoriesWorker = RepositoriesWorker()) {
+    self.worker = worker
+  }
+
+  func loadScreen() {
+    Task { @MainActor in
+      do {
+        async let topRepo = worker.getRepositories(with: .stars)
+        async let lastUpdated = worker.getRepositories(with: .updated)
+        let (topRepoData, lastUpdatedData) = try await (topRepo, lastUpdated)
+        handleSuccess(topRepoData, lastUpdatedData)
+      } catch {
+        handleError(error)
+      }
     }
+  }
 
-    func loadScreen() {
-        let topRepo = worker.getRepositories(with: .stars)
-        let lastUpdated = worker.getRepositories(with: .updated)
+  func handleSuccess(
+    _ topRepoResponse: RepositoriesModel, _ lastUpdatedResponse: RepositoriesModel
+  ) {
+    presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
+  }
 
-        when(fulfilled: topRepo, lastUpdated).done(handleSuccess).catch(handleError)
-    }
+  func handleError(_ error: Error) {
+    presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
+  }
 
-    private func handleSuccess(_ topRepoResponse: Repositories, _ lastUpdatedResponse: Repositories) {
-        presenter?.mapResponse(topRepoResponse, lastUpdatedResponse)
-    }
+  func repositorySelected(_ repository: RepositoryModel?) {
+    selectedRepository = repository
+    presenter?.presentDetail()
+  }
 
-    private func handleError(_ error: Error) {
-        presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
-    }
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String) {
+    listRepositories = repositories
+    listFilter = .stars
+    listTitle = title
+    presenter?.presentList()
+  }
 
-    func repositorySelected(_ repository: Repository?) {
-        selectedRepository = repository
-        presenter?.presentDetail()
-    }
-
-    func topRepoListSelected(_ repositories: [Repository], title: String) {
-        listRepositories = repositories
-        listFilter = .stars
-        listTitle = title
-        presenter?.presentList()
-    }
-
-    func lastUpdatedListSelected(_ repositories: [Repository], title: String) {
-        listRepositories = repositories
-        listFilter = .updated
-        listTitle = title
-        presenter?.presentList()
-    }
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String) {
+    listRepositories = repositories
+    listFilter = .updated
+    listTitle = title
+    presenter?.presentList()
+  }
 
 }

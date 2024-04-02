@@ -16,75 +16,92 @@ import Infrastructure
 import UIKit
 
 protocol ListBusinessLogic {
-    func loadScreen()
-    func reloadRepositories()
-    func repositorySelected(_ repository: Repository?)
-    func prefetchNextPage(index: Int)
+  func loadScreen()
+  func reloadRepositories()
+  func repositorySelected(_ repository: RepositoryModel?)
+  func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
-    var selectedRepository: Repository? { get set }
-    var listFilter: Filter { get set }
-    var listTitle: String { get set }
-    var listRepositories: [Repository] { get set }
+  var selectedRepository: RepositoryModel? { get set }
+  var listFilter: Filter { get set }
+  var listTitle: String { get set }
+  var listRepositories: [RepositoryModel] { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
 
-    let worker: RepositoriesWorker
-    let itemsPerPage: Int
-    var presenter: ListPresentationLogic?
-    var currentPage: Int = 1
+  let worker: RepositoriesWorker
+  let itemsPerPage: Int
+  var presenter: ListPresentationLogic?
+  var currentPage: Int = 1
 
-    // MARK: DATASTORE
-    var selectedRepository: Repository?
-    var listTitle: String = ""
-    var listFilter: Filter = .none
-    var listRepositories: [Repository] = []
+  // MARK: DATASTORE
+  var selectedRepository: RepositoryModel?
+  var listTitle: String = ""
+  var listFilter: Filter = .none
+  var listRepositories: [RepositoryModel] = []
 
-    init(worker: RepositoriesWorker = RepositoriesWorker(), itemsPerPage: Int = RepositoriesProvider.itemsPerPage) {
-        self.worker = worker
-        self.itemsPerPage = itemsPerPage
+  init(
+    worker: RepositoriesWorker = RepositoriesWorker(),
+    itemsPerPage: Int = RepositoriesProvider.itemsPerPage
+  ) {
+    self.worker = worker
+    self.itemsPerPage = itemsPerPage
+  }
+
+  func loadScreen() {
+    presenter?.presentTitle(listTitle)
+    presenter?.reloadMap(listRepositories)
+  }
+
+  func reloadRepositories() {
+    currentPage = 1
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleReloadSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
     }
+  }
 
-    func loadScreen() {
-        presenter?.presentTitle(listTitle)
-        presenter?.reloadMap(listRepositories)
-    }
+  func handleReloadSuccess(_ repositories: RepositoriesModel) {
+    presenter?.reloadMap(repositories.items)
+  }
 
-    func reloadRepositories() {
-        currentPage = 1
-        worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).catch(handleError)
-    }
+  func repositorySelected(_ repository: RepositoryModel?) {
+    selectedRepository = repository
+    presenter?.presentDetail()
+  }
 
-    private func handleReloadSuccess(_ repositories: Repositories) {
-        presenter?.reloadMap(repositories.items)
+  func prefetchNextPage(index: Int) {
+    let indexAdjusted = index + 1
+    let totalItems = currentPage * itemsPerPage
+    if indexAdjusted == totalItems {
+      loadNextPage()
     }
+  }
 
-    func repositorySelected(_ repository: Repository?) {
-        selectedRepository = repository
-        presenter?.presentDetail()
+  func loadNextPage() {
+    currentPage += 1
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleNextSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
     }
+  }
 
-    func prefetchNextPage(index: Int) {
-        let indexAdjusted = index + 1
-        let totalItems = currentPage * itemsPerPage
-        if indexAdjusted == totalItems {
-            loadNextPage()
-        }
-    }
+  func handleNextSuccess(_ repositories: RepositoriesModel) {
+    presenter?.nextPageMap(repositories.items)
+  }
 
-    private func loadNextPage() {
-        currentPage += 1
-        worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).catch(handleError)
-    }
-
-    private func handleNextSuccess(_ repositories: Repositories) {
-        presenter?.nextPageMap(repositories.items)
-    }
-
-    private func handleError(_ error: Error) {
-        presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
-    }
+  func handleError(_ error: Error) {
+    presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
+  }
 
 }

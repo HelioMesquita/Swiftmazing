@@ -14,104 +14,106 @@ import UIKit
 import Visual
 
 protocol FeedDisplayLogic: AlertDisplayLogic {
-    func show(_ viewModel: Feed.ViewModel)
-    func showList()
-    func showDetail()
-    func showTryAgain(title: String, message: String)
+  func show(_ viewModel: Feed.ViewModel)
+  func showList()
+  func showDetail()
+  func showTryAgain(title: String, message: String)
 }
 
 class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
 
-    var interactor: FeedBusinessLogic?
-    var router: (FeedRoutingLogic & FeedDataPassing)?
+  var interactor: FeedBusinessLogic?
+  var router: (FeedRoutingLogic & FeedDataPassing)?
 
-    override func setup() {
-        let viewController = self
-        let interactor = FeedInteractor()
-        let presenter = FeedPresenter()
-        let router = FeedRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        presenter.viewController = viewController
-        interactor.presenter = presenter
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
+  override func setup() {
+    let viewController = self
+    let interactor = FeedInteractor()
+    let presenter = FeedPresenter()
+    let router = FeedRouter()
+    viewController.interactor = interactor
+    viewController.router = router
+    presenter.viewController = viewController
+    interactor.presenter = presenter
+    router.viewController = viewController
+    router.dataStore = interactor
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-        load()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    configure()
+    load()
+  }
 
-    private func configure() {
-        title = Bundle.main.displayName
-        collectionView.delegate = self
-        collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-    }
+  private func configure() {
+    title = Bundle.main.displayName
+    collectionView.delegate = self
+    collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+  }
 
-    @objc func load() {
-        collectionView.refreshControl?.beginRefreshing()
-        interactor?.loadScreen()
-    }
+  @objc func load() {
+    collectionView.refreshControl?.beginRefreshing()
+    interactor?.loadScreen()
+  }
 
-    override func didSelectSupplementaryHeaderView(_ section: FeedSection) {
-        didSelectSection(section)
-    }
+  override func didSelectSupplementaryHeaderView(_ section: FeedSection) {
+    didSelectSection(section)
+  }
 
-    func didSelectSection(_ section: FeedSection) {
-        let repositories = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap { $0.repository }
-        switch section {
-        case .topRepos:
-            interactor?.topRepoListSelected(repositories, title: section.value)
-        case .lastUpdated:
-            interactor?.lastUpdatedListSelected(repositories, title: section.value)
-        default:
-            return
-        }
+  func didSelectSection(_ section: FeedSection) {
+    let repositories = dataSource.snapshot().itemIdentifiers(inSection: section).compactMap {
+      $0.repository
     }
+    switch section {
+    case .topRepos:
+      interactor?.topRepoListSelected(repositories, title: section.value)
+    case .lastUpdated:
+      interactor?.lastUpdatedListSelected(repositories, title: section.value)
+    default:
+      return
+    }
+  }
 
-    func didSelectRepository(_ repository: Repository?) {
-        interactor?.repositorySelected(repository)
-    }
+  func didSelectRepository(_ repository: RepositoryModel?) {
+    interactor?.repositorySelected(repository)
+  }
 
 }
 
 extension FeedViewController: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let element = dataSource.itemIdentifier(for: indexPath) else { return }
-        if FeedSection.allCases[indexPath.section] == .news {
-            didSelectSection(element.section)
-        } else {
-            didSelectRepository(element.repository)
-        }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let element = dataSource.itemIdentifier(for: indexPath) else { return }
+    if FeedSection.allCases[indexPath.section] == .news {
+      didSelectSection(element.section)
+    } else {
+      didSelectRepository(element.repository)
     }
+  }
 
 }
 
 extension FeedViewController: FeedDisplayLogic {
 
-    func show(_ viewModel: Feed.ViewModel) {
-        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Feed.FeedCellViewModel>()
-        snapshot.appendSections([.news, .topRepos, .lastUpdated])
-        snapshot.appendItems(viewModel.news, toSection: .news)
-        snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
-        snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
-        dataSource.apply(snapshot, animatingDifferences: false)
-        collectionView.refreshControl?.endRefreshing()
-    }
+  func show(_ viewModel: Feed.ViewModel) {
+    var snapshot = NSDiffableDataSourceSnapshot<FeedSection, Feed.FeedCellViewModel>()
+    snapshot.appendSections([.news, .topRepos, .lastUpdated])
+    snapshot.appendItems(viewModel.news, toSection: .news)
+    snapshot.appendItems(viewModel.topRepos, toSection: .topRepos)
+    snapshot.appendItems(viewModel.lastUpdated, toSection: .lastUpdated)
+    dataSource.apply(snapshot, animatingDifferences: false)
+    collectionView.refreshControl?.endRefreshing()
+  }
 
-    func reload() {
-        interactor?.loadScreen()
-    }
+  func reload() {
+    interactor?.loadScreen()
+  }
 
-    func showList() {
-        router?.routeToList()
-    }
+  func showList() {
+    router?.routeToList()
+  }
 
-    func showDetail() {
-        router?.routeToDetail()
-    }
+  func showDetail() {
+    router?.routeToDetail()
+  }
 
 }

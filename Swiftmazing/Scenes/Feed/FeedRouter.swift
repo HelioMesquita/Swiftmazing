@@ -13,43 +13,45 @@
 import UIKit
 
 @objc protocol FeedRoutingLogic {
-    func routeToList()
-    func routeToDetail()
+  func routeToList()
+  func routeToDetail()
 }
 
 protocol FeedDataPassing {
-    var dataStore: FeedDataStore? { get }
+  var dataStore: FeedDataStore? { get }
 }
 
 class FeedRouter: FeedRoutingLogic, FeedDataPassing {
 
-    weak var viewController: FeedViewController?
-    var dataStore: FeedDataStore?
+  weak var viewController: FeedViewController?
+  var dataStore: FeedDataStore?
 
-    func routeToList() {
-        let destinationViewController = ListViewController()
-        var destinationDataStore = destinationViewController.router?.dataStore
-        passDataToList(source: dataStore, destination: &destinationDataStore)
-        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
-    }
+  func routeToList() {
+    let destinationViewController = ListViewController()
+    var destinationDataStore = destinationViewController.router?.dataStore
+    passDataToList(source: dataStore, destination: &destinationDataStore)
+    viewController?.navigationController?.pushViewController(
+      destinationViewController, animated: true)
+  }
 
-    func passDataToList(source: FeedDataStore?, destination: inout ListDataStore?) {
-        guard let source = source, var destination = destination else { return }
-        destination.listFilter = source.listFilter
-        destination.listRepositories = source.listRepositories
-        destination.listTitle = source.listTitle
-    }
+  func passDataToList(source: FeedDataStore?, destination: inout ListDataStore?) {
+    guard let source = source, var destination = destination else { return }
+    destination.listFilter = source.listFilter
+    destination.listRepositories = source.listRepositories
+    destination.listTitle = source.listTitle
+  }
 
-    func routeToDetail() {
-        let destinationViewController = RepositoryDetailViewController()
-        var destinationDataStore = destinationViewController.router?.dataStore
-        passDataToList(source: dataStore, destination: &destinationDataStore)
-        viewController?.navigationController?.pushViewController(destinationViewController, animated: true)
-    }
+  func routeToDetail() {
+    let destinationViewController = RepositoryDetailViewController()
+    var destinationDataStore = destinationViewController.router?.dataStore
+    passDataToList(source: dataStore, destination: &destinationDataStore)
+    viewController?.navigationController?.pushViewController(
+      destinationViewController, animated: true)
+  }
 
-    func passDataToList(source: FeedDataStore?, destination: inout RepositoryDetailDataStore?) {
-        guard let source = source, var destination = destination else { return }
-        destination.repository = source.selectedRepository
-    }
+  func passDataToList(source: FeedDataStore?, destination: inout RepositoryDetailDataStore?) {
+    guard let source = source, var destination = destination else { return }
+    destination.repository = source.selectedRepository
+  }
 
 }
