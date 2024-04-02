@@ -6,31 +6,19 @@
 //  Copyright © 2019 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
 @testable import Infrastructure
-@testable import PromiseKit
 
-typealias DataCompletion = (Data?, URLResponse?, Error?) -> Void
+class ServiceProviderProtocolTests: XCTestCase {
 
-class ServiceProvider: ServiceProviderProtocol {
+  let jsonData = """
+        {
+          "body": "body123"
+        }
+    """.data(using: .utf8)!
 
-  var customURLSession: URLSession
-
-  var urlSession: URLSession {
-    return customURLSession
-  }
-
-  init(customURLSession: URLSession) {
-    self.customURLSession = customURLSession
-  }
-
-}
-
-class ServiceProviderProtocolTests: QuickSpec {
-
-  struct BodyParser: RequestDecodable {
+  struct ValidParser: RequestDecodable {
     let body: String
 
     init() {
@@ -46,79 +34,203 @@ class ServiceProviderProtocolTests: QuickSpec {
     }
   }
 
-  override class func spec() {
-    super.spec()
-    PromiseKit.conf.Q.map = nil
-    PromiseKit.conf.Q.return = nil
+  struct ValidBuilder: BuilderProviderProtocol {
+    func build(response: ServiceProviderProtocolTests.ValidParser) throws
+      -> ServiceProviderProtocolTests.ValidParser
+    {
+      return response
+    }
 
-    let jsonData = """
-          {
-            "body": "body123"
-          }
-      """.data(using: .utf8)!
+  }
 
-    var subject: ServiceProviderProtocol!
+  struct InvalidBuilder: BuilderProviderProtocol {
+    func build(response: ServiceProviderProtocolTests.InvalidParser) throws
+      -> ServiceProviderProtocolTests.ValidParser
+    {
+      return ValidParser()
+    }
 
-    describe("#execute") {
-      context("when successful request") {
-        beforeEach {
-          let mockURLSession = MockURLSession(data: jsonData, statusCode: 200)
-          subject = ServiceProvider(customURLSession: mockURLSession)
-        }
+  }
 
-        context("with a correct parser") {
-          it("returns body response parsed") {
-            subject.execute(request: MockProvider(), parser: BodyParser.self).done { response in
-              expect(response.body).to(equal("body123"))
-            }.catch { _ in
-              XCTFail()
-            }
-          }
-        }
-        context("with a invalid parser") {
-          it("returns a error invalid parser") {
-            subject.execute(request: MockProvider(), parser: InvalidParser.self).done { _ in
-              XCTFail()
-            }.catch { error in
-              expect((error as? RequestError)).to(equal(RequestError.invalidParser))
-            }
-          }
-        }
-      }
+  var mockURLSession: URLSession!
+  let request = MockProvider()
 
-      context("when unsuccessful request") {
-        context("with known error") {
-          beforeEach {
-            let mockURLSession = MockURLSession(data: jsonData, statusCode: 401)
-            subject = ServiceProvider(customURLSession: mockURLSession)
-          }
+  override func tearDownWithError() throws {
+    mockURLSession = nil
+    try super.tearDownWithError()
+  }
 
-          it("returns specific error") {
-            subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
-              XCTFail()
-            }.catch { error in
-              expect((error as? RequestError)).to(equal(RequestError.unauthorized))
-            }
-          }
-        }
+  func generateMockURLSession(statusCode: Int = 200) {
+    let url = request.asURLRequest.url!
+    let response = HTTPURLResponse(
+      url: url, statusCode: statusCode, httpVersion: nil, headerFields: nil)
+    MockURLProtocol.mockURLs = [url: (nil, jsonData, response)]
 
-        context("with unknown error") {
-          beforeEach {
-            let mockURLSession = MockURLSession(data: jsonData, statusCode: 999)
-            subject = ServiceProvider(customURLSession: mockURLSession)
-          }
+    let sessionConfiguration = URLSessionConfiguration.ephemeral
+    sessionConfiguration.protocolClasses = [MockURLProtocol.self]
+    mockURLSession = URLSession(configuration: sessionConfiguration)
+  }
 
-          it("returns specific error") {
-            subject.execute(request: MockProvider(), parser: BodyParser.self).done { _ in
-              XCTFail()
-            }.catch { error in
-              expect((error as? RequestError)).to(equal(RequestError.unknownError))
-            }
-          }
-        }
+  func testWhenPerformARequestWithSuccessAndCorrectParserItReturnsMockModel() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession()
+        let subject = ServiceProvider(customURLSession: mockURLSession)
 
+        let response = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+        XCTAssertEqual(response.body, "body123")
+        expectation.fulfill()
+      } catch {
+        XCTFail()
       }
     }
+    wait(for: [expectation], timeout: 1)
+  }
+
+  func testWhenPerformARequestWithSuccessAndIncorrectParserItReturnsMockModel() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession()
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(
+          request: MockProvider(), builder: InvalidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.invalidParser)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsBadRequestError() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 400)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.badRequest)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsUnauthorizedError() {
+
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 401)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.unauthorized)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsForbiddenError() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 403)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.forbidden)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsNotFoundError() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 404)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.notFound)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsServerError() {
+
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 500)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.serverError)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+  }
+
+  func testWhenPerformARequestWithUnsuccessWithKnowErrorItReturnsUnknownError() {
+    let expectation = XCTestExpectation()
+    Task { @MainActor in
+      do {
+        generateMockURLSession(statusCode: 999)
+        let subject = ServiceProvider(customURLSession: mockURLSession)
+
+        _ = try await subject.execute(request: MockProvider(), builder: ValidBuilder())
+
+        XCTFail()
+      } catch {
+        XCTAssertEqual(error as! RequestError, RequestError.unknownError)
+        expectation.fulfill()
+      }
+    }
+    wait(for: [expectation], timeout: 1)
+  }
+
+}
+
+class ServiceProvider: ServiceProviderProtocol {
+
+  var customURLSession: URLSession
+
+  var urlSession: URLSession {
+    return customURLSession
+  }
+
+  init(customURLSession: URLSession) {
+    self.customURLSession = customURLSession
   }
 
 }

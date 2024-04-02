@@ -6,32 +6,29 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Nimble_Snapshots
-import Quick
+import SnapshotTesting
+import XCTest
 
 @testable import Visual
 
-class FeedSupplementaryHeaderViewTests: QuickSpec {
+class FeedSupplementaryHeaderViewTests: XCTestCase {
 
-  var superView: UIView!
+  var view: FeedSupplementaryHeaderView!
 
-  override class func spec() {
-
-    describe("FeedSupplementaryHeaderView") {
-
-      var view: FeedSupplementaryHeaderView!
-
-      beforeEach {
-        view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-        view.label.text = "Name label"
-        view.button.setTitle("See more", for: .normal)
-      }
-
-      it("returns the layout") {
-        //                expect(view) == recordSnapshot()
-        expect(view) == snapshot()
-      }
-    }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = FeedSupplementaryHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+    view.label.text = "Name label"
+    view.button.setTitle("See more", for: .normal)
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    assertSnapshot(of: self.view, as: .image)
+  }
+
 }

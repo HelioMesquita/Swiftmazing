@@ -6,9 +6,8 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Nimble_Snapshots
-import Quick
+import SnapshotTesting
+import XCTest
 
 @testable import Visual
 
@@ -20,33 +19,33 @@ class MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
   var image: URL?
 }
 
-class ListCollectionViewControllerTests: QuickSpec {
+class ListCollectionViewControllerTests: XCTestCase {
 
-  override class func spec() {
+  var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
 
-    var view: ListCollectionViewController<MockListCollectionViewModelProtocol>!
-
-    describe("ListCollectionViewController") {
-
-      beforeEach {
-        view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
-        view.viewDidLoad()
-        var snapshot = NSDiffableDataSourceSnapshot<
-          ListSection, MockListCollectionViewModelProtocol
-        >()
-        snapshot.appendSections([.repo])
-        snapshot.appendItems(
-          [
-            MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(),
-            MockListCollectionViewModelProtocol(),
-          ], toSection: .repo)
-        view.dataSource.apply(snapshot, animatingDifferences: false)
-      }
-
-      it("returns the layout") {
-        //                expect(view).to(recordDynamicSizeSnapshot(sizes: sizes))
-        expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
-      }
-    }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = ListCollectionViewController<MockListCollectionViewModelProtocol>()
+    view.viewDidLoad()
+    var snapshot = NSDiffableDataSourceSnapshot<
+      ListSection, MockListCollectionViewModelProtocol
+    >()
+    snapshot.appendSections([.repo])
+    snapshot.appendItems(
+      [
+        MockListCollectionViewModelProtocol(), MockListCollectionViewModelProtocol(),
+        MockListCollectionViewModelProtocol(),
+      ], toSection: .repo)
+    view.dataSource.apply(snapshot, animatingDifferences: false)
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    assertSnapshot(of: self.view, as: .image)
+  }
+
 }

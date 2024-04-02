@@ -18,15 +18,15 @@ import UIKit
 protocol ListBusinessLogic {
   func loadScreen()
   func reloadRepositories()
-  func repositorySelected(_ repository: Repository?)
+  func repositorySelected(_ repository: RepositoryModel?)
   func prefetchNextPage(index: Int)
 }
 
 protocol ListDataStore {
-  var selectedRepository: Repository? { get set }
+  var selectedRepository: RepositoryModel? { get set }
   var listFilter: Filter { get set }
   var listTitle: String { get set }
-  var listRepositories: [Repository] { get set }
+  var listRepositories: [RepositoryModel] { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
@@ -37,10 +37,10 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
   var currentPage: Int = 1
 
   // MARK: DATASTORE
-  var selectedRepository: Repository?
+  var selectedRepository: RepositoryModel?
   var listTitle: String = ""
   var listFilter: Filter = .none
-  var listRepositories: [Repository] = []
+  var listRepositories: [RepositoryModel] = []
 
   init(
     worker: RepositoriesWorker = RepositoriesWorker(),
@@ -57,15 +57,21 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
 
   func reloadRepositories() {
     currentPage = 1
-    worker.getRepositories(with: listFilter, page: currentPage).done(handleReloadSuccess).catch(
-      handleError)
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleReloadSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
+    }
   }
 
-  private func handleReloadSuccess(_ repositories: Repositories) {
+  func handleReloadSuccess(_ repositories: RepositoriesModel) {
     presenter?.reloadMap(repositories.items)
   }
 
-  func repositorySelected(_ repository: Repository?) {
+  func repositorySelected(_ repository: RepositoryModel?) {
     selectedRepository = repository
     presenter?.presentDetail()
   }
@@ -78,17 +84,23 @@ class ListInteractor: ListBusinessLogic, ListDataStore {
     }
   }
 
-  private func loadNextPage() {
+  func loadNextPage() {
     currentPage += 1
-    worker.getRepositories(with: listFilter, page: currentPage).done(handleNextSuccess).catch(
-      handleError)
+    Task { @MainActor in
+      do {
+        let repositories = try await worker.getRepositories(with: listFilter, page: currentPage)
+        handleNextSuccess(repositories)
+      } catch {
+        handleError(error)
+      }
+    }
   }
 
-  private func handleNextSuccess(_ repositories: Repositories) {
+  func handleNextSuccess(_ repositories: RepositoriesModel) {
     presenter?.nextPageMap(repositories.items)
   }
 
-  private func handleError(_ error: Error) {
+  func handleError(_ error: Error) {
     presenter?.presentTryAgain(message: (error as? RequestError)?.localizedDescription ?? "")
   }
 

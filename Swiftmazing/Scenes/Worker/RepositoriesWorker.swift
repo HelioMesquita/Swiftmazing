@@ -9,7 +9,6 @@
 
 import Foundation
 import Infrastructure
-import PromiseKit
 
 class RepositoriesWorker {
 
@@ -19,9 +18,9 @@ class RepositoriesWorker {
     self.serviceProvider = serviceProvider
   }
 
-  func getRepositories(with filter: Filter, page: Int = 1) -> Promise<Repositories> {
+  func getRepositories(with filter: Filter, page: Int = 1) async throws -> RepositoriesModel {
     let provider = RepositoriesProvider(filter: filter, page: page)
-    return serviceProvider.execute(request: provider, parser: Repositories.self)
+    return try await serviceProvider.execute(request: provider, builder: RepositoryBuilder())
   }
 
 }

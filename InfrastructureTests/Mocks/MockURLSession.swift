@@ -8,21 +8,40 @@
 
 import Foundation
 
-class MockURLSession: URLSession {
-  private let url: URL
-  private let data: Data
-  private let statusCode: Int
+class MockURLProtocol: URLProtocol {
 
-  init(data: Data, statusCode: Int, url: URL = URL(string: "https://www.google.com.br")!) {
-    self.data = data
-    self.url = url
-    self.statusCode = statusCode
+  static var mockURLs = [URL?: (error: Error?, data: Data?, response: HTTPURLResponse?)]()
+
+  override class func canInit(with request: URLRequest) -> Bool {
+    return true
   }
 
-  override func dataTask(
-    with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
-  ) -> URLSessionDataTask {
-    return MockURLSessionDataTask(
-      url: url, data: data, statusCode: statusCode, completion: completionHandler)
+  override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    return request
   }
+
+  override func startLoading() {
+    if let url = request.url {
+      if let (error, data, response) = MockURLProtocol.mockURLs[url] {
+
+        if let responseStrong = response {
+          self.client?.urlProtocol(
+            self, didReceive: responseStrong, cacheStoragePolicy: .notAllowed)
+        }
+
+        if let dataStrong = data {
+          self.client?.urlProtocol(self, didLoad: dataStrong)
+        }
+
+        if let errorStrong = error {
+          self.client?.urlProtocol(self, didFailWithError: errorStrong)
+        }
+      }
+    }
+
+    self.client?.urlProtocolDidFinishLoading(self)
+  }
+
+  override func stopLoading() {}
+
 }

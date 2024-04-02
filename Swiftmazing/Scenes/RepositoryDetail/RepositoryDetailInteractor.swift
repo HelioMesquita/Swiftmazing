@@ -19,7 +19,7 @@ protocol RepositoryDetailBusinessLogic {
 }
 
 protocol RepositoryDetailDataStore {
-  var repository: Repository? { get set }
+  var repository: RepositoryModel? { get set }
 }
 
 class RepositoryDetailInteractor: RepositoryDetailBusinessLogic, RepositoryDetailDataStore {
@@ -27,7 +27,7 @@ class RepositoryDetailInteractor: RepositoryDetailBusinessLogic, RepositoryDetai
   var presenter: RepositoryDetailPresentationLogic?
 
   // MARK: DATASTORE
-  var repository: Repository?
+  var repository: RepositoryModel?
 
   func loadScreen() {
     if let repository = repository {

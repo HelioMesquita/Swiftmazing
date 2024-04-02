@@ -15,7 +15,7 @@
 import UIKit
 
 protocol FeedPresentationLogic {
-  func mapResponse(_ topRepoResponse: Repositories, _ mostRecentResponse: Repositories)
+  func mapResponse(_ topRepoResponse: RepositoriesModel, _ mostRecentResponse: RepositoriesModel)
   func presentList()
   func presentDetail()
   func presentTryAgain(message: String)
@@ -25,7 +25,8 @@ class FeedPresenter: FeedPresentationLogic {
 
   weak var viewController: FeedDisplayLogic?
 
-  func mapResponse(_ topRepoResponse: Repositories, _ lastUpdatedtResponse: Repositories) {
+  func mapResponse(_ topRepoResponse: RepositoriesModel, _ lastUpdatedtResponse: RepositoriesModel)
+  {
     let topRepoViewModel = Feed.MapRepoViewModel(
       repositories: topRepoResponse.items, section: .topRepos)
     let lastUpdatedViewModel = Feed.MapRepoViewModel(

@@ -1,19 +1,24 @@
 name: Swiftmazing
-
+packages:
+  SDWebImage:
+    url: "https://github.com/SDWebImage/SDWebImage.git"
+    exactVersion: 5.19.1
+  SnapshotTesting:
+    url: "https://github.com/pointfreeco/swift-snapshot-testing"
+    exactVersion: 1.15.4
 options:
-  postGenCommand: pod install --repo-update
   indentWidth: 2
   tabWidth: 2
+  groupSortPosition: bottom
   xcodeVersion: 0800
-
+  groupOrdering: 
+    - order: [Swiftmazing, SwiftmazingTests, SwiftmazingFunctionalTests, Infrastructure, InfrastructureTests, Visual, VisualTests]
 config:
   debug: debug
   release: release
-
 settings:
   base:
-    IPHONEOS_DEPLOYMENT_TARGET: 13
-
+    IPHONEOS_DEPLOYMENT_TARGET: 14
 include:
   - path: xcodegen/swiftmazing.yml
     relativePaths: false

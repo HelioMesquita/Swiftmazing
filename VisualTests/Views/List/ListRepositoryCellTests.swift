@@ -6,33 +6,32 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Nimble_Snapshots
-import Quick
+import SnapshotTesting
+import XCTest
 
 @testable import Visual
 
-class ListRepositoryCellTests: QuickSpec {
+class ListRepositoryCellTests: XCTestCase {
 
-  override class func spec() {
+  var view: ListRepositoryCell!
 
-    describe("ListRepositoryCell") {
-
-      var view: ListRepositoryCell!
-
-      beforeEach {
-        view = ListRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 118))
-        view.titleLabel.text = "Name label"
-        view.descriptionLabel.text = "Description Label"
-        view.imageView.image = UIImage.Design.swift
-        view.additionalInfoLabel.text = "27.31k"
-        view.supplementaryInfoLabel.text = "stars"
-      }
-
-      it("returns the layout") {
-        //                expect(view) == recordSnapshot()
-        expect(view) == snapshot()
-      }
-    }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    view = ListRepositoryCell(frame: CGRect(x: 0, y: 0, width: 375, height: 118))
+    view.titleLabel.text = "Name label"
+    view.descriptionLabel.text = "Description Label"
+    view.imageView.image = UIImage.Design.swift
+    view.additionalInfoLabel.text = "27.31k"
+    view.supplementaryInfoLabel.text = "stars"
   }
+
+  override func tearDownWithError() throws {
+    view = nil
+    try super.tearDownWithError()
+  }
+
+  func testLayout() {
+    assertSnapshot(of: self.view, as: .image)
+  }
+
 }

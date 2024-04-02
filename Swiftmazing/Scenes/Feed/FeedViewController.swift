@@ -73,7 +73,7 @@ class FeedViewController: FeedCollectionViewController<Feed.FeedCellViewModel> {
     }
   }
 
-  func didSelectRepository(_ repository: Repository?) {
+  func didSelectRepository(_ repository: RepositoryModel?) {
     interactor?.repositorySelected(repository)
   }
 

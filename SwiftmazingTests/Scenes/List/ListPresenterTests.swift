@@ -6,108 +6,82 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
-@testable import PromiseKit
 @testable import Swiftmazing
 
-class ListPresenterTests: QuickSpec {
+class ListPresenterTests: XCTestCase {
+  var sut: ListPresenter!
+  var viewController: ViewControllerSpy!
 
-  override class func spec() {
-    super.spec()
+  class ViewControllerSpy: ListDisplayLogic {
 
-    var sut: ListPresenter!
-    var viewController: ViewControllerSpy!
+    var showDetailCalled: Bool = false
+    var showTitleCalled: Bool = false
+    var showReloadCalled: Bool = false
+    var showNextPageCalled: Bool = false
+    var showTryAgainCalled: Bool = false
 
-    class ViewControllerSpy: ListDisplayLogic {
-
-      var showDetailCalled: Bool = false
-      var showTitleCalled: Bool = false
-      var showReloadCalled: Bool = false
-      var showNextPageCalled: Bool = false
-      var showTryAgainCalled: Bool = false
-
-      func showTitle(_ title: String) {
-        showTitleCalled = true
-      }
-
-      func showReload(with viewModels: [List.ListCellViewModel]) {
-        showReloadCalled = true
-      }
-      func showNextPage(with viewModels: [List.ListCellViewModel]) {
-        showNextPageCalled = true
-      }
-
-      func showDetail() {
-        showDetailCalled = true
-      }
-
-      func showTryAgain(title: String, message: String) {
-        showTryAgainCalled = true
-      }
-
-      func reload() {}
-
+    func showTitle(_ title: String) {
+      showTitleCalled = true
     }
 
-    beforeEach {
-      viewController = ViewControllerSpy()
-      sut = ListPresenter()
-      sut.viewController = viewController
+    func showReload(with viewModels: [List.ListCellViewModel]) {
+      showReloadCalled = true
+    }
+    func showNextPage(with viewModels: [List.ListCellViewModel]) {
+      showNextPageCalled = true
     }
 
-    describe("presentTitle") {
-      beforeEach {
-        sut.presentTitle("")
-      }
-
-      it("calls show title") {
-        expect(viewController.showTitleCalled).to(beTrue())
-      }
-
-    }
-    describe("reloadMap") {
-      beforeEach {
-        sut.reloadMap(Repositories().items)
-      }
-
-      it("calls to reload screen") {
-        expect(viewController.showReloadCalled).to(beTrue())
-      }
+    func showDetail() {
+      showDetailCalled = true
     }
 
-    describe("nextPageMap") {
-      beforeEach {
-        sut.nextPageMap(Repositories().items)
-      }
-
-      it("calls to show next page") {
-        expect(viewController.showNextPageCalled).to(beTrue())
-      }
+    func showTryAgain(title: String, message: String) {
+      showTryAgainCalled = true
     }
 
-    describe("#presentDetail") {
-      beforeEach {
-        sut.presentDetail()
-      }
+    func reload() {}
 
-      it("calls show list") {
-        expect(viewController.showDetailCalled).to(beTrue())
-      }
-    }
+  }
 
-    describe("#presentTryAgain") {
-      beforeEach {
-        sut.presentTryAgain(message: "")
-      }
+  override func setUpWithError() throws {
+    try super.setUpWithError()
 
-      context("when failure the request") {
-        it("calls try again") {
-          expect(viewController.showTryAgainCalled).to(beTrue())
-        }
-      }
-    }
+    viewController = ViewControllerSpy()
+    sut = ListPresenter()
+    sut.viewController = viewController
+  }
+
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
+
+  func testPresentTitle() {
+    sut.presentTitle("")
+    XCTAssertTrue(viewController.showTitleCalled)
+  }
+
+  func testReloadMap() {
+    sut.reloadMap(RepositoriesModel(items: []).items)
+    XCTAssertTrue(viewController.showReloadCalled)
+
+  }
+
+  func testNextPageMap() {
+    sut.nextPageMap(RepositoriesModel(items: []).items)
+    XCTAssertTrue(viewController.showNextPageCalled)
+  }
+
+  func testPresentDetail() {
+    sut.presentDetail()
+    XCTAssertTrue(viewController.showDetailCalled)
+  }
+
+  func testPresentTryAgain() {
+    sut.presentTryAgain(message: "")
+    XCTAssertTrue(viewController.showTryAgainCalled)
   }
 
 }

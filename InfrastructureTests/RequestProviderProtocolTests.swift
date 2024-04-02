@@ -6,34 +6,37 @@
 //  Copyright © 2020 Hélio Mesquita. All rights reserved.
 //
 
-import Nimble
-import Quick
+import XCTest
 
 @testable import Infrastructure
 
-class RequestProviderProtocolTests: QuickSpec {
+class RequestProviderProtocolTests: XCTestCase {
 
-  override class func spec() {
-    super.spec()
+  var sut: RequestProviderProtocol!
 
-    let subject: RequestProviderProtocol = MockProvider()
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+    sut = MockProvider()
+  }
 
-    describe("#asURLRequest") {
-      it("returns full url") {
-        expect(subject.asURLRequest.url?.absoluteString).to(
-          equal("https://api.github.com/repositories?key=value"))
-      }
+  override func tearDownWithError() throws {
+    sut = nil
+    try super.tearDownWithError()
+  }
 
-      it("returns header") {
-        expect(subject.asURLRequest.allHTTPHeaderFields).to(
-          equal(["Content-Type": "application/json"]))
-      }
+  func testURLRequestMethodItReturnsACorrectURLWithQueryParameters() {
+    let urlString = sut.asURLRequest.url?.absoluteString
+    XCTAssertEqual(urlString, "https://api.github.com/repositories?key=value")
+  }
 
-      it("returns body") {
-        expect(subject.asURLRequest.httpBody).toNot(beNil())
-      }
-    }
+  func testURLRequestMethodItReturnsAllHeaders() {
+    let headers = sut.asURLRequest.allHTTPHeaderFields
+    XCTAssertEqual(headers, ["Content-Type": "application/json"])
+  }
 
+  func testURLRequestMethodItReturnsHttbBodyData() {
+    let httpBody = sut.asURLRequest.httpBody
+    XCTAssertNotNil(httpBody)
   }
 
 }
