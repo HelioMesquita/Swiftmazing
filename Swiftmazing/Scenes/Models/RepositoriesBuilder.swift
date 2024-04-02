@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Infrastructure
+import NetworkLayer
 
 class RepositoryBuilder: BuilderProviderProtocol {
 

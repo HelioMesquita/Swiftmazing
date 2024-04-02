@@ -12,7 +12,7 @@
 // This tag below is used to create the testable files from the Cuckoo pod
 // CUCKOO_TESTABLE
 
-import Infrastructure
+import NetworkLayer
 import UIKit
 
 protocol FeedBusinessLogic {
