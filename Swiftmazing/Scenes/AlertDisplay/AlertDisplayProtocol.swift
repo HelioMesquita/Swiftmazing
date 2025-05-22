@@ -1,5 +1,5 @@
 //
-//  AlertDisplayLogic.swift
+//  AlertDisplayProtocol.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 08/01/20.
@@ -8,12 +8,13 @@
 
 import UIKit
 
-protocol AlertDisplayLogic: AnyObject {
+@MainActor
+protocol AlertDisplayProtocol: AnyObject {
   func showTryAgain(title: String, message: String)
   func reload()
 }
 
-extension AlertDisplayLogic where Self: UIViewController {
+extension AlertDisplayProtocol where Self: UIViewController {
 
   func showTryAgain(title: String, message: String) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

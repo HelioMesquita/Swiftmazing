@@ -9,23 +9,9 @@
 import Foundation
 import NetworkLayer
 
-struct RepositoriesResponse: RequestDecodable {
+struct RepositoriesResponse: Decodable {
 
   let items: [RepositoryResponse]
-
-  init() {
-    let image = URL(string: "https://avatars3.githubusercontent.com/u/25267226?s=400&v=4")!
-    let url = URL(string: "https://github.com/HelioMesquita/Swiftmazing")!
-
-    items = [
-      RepositoryResponse(
-        name: "swiftmazing", stars: 100,
-        owner: RepositoryOwnerResponse(name: "Helio Mesquita", avatar: image),
-        description:
-          "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
-        issues: 1, forks: 2, lastUpdate: Date(), url: url)
-    ]
-  }
 
 }
 

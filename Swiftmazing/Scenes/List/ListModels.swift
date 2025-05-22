@@ -13,35 +13,34 @@
 import UIKit
 import UIComponents
 
-enum List {
+class ListMapRepoViewModel {
+  var items: [ListCellViewModel]
 
-  class MapRepoViewModel {
-    var items: [ListCellViewModel]
-
-    init(repositories: [RepositoryModel]) {
-      items = repositories.compactMap { ListCellViewModel(repository: $0) }
-    }
+  init(repositories: [RepositoryModel]) {
+    items = repositories.compactMap { ListCellViewModel(repository: $0) }
   }
-
-  class ListCellViewModel: ListCollectionViewModelProtocol {
-    var title: String
-    var subtitle: String
-    var description: String
-    var additionalInfo: String
-    var supplementaryInfo: String
-    var image: URL?
-
-    var repository: RepositoryModel?
-
-    init(repository: RepositoryModel, supplementaryInfo: String = Text.stars.value) {
-      self.title = repository.name
-      self.subtitle = repository.owner.name
-      self.description = repository.description ?? ""
-      self.image = repository.owner.avatar
-      self.repository = repository
-      self.additionalInfo = repository.stars.kiloFormat
-      self.supplementaryInfo = supplementaryInfo
-    }
-  }
-
 }
+
+struct ListCellViewModel: ListCollectionViewModelProtocol {
+  let id: String
+  let title: String
+  let subtitle: String
+  let description: String
+  let additionalInfo: String
+  let supplementaryInfo: String
+  let image: URL?
+
+  let repository: RepositoryModel?
+
+  init(repository: RepositoryModel, supplementaryInfo: String = Text.stars.value) {
+    self.id = UUID().uuidString
+    self.title = repository.name
+    self.subtitle = repository.owner.name
+    self.description = repository.description ?? ""
+    self.image = repository.owner.avatar
+    self.repository = repository
+    self.additionalInfo = repository.stars.kiloFormat
+    self.supplementaryInfo = supplementaryInfo
+  }
+}
+

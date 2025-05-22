@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol FeedCollectionViewModelProtocol: BaseHashbleProtocol {
+public protocol FeedCollectionViewModelProtocol: BaseHashbleProtocol, Sendable {
   var title: String { get }
   var description: String { get }
   var subtitle: String? { get }
@@ -17,7 +17,7 @@ public protocol FeedCollectionViewModelProtocol: BaseHashbleProtocol {
   var images: [URL] { get }
 }
 
-public enum FeedSection: String, CaseIterable {
+public enum FeedSection: String, CaseIterable, Sendable {
   case news
   case topRepos
   case lastUpdated
@@ -27,7 +27,7 @@ public enum FeedSection: String, CaseIterable {
   }
 }
 
-open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController {
+open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController, FeedSupplementaryHeaderViewProtocol {
 
   private var headerHeight: NSCollectionLayoutDimension = .absolute(38)
   private var footerHeight: NSCollectionLayoutDimension = .absolute(32)
@@ -60,7 +60,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     return collectionView
   }()
 
-  lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
+    lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
 
     var dataSource = UICollectionViewDiffableDataSource<FeedSection, T>(
       collectionView: self.collectionView
@@ -90,7 +90,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
         let headerView: FeedSupplementaryHeaderView =
           collectionView.dequeueReusableSupplementaryView(for: indexPath)
         headerView.configure(
-          FeedSection.allCases[indexPath.section], callBack: self.didSelectSupplementaryHeaderView)
+          FeedSection.allCases[indexPath.section], delegate: self)
         return headerView
       case self.footer:
         let footerView: FeedSupplementaryFooterView =

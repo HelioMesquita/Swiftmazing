@@ -8,14 +8,19 @@
 
 import UIKit
 
+@MainActor
+protocol FeedSupplementaryHeaderViewProtocol: AnyObject {
+    func didSelectSupplementaryHeaderView(_ section: FeedSection)
+}
+
 public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
   private var designTitleColor = UIColor.Design.title
   private var designBackgroundColor = UIColor.Design.background
   private let padding: CGFloat = 20.0
 
-  internal lazy var callBack: (FeedSection) -> Void = { sender in }
   internal var section: FeedSection?
+  internal weak var delegate: FeedSupplementaryHeaderViewProtocol?
 
   internal lazy var label: UILabel = {
     let label = UILabel()
@@ -65,15 +70,15 @@ public class FeedSupplementaryHeaderView: UICollectionReusableView {
 
   @objc private func buttonClicked() {
     guard let section = section else { return }
-    callBack(section)
+    delegate?.didSelectSupplementaryHeaderView(section)
   }
 
   internal func configure(
-    _ section: FeedSection, callBack: @escaping (FeedSection) -> Void,
+    _ section: FeedSection, delegate: FeedSupplementaryHeaderViewProtocol,
     buttonTitle: String = Text.seeMore.value
   ) {
     self.section = section
-    self.callBack = callBack
+    self.delegate = delegate
     label.text = section.value
     button.setTitle(buttonTitle, for: .normal)
   }
