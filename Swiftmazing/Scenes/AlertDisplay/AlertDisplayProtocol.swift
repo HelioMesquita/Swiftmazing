@@ -21,7 +21,10 @@ extension AlertDisplayProtocol where Self: UIViewController {
     let action = UIAlertAction(title: Text.tryAgain.value, style: .default) { _ in
       self.reload()
     }
+    let tryLater = UIAlertAction(title: Text.tryLater.value, style: .default) { _ in
+    }
     alertController.addAction(action)
+    alertController.addAction(tryLater)
     present(alertController, animated: true)
   }
 
