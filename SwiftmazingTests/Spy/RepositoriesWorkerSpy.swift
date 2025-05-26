@@ -10,11 +10,15 @@ import Foundation
 
 @testable import Swiftmazing
 
-class RepositoriesWorkerSpy: RepositoriesWorker {
+struct RepositoriesWorkerSpy: RepositoriesWorkerProtocol {
 
-  var isSuccess = true
+  var isSuccess: Bool
 
-  override func getRepositories(with filter: Filter, page: Int = 1) async throws
+  init(isSuccess: Bool = true) {
+    self.isSuccess = isSuccess
+  }
+
+  func getRepositories(with filter: RepositoriesFilter, page: Int = 1) async throws
     -> RepositoriesModel
   {
     if isSuccess {

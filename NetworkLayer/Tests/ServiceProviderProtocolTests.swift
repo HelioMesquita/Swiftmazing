@@ -18,7 +18,7 @@ class ServiceProviderProtocolTests: XCTestCase {
         }
     """.data(using: .utf8)!
 
-  struct ValidParser: RequestDecodable {
+  struct ValidParser: Decodable {
     let body: String
 
     init() {
@@ -26,7 +26,7 @@ class ServiceProviderProtocolTests: XCTestCase {
     }
   }
 
-  struct InvalidParser: RequestDecodable {
+  struct InvalidParser: Decodable {
     let corpo: String
 
     init() {
@@ -221,7 +221,7 @@ class ServiceProviderProtocolTests: XCTestCase {
 
 }
 
-class ServiceProvider: ServiceProviderProtocol {
+struct ServiceProvider: ServiceProviderProtocol {
 
   var customURLSession: URLSession
 

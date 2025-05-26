@@ -28,7 +28,12 @@ let package = Package(
             dependencies: [
                 .product(name: "SDWebImage", package: "SDWebImage"),
             ],
-            path: "Sources"
+            path: "Sources",
+            swiftSettings: [
+                .unsafeFlags(["-Xfrontend", "-enable-actor-data-race-checks"]),
+                .unsafeFlags(["-Xfrontend", "-strict-concurrency=complete"]),
+                .unsafeFlags(["-swift-version", "6"])
+            ]
         ),
         .testTarget(
             name: "UIComponentsTests",

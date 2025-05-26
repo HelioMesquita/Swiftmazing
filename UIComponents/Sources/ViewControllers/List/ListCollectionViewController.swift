@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol {
+public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol, Sendable {
   var title: String { get }
   var description: String { get }
   var additionalInfo: String { get }
@@ -16,7 +16,7 @@ public protocol ListCollectionViewModelProtocol: BaseHashbleProtocol {
   var image: URL? { get }
 }
 
-public enum ListSection: String, CaseIterable {
+public enum ListSection: String, CaseIterable, Sendable {
   case repo
 }
 

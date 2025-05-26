@@ -9,7 +9,7 @@
 import Foundation
 import NetworkLayer
 
-enum Filter: String {
+enum RepositoriesFilter: String {
   case stars
   case updated
   case none = ""
@@ -21,7 +21,7 @@ class RepositoriesProvider: RequestProviderProtocol {
   var httpVerb: HttpVerbs = .GET
   var path: String = "/search/repositories"
   var page: Int
-  let filter: Filter
+  let filter: RepositoriesFilter
 
   var queryParameters: [URLQueryItem]? {
     return [
@@ -32,7 +32,7 @@ class RepositoriesProvider: RequestProviderProtocol {
     ]
   }
 
-  init(filter: Filter, page: Int) {
+  init(filter: RepositoriesFilter, page: Int) {
     self.filter = filter
     self.page = page
   }

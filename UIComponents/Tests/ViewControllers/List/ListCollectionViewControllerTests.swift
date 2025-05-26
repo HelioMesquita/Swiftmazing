@@ -11,7 +11,8 @@ import XCTest
 
 @testable import UIComponents
 
-class MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
+struct MockListCollectionViewModelProtocol: ListCollectionViewModelProtocol {
+  var id: String = UUID().uuidString
   var title: String = "Title"
   var description: String = "Description"
   var additionalInfo: String = "27.3k"

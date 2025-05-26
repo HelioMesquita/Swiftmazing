@@ -9,7 +9,7 @@
 import Foundation
 import NetworkLayer
 
-class ServiceProvider: ServiceProviderProtocol {
+struct ServiceProvider: ServiceProviderProtocol {
 
   var urlSession: URLSession {
     return URLSession.shared

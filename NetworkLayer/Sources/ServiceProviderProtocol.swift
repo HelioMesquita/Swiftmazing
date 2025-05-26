@@ -9,7 +9,7 @@
 import Foundation
 import OSLog
 
-public protocol ServiceProviderProtocol {
+public protocol ServiceProviderProtocol: Sendable {
   var urlSession: URLSession { get }
   var jsonDecoder: JSONDecoder { get }
   func execute<BuilderType: BuilderProviderProtocol>(
@@ -35,7 +35,7 @@ extension ServiceProviderProtocol {
       throw RequestError.unknownError
     }
 
-    show(request: request.asURLRequest, response, data)
+    log(request: request.asURLRequest, response, data)
 
     if 200...299 ~= statusCode {
       do {
@@ -57,7 +57,7 @@ extension ServiceProviderProtocol {
     return error
   }
 
-  private func show(request: URLRequest, _ response: URLResponse?, _ data: Data?) {
+  private func log(request: URLRequest, _ response: URLResponse?, _ data: Data?) {
     #if DEBUG
       var requestLog = "REQUEST=================================================\n"
       requestLog += "🎯🎯🎯 URL: \(request.url?.absoluteString ?? "")\n"

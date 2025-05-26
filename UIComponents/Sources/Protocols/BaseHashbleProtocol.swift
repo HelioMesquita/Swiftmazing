@@ -16,10 +16,6 @@ public protocol BaseHashbleProtocol: Hashable {
 
 extension BaseHashbleProtocol {
 
-  public var id: String {
-    return UUID().uuidString
-  }
-
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }

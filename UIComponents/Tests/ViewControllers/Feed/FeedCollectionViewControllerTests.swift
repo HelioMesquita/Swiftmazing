@@ -11,7 +11,8 @@ import XCTest
 
 @testable import UIComponents
 
-class MockFeedCollectionViewModelProtocol: FeedCollectionViewModelProtocol {
+struct MockFeedCollectionViewModelProtocol: FeedCollectionViewModelProtocol {
+  var id: String = UUID().uuidString
   var title: String = "Title"
   var description: String = "Description"
   var subtitle: String? = "Subtitle"

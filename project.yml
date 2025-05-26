@@ -17,14 +17,13 @@ config:
 settings:
   base:
     IPHONEOS_DEPLOYMENT_TARGET: 15
+    SWIFT_VERSION: 6.0
 targets:
   Swiftmazing:
     type: application
     platform: iOS
     sources:
       - path: Swiftmazing/
-        excludes:
-          - "**/ServiceProviderMock.swift"
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
@@ -57,26 +56,4 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
     dependencies:
       - target: Swiftmazing
-  SwiftmazingMock:
-    type: application
-    platform: iOS
-    sources:
-      - path: Swiftmazing/
-        excludes:
-          - "**/ServiceProvider.swift"
-    settings:
-      base:
-        TARGETED_DEVICE_FAMILY: 1
-        DISPLAYNAME: Swiftmazing
-        HOST: api.github.com
-        SCHEME: https
-        INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
-    dependencies:
-      - package: NetworkLayer
-        product: NetworkLayer
-        link: true
-      - package: UIComponents
-        product: UIComponents
-        link: true
 

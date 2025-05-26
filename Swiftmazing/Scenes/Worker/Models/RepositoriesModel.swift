@@ -13,7 +13,7 @@ struct RepositoriesModel {
 
 }
 
-class RepositoryModel: Decodable {
+struct RepositoryModel: Decodable {
 
   let name: String
   let stars: Int

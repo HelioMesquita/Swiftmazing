@@ -4,8 +4,8 @@
   </a>
 </h3>
 
-[![Swift 5.10](https://img.shields.io/badge/Swift-5.10-blue.svg?style=flat)](https://swift.org)
-[![Xcode 15.3.0](https://img.shields.io/badge/Xcode-15.3.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
+[![Swift 6](https://img.shields.io/badge/Swift-6-blue.svg?style=flat)](https://swift.org)
+[![Xcode 16.2.0](https://img.shields.io/badge/Xcode-16.2.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![SPM](https://img.shields.io/badge/spm-compatible-blue.svg?style=flat)](https://www.apple.com)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
 
@@ -22,9 +22,8 @@ A iOS application with layout based on App Store that can check the most starred
 
 * Modularization using SPM
 * Xcodegen
-* CLEAN Swift Architecture (VIP)
+* MVVM with Combine
 * Modern Collection View
-* Mock Mode
 * Pull-to-Refresh
 * Infinity Scroll using PrefetchItems
 * View Code (UIKit)
@@ -34,10 +33,11 @@ A iOS application with layout based on App Store that can check the most starred
 * Unit tests
 * Snapshots Tests
 * Await/Async Request
+* Swift 6 - Strict Concurrency
 
 ### Prerequisites
 
-* [Xcode](https://developer.apple.com/xcode/) 15.3.0
+* [Xcode](https://developer.apple.com/xcode/) 16.2.0
 * [Xcodegen](https://github.com/yonaskolb/XcodeGen) 2.39.1
 
 ### Installing

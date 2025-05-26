@@ -22,6 +22,7 @@ enum Text: String {
   case tryAgain
   case anErrorHappened
   case seeRepository
+  case tryLater
 
   public var value: String {
     return String(describing: self).localized()
