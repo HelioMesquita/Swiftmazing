@@ -56,3 +56,4 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazingtests
     dependencies:
       - target: Swiftmazing
+
