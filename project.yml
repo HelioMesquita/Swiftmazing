@@ -32,6 +32,7 @@ targets:
         SCHEME: https
         INFOPLIST_FILE: Swiftmazing/Resources/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftmazing
+        CLANG_ENABLE_CODE_COVERAGE: YES
     dependencies:
       - package: NetworkLayer
         product: NetworkLayer
