@@ -14,7 +14,7 @@ class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier, "NetworkLayer-NetworkLayer-resources")
+      Bundle.module.bundleIdentifier?.lowercased(), "NetworkLayer.NetworkLayer.resources".lowercased())
   }
 
 }

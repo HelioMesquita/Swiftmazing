@@ -15,7 +15,7 @@ struct RepositoriesResponse: Decodable {
 
 }
 
-class RepositoryResponse: Decodable {
+struct RepositoryResponse: Decodable {
 
   let name: String
   let stars: Int
@@ -25,21 +25,6 @@ class RepositoryResponse: Decodable {
   let forks: Int
   let lastUpdate: Date
   let url: URL
-
-  init(
-    name: String, stars: Int, owner: RepositoryOwnerResponse, description: String?, issues: Int,
-    forks: Int,
-    lastUpdate: Date, url: URL
-  ) {
-    self.name = name
-    self.stars = stars
-    self.owner = owner
-    self.description = description
-    self.issues = issues
-    self.forks = forks
-    self.lastUpdate = lastUpdate
-    self.url = url
-  }
 
   enum CodingKeys: String, CodingKey {
     case name

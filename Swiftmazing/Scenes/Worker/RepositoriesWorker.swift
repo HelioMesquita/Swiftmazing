@@ -9,7 +9,11 @@
 import Foundation
 import NetworkLayer
 
-struct RepositoriesWorker {
+protocol RepositoriesWorkerProtocol: Sendable {
+  func getRepositories(with filter: RepositoriesFilter, page: Int) async throws -> RepositoriesModel
+}
+
+struct RepositoriesWorker: RepositoriesWorkerProtocol {
 
   let serviceProvider: ServiceProviderProtocol
 

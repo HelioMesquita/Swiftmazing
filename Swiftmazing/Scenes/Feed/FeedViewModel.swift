@@ -23,17 +23,17 @@ class FeedViewModel {
 
   @Published var state: States<FeedModel> = .loading
   let navigateToNextScreen = PassthroughSubject<FeedNavigationAction, Never>()
-  let worker: RepositoriesWorker
+  let worker: RepositoriesWorkerProtocol
 
-  init(worker: RepositoriesWorker = RepositoriesWorker()) {
+  init(worker: RepositoriesWorkerProtocol = RepositoriesWorker()) {
     self.worker = worker
   }
 
   func loadScreen() {
     Task {
       do {
-        async let topRepo = worker.getRepositories(with: .stars)
-        async let lastUpdated = worker.getRepositories(with: .updated)
+        async let topRepo = worker.getRepositories(with: .stars, page: 1)
+        async let lastUpdated = worker.getRepositories(with: .updated, page: 1)
         let (topRepoResponse, lastUpdatedtResponse) = try await (topRepo, lastUpdated)
 
         let topRepoViewModel = MapRepoViewModel(

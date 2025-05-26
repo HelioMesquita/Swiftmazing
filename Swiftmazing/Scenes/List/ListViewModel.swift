@@ -19,7 +19,7 @@ class ListViewModel {
   let listTitle: String
   let listFilter: RepositoriesFilter
   let itemsPerPage: Int
-  let worker: RepositoriesWorker
+  let worker: RepositoriesWorkerProtocol
   var listRepositories: [RepositoryModel]
   var currentPage: Int = 1
 
@@ -27,7 +27,7 @@ class ListViewModel {
   let navigateToNextScreen = PassthroughSubject<ListNavigationAction, Never>()
 
   init(
-    worker: RepositoriesWorker = RepositoriesWorker(),
+    worker: RepositoriesWorkerProtocol = RepositoriesWorker(),
     itemsPerPage: Int = RepositoriesProvider.itemsPerPage,
     listTitle: String,
     listFilter: RepositoriesFilter,
