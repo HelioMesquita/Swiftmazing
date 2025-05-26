@@ -78,7 +78,6 @@ class ListViewModelTests: XCTestCase {
   }
 
   func testRepositySelected() {
-    _ = RepositoriesWorkerSpy()
     sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
     let repository = RepositoryModel(
       name: "swiftmazing", stars: 100,
