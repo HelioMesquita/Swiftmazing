@@ -8,6 +8,7 @@
 [![Xcode 16.2.0](https://img.shields.io/badge/Xcode-16.2.0-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![SPM](https://img.shields.io/badge/spm-compatible-blue.svg?style=flat)](https://www.apple.com)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/HelioMesquita/Swiftmazing/blob/master/LICENSE)
+[![codecov](https://codecov.io/github/HelioMesquita/Swiftmazing/graph/badge.svg?token=VXr26Snj88)](https://codecov.io/github/HelioMesquita/Swiftmazing)
 
 A iOS application with layout based on App Store that can check the most starred and last updated Swift repository. It was developed in a modular way using SPM, with their respective tests and using the modern collection view
 
