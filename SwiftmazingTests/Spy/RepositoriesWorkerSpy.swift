@@ -18,7 +18,7 @@ struct RepositoriesWorkerSpy: RepositoriesWorkerProtocol {
     self.isSuccess = isSuccess
   }
 
-  func getRepositories(with filter: RepositoriesFilter, page: Int = 1) async throws
+  func getRepositories(with filter: RepositoriesRequest.Filter, page: Int = 1) async throws
     -> RepositoriesModel
   {
     if isSuccess {

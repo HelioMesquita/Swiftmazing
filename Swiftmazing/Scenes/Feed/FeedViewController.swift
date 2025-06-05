@@ -5,20 +5,36 @@
 //  Created by Hélio Mesquita on 14/12/19.
 //  Copyright (c) 2019 Hélio Mesquita. All rights reserved.
 //
- 
+
 import Combine
-import UIKit
+import CombineSchedulers
 import UIComponents
+import UIKit
 
 class FeedViewController: FeedCollectionViewController<FeedCellModel> {
 
-  private let viewModel = FeedViewModel()
+  private let viewModel: any FeedViewModelProtocol
   private var cancellables = Set<AnyCancellable>()
+  private let scheduler: AnySchedulerOf<DispatchQueue>
+
+  init(
+    viewModel: any FeedViewModelProtocol = FeedViewModel(),
+    scheduler: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
+  ) {
+    self.viewModel = viewModel
+    self.scheduler = scheduler
+    super.init()
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     viewModel.navigateToNextScreen
+      .receive(on: scheduler)
       .sink { action in
         switch action {
         case .list(let repositories, let filter, let title):
@@ -26,33 +42,33 @@ class FeedViewController: FeedCollectionViewController<FeedCellModel> {
             listTitle: title,
             listFilter: filter,
             listRepositories: repositories)
-          self.navigationController?.pushViewController(destinationViewController, animated: true)
+          self.presentViewController(destinationViewController)
 
         case .detail(let repository):
-          let repositoryDetailViewController = RepositoryDetailViewController(repository: repository)
-          self.navigationController?.pushViewController(repositoryDetailViewController, animated: true)
+          let repositoryDetailViewController = RepoDetailViewController(repository: repository)
+          self.presentViewController(repositoryDetailViewController)
 
         }
       }.store(in: &cancellables)
 
-    viewModel.$state
-      .receive(on: RunLoop.main)
+    viewModel.statePublisher
+      .receive(on: scheduler)
       .sink { states in
-      switch states {
-      case .loading:
-        break
-      case .loaded(let model):
-        var snapshot = NSDiffableDataSourceSnapshot<FeedSection, FeedCellModel>()
-        snapshot.appendSections([.news, .topRepos, .lastUpdated])
-        snapshot.appendItems(model.news, toSection: .news)
-        snapshot.appendItems(model.topRepos, toSection: .topRepos)
-        snapshot.appendItems(model.lastUpdated, toSection: .lastUpdated)
-        self.dataSource.apply(snapshot, animatingDifferences: false)
-        self.collectionView.refreshControl?.endRefreshing()
-      case .error(let message):
-        self.showTryAgain(title: Text.anErrorHappened.value, message: message)
-      }
-    }.store(in: &cancellables)
+        switch states {
+        case .loading:
+          break
+        case .loaded(let model):
+          var snapshot = NSDiffableDataSourceSnapshot<FeedSection, FeedCellModel>()
+          snapshot.appendSections([.news, .topRepos, .lastUpdated])
+          snapshot.appendItems(model.news, toSection: .news)
+          snapshot.appendItems(model.topRepos, toSection: .topRepos)
+          snapshot.appendItems(model.lastUpdated, toSection: .lastUpdated)
+          self.dataSource.apply(snapshot, animatingDifferences: false)
+          self.collectionView.refreshControl?.endRefreshing()
+        case .error(let message):
+          self.showTryAgain(title: Text.anErrorHappened.value, message: message)
+        }
+      }.store(in: &cancellables)
 
     configure()
     load()
@@ -85,6 +101,10 @@ class FeedViewController: FeedCollectionViewController<FeedCellModel> {
     default:
       return
     }
+  }
+
+  func presentViewController(_ vc: UIViewController) {
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 
 }

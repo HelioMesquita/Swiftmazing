@@ -1,5 +1,5 @@
 //
-//  RequestProviderProtocol.swift
+//  RequestProtocol.swift
 //  Infrastructure
 //
 //  Created by Hélio Mesquita on 14/12/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol RequestProviderProtocol {
+public protocol RequestProtocol {
   var scheme: String { get }
   var host: String { get }
   var path: String { get }
@@ -19,7 +19,7 @@ public protocol RequestProviderProtocol {
   var asURLRequest: URLRequest { get }
 }
 
-extension RequestProviderProtocol {
+extension RequestProtocol {
 
   public var asURLRequest: URLRequest {
     var components = URLComponents()

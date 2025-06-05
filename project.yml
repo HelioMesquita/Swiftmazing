@@ -4,6 +4,9 @@ packages:
     path: NetworkLayer
   UIComponents:
     path: UIComponents
+  CombineSchedulers:
+    url: https://github.com/pointfreeco/combine-schedulers
+    minorVersion: 1.0.0
 options:
   indentWidth: 2
   tabWidth: 2
@@ -39,6 +42,9 @@ targets:
         link: true
       - package: UIComponents
         product: UIComponents
+        link: true
+      - package: CombineSchedulers
+        product: CombineSchedulers
         link: true
     scheme:
       gatherCoverageData: true

@@ -10,7 +10,7 @@ import Foundation
 
 @testable import NetworkLayer
 
-class MockProvider: RequestProviderProtocol {
+class MockProvider: RequestProtocol {
 
   struct Endoder: Encodable {
     let body: String = "body"

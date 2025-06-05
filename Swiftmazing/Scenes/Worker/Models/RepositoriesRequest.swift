@@ -1,5 +1,5 @@
 //
-//  BaseRepositoriesProvider.swift
+//  RepositoriesRequest.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 01/01/20.
@@ -9,30 +9,30 @@
 import Foundation
 import NetworkLayer
 
-enum RepositoriesFilter: String {
-  case stars
-  case updated
-  case none = ""
-}
+class RepositoriesRequest: RequestProtocol {
 
-class RepositoriesProvider: RequestProviderProtocol {
+  enum Filter: String {
+    case stars
+    case updated
+    case none = ""
+  }
 
   static let itemsPerPage: Int = 10
   var httpVerb: HttpVerbs = .GET
   var path: String = "/search/repositories"
   var page: Int
-  let filter: RepositoriesFilter
+  let filter: Filter
 
   var queryParameters: [URLQueryItem]? {
     return [
       URLQueryItem(name: "q", value: "language:swift"),
       URLQueryItem(name: "sort", value: filter.rawValue),
-      URLQueryItem(name: "per_page", value: "\(RepositoriesProvider.itemsPerPage)"),
+      URLQueryItem(name: "per_page", value: "\(RepositoriesRequest.itemsPerPage)"),
       URLQueryItem(name: "page", value: "\(page)"),
     ]
   }
 
-  init(filter: RepositoriesFilter, page: Int) {
+  init(filter: Filter, page: Int) {
     self.filter = filter
     self.page = page
   }

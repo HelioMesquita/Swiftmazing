@@ -107,7 +107,6 @@ class FeedViewModelTests: XCTestCase {
         }
       }.store(in: &cancellables)
 
-
     sut.topRepoListSelected([repository], title: "title")
   }
 
@@ -122,7 +121,6 @@ class FeedViewModelTests: XCTestCase {
         "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
       issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
 
-
     sut.navigateToNextScreen
       .sink { action in
         switch action {
@@ -136,7 +134,6 @@ class FeedViewModelTests: XCTestCase {
 
         }
       }.store(in: &cancellables)
-
 
     sut.lastUpdatedListSelected([repository], title: "title")
   }

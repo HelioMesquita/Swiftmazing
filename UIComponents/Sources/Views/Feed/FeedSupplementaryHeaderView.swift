@@ -10,7 +10,7 @@ import UIKit
 
 @MainActor
 protocol FeedSupplementaryHeaderViewProtocol: AnyObject {
-    func didSelectSupplementaryHeaderView(_ section: FeedSection)
+  func didSelectSupplementaryHeaderView(_ section: FeedSection)
 }
 
 public class FeedSupplementaryHeaderView: UICollectionReusableView {

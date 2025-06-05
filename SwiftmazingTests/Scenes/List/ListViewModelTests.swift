@@ -18,7 +18,8 @@ class ListViewModelTests: XCTestCase {
   var cancellables = Set<AnyCancellable>()
 
   func testLoadScreen() {
-    sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
 
     sut.$state
       .receive(on: RunLoop.main)
@@ -37,7 +38,8 @@ class ListViewModelTests: XCTestCase {
   }
 
   func testReloadRepositoriesOnSuccess() {
-    sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
 
     sut.$state
       .receive(on: RunLoop.main)
@@ -59,7 +61,8 @@ class ListViewModelTests: XCTestCase {
 
   func testReloadRepositoriesOnFailure() {
     let worker = RepositoriesWorkerSpy(isSuccess: false)
-    sut = ListViewModel(worker: worker, listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: worker, listTitle: "title", listFilter: .stars, listRepositories: [])
 
     sut.$state
       .receive(on: RunLoop.main)
@@ -78,7 +81,8 @@ class ListViewModelTests: XCTestCase {
   }
 
   func testRepositySelected() {
-    sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
     let repository = RepositoryModel(
       name: "swiftmazing", stars: 100,
       owner: RepositoryOwnerModel(
@@ -99,7 +103,8 @@ class ListViewModelTests: XCTestCase {
   }
 
   func testPrefetchNextPage() {
-    sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
 
     sut.$state
       .receive(on: RunLoop.main)
@@ -120,7 +125,8 @@ class ListViewModelTests: XCTestCase {
   }
 
   func testPrefetchNextPageOnSuccess() {
-    sut = ListViewModel(worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
+    sut = ListViewModel(
+      worker: RepositoriesWorkerSpy(), listTitle: "title", listFilter: .stars, listRepositories: [])
 
     sut.$state
       .receive(on: RunLoop.main)

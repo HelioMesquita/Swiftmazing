@@ -12,25 +12,38 @@ enum ListNavigationAction {
 }
 
 @MainActor
-class ListViewModel {
+protocol ListViewModelProtocol: BaseViewModelProtocol
+where T == States<(repositories: [ListCellViewModel], title: String)> {
+  var navigateToNextScreen: PassthroughSubject<ListNavigationAction, Never> { get set }
+  func reloadRepositories()
+  func repositorySelected(_ repository: RepositoryModel)
+  func prefetchNextPage(index: Int)
+}
+
+@MainActor
+class ListViewModel: ListViewModelProtocol {
 
   typealias ListLoaded = (repositories: [ListCellViewModel], title: String)
 
   let listTitle: String
-  let listFilter: RepositoriesFilter
+  let listFilter: RepositoriesRequest.Filter
   let itemsPerPage: Int
   let worker: RepositoriesWorkerProtocol
   var listRepositories: [RepositoryModel]
   var currentPage: Int = 1
 
   @Published var state: States<ListLoaded> = .loading
-  let navigateToNextScreen = PassthroughSubject<ListNavigationAction, Never>()
+  var statePublisher: AnyPublisher<States<ListLoaded>, Never> {
+    $state.eraseToAnyPublisher()
+  }
+
+  var navigateToNextScreen: PassthroughSubject<ListNavigationAction, Never> = .init()
 
   init(
-    worker: RepositoriesWorkerProtocol = RepositoriesWorker(),
-    itemsPerPage: Int = RepositoriesProvider.itemsPerPage,
+    worker: RepositoriesWorkerProtocol = RepositoriesService(),
+    itemsPerPage: Int = RepositoriesRequest.itemsPerPage,
     listTitle: String,
-    listFilter: RepositoriesFilter,
+    listFilter: RepositoriesRequest.Filter,
     listRepositories: [RepositoryModel]
   ) {
     self.worker = worker
@@ -67,7 +80,9 @@ class ListViewModel {
   private func loadRepositories() {
     Task {
       do {
-        let newlistRepositories = try await worker.getRepositories(with: listFilter, page: currentPage).items
+        let newlistRepositories = try await worker.getRepositories(
+          with: listFilter, page: currentPage
+        ).items
         listRepositories.append(contentsOf: newlistRepositories)
         loadScreen()
       } catch {
