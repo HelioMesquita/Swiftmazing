@@ -7,25 +7,32 @@
 //
 
 import Combine
-import UIKit
+import CombineSchedulers
 import UIComponents
+import UIKit
 
 class ListViewController: ListCollectionViewController<ListCellViewModel> {
 
-  private let viewModel: ListViewModel
+  let viewModel: any ListViewModelProtocol
   private var cancellables = Set<AnyCancellable>()
+  private let scheduler: AnySchedulerOf<DispatchQueue>
 
-  init(listTitle: String,
-       listFilter: RepositoriesFilter,
-       listRepositories: [RepositoryModel]
+  init(
+    listTitle: String,
+    listFilter: RepositoriesRequest.Filter,
+    listRepositories: [RepositoryModel],
+    worker: RepositoriesWorkerProtocol = RepositoriesService(),
+    sheduler: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
   ) {
     self.viewModel = ListViewModel(
+      worker: worker,
       listTitle: listTitle,
       listFilter: listFilter,
       listRepositories: listRepositories)
+    self.scheduler = sheduler
     super.init()
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -34,38 +41,35 @@ class ListViewController: ListCollectionViewController<ListCellViewModel> {
     super.viewDidLoad()
 
     viewModel.navigateToNextScreen
+      .receive(on: scheduler)
       .sink { action in
         switch action {
         case .detail(let repository):
-          let repositoryDetailViewController = RepositoryDetailViewController(repository: repository)
-          self.navigationController?.pushViewController(repositoryDetailViewController, animated: true)
+          let repositoryDetailViewController = RepoDetailViewController(repository: repository)
+          self.presentViewController(repositoryDetailViewController)
         }
       }.store(in: &cancellables)
 
-    viewModel.$state
-      .receive(on: RunLoop.main)
+    viewModel.statePublisher
+      .receive(on: scheduler)
       .sink { states in
-      switch states {
-      case .loading:
-        break
-      case .loaded(let values):
-        let model = values.repositories
-        let title = values.title
+        switch states {
+        case .loading:
+          break
+        case .loaded(let values):
+          let model = values.repositories
+          let title = values.title
+          self.title = title
+          var snapshot = NSDiffableDataSourceSnapshot<ListSection, ListCellViewModel>()
+          snapshot.appendSections([.repo])
+          snapshot.appendItems(model, toSection: .repo)
+          self.dataSource.apply(snapshot, animatingDifferences: false)
+          self.collectionView.refreshControl?.endRefreshing()
 
-        self.title = title
-
-//        let items = dataSource.snapshot().itemIdentifiers + viewModels
-        var snapshot = NSDiffableDataSourceSnapshot<ListSection, ListCellViewModel>()
-        snapshot.appendSections([.repo])
-        snapshot.appendItems(model, toSection: .repo)
-        self.dataSource.apply(snapshot, animatingDifferences: false)
-        self.collectionView.refreshControl?.endRefreshing()
-
-      case .error(let message):
-        self.showTryAgain(title: Text.anErrorHappened.value, message: message)
-      }
-    }.store(in: &cancellables)
-
+        case .error(let message):
+          self.showTryAgain(title: Text.anErrorHappened.value, message: message)
+        }
+      }.store(in: &cancellables)
 
     viewModel.loadScreen()
   }
@@ -84,6 +88,10 @@ class ListViewController: ListCollectionViewController<ListCellViewModel> {
   @objc func load() {
     collectionView.refreshControl?.beginRefreshing()
     viewModel.reloadRepositories()
+  }
+
+  func presentViewController(_ vc: UIViewController) {
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 
 }

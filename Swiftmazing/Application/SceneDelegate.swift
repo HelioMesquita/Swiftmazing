@@ -6,8 +6,8 @@
 //  Copyright © 2019 Hélio Mesquita. All rights reserved.
 //
 
-import UIKit
 import UIComponents
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

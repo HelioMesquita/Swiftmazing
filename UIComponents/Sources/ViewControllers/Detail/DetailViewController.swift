@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  RepoDetailViewController.swift
 //  Visual
 //
 //  Created by Hélio Mesquita on 05/01/20.

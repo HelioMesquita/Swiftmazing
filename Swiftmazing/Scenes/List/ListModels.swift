@@ -6,8 +6,8 @@
 //  Copyright (c) 2019 Hélio Mesquita. All rights reserved.
 //
 
-import UIKit
 import UIComponents
+import UIKit
 
 class ListMapRepoViewModel {
   var items: [ListCellViewModel]
@@ -38,4 +38,3 @@ struct ListCellViewModel: ListCollectionViewModelProtocol {
     self.supplementaryInfo = supplementaryInfo
   }
 }
-

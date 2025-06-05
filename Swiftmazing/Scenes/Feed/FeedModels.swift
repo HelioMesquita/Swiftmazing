@@ -6,8 +6,8 @@
 //  Copyright (c) 2019 Hélio Mesquita. All rights reserved.
 //
 
-import UIKit
 import UIComponents
+import UIKit
 
 class FeedModel {
   let news: [FeedCellModel]
@@ -33,8 +33,7 @@ struct FeedCellModel: FeedCollectionViewModelProtocol {
   var section: FeedSection
   var repository: RepositoryModel?
 
-  init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL])
-  {
+  init(title: String, subtitle: String, description: String, section: FeedSection, images: [URL]) {
     self.id = UUID().uuidString
     self.title = title
     self.subtitle = subtitle

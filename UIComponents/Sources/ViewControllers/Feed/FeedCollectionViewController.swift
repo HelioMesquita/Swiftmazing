@@ -27,7 +27,9 @@ public enum FeedSection: String, CaseIterable, Sendable {
   }
 }
 
-open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController, FeedSupplementaryHeaderViewProtocol {
+open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: BaseViewController,
+  FeedSupplementaryHeaderViewProtocol
+{
 
   private var headerHeight: NSCollectionLayoutDimension = .absolute(38)
   private var footerHeight: NSCollectionLayoutDimension = .absolute(32)
@@ -60,7 +62,7 @@ open class FeedCollectionViewController<T: FeedCollectionViewModelProtocol>: Bas
     return collectionView
   }()
 
-    lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
+  lazy public var dataSource: UICollectionViewDiffableDataSource<FeedSection, T> = {
 
     var dataSource = UICollectionViewDiffableDataSource<FeedSection, T>(
       collectionView: self.collectionView

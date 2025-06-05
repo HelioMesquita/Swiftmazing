@@ -1,5 +1,5 @@
 //
-//  RepositoryDetailViewModel.swift
+//  RepoDetailViewModel.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 22/05/25.
@@ -12,10 +12,19 @@ enum RepositoryDetailNavigationAction {
   case openRepository(url: URL)
 }
 
-class RepositoryDetailViewModel {
+@MainActor
+protocol RepoDetailViewModelProtocol: BaseViewModelProtocol where T == States<RepoDetailModel> {
+  var navigateToNextScreen: PassthroughSubject<RepositoryDetailNavigationAction, Never> { get set }
+  func openRepository()
+}
 
-  @Published var state: States<RepositoryDetailModel> = .loading
-  let navigateToNextScreen = PassthroughSubject<RepositoryDetailNavigationAction, Never>()
+class RepoDetailViewModel: RepoDetailViewModelProtocol {
+
+  @Published var state: States<RepoDetailModel> = .loading
+  var statePublisher: AnyPublisher<States<RepoDetailModel>, Never> {
+    $state.eraseToAnyPublisher()
+  }
+  var navigateToNextScreen: PassthroughSubject<RepositoryDetailNavigationAction, Never> = .init()
   let repository: RepositoryModel
 
   init(repository: RepositoryModel) {
@@ -32,7 +41,7 @@ class RepositoryDetailViewModel {
     texts.append(" - \(repository.forks.kiloFormat) \(Text.forks.value) ")
     texts.append(" - \(Text.lastUpdate.value) \(repository.lastUpdate.monthDayYear)")
 
-    let model = RepositoryDetailModel(
+    let model = RepoDetailModel(
       image: repository.owner.avatar,
       title: repository.name,
       author: repository.owner.name,

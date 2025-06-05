@@ -13,7 +13,7 @@ public protocol ServiceProviderProtocol: Sendable {
   var urlSession: URLSession { get }
   var jsonDecoder: JSONDecoder { get }
   func execute<BuilderType: BuilderProviderProtocol>(
-    request: RequestProviderProtocol, builder: BuilderType
+    request: RequestProtocol, builder: BuilderType
   ) async throws
     -> BuilderType.ModelType
 }
@@ -25,7 +25,7 @@ extension ServiceProviderProtocol {
   }
 
   public func execute<BuilderType: BuilderProviderProtocol>(
-    request: RequestProviderProtocol, builder: BuilderType
+    request: RequestProtocol, builder: BuilderType
   )
     async throws -> BuilderType.ModelType
   {

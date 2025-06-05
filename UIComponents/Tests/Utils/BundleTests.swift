@@ -14,7 +14,8 @@ class BundleTests: XCTestCase {
 
   func testReturnsModuleName() {
     XCTAssertEqual(
-      Bundle.module.bundleIdentifier?.lowercased(), "UIComponents.UIComponents.resources".lowercased())
+      Bundle.module.bundleIdentifier?.lowercased(),
+      "UIComponents.UIComponents.resources".lowercased())
   }
 
 }

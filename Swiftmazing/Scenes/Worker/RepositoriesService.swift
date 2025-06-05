@@ -1,5 +1,5 @@
 //
-//  RepositoriesWorker.swift
+//  RepositoriesService.swift
 //  Swiftmazing
 //
 //  Created by Hélio Mesquita on 03/01/20.
@@ -10,10 +10,11 @@ import Foundation
 import NetworkLayer
 
 protocol RepositoriesWorkerProtocol: Sendable {
-  func getRepositories(with filter: RepositoriesFilter, page: Int) async throws -> RepositoriesModel
+  func getRepositories(with filter: RepositoriesRequest.Filter, page: Int) async throws
+    -> RepositoriesModel
 }
 
-struct RepositoriesWorker: RepositoriesWorkerProtocol {
+struct RepositoriesService: RepositoriesWorkerProtocol {
 
   let serviceProvider: ServiceProviderProtocol
 
@@ -21,8 +22,10 @@ struct RepositoriesWorker: RepositoriesWorkerProtocol {
     self.serviceProvider = serviceProvider
   }
 
-  func getRepositories(with filter: RepositoriesFilter, page: Int = 1) async throws -> RepositoriesModel {
-    let provider = RepositoriesProvider(filter: filter, page: page)
+  func getRepositories(with filter: RepositoriesRequest.Filter, page: Int = 1) async throws
+    -> RepositoriesModel
+  {
+    let provider = RepositoriesRequest(filter: filter, page: page)
     return try await serviceProvider.execute(request: provider, builder: RepositoryBuilder())
   }
 

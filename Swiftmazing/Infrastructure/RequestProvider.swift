@@ -9,7 +9,7 @@
 import Foundation
 import NetworkLayer
 
-extension RequestProviderProtocol {
+extension RequestProtocol {
 
   var scheme: String {
     return Bundle.main.scheme

@@ -17,7 +17,7 @@ class ServiceProviderTests: XCTestCase {
   func testDecoder() {
     let serviceProvider = ServiceProvider()
     let decoder = serviceProvider.jsonDecoder
-    switch decoder.dateDecodingStrategy  {
+    switch decoder.dateDecodingStrategy {
     case .iso8601:
       XCTAssertTrue(true)
     default:

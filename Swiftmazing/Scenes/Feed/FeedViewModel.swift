@@ -7,25 +7,47 @@
 
 import Combine
 
-enum States<T> {
-  case loading
-  case loaded(T)
-  case error(String)
-}
-
 enum FeedNavigationAction {
-  case list(repositories: [RepositoryModel], filter: RepositoriesFilter, title: String)
+  case list(repositories: [RepositoryModel], filter: RepositoriesRequest.Filter, title: String)
   case detail(RepositoryModel)
 }
 
 @MainActor
-class FeedViewModel {
+protocol FeedViewModelProtocol: BaseViewModelProtocol where T == States<FeedModel> {
+  var navigateToNextScreen: PassthroughSubject<FeedNavigationAction, Never> { get set }
+  func repositorySelected(_ repository: RepositoryModel)
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String)
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String)
+}
+
+extension FeedViewModelProtocol {
+
+  func repositorySelected(_ repository: RepositoryModel) {
+    navigateToNextScreen.send(.detail(repository))
+  }
+
+  func topRepoListSelected(_ repositories: [RepositoryModel], title: String) {
+    navigateToNextScreen.send(.list(repositories: repositories, filter: .stars, title: title))
+  }
+
+  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String) {
+    navigateToNextScreen.send(.list(repositories: repositories, filter: .updated, title: title))
+  }
+
+}
+
+@MainActor
+class FeedViewModel: FeedViewModelProtocol {
 
   @Published var state: States<FeedModel> = .loading
-  let navigateToNextScreen = PassthroughSubject<FeedNavigationAction, Never>()
+  var statePublisher: AnyPublisher<States<FeedModel>, Never> {
+    $state.eraseToAnyPublisher()
+  }
+
+  var navigateToNextScreen: PassthroughSubject<FeedNavigationAction, Never> = .init()
   let worker: RepositoriesWorkerProtocol
 
-  init(worker: RepositoriesWorkerProtocol = RepositoriesWorker()) {
+  init(worker: RepositoriesWorkerProtocol = RepositoriesService()) {
     self.worker = worker
   }
 
@@ -43,27 +65,15 @@ class FeedViewModel {
         let newsViewModel = MapNewsViewModel(
           topRepos: topRepoResponse.items, lastUpdated: lastUpdatedtResponse.items)
 
-        let viewModel = FeedModel(
+        let feedModel = FeedModel(
           news: newsViewModel, topRepos: topRepoViewModel, lastUpdated: lastUpdatedViewModel)
 
-        state = .loaded(viewModel)
+        state = .loaded(feedModel)
       } catch {
 
         state = .error(error.localizedDescription)
       }
     }
-  }
-
-  func repositorySelected(_ repository: RepositoryModel) {
-    navigateToNextScreen.send(.detail(repository))
-  }
-
-  func topRepoListSelected(_ repositories: [RepositoryModel], title: String) {
-    navigateToNextScreen.send(.list(repositories: repositories, filter: .stars, title: title))
-  }
-
-  func lastUpdatedListSelected(_ repositories: [RepositoryModel], title: String) {
-    navigateToNextScreen.send(.list(repositories: repositories, filter: .updated, title: title))
   }
 
 }

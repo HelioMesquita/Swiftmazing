@@ -1,5 +1,5 @@
 //
-//  RepositoryViewModelTests.swift
+//  RepoViewModelTests.swift
 //  SwiftmazingTests
 //
 //  Created by Helio Loredo Mesquita on 09/01/20.
@@ -11,9 +11,10 @@ import XCTest
 
 @testable import Swiftmazing
 
-class RepositoryViewModelTests: XCTestCase {
+@MainActor
+class RepoViewModelTests: XCTestCase {
 
-  var sut: RepositoryDetailViewModel!
+  var sut: RepoDetailViewModel!
   var cancellables = Set<AnyCancellable>()
 
   func testLoadScreen() {
@@ -24,7 +25,7 @@ class RepositoryViewModelTests: XCTestCase {
       description:
         "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
       issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
-    sut = RepositoryDetailViewModel(repository: repository)
+    sut = RepoDetailViewModel(repository: repository)
 
     sut.$state
       .receive(on: RunLoop.main)
@@ -50,7 +51,7 @@ class RepositoryViewModelTests: XCTestCase {
       description:
         "A iOS application with layout based on App Store that can check the most starred and last updated Swift repository.",
       issues: 1, forks: 2, lastUpdate: Date(), url: URL(string: "www.google.com.br")!)
-    sut = RepositoryDetailViewModel(repository: repository)
+    sut = RepoDetailViewModel(repository: repository)
 
     sut.navigateToNextScreen
       .sink { action in

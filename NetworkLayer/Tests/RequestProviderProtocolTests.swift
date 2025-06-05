@@ -12,7 +12,7 @@ import XCTest
 
 class RequestProviderProtocolTests: XCTestCase {
 
-  var sut: RequestProviderProtocol!
+  var sut: RequestProtocol!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
